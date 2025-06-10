@@ -381,7 +381,7 @@ const handleSubmit = async () => {
   const fullData = { ...formData, signature };
 
   try {
-    const response = await fetch("http://localhost:3001/api/save-form", {
+    const response = await fetch("https://application-forms-backend.onrender.com/api/save-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -2358,7 +2358,7 @@ const formContainerStyle = {
                 e.target.style.transform = 'translateY(0)';
               }}
             >
-              🎉 Book Appointment
+              {t("submit", language)}
             </button>
           )}
         </div>
