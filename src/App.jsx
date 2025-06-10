@@ -381,7 +381,7 @@ const handleSubmit = async () => {
   const fullData = { ...formData, signature };
 
   try {
-    const response = await fetch("https://application-forms-backend.onrender.com/api/save-form", {
+    const response = await fetch("http://localhost:3001/api/save-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -419,7 +419,7 @@ const formContainerStyle = {
   display: 'flex',
   flexDirection: 'column',
   boxSizing: 'border-box',
-    '@media (min-width: 768px)': {
+    '@media (minWidth: 768px)': {
       width: '100vw', 
       borderRadius: '20px',
       boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
