@@ -78,32 +78,120 @@ app.post('/api/save-form', async (req, res) => {
     addField('Graduated', data.collegeGraduate);
     addField('Degree', data.collegeDegree);
 
+        // === References ===
     addSection('References');
     [1, 2].forEach(i => {
-      addField('Name', data[`ref${i}Name`]);
-      addField('Relation', data[`ref${i}Relation`]);
-      addField('Address', data[`ref${i}Address`]);
-      addField('Phone', data[`ref${i}Phone`]);
+      addField(`Name ${i}`, data[`ref${i}Name`]);
+      addField(`Relation ${i}`, data[`ref${i}Relation`]);
+      addField(`Address ${i}`, data[`ref${i}Address`]);
+      addField(`Phone ${i}`, data[`ref${i}Phone`]);
       doc.moveDown();
     });
 
-    addSection('Previous Employment');
-    addField('Employer', data.prevEmployer);
-    addField('Phone', data.prevPhone);
-    addField('Address', data.prevAddress);
-    addField('Job Title', data.prevJobTitle);
-    addField('From - To', `${data.prevFrom} to ${data.prevTo}`);
-    addField('Responsibilities', data.prevResponsibilities);
-    addField('Reason for Leaving', data.prevReason);
-    addField('May Contact', data.prevContact);
+    // === Previous Employment 1 ===
+    addSection('Previous Employment 1');
+    addField('Employer', data.prevEmployer1);
+    addField('Phone', data.prevPhone1);
+    addField('Address', data.prevAddress1);
+    addField('Job Title', data.prevJobTitle1);
+    addField('From - To', `${data.prevFrom1} to ${data.prevTo1}`);
+    addField('Responsibilities', data.prevResponsibilities1);
+    addField('Reason for Leaving', data.prevReason1);
+    addField('May We Contact', data.prevContact1);
 
+    // === Previous Employment 2 ===
+    addSection('Previous Employment 2');
+    addField('Employer', data.prevEmployer2);
+    addField('Phone', data.prevPhone2);
+    addField('Address', data.prevAddress2);
+    addField('Job Title', data.prevJobTitle2);
+    addField('From - To', `${data.prevFrom2} to ${data.prevTo2}`);
+    addField('Responsibilities', data.prevResponsibilities2);
+    addField('Reason for Leaving', data.prevReason2);
+    addField('May We Contact', data.prevContact2);
+
+    // === Emergency Contact ===
     addSection('Emergency Contact');
     addField('Name', data.emergencyName);
     addField('Relation', data.emergencyRelationship);
     addField('Phone', data.emergencyPhone);
+    addField('Address', data.emergencyAddress);
 
+
+    // === Background Check ===
+    doc.addPage(); // Starts a new page
+    addSection('Background Check Notice and Authorization');
+    doc
+    .fontSize(12)
+    .font('Helvetica-Bold')
+    .text('Notice', { underline: true })
+    .moveDown(0.3)
+    .font('Helvetica')
+    .fontSize(10)
+    .text('The E Neighbor Homecare LLC provides notice that background checks will be performed for employment with the E Neighbor Homecare LLC. The background checks include but are not limited to:')
+    .moveDown(0.5)
+    .list([
+        'Criminal Background checks',
+        'Sex Offenders',
+        'Office of Inspector General (OIG)',
+        'System for Award Management (SAM)'
+    ])
+    .moveDown(1);
+
+    doc
+    .font('Helvetica-Bold')
+    .fontSize(10)
+    .text('Authorization', { underline: true })
+    .moveDown(0.3)
+    .font('Helvetica')
+    .text('I hereby authorize E Neighbor Homecare LLC to conduct the background checks described above. In connection with this, I also authorize the use of law enforcement agencies and/or private criminal background check organizations to assist E Neighbor Homecare LLC in collecting this information.')
+    .moveDown()
+    .text('I also am aware that records of arrests on pending charges and/or convictions are not an absolute bar to employment. Such information will be used to determine whether the results of the background check reasonably bear on my trustworthiness or my ability to perform the duties of my position in a manner that is safe for E Neighbor Homecare LLC.')
+    .moveDown(1);
+
+    doc
+    .font('Helvetica-Bold')
+    .fontSize(10)
+    .text('Attestation', { underline: true })
+    .moveDown(0.3)
+    .font('Helvetica')
+    .text('To the best of my knowledge, the information provided in this Notice and Authorization and any attachments is true and complete. I understand that any falsification or omission of information may disqualify me for this position and/or may serve as grounds for the severance of my employment with E Neighbor Homecare LLC. By signing below, I hereby provide my authorization to E Neighbor Homecare LLC to conduct a criminal background check, and I acknowledge that I have been informed of a summary of my rights under the Fair Credit Reporting Act.')
+    .moveDown()
+    .text('In addition to those rights, I understand that I have a right to appeal an adverse employment decision made based on my background check information within three business days of receipt of such notice and that a determination on my appeal will be made in seven working days from E Neighbor Homecare LLC receipt of such appeal.')
+    .moveDown(2);
+
+    // Signature Area
+    doc
+    .moveDown(3)
+    .text('_______________________________             ______________', { continued: false })
+    .text('Signature of Applicant                                          Date')
+    .moveDown(4)
+    .text('_______________________________             ______________', { continued: false })
+    .text('E Neighbor Homecare LLC Representative         Date')
+    .moveDown(1);
+
+    // Insert applicant signature image if present
+    if (data.signature?.startsWith('data:image')) {
+    const base64 = data.signature.split(';base64,').pop();
+    const sigPath = path.join(__dirname, `uploads/signature-${timestamp}.png`);
+    fs.writeFileSync(sigPath, base64, { encoding: 'base64' });
+
+    // Draw signature above applicant line
+    doc.image(sigPath, {
+        width: 180,
+        height: 60,
+        align: 'left',
+        valign: 'center',
+        x: doc.x,
+        y: doc.y - 150 // Adjust Y to appear above the line
+    });
+    }
+
+
+
+    // === Signature (Main Disclaimer Signature) ===
     addSection('Applicant Signature');
-    addField('Date', data.sigDate);
+    addField('Date', data.sigDateDisclaimer);
 
     // Signature Image
     if (data.signature?.startsWith('data:image')) {

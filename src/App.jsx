@@ -25,8 +25,8 @@ const translations = {
     workAuth: "If not, are you authorized to work in the U.S.?",
     felony: "Have you ever been convicted of a felony?",
     felonyExplain: "If yes, please explain:",
-    sName: "High School Name",
-    sAddress: "High School Address",
+    sName: "School Name",
+    sAddress: "School Address",
     sFrom: "From",
     sTo: "To",
     sGraduate: "Did you graduate?",
@@ -38,7 +38,7 @@ const translations = {
     submit: "Submit",
     education: "Education",
 
-    references: "References",
+    references: "Reference",
     fullName: "Full Name",
     relation: "Relation",
     referenceAddress: "Address",
@@ -68,8 +68,8 @@ const translations = {
     employeeApplication: "Employee Application",
     workedHereBefore: "Have you ever worked for this Pharmacy?",
     ifSoWhen: "If so, when?",
-    educationRefsEmployment: "Education, References, Previous Employment",
-    emergencyContactInfo: "Emergency Contact Information",
+    educationRefsEmployment: "Education, Previous Employment",
+    emergencyContactInfo: "References, Emergency Contact Information",
     next: "Next",
     previous: "Previous",
 
@@ -150,8 +150,8 @@ const translations = {
     employeeApplication: "员工申请表",
     workedHereBefore: "您以前在这家药房工作过吗？",
     ifSoWhen: "如果是，具体时间？",
-    educationRefsEmployment: "教育背景、推荐人、工作经历",
-    emergencyContactInfo: "紧急联系人信息",
+    educationRefsEmployment: "教育背景、工作经历",
+    emergencyContactInfo: "推荐人和紧急联系人信息",
     next: "下一步",
     previous: "上一步",
 
@@ -309,16 +309,153 @@ const App = () => {
   const today = new Date().toISOString().split('T')[0];
   const [language, setLanguage] = useState("en");
   const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    date: today,
-    time: "",
-    area: "",
+    // Page 1 - Personal Information
+    firstName: "",
+    lastName: "",
+    date: new Date().toISOString().split("T")[0],
+    dob: "",
+    ssn: "",
+    address: "",
+    address2: "",
     city: "",
     state: "",
-    postCode: "",
+    zip: "",
+    phone: "",
+    email: "",
+    dateAvailable: "",
+    employmentType: "",
+    position: "",
+
+    // Page 2 - Employment Eligibility
+    usCitizen: "",
+    workAuth: "",
+    felony: "",
+    felonyExplain: "",
+
+    // Page 3 - Education
+    collegeName: "",
+    collegeAddress: "",
+    collegeFrom: "",
+    collegeTo: "",
+    collegeGraduate: "",
+    collegeDegree: "",
+
+    // Page 3 - Previous Employment 1
+    prevEmployer1: "",
+    prevPhone1: "",
+    prevAddress1: "",
+    prevJobTitle1: "",
+    prevFrom1: "",
+    prevTo1: "",
+    prevResponsibilities1: "",
+    prevReason1: "",
+    prevContact1: "",
+
+    // Page 3 - Previous Employment 2
+    prevEmployer2: "",
+    prevPhone2: "",
+    prevAddress2: "",
+    prevJobTitle2: "",
+    prevFrom2: "",
+    prevTo2: "",
+    prevResponsibilities2: "",
+    prevReason2: "",
+    prevContact2: "",
+
+    // Page 4 - References
+    ref1Name: "",
+    ref1Relation: "",
+    ref1Address: "",
+    ref1Phone: "",
+    ref2Name: "",
+    ref2Relation: "",
+    ref2Address: "",
+    ref2Phone: "",
+
+    // Page 4 - Emergency Contact
+    emergencyName: "",
+    emergencyRelationship: "",
+    emergencyPhone: "",
+    emergencyAddress: "",
+
+    // Page 5 - Disclaimer & Signature
+    sigDateDisclaimer: "",
+    signatureDisclaimer: "",
+
+    // Page 6 - Background Check
+    backgroundCheckName: "",
+    backgroundCheckDate: "",
+    agreeBackgroundCheck: false,
+    signatureBackground: "",
+
+    // Page 7 - Confidentiality NDA
+    confidentialityEmployeeName: "",
+    confidentialityDate: "",
+    agreeConfidentiality: false,
+    signatureConfidentiality: "",
+
+    // Page 8 - Policy & Training
+    policyTrainingName: "",
+    policyTrainingDate: "",
+    agreePolicyTraining: false,
+
+    // Page 9 - Conflict of Interest
+    conflictName: "",
+    conflictDate: "",
+    conflictQ1: "",
+    conflictQ1Explain: "",
+    conflictQ2: "",
+    conflictQ2Explain: "",
+    conflictQ3: "",
+    conflictQ3Explain: "",
+    conflictQ4: "",
+    conflictQ4Explain: "",
+    agreeConflict: false,
+
+    // Page 10 - Ethics
+    ethicsName: "",
+    ethicsDate: "",
+    signatureEthics: "",
+
+    // Page 11 - Driver Compliance
+    driverName: "",
+    driverDate: "",
+    signatureDriver: "",
+
+    // Page 12 - Drug-Free Policy
+    drugFreeName: "",
+    drugFreeDate: "",
+    signatureDrugFree: "",
+
+    // Page 13 - Drug Testing Consent
+    drugConsentName: "",
+    drugConsentDate: "",
+    drugsHerbals: "",
+    lotNumber: "",
+    expirationDate: "",
+    results: "",
+    isNegative: false,
+    isPositive: false,
+    initials: "",
+
+    // Page 14 - CHHA Summary
+    chhaEmployeeName: "",
+    chhaSignatureDate: "",
+    signatureCHHA: "",
+
+    // Page 15 - HHHA Agreement
+    hhhaEmployeeName: "",
+    hhhaEmployeeDate: "",
+    signatureHHHA: "",
+
+    // Page 16 - Handbook
+    handbookDate: "",
+    handbookPrintedName: "",
+    receivedHandbookHardcopy: false,
+    receivedHandbookElectronic: false,
+    signatureHandbook: "",
   });
+
   const [focusedInput, setFocusedInput] = useState(null);
 
   const totalPages = 17; // previously 4
@@ -799,7 +936,7 @@ const formContainerStyle = {
             </div>
           </div>
 
-          <div style={inputGroupStyle}>
+          {/*<div style={inputGroupStyle}>
             <label style={labelStyle}>
               {t("workedHereBefore", language)} 
             </label>
@@ -837,7 +974,7 @@ const formContainerStyle = {
               placeholder="MM/YYYY to MM/YYYY"
               style={inputStyle}
             />
-          </div>
+          </div> */}
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>
@@ -953,11 +1090,215 @@ const formContainerStyle = {
             />
           </div>
 
-          {/* --- REFERENCES --- */}
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("references", language)} </h3>
+          {/* --- PREVIOUS EMPLOYMENT --- */}
+          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} 1</h3>
 
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("employerName", language)} </label>
+            <input
+              type="text"
+              name="prevEmployer1"
+              value={formData.prevEmployer}
+              onChange={handleChange}
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("employerPhone", language)} </label>
+            <input
+              type="tel"
+              name="prevPhone1"
+              value={formData.prevPhone}
+              onChange={handleChange}
+              placeholder="(000) 000-0000"
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("employerAddress", language)} </label>
+            <input
+              type="text"
+              name="prevAddress1"
+              value={formData.prevAddress}
+              onChange={handleChange}
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("jobTitle", language)} </label>
+            <input
+              type="text"
+              name="prevJobTitle1"
+              value={formData.prevJobTitle}
+              onChange={handleChange}
+              style={inputStyle}
+            />
+          </div>
+          <div style={finalGridStyle}>
+            <div style={inputGroupStyle}>
+              <label style={labelStyle}>{t("employmentFrom", language)} </label>
+              <input
+                type="date"
+                name="prevFrom1"
+                value={formData.prevFrom}
+                onChange={handleChange}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputGroupStyle}>
+              <label style={labelStyle}>{t("employmentTo", language)} </label>
+              <input
+                type="date"
+                name="prevTo1"
+                value={formData.prevTo}
+                onChange={handleChange}
+                style={inputStyle}
+              />
+            </div>
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("responsibilities", language)} </label>
+            <textarea
+              name="prevResponsibilities1"
+              value={formData.prevResponsibilities}
+              onChange={handleChange}
+              rows={3}
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("reasonForLeaving", language)} </label>
+            <textarea
+              name="prevReason1"
+              value={formData.prevReason}
+              onChange={handleChange}
+              rows={3}
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("mayWeContact", language)} </label>
+            <div style={{ display: 'flex', gap: '24px' }}>
+              <label>
+                <input type="radio" name="prevContact1" value="yes" checked={formData.prevContact1 === 'yes'} onChange={handleChange} />{t("yes", language)} 
+              </label>
+              <label>
+                <input type="radio" name="prevContact1" value="no" checked={formData.prevContact2 === 'no'} onChange={handleChange} />{t("no", language)} 
+              </label>
+            </div>
+          </div>
+                    {/* --- PREVIOUS EMPLOYMENT 2--- */}
+          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} 2</h3>
+
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("employerName", language)} </label>
+            <input
+              type="text"
+              name="prevEmployer2"
+              value={formData.prevEmployer}
+              onChange={handleChange}
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("employerPhone", language)} </label>
+            <input
+              type="tel"
+              name="prevPhone2"
+              value={formData.prevPhone}
+              onChange={handleChange}
+              placeholder="(000) 000-0000"
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("employerAddress", language)} </label>
+            <input
+              type="text"
+              name="prevAddress2"
+              value={formData.prevAddress}
+              onChange={handleChange}
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("jobTitle", language)} </label>
+            <input
+              type="text"
+              name="prevJobTitle2"
+              value={formData.prevJobTitle}
+              onChange={handleChange}
+              style={inputStyle}
+            />
+          </div>
+          <div style={finalGridStyle}>
+            <div style={inputGroupStyle}>
+              <label style={labelStyle}>{t("employmentFrom", language)} </label>
+              <input
+                type="date"
+                name="prevFrom2"
+                value={formData.prevFrom}
+                onChange={handleChange}
+                style={inputStyle}
+              />
+            </div>
+            <div style={inputGroupStyle}>
+              <label style={labelStyle}>{t("employmentTo", language)} </label>
+              <input
+                type="date"
+                name="prevTo2"
+                value={formData.prevTo}
+                onChange={handleChange}
+                style={inputStyle}
+              />
+            </div>
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("responsibilities", language)} </label>
+            <textarea
+              name="prevResponsibilities2"
+              value={formData.prevResponsibilities}
+              onChange={handleChange}
+              rows={3}
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("reasonForLeaving", language)} </label>
+            <textarea
+              name="prevReason2"
+              value={formData.prevReason}
+              onChange={handleChange}
+              rows={3}
+              style={inputStyle}
+            />
+          </div>
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("mayWeContact", language)} </label>
+            <div style={{ display: 'flex', gap: '24px' }}>
+              <label>
+                <input type="radio" name="prevContact2" value="yes" checked={formData.prevContact2 === 'yes'} onChange={handleChange} />{t("yes", language)} 
+              </label>
+              <label>
+                <input type="radio" name="prevContact2" value="no" checked={formData.prevContact2 === 'no'} onChange={handleChange} />{t("no", language)} 
+              </label>
+            </div>
+          </div>
+        </div>
+      );
+
+
+    case 4:
+      return (
+        <div style={pageStyle}>
+          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '5px' }}>
+            {t("emergencyContactInfo", language)} 
+          </h2>
+
+           {/* --- REFERENCES --- */}
           {[1, 2].map((i) => (
-            <div key={i} style={{ marginBottom: '24px' }}>
+            <div key={i} style={{ marginBottom: '10px' }}>
+              <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("references", language)} {i}</h3>
               <div style={finalGridStyle}>
                 <div style={inputGroupStyle}>
                   <label style={labelStyle}>{t("firstName", language)} </label>
@@ -1006,114 +1347,8 @@ const formContainerStyle = {
             </div>
           ))}
 
-          {/* --- PREVIOUS EMPLOYMENT --- */}
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} </h3>
 
-          <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerName", language)} </label>
-            <input
-              type="text"
-              name="prevEmployer"
-              value={formData.prevEmployer}
-              onChange={handleChange}
-              style={inputStyle}
-            />
-          </div>
-          <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerPhone", language)} </label>
-            <input
-              type="tel"
-              name="prevPhone"
-              value={formData.prevPhone}
-              onChange={handleChange}
-              placeholder="(000) 000-0000"
-              style={inputStyle}
-            />
-          </div>
-          <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerAddress", language)} </label>
-            <input
-              type="text"
-              name="prevAddress"
-              value={formData.prevAddress}
-              onChange={handleChange}
-              style={inputStyle}
-            />
-          </div>
-          <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("jobTitle", language)} </label>
-            <input
-              type="text"
-              name="prevJobTitle"
-              value={formData.prevJobTitle}
-              onChange={handleChange}
-              style={inputStyle}
-            />
-          </div>
-          <div style={finalGridStyle}>
-            <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentFrom", language)} </label>
-              <input
-                type="date"
-                name="prevFrom"
-                value={formData.prevFrom}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </div>
-            <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentTo", language)} </label>
-              <input
-                type="date"
-                name="prevTo"
-                value={formData.prevTo}
-                onChange={handleChange}
-                style={inputStyle}
-              />
-            </div>
-          </div>
-          <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("responsibilities", language)} </label>
-            <textarea
-              name="prevResponsibilities"
-              value={formData.prevResponsibilities}
-              onChange={handleChange}
-              rows={3}
-              style={inputStyle}
-            />
-          </div>
-          <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("reasonForLeaving", language)} </label>
-            <textarea
-              name="prevReason"
-              value={formData.prevReason}
-              onChange={handleChange}
-              rows={3}
-              style={inputStyle}
-            />
-          </div>
-          <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("mayWeContact", language)} </label>
-            <div style={{ display: 'flex', gap: '24px' }}>
-              <label>
-                <input type="radio" name="prevContact" value="yes" checked={formData.prevContact === 'yes'} onChange={handleChange} />{t("yes", language)} 
-              </label>
-              <label>
-                <input type="radio" name="prevContact" value="no" checked={formData.prevContact === 'no'} onChange={handleChange} />{t("no", language)} 
-              </label>
-            </div>
-          </div>
-        </div>
-      );
-
-
-    case 4:
-      return (
-        <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-            {t("emergencyContactInfo", language)} 
-          </h2>
-
+          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("emergencyContact", language)} </h3>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("emergencyFullName", language)} </label>
             <input
