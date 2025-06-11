@@ -384,24 +384,24 @@ const App = () => {
 
     // Page 6 - Background Check
     backgroundCheckName: "",
-    backgroundCheckDate: "",
+    backgroundCheckDate: new Date().toISOString().split("T")[0],
     agreeBackgroundCheck: false,
     signatureBackground: "",
 
     // Page 7 - Confidentiality NDA
     confidentialityEmployeeName: "",
-    confidentialityDate: "",
+    confidentialityDate: new Date().toISOString().split("T")[0],
     agreeConfidentiality: false,
     signatureConfidentiality: "",
 
     // Page 8 - Policy & Training
     policyTrainingName: "",
-    policyTrainingDate: "",
+    policyTrainingDate: new Date().toISOString().split("T")[0],
     agreePolicyTraining: false,
 
     // Page 9 - Conflict of Interest
     conflictName: "",
-    conflictDate: "",
+    conflictDate: new Date().toISOString().split("T")[0],
     conflictQ1: "",
     conflictQ1Explain: "",
     conflictQ2: "",
@@ -414,7 +414,7 @@ const App = () => {
 
     // Page 10 - Ethics
     ethicsName: "",
-    ethicsDate: "",
+    ethicsDate: new Date().toISOString().split("T")[0],
     signatureEthics: "",
 
     // Page 11 - Driver Compliance

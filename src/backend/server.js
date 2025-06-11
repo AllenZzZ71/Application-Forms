@@ -170,6 +170,8 @@ app.post('/api/save-form', async (req, res) => {
     .moveDown(2);
 
     // Signature Area
+    const sigY1 = doc.y;
+
     doc
     .moveDown(3)
     .text('_______________________________             ______________', { continued: false })
@@ -178,6 +180,12 @@ app.post('/api/save-form', async (req, res) => {
     .text('_______________________________             ______________', { continued: false })
     .text('E Neighbor Homecare LLC Representative         Date')
     .moveDown(1);
+
+    doc
+    .fontSize(10)
+    .font('Helvetica-Bold')
+    .text(data.backgroundCheckDate || 'N/A', doc.page.width - 325, sigY1 + 30); // overlay the date on the line
+
 
     // Insert applicant signature image if present
     if (data.signature?.startsWith('data:image')) {
@@ -191,8 +199,8 @@ app.post('/api/save-form', async (req, res) => {
         height: 60,
         align: 'left',
         valign: 'center',
-        x: doc.x,
-        y: doc.y - 150 // Adjust Y to appear above the line
+        x: doc.x - 225,
+        y: doc.y - 50 // Adjust Y to appear above the line
     });
     }
 
@@ -276,6 +284,9 @@ app.post('/api/save-form', async (req, res) => {
     ]).moveDown(2);
 
    // Signature Area
+
+    const sigY2 = doc.y;
+
     doc
     .moveDown(3)
     .text('_______________________________             ______________', { continued: false })
@@ -284,6 +295,11 @@ app.post('/api/save-form', async (req, res) => {
     .text('_______________________________             ______________', { continued: false })
     .text('E Neighbor Homecare LLC Representative         Date')
     .moveDown(1);
+
+    doc
+    .fontSize(10)
+    .font('Helvetica-Bold')
+    .text(data.confidentialityDate || 'N/A', doc.page.width - 345, sigY2 + 24); // overlay date at right end
 
     // Insert applicant signature image if present
     if (data.signature?.startsWith('data:image')) {
@@ -297,8 +313,8 @@ app.post('/api/save-form', async (req, res) => {
         height: 60,
         align: 'left',
         valign: 'center',
-        x: doc.x,
-        y: doc.y - 140 // Adjust Y to appear above the line
+        x: doc.x - 210,
+        y: doc.y - 50 // Adjust Y to appear above the line
     });
     }
 
@@ -319,9 +335,9 @@ app.post('/api/save-form', async (req, res) => {
 
     /*=======test=============*/
 
-    /*writeStream.on('finish', () => {
+    /* writeStream.on('finish', () => {
       res.status(200).json({ message: 'PDF created', file:`/uploads/form-${timestamp}.pdf` });
-    });*/
+    }); */
 
     /*======= Email ======== */
 
