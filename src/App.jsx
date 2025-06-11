@@ -1098,7 +1098,7 @@ const formContainerStyle = {
             <input
               type="text"
               name="prevEmployer1"
-              value={formData.prevEmployer}
+              value={formData.prevEmployer1}
               onChange={handleChange}
               style={inputStyle}
             />
@@ -1108,7 +1108,7 @@ const formContainerStyle = {
             <input
               type="tel"
               name="prevPhone1"
-              value={formData.prevPhone}
+              value={formData.prevPhone1}
               onChange={handleChange}
               placeholder="(000) 000-0000"
               style={inputStyle}
@@ -1119,7 +1119,7 @@ const formContainerStyle = {
             <input
               type="text"
               name="prevAddress1"
-              value={formData.prevAddress}
+              value={formData.prevAddress1}
               onChange={handleChange}
               style={inputStyle}
             />
@@ -1129,7 +1129,7 @@ const formContainerStyle = {
             <input
               type="text"
               name="prevJobTitle1"
-              value={formData.prevJobTitle}
+              value={formData.prevJobTitle1}
               onChange={handleChange}
               style={inputStyle}
             />
@@ -1140,7 +1140,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="prevFrom1"
-                value={formData.prevFrom}
+                value={formData.prevFrom1}
                 onChange={handleChange}
                 style={inputStyle}
               />
@@ -1150,7 +1150,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="prevTo1"
-                value={formData.prevTo}
+                value={formData.prevTo1}
                 onChange={handleChange}
                 style={inputStyle}
               />
@@ -1160,7 +1160,7 @@ const formContainerStyle = {
             <label style={labelStyle}>{t("responsibilities", language)} </label>
             <textarea
               name="prevResponsibilities1"
-              value={formData.prevResponsibilities}
+              value={formData.prevResponsibilities1}
               onChange={handleChange}
               rows={3}
               style={inputStyle}
@@ -1170,7 +1170,7 @@ const formContainerStyle = {
             <label style={labelStyle}>{t("reasonForLeaving", language)} </label>
             <textarea
               name="prevReason1"
-              value={formData.prevReason}
+              value={formData.prevReason1}
               onChange={handleChange}
               rows={3}
               style={inputStyle}
@@ -1195,7 +1195,7 @@ const formContainerStyle = {
             <input
               type="text"
               name="prevEmployer2"
-              value={formData.prevEmployer}
+              value={formData.prevEmployer2}
               onChange={handleChange}
               style={inputStyle}
             />
@@ -1205,7 +1205,7 @@ const formContainerStyle = {
             <input
               type="tel"
               name="prevPhone2"
-              value={formData.prevPhone}
+              value={formData.prevPhone2}
               onChange={handleChange}
               placeholder="(000) 000-0000"
               style={inputStyle}
@@ -1216,7 +1216,7 @@ const formContainerStyle = {
             <input
               type="text"
               name="prevAddress2"
-              value={formData.prevAddress}
+              value={formData.prevAddress2}
               onChange={handleChange}
               style={inputStyle}
             />
@@ -1226,7 +1226,7 @@ const formContainerStyle = {
             <input
               type="text"
               name="prevJobTitle2"
-              value={formData.prevJobTitle}
+              value={formData.prevJobTitle2}
               onChange={handleChange}
               style={inputStyle}
             />
@@ -1237,7 +1237,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="prevFrom2"
-                value={formData.prevFrom}
+                value={formData.prevFrom2}
                 onChange={handleChange}
                 style={inputStyle}
               />
@@ -1247,7 +1247,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="prevTo2"
-                value={formData.prevTo}
+                value={formData.prevTo2}
                 onChange={handleChange}
                 style={inputStyle}
               />
@@ -1257,7 +1257,7 @@ const formContainerStyle = {
             <label style={labelStyle}>{t("responsibilities", language)} </label>
             <textarea
               name="prevResponsibilities2"
-              value={formData.prevResponsibilities}
+              value={formData.prevResponsibilities2}
               onChange={handleChange}
               rows={3}
               style={inputStyle}
@@ -1267,7 +1267,7 @@ const formContainerStyle = {
             <label style={labelStyle}>{t("reasonForLeaving", language)} </label>
             <textarea
               name="prevReason2"
-              value={formData.prevReason}
+              value={formData.prevReason2}
               onChange={handleChange}
               rows={3}
               style={inputStyle}
@@ -1479,7 +1479,7 @@ const formContainerStyle = {
           </div>
 
           <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
-            <input type="checkbox" required style={{ width: '18px', height: '18px' }} />
+            <input type="checkbox" name="agreeBackgroundCheck" checked={formData.agreeBackgroundCheck} onChange={handleChange} />
             I have read and agree to the terms above regarding the background check.
           </label>
 
@@ -1504,6 +1504,7 @@ const formContainerStyle = {
             <input
               type="date"
               name="backgroundCheckDate"
+              defaultValue={new Date().toISOString().split('T')[0]}
               required
               style={{
                 padding: '8px',
@@ -1626,7 +1627,7 @@ const formContainerStyle = {
           </div>
 
           <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
-            <input type="checkbox" required style={{ width: '18px', height: '18px' }} />
+            <input type="checkbox" name="agreeConfidentiality" checked={formData.agreeConfidentiality} onChange={handleChange} />
             I have read and agree to the confidentiality and non-disclosure agreement above.
           </label>
 
@@ -1651,6 +1652,7 @@ const formContainerStyle = {
             <input
               type="date"
               name="confidentialityDate"
+              defaultValue={new Date().toISOString().split('T')[0]}
               required
               style={{
                 padding: '8px',
@@ -1706,7 +1708,7 @@ const formContainerStyle = {
             </div>
 
             <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
-              <input type="checkbox" required style={{ width: '18px', height: '18px' }} />
+            <input type="checkbox" name="agreePolicyTraining" checked={formData.agreePolicyTraining} onChange={handleChange} />
               I have read and agree to the policies, procedures, and training requirements above.
             </label>
 
@@ -1731,6 +1733,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="policyTrainingDate"
+                defaultValue={new Date().toISOString().split('T')[0]}
                 required
                 style={{
                   padding: '8px',
@@ -1803,6 +1806,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="conflictDate"
+                defaultValue={new Date().toISOString().split('T')[0]}
                 required
                 style={{
                   padding: '8px',
@@ -1867,7 +1871,7 @@ const formContainerStyle = {
 
             {/* Agreement Checkbox */}
             <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
-              <input type="checkbox" required style={{ width: '18px', height: '18px' }} />
+            <input type="checkbox" name="agreeConflict" checked={formData.agreeConflict} onChange={handleChange} />
               I acknowledge and certify the above responses are true and accurate to the best of my knowledge.
             </label>
 
@@ -1953,6 +1957,7 @@ const formContainerStyle = {
             <input
               type="date"
               name="ethicsDate"
+              defaultValue={new Date().toISOString().split('T')[0]}
               required
               style={{
                 width: '100%',
@@ -2026,6 +2031,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="driverDate"
+                defaultValue={new Date().toISOString().split('T')[0]}
                 required
                 style={{
                   width: '100%',
@@ -2084,6 +2090,7 @@ const formContainerStyle = {
                 <input
                   type="text"
                   name="drugFreeName"
+                  defaultValue={new Date().toISOString().split('T')[0]}
                   required
                   style={{
                     width: '100%',
@@ -2097,6 +2104,7 @@ const formContainerStyle = {
                 <input
                   type="date"
                   name="drugFreeDate"
+                  defaultValue={new Date().toISOString().split('T')[0]}
                   required
                   style={{
                     width: '100%',
@@ -2175,6 +2183,7 @@ const formContainerStyle = {
                   <input
                     type="date"
                     name="drugConsentDate"
+                    defaultValue={new Date().toISOString().split('T')[0]}
                     required
                     style={{
                       width: '100%',
@@ -2316,6 +2325,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="chhaSignatureDate"
+                defaultValue={new Date().toISOString().split('T')[0]}
                 required
                 style={{
                   width: '100%',
@@ -2389,6 +2399,7 @@ const formContainerStyle = {
               <input
                 type="date"
                 name="hhhaEmployeeDate"
+                defaultValue={new Date().toISOString().split('T')[0]}
                 required
                 style={{
                   width: '100%',
@@ -2454,6 +2465,7 @@ const formContainerStyle = {
                 <input
                   type="date"
                   name="handbookDate"
+                  defaultValue={new Date().toISOString().split('T')[0]}
                   required
                   style={{
                     width: '100%',
