@@ -1429,36 +1429,7 @@ const formContainerStyle = {
         </div>
       );
 
-
     case 5:
-      return (
-        <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-            {t("disclaimer", language)}
-          </h2>
-
-          <div style={{ marginBottom: '24px', backgroundColor: '#f3f4f6', padding: '16px', borderRadius: '8px' }}>
-            <p style={{ fontSize: '14px', color: '#374151', lineHeight: '1.6' }}>
-              {t("disclaimerText", language)}
-            </p>
-          </div>
-
-          {/* Just the signature date field now */}
-          <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("signatureDate", language)}</label>
-            <input
-              type="date"
-              name="sigDate"
-              defaultValue={new Date().toISOString().split('T')[0]}
-              value={formData.sigDate}
-              onChange={handleChange}
-              style={inputStyle}
-            />
-          </div>
-        </div>
-      );
-
-    case 6:
       return (
         <div style={pageStyle}>
           <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -1590,7 +1561,7 @@ const formContainerStyle = {
       );
 
 
-    case 7:
+    case 6:
       return (
         <div style={pageStyle}>
           <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -1737,7 +1708,7 @@ const formContainerStyle = {
         </div>
       );
       
-      case 8:
+      case 7:
         return (
           <div style={pageStyle}>
             <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -1858,7 +1829,7 @@ const formContainerStyle = {
           </div>
         );
 
-case 9:
+case 8:
   return (
     <div style={pageStyle}>
       <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -2102,7 +2073,7 @@ case 9:
 
 
 
-    case 10:
+    case 9:
       return (
         <div style={pageStyle}>
           <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -2243,7 +2214,7 @@ case 9:
         </div>
       );
 
-      case 11:
+      case 10:
         return (
           <div style={pageStyle}>
             <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -2335,7 +2306,7 @@ case 9:
           </div>
         );
 
-        case 12:
+        case 11:
           return (
             <div style={pageStyle}>
               <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -2426,7 +2397,7 @@ case 9:
           );
 
 
-          case 13:
+          case 12:
             return (
               <div style={pageStyle}>
                 <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -2566,7 +2537,7 @@ case 9:
               </div>
             );
 
-      case 14:
+      case 13:
         return (
           <div style={pageStyle}>
             <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -2695,7 +2666,7 @@ case 9:
           </div>
         );
 
-      case 15:
+      case 14:
         return (
           <div style={pageStyle}>
             <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -2822,7 +2793,7 @@ case 9:
         );
 
 
-        case 16:
+        case 15:
           return (
             <div style={pageStyle}>
               <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -3000,6 +2971,34 @@ case 9:
               </div>
             </div>
           );
+
+    case 16:
+      return (
+        <div style={pageStyle}>
+          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+            {t("disclaimer", language)}
+          </h2>
+
+          <div style={{ marginBottom: '24px', backgroundColor: '#f3f4f6', padding: '16px', borderRadius: '8px' }}>
+            <p style={{ fontSize: '14px', color: '#374151', lineHeight: '1.6' }}>
+              {t("disclaimerText", language)}
+            </p>
+          </div>
+
+          {/* Just the signature date field now */}
+          <div style={inputGroupStyle}>
+            <label style={labelStyle}>{t("signatureDate", language)}</label>
+            <input
+              type="date"
+              name="sigDate"
+              defaultValue={new Date().toISOString().split('T')[0]}
+              value={formData.sigDate}
+              onChange={handleChange}
+              style={inputStyle}
+            />
+          </div>
+        </div>
+      );
 
       default:
         return null;
