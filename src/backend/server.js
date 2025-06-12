@@ -335,13 +335,13 @@ app.post('/api/save-form', async (req, res) => {
 
     /*=======test=============*/
 
-    /* writeStream.on('finish', () => {
+    writeStream.on('finish', () => {
       res.status(200).json({ message: 'PDF created', file:`/uploads/form-${timestamp}.pdf` });
-    }); */
+    });
 
     /*======= Email ======== */
 
-    writeStream.on('finish', async () => {
+    /*writeStream.on('finish', async () => {
     const filePath = path.join(__dirname, `uploads/form-${timestamp}.pdf`);
     try {
         await transporter.sendMail({
@@ -363,7 +363,7 @@ app.post('/api/save-form', async (req, res) => {
         console.error('❌ Failed to send email:', err);
         res.status(500).json({ message: 'PDF created, but email failed' });
     };
-    })
+    }) */
   } catch (error) {
     console.error('Error generating PDF:', error);
     res.status(500).json({ message: 'Failed to create PDF' });

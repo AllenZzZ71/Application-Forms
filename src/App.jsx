@@ -1,5 +1,5 @@
 import React, { useRef, useState, useImperativeHandle, forwardRef } from "react";
-import { Button, Typography } from "@mui/material";
+import { Button, Typography, Checkbox, FormControl, FormControlLabel, FormHelperText, FormGroup, FormLabel, Radio, RadioGroup, TextField} from "@mui/material";
 
 const translations = {
   en: {
@@ -169,7 +169,6 @@ const translations = {
 };
 
 const t = (key, language) => translations[language]?.[key] || key;
-
 
 const SignatureCanvas = forwardRef((props, ref) => {
   const canvasRef = useRef();
@@ -410,29 +409,31 @@ const App = () => {
     conflictQ3Explain: "",
     conflictQ4: "",
     conflictQ4Explain: "",
-    agreeConflict: false,
+    agreeConflict1: false,
+    agreeConflict2: false,
 
     // Page 10 - Ethics
     ethicsName: "",
+    ethicsAgreement: false,
     ethicsDate: new Date().toISOString().split("T")[0],
     signatureEthics: "",
 
     // Page 11 - Driver Compliance
     driverName: "",
-    driverDate: "",
+    driverDate: new Date().toISOString().split("T")[0],
     signatureDriver: "",
 
     // Page 12 - Drug-Free Policy
     drugFreeName: "",
-    drugFreeDate: "",
+    drugFreeDate: new Date().toISOString().split("T")[0],
     signatureDrugFree: "",
 
     // Page 13 - Drug Testing Consent
     drugConsentName: "",
-    drugConsentDate: "",
+    drugConsentDate: new Date().toISOString().split("T")[0],
     drugsHerbals: "",
     lotNumber: "",
-    expirationDate: "",
+    expirationDate: new Date().toISOString().split("T")[0],
     results: "",
     isNegative: false,
     isPositive: false,
@@ -440,22 +441,24 @@ const App = () => {
 
     // Page 14 - CHHA Summary
     chhaEmployeeName: "",
-    chhaSignatureDate: "",
+    chhaSignatureDate: new Date().toISOString().split("T")[0],
     signatureCHHA: "",
 
     // Page 15 - HHHA Agreement
     hhhaEmployeeName: "",
-    hhhaEmployeeDate: "",
+    hhhaEmployeeDate: new Date().toISOString().split("T")[0],
     signatureHHHA: "",
 
     // Page 16 - Handbook
-    handbookDate: "",
+    handbookAgreement1: "",
+    handbookAgreement2: "",
+    handbookDate: new Date().toISOString().split("T")[0],
     handbookPrintedName: "",
     receivedHandbookHardcopy: false,
     receivedHandbookElectronic: false,
     signatureHandbook: "",
   });
-
+  const [validationErrors, setValidationErrors] = useState({});
   const [focusedInput, setFocusedInput] = useState(null);
 
   const totalPages = 17; // previously 4
@@ -482,30 +485,69 @@ const App = () => {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    let formattedValue = value;
-    if (name === 'ssn') {
-      formattedValue = formatSSN(value);
-    } else if (name === 'phone') {
-      formattedValue = formatPhone(value);
-    }
+    const { name, type, value, checked } = e.target;
+    const newValue = type === 'checkbox' ? checked : value;
 
     setFormData((prev) => ({
       ...prev,
-      [name]: formattedValue,
+      [name]: newValue,
     }));
+
+    // Clear validation error for this field if it exists
+    setValidationErrors((prevErrors) => {
+      if (!prevErrors[name]) return prevErrors;
+      const updatedErrors = { ...prevErrors };
+      delete updatedErrors[name];
+      return updatedErrors;
+    });
   };
+
 
   const handleClear = () => {
     sigRef.current.clear();
   };
 
+  const validateCurrentPage = () => {
+  const requiredFieldsByPage = {
+    6: ['backgroundCheckName', 'agreeBackgroundCheck'],
+    7: ['confidentialityEmployeeName', 'confidentialityDate', 'agreeConfidentiality'],
+    8: ['policyTrainingName', 'policyTrainingDate', 'agreePolicyTraining'],
+    9: ['conflictName', 'conflictDate', 'conflictQ1', 'conflictQ2', 'conflictQ3', 'conflictQ4', 'agreeConflict1', 'agreeConflict2'],
+    10: ['ethicsName', 'ethicsDate', 'ethicsAgreement'],
+    11: ['driverName', 'driverDate'],
+    12: ['drugFreeName', 'drugFreeDate'],
+    13: ['drugConsentName', 'drugConsentDate'],
+    14: ['chhaEmployeeName', 'chhaSignatureDate'],
+    15: ['hhhaEmployeeName', 'hhhaEmployeeDate'],
+    16: ['handbookPrintedName', 'handbookDate', 'handbookAgreement1', 'handbookAgreement2'],
+  };
+
+  const requiredFields = requiredFieldsByPage[currentPage] || [];
+  const errors = {};
+
+  requiredFields.forEach((field) => {
+    if (
+      formData[field] === undefined ||
+      formData[field] === "" ||
+      formData[field] === false
+    ) {
+      errors[field] = "This field is required";
+    }
+  });
+
+  setValidationErrors(errors);
+  return Object.keys(errors).length === 0;
+};
+
+
   const handleNext = () => {
+    if (!validateCurrentPage()) return;
+
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
   };
+
 
   const handlePrevious = () => {
     if (currentPage > 1) {
@@ -1437,67 +1479,94 @@ const formContainerStyle = {
               lineHeight: '1.6',
             }}
           >
-            <p><strong>Notice</strong></p>
-            <p>
-              E Neighbor Homecare LLC provides notice that background checks will be performed for employment with the company.
-              These background checks include but are not limited to:
-            </p>
-            <ul style={{ paddingLeft: '20px' }}>
-              <li>Criminal Background Checks</li>
-              <li>Sex Offender Registry</li>
-              <li>Office of Inspector General (OIG)</li>
-              <li>System for Award Management (SAM)</li>
-            </ul>
+            <p><strong><u>Notice</u></strong></p>
+            <p>The E Neighbor Homecare LLC provides notice that background checks will be performed for employment with the E Neighbor Homecare LLC. The background checks include but are not limited to:</p>
+            <ol>
+            <li>Criminal Background checks</li>
+            <li>Sex Offenders</li>
+            <li>Office of Inspector General (OIG)</li>
+            <li>System for Award Management (SAM)</li>
+            </ol>
+            <p>&nbsp;</p>
+            <p><strong><u>Authorization</u></strong></p>
+            <p>I hereby authorize E Neighbor Homecare LLC to conduct the background checks described above. In connection with this, I also authorize the use of law enforcement agencies and/or private criminal background check organizations to assist E Neighbor Homecare LLC .in collecting this information.&nbsp;</p>
+            <p>I also am aware that records of arrests on pending charges and/or convictions are not an absolute bar to employment. Such information will be used to determine whether the results of the background check reasonably bear on my trustworthiness or my ability to perform the duties of my position in a manner that is safe for E Neighbor Homecare LLC .</p>
+            <p>&nbsp;</p>
+            <p><strong><u>Attestation </u></strong></p>
+            <p>To the best of my knowledge, the information provided in this Notice and Authorization and any attachments is true and complete. I understand that any falsification or omission of information may disqualify me for this position and/or may serve as grounds for the severance of my employment with E Neighbor Homecare LLC. By signing below, I hereby provide my authorization to E Neighbor Homecare LLC to conduct a criminal background checks, and I acknowledge that I have been informed of a summary of my rights under the Fair Credit Reporting Act. In addition to those rights, I understand that I have a right to appeal an adverse employment decision made based on my background check information within three business days of receipt of such notice and that a determination on my appeal will be made in seven working days from E Neighbor Homecare LLC receipt of such appeal.</p>
+          </div>
+          <FormControl
+            required
+            error={!!validationErrors.agreeBackgroundCheck}
+            component="fieldset"
+            sx={{ mb: 3 }}
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="agreeBackgroundCheck"
+                    checked={formData.agreeBackgroundCheck}
+                    onChange={handleChange}
+                    sx={{
+                      mb: '0px',
+                      ml: '8px',
+                      mr: '4px',
+                      padding: '0',
+                      color: validationErrors.agreeBackgroundCheck ? '#dc2626' : '#d1d5db',
+                      '&.Mui-checked': {
+                        color: validationErrors.agreeBackgroundCheck ? '#dc2626' : '#4f46e5',
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '14px',
+                      color: validationErrors.agreeBackgroundCheck ? '#dc2626' : '#374151',
+                      marginBottom: '0px',
+                      padding: '0'
+                    }}
+                  >
+                    I have read and agree to the terms above regarding the background check.
+                    <span style={{ color: '#dc2626' }}> *</span>
+                  </span>
+                }
+              />
+            </FormGroup>
+          </FormControl>
 
-            <p><strong>Authorization</strong></p>
-            <p>
-              I hereby authorize E Neighbor Homecare LLC to conduct the background checks described above.
-              I also authorize the use of law enforcement agencies and/or private criminal background check organizations to assist
-              E Neighbor Homecare LLC in collecting this information.
-            </p>
-            <p>
-              I understand that records of arrests on pending charges and/or convictions are not an absolute bar to employment.
-              This information will be used to determine whether the background check results reasonably bear on my trustworthiness
-              or my ability to perform job duties safely and effectively.
-            </p>
+          <div style={{ marginBottom: '6px' }}>
+            <div style={inputGroupStyle}>
+              <label style={labelStyle}>
+                Employee Name <span style={{ color: 'red' }}>*</span>
+              </label>
 
-            <p><strong>Attestation</strong></p>
-            <p>
-              To the best of my knowledge, the information provided in this Notice and Authorization and any attachments is true and complete.
-              I understand that any falsification or omission of information may disqualify me for this position and/or may serve as grounds
-              for the termination of my employment with E Neighbor Homecare LLC.
-            </p>
-            <p>
-              By signing below, I hereby authorize E Neighbor Homecare LLC to conduct a criminal background check and acknowledge that I have been
-              informed of a summary of my rights under the Fair Credit Reporting Act.
-            </p>
-            <p>
-              In addition to those rights, I understand that I have a right to appeal an adverse employment decision made based on my background
-              check within three business days of receiving notice. A decision on my appeal will be made within seven working days from E Neighbor
-              Homecare LLC's receipt of the appeal.
-            </p>
+              <input
+                type="text"
+                name="backgroundCheckName"
+                value={formData.backgroundCheckName}
+                onChange={handleChange}
+                style={{
+                  width: '30%',
+                  padding: '14px',
+                  border: '2px solid',
+                  borderColor: validationErrors.backgroundCheckName ? '#dc2626' : '#d1d5db',
+                  borderRadius: '6px',
+                  fontSize: '14px',
+                }}
+              />
+
+              {validationErrors.backgroundCheckName && (
+                <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                  This field is required.
+                </p>
+              )}
+            </div>
           </div>
 
-          <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
-            <input type="checkbox" name="agreeBackgroundCheck" checked={formData.agreeBackgroundCheck} onChange={handleChange} />
-            I have read and agree to the terms above regarding the background check.
-          </label>
-
-          <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Employee Full Name</label>
-            <input
-              type="text"
-              name="backgroundCheckName"
-              required
-              style={{
-                width: '100%',
-                padding: '8px',
-                border: '1px solid #d1d5db',
-                borderRadius: '6px',
-                fontSize: '14px',
-              }}
-            />
-          </div>
 
           <div style={{ marginBottom: '16px' }}>
             <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Date</label>
@@ -1542,109 +1611,109 @@ const formContainerStyle = {
               lineHeight: '1.6',
             }}
           >
-            <p>
-              This HIPAA (employee) non-disclosure agreement (the “Agreement”) is made between E Neighbor Homecare LLC and the employee.
-              The Agreement is intended to prevent the unauthorized disclosure of Confidential Information (as defined below) by Employee.
-            </p>
-
-            <p><strong>1. Personal Health Information</strong></p>
-            <p>
-              During the course of employment, employees may have access to personal health information (PHI) relating to clients or patients of
-              E Neighbor Homecare LLC. PHI may consist of medical records, billing, financial records, or any individually identifiable health
-              information. PHI is protected by the Health Insurance Portability and Accountability Act (HIPAA). HIPAA permits access to PHI on a
-              "need to know" basis. Therefore, unless authorization has been granted, any intentional accessing of PHI, or circumvention of PHI
-              security protocols, is prohibited.
-            </p>
-
-            <p>I agree to abide by the following HIPAA privacy & security rules:</p>
-            <ul style={{ paddingLeft: '20px' }}>
-              <li>Following the “minimum necessary disclosure standard” protocol when using or disclosing routine protected health information.</li>
-              <li>Accessing only patient information for which you have been given authorization, including computer and hard copy files.</li>
-              <li>Only logging on using the assigned user ID and only logging on to one computer at a time.</li>
-              <li>If assigned a laptop or other electronic device that contains confidential information, keep the equipment secure at all times.</li>
-              <li>Practicing confidentiality and heightened sensitivity to the use of identifiable health information used in daily business practice.</li>
-              <li>Not engaging in the disclosure of patient information except for treatment, payment, and/or operation purposes.</li>
-              <li>Responding to patient requests for their personal records using the practice’s protocol.</li>
-              <li>Referring violations of the HIPAA Rules by Business Associates directly to the practice’s designated Privacy Officer.</li>
-              <li>Reporting any inadvertent access to PHI that should not have been accessed.</li>
-              <li>Attending initial HIPAA training and any additional training offered by the practice for any revisions to the federal/state HIPAA regulations and/or significant changes made by the practice to the Privacy & Security Policy.</li>
-              <li>Not downloading or installing games, data or software without prior approval from the Administrator/CEO.</li>
-              <li>Creating a unique password that is difficult to guess and changing it regularly as requested.</li>
-              <li>Shredding all confidential data prior to discarding (including phone messages from patients, etc.).</li>
-              <li>Following the E Neighbor Homecare LLC Privacy and Confidentially Policies and Procedures.</li>
+            <p>This HIPAA (employee) non-disclosure agreement (the &ldquo;Agreement&rdquo;) is made between E Neighbor Homecare LLC and __ ____________ (employee). The Agreement is intended to prevent the unauthorized disclosure of Confidential Information (as defined below) by Employee. The parties agree as follows:</p>
+            <strong>1. Personal Health Information</strong>
+            <p>During the course of employment, employees may have access to personal health information ('"PHI") relating to clients or patients of E Neighbor Homecare LLC. PHI may consist of medical records, billing, financial records, or any individually identifiable health information. PHI is protected by the Health Insurance Portability and Accountability Act ("HIPAA"). HIPAA permits access to PHI on a "need to know" basis. Therefore, unless authorization has been granted, any intentional accessing of PHI, or circumvention of PHI security protocols, is prohibited.</p>
+            <p>&nbsp;<strong>I agree to abide by the following HIPAA privacy &amp; security rules:</strong></p>
+            <ul>
+            <li>Following the &ldquo;minimum necessary disclosure standard&rdquo; protocol when using or disclosing routine protected health information.</li>
+            <li>Accessing only patient information for which you have been given authorization, including computer and hard copy</li>
+            <li>Only logging on using the assigned user ID and only logging on to one computer at a time. If assigned a laptop or other electronic device that contains confidential information, keep the equipment secure at all times.</li>
+            <li>Practicing confidentiality and heightened sensitivity to the use of identifiable health information used in daily business practice.</li>
+            <li>Not engaging in the disclosure of patient information except for treatment, payment, and/or operation purposes.</li>
+            <li>Responding to patient requests for their personal records using the practice&rsquo;s protocol.</li>
+            <li>Referring violations of the HIPAA Rules by Business Associates directly to the practice&rsquo;s designated Privacy Officer.</li>
+            <li>Reporting any inadvertent access to PHI that should not have been accessed.</li>
+            <li>Attending initial HIPAA training and any additional training offered by the practice for any revisions to the federal/state HIPAA regulations and/or significant changes made by the practice to the Privacy &amp; Security Policy.</li>
+            <li>Not downloading or installing games, data or software without prior approval from the Administrator/CEO.</li>
+            <li>Creating a unique password that is difficult to guess and changing it regularly as requested.</li>
+            <li>Shredding all confidential data prior to discarding (including phone messages from patients, etc.).</li>
+            <li>Following the E Neighbor Homecare LLC Privacy and Confidentially Policies and Procedures.</li>
             </ul>
-
-            <p><strong>2. Confidential Information</strong></p>
-            <p>
-              "Confidential Information" consists of PHI as well as proprietary information relating to E Neighbor Homecare LLC business, including but
-              not limited to: medical and financial records, revenues, identification and account numbers and names, PINs, and passwords, or other
-              information conveyed in writing or in a discussion that is indicated to be confidential.
-            </p>
-
-            <p><strong>3. Non-Disclosure</strong></p>
-            <p>
-              Without E Neighbor Homecare LLC prior written consent, the employee will not: (a) disclose Confidential Information to any third party,
-              whether electronically, orally, or in writing; (b) make or permit to be made copies or other reproductions of Confidential Information;
-              (c) make any use of Confidential Information; or (d) use or disclose Confidential Information in violation of applicable law, including
-              but not limited to HIPAA.
-            </p>
-
-            <p><strong>4. Return of Confidential Materials</strong></p>
-            <p>
-              Upon E Neighbor Homecare LLC's request, employee shall immediately return all original materials provided by E Neighbor Homecare LLC and
-              any copies, notes, or other documents in employee's possession pertaining to Confidential Information.
-            </p>
-
-            <p><strong>5. Term</strong></p>
-            <p>
-              The non-disclosure terms of this Agreement shall survive any termination, cancellation, expiration or other conclusions of employment
-              (or this Agreement) unless the parties otherwise expressly agree in writing or E Neighbor Homecare LLC sends employee written notice
-              releasing it from this Agreement.
-            </p>
-
-            <p><strong>6. Notice of Immunity From Liability</strong></p>
-            <p>
-              An individual shall not be held criminally or civilly liable under any federal or state trade secret law for the disclosure of a trade
-              secret that is made (i) in confidence to a federal, state, or local government official, either directly or indirectly, or to an attorney;
-              and (ii) solely for the purpose of reporting or investigating a suspected violation of law; or is made in a complaint or other document
-              filed in a lawsuit or other proceeding, if such filing is made under seal. An individual who files a lawsuit for retaliation by an employer
-              for reporting a suspected violation of law may disclose the trade secret to the attorney of the individual and use the trade secret
-              information in the court proceeding if the individual (i) files any document containing the trade secret under seal; and (ii) does not
-              disclose the trade secret, except pursuant to a court order.
-            </p>
-
-            <p><strong>7. General Provisions</strong></p>
-            <ul style={{ paddingLeft: '20px' }}>
-              <li><strong>(a)</strong> Relationships: Nothing in this Agreement shall constitute either party a partner, joint venturer, or employee of the other.</li>
-              <li><strong>(b)</strong> Severability: If a court finds any provision invalid or unenforceable, the remainder shall still be in effect.</li>
-              <li><strong>(c)</strong> Integration: This Agreement is the complete understanding and supersedes prior agreements unless amended in writing.</li>
-              <li><strong>(d)</strong> Waiver: Not exercising a right doesn’t waive it.</li>
-              <li><strong>(e)</strong> Injunctive Relief: Misuse of Confidential Info may cause irreparable harm and is grounds for court injunction.</li>
-              <li><strong>(f)</strong> Attorney Fees: The prevailing party in any dispute may recover attorney fees and costs.</li>
-              <li><strong>(g)</strong> Governing Law: This Agreement is governed by the laws of the state in which E Neighbor Homecare LLC operates.</li>
-              <li><strong>(h)</strong> Jurisdiction: Parties agree to the exclusive jurisdiction of the state and federal courts relating to this Agreement.</li>
-            </ul>
+            <strong>2. Confidential Information</strong>
+            <p>Confidential Information" consists of PHI as well as proprietary information relating to E Neighbor Homecare LLC business, including but not limited to: medical and financial records, revenues, identification and account numbers and names, PINs, and passwords, or other information conveyed in writing or in a discussion that is indicated to be confidential.</p>
+            <strong>3. Non-Disclosure</strong>
+            <p>Without E Neighbor Homecare LLC prior written consent, the employee will not:&nbsp;(a) disclose Confidential Information to any third party, whether electronically, orally, or in writing;&nbsp;(b)&nbsp;make or permit to be made copies or other reproductions of Confidential Information;&nbsp;(c) make any use of Confidential Information; or (d) use or disclose Confidential Information in violation of applicable law, including but not limited to HIPAA.</p>
+            <strong>4. Returu of Confidential Materials</strong>
+            <p>Upon E Neighbor Homecare LLC's request, employee shall immediately return all original materials provided by E Neighbor Homecare LLC and any copies, notes, or other documents in employee's possession pertaining to Confidential Information.</p>
+            <strong>5. Term</strong>
+            <p>The non-disclosure terms of this Agreement shall survive any termination, cancellation, expiration or other conclusions of employment (or this Agreement) unless the parties otherwise expressly agree in writing or E Neighbor Homecare LLC sends employee written notice releasing it from this Agreement.</p>
+            <strong>6. Notico of Immunity From Liability</strong>
+            <p>An individual shall not be held criminally or civilly liable under any federal or state trade secret law for the disclosure of a trade secret that is made (i) in confidence to a federal, state, or local government official, either directly or indirectly, or to an attorney; and (ii) solely for the purpose of reporting or investigating a suspected violation of law; or is made in a complaint or other document filed in a lawsuit or other proceeding, if such filing is made under seal. An individual who files a lawsuit for retaliation by an employer for reporting a suspected violation of law may disclose the trade secret to the attorney of the individual and use the trade secret information in the court proceeding if the individual (i) files any document containing the trade secret under seal; and (ii) does not disclose the trade secret, except pursuant to a court order.</p>
+            <strong>7.General Provisions</strong>
+            <p><strong>(a)&nbsp;Relationships</strong>.&nbsp;Nothing contained in this Agreement shall be deemed to constitute either party a partner, joint venturer, or employee of the other party for any purpose.<br /> <strong>(b)&nbsp;Severability.</strong>&nbsp;If a court finds any provision of this Agreement invalid or unenforceable, the remainder of this Agreement shall be interpreted so as to best effect the intent of the parties.<br /> <strong>(c)&nbsp;Integration.</strong>&nbsp;This Agreement expresses the complete understanding of the parties with respect to the subject matter and supersedes all prior proposals, agreements, representations, and understandings. This Agreement may not be amended except in writing and signed by both parties.<br /> <strong>(d)&nbsp;Waiver.</strong>&nbsp;The failure to exercise any right provided in this Agreement shall not be a waiver of prior or subsequent rights.<br /> <strong>(e)&nbsp;Injunctive Relief.</strong>&nbsp;Any misappropriation of Confidential Information in violation of this Agreement may cause E Neighbor Homecare LLC irreparable harm, the amount of which may be difficult to ascertain, and therefore employee agrees that E Neighbor Homecare LLC shall have the right to apply to a court of competent jurisdiction for an order enjoining any such further misappropriation and for such other relief as E Neighbor Homecare LLC deems appropriate. This right of E Neighbor Homecare LLC is to be in addition to the remedies otherwise available to E Neighbor Homecare LLC.<br /> <strong>(f)&nbsp;Attorney Fees and Expenses</strong>. In a dispute arising out of or related to this Agreement, the prevailing party shall have the right to collect from the other party its reasonable attorney fees and costs and necessary expenditures.<br /> <strong>(g)&nbsp;Governing Law.</strong>&nbsp;This Agreement shall be governed in accordance with the laws of the State in which the E Neighbor Homecare LLC business is located.<br /> <strong>(h)&nbsp;Jurisdiction</strong>. The parties consent to the exclusive jurisdiction and venue of the federal and state courts in any action arising out of or relating to this Agreement. The parties waive any other venue to which either party might be entitled by domicile or otherwise.</p>
           </div>
 
-          <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
-            <input type="checkbox" name="agreeConfidentiality" checked={formData.agreeConfidentiality} onChange={handleChange} />
-            I have read and agree to the confidentiality and non-disclosure agreement above.
-          </label>
+          <FormControl
+            required
+            error={!!validationErrors.agreeBackgroundCheck}
+            component="fieldset"
+            sx={{ mb: 3 }}
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="agreeConfidentiality"
+                    checked={formData.agreeConfidentiality}
+                    onChange={handleChange}
+                    sx={{
+                      mb: '0px',
+                      ml: '8px',
+                      mr: '4px',
+                      padding: '0',
+                      color: validationErrors.agreeConfidentiality ? '#dc2626' : '#d1d5db',
+                      '&.Mui-checked': {
+                        color: validationErrors.agreeConfidentiality ? '#dc2626' : '#4f46e5',
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '14px',
+                      color: validationErrors.agreeConfidentiality ? '#dc2626' : '#374151',
+                      marginBottom: '0px',
+                      padding: '0'
+                    }}
+                  >
+                    I have read and agree to the confidentiality and non-disclosure agreement above.
+                    <span style={{ color: '#dc2626' }}> *</span>
+                  </span>
+                }
+              />
+            </FormGroup>
+          </FormControl>
 
-          <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Employee Full Name</label>
-            <input
-              type="text"
-              name="confidentialityEmployeeName"
-              required
-              style={{
-                width: '100%',
-                padding: '8px',
-                border: '1px solid #d1d5db',
-                borderRadius: '6px',
-                fontSize: '14px',
-              }}
-            />
+          <div style={{ marginBottom: '6px' }}>
+            <div style={inputGroupStyle}>
+              <label style={labelStyle}>
+                Employee Name <span style={{ color: 'red' }}>*</span>
+              </label>
+
+              <input
+                type="text"
+                name="confidentialityEmployeeName"
+                value={formData.confidentialityEmployeeName}
+                onChange={handleChange}
+                style={{
+                  width: '30%',
+                  padding: '14px',
+                  border: '2px solid',
+                  borderColor: validationErrors.confidentialityEmployeeName ? '#dc2626' : '#d1d5db',
+                  borderRadius: '6px',
+                  fontSize: '14px',
+                }}
+              />
+
+              {validationErrors.confidentialityEmployeeName && (
+                <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                  This field is required.
+                </p>
+              )}
+            </div>
           </div>
 
           <div style={{ marginBottom: '16px' }}>
@@ -1672,7 +1741,7 @@ const formContainerStyle = {
         return (
           <div style={pageStyle}>
             <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-              Policy Adherence & Staff Training Acknowledgment
+              ADHERENCE TO POLICIES AND PROCEDURES, FEDERAL, STATE, AND ACCREDITATION REGULATIONS, STANDARDS, LAWS, AND GUIDELINES
             </h2>
 
             <div
@@ -1689,44 +1758,84 @@ const formContainerStyle = {
                 lineHeight: '1.6',
               }}
             >
-              <p>
-                I understand that copies of the policy and procedures manuals are available, and I understand that it is my responsibility to read the policies.
-                I also agree to comply with E Neighbor Homecare LLC Policies and procedures, federal/state laws and regulations, accrediting agencies,
-                and national practice standards. If I have any questions or need any clarification, I will ask the Administrator/CEO.
-              </p>
-              <p>
-                I understand I will be responsible for maintaining skills and knowledge to comply with E Neighbor Homecare LLC scope of services and any provider's requirements.
-              </p>
-              <p>
-                I understand that nothing contained in any policy or procedure manual constitutes a contractual relationship between E Neighbor Homecare LLC
-                and its employees, contractors, or volunteers.
-              </p>
-              <p>
-                I understand that I am required to attend and participate in services as scheduled and annual training by E Neighbor Homecare LLC to be in compliance
-                with new or revised policies and procedures.
-              </p>
+              <p><strong>AND STAFF TRAINING</strong></p>
+              <p>I understand that copies of the policy and procedures manuals are available, and I understand that it is my responsibility to read the policies. I also agree to comply with E Neighbor Homecare LLC. Policies and procedures, federal/state laws and regulations, accrediting agencies, and national practice standards. If I have any questions or need any clarification, I will ask the Administrator/CEO .</p>
+              <p>I understand I will be responsible for maintaining skills and knowledge to comply withE Neighbor Homecare LLC the scope of Services and any provider's requirements.</p>
+              <p>I understand that nothing contained in any policy or procedure manual constitutes a contractual relationship between E Neighbor Homecare LLC and its employees, contractor, or volunteers.</p>
+              <p>I understand that I am required to attend and participate in services as scheduled and annual training by E Neighbor Homecare LLC to be in compliance with new or revised policies and procedures.</p>
             </div>
 
-            <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
-            <input type="checkbox" name="agreePolicyTraining" checked={formData.agreePolicyTraining} onChange={handleChange} />
-              I have read and agree to the policies, procedures, and training requirements above.
-            </label>
+          <FormControl
+            required
+            error={!!validationErrors.agreePolicyTraining}
+            component="fieldset"
+            sx={{ mb: 3 }}
+          >
+            <FormGroup>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    name="agreePolicyTraining"
+                    checked={formData.agreePolicyTraining}
+                    onChange={handleChange}
+                    sx={{
+                      mb: '0px',
+                      ml: '8px',
+                      mr: '4px',
+                      padding: '0',
+                      color: validationErrors.agreePolicyTraining ? '#dc2626' : '#d1d5db',
+                      '&.Mui-checked': {
+                        color: validationErrors.agreePolicyTraining ? '#dc2626' : '#4f46e5',
+                      },
+                    }}
+                  />
+                }
+                label={
+                  <span
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: '14px',
+                      color: validationErrors.agreePolicyTraining ? '#dc2626' : '#374151',
+                      marginBottom: '0px',
+                      padding: '0'
+                    }}
+                  >
+                    I have read and agree to the confidentiality and non-disclosure agreement above.
+                    <span style={{ color: '#dc2626' }}> *</span>
+                  </span>
+                }
+              />
+            </FormGroup>
+          </FormControl>
 
-            <div style={{ marginBottom: '16px' }}>
-              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Employee Full Name</label>
+          <div style={{ marginBottom: '6px' }}>
+            <div style={inputGroupStyle}>
+              <label style={labelStyle}>
+                Employee Name <span style={{ color: 'red' }}>*</span>
+              </label>
+
               <input
                 type="text"
                 name="policyTrainingName"
-                required
+                value={formData.policyTrainingName}
+                onChange={handleChange}
                 style={{
-                  width: '100%',
-                  padding: '8px',
-                  border: '1px solid #d1d5db',
+                  width: '30%',
+                  padding: '14px',
+                  border: '2px solid',
+                  borderColor: validationErrors.policyTrainingName ? '#dc2626' : '#d1d5db',
                   borderRadius: '6px',
                   fontSize: '14px',
                 }}
               />
+
+              {validationErrors.policyTrainingName && (
+                <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                  This field is required.
+                </p>
+              )}
             </div>
+          </div>
 
             <div style={{ marginBottom: '16px' }}>
               <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Date</label>
@@ -1749,140 +1858,251 @@ const formContainerStyle = {
           </div>
         );
 
-      case 9:
-        return (
-          <div style={pageStyle}>
-            <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-              Conflict of Interest Disclosure
-            </h2>
+case 9:
+  return (
+    <div style={pageStyle}>
+      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+        Conflict of Interest Disclosure
+      </h2>
 
-            <div
-              style={{
-                backgroundColor: '#f3f4f6',
-                padding: '20px',
-                borderRadius: '12px',
-                border: '1px solid #d1d5db',
-                maxHeight: '300px',
-                overflowY: 'auto',
-                marginBottom: '20px',
-                fontSize: '14px',
-                color: '#374151',
-                lineHeight: '1.6',
+      {/* Info Box */}
+      <div style={{
+        backgroundColor: '#f3f4f6',
+        padding: '20px',
+        borderRadius: '12px',
+        border: '1px solid #d1d5db',
+        maxHeight: '300px',
+        overflowY: 'auto',
+        marginBottom: '20px',
+        fontSize: '14px',
+        color: '#374151',
+        lineHeight: '1.6'
+      }}>
+      <p>I have been provided a copy/information and understand E Neighbor Homecare LLC. Disclosure/Conflict of Interest policy.</p>
+      <p>The following questions are designed for you to determine the nature and extent of any outside interest that might possibly involve a conflict of interest with the affairs of the organization. Please read each question carefully and then answer briefly and concisely in the space that follows. In the event that you have any doubts as to what the question means, answer it to the best of your ability and identify the reason for the doubt.</p>
+      <p><strong>Glossary</strong></p>
+      <p><em>Competitor:</em> A person offering for sale or selling products and/or services in competition with this organization.</p>
+      <p><em>Family:</em> Spouse, parents, children, brothers, sisters, in-laws, and those in your household.</p>
+      <p><em>Purchaser:</em>  Any person who buys, rents, or otherwise procures, has bought, rented, procured, or in any way has received from this organization any goods, materials, wares, merchandise, supplies, machinery, equipment, or professional and/or another service.</p>
+      <p><em>Person:</em> An individual, firm, partnership, trust, corporation, or other business entity.</p>
+      <p><em>Vendor:</em> Any person who sells, rents, agrees to furnish, has offered to sell, rent, or agree to furnish, or has sold supplies, machinery, equipment, real estate, credit, insurance, or service, profession or otherwise, to or on behalf of the organization.</p>
+      <p></p>
+      </div>
+
+      <strong style={{marginTop: '22px', marginBottom: '28px', fontSize: '17px', fontStyle: 'italic'}}>I certify that I have: Ownership, Entertainment, Gifts, Loans:</strong>
+
+      {/* Conflict Questions */}
+      {[1, 2, 3, 4].map(i => {
+        const name = `conflictQ${i}`;
+        const explainName = `${name}Explain`;
+        const questionText = {
+          1: "Do you or any member of your family directly or indirectly own, or during the past 24 months preceding the date hereof, have you or any member of your family-owned, directly or indirectly, any interest whatsoever in, or shared in the profits or income of a vendor, purchaser, or competitor?",
+          2: "During the 24 months preceding the date hereof, have you or any member of your family received, directlyor  indirectly, any compensation, entertainment, gifts, credits, loans, or anything of value from a vendor, purchaser, or competitor?",
+          3: "Employment Status: Are you or any member of your family presently has been in the last 24 months an officer, director, employee, or consultant of, or otherwise employed or retained as a vendor, purchaser, or competitor?",
+          4: "Related Staff Members: Are you or any member of your family presently has been in the last 24 months an officer, director, employee, or consultant of, or otherwise employed or retained as a vendor, purchaser, or competitor?"
+        }[i];
+
+        return (
+          <FormControl
+            key={name}
+            required
+            error={!!validationErrors[name]}
+            component="fieldset"
+            sx={{ mb: 3, width: '100%' }}
+          >
+            <Typography sx={{ fontWeight: 500, mb: 1 }}>
+              {i}. {questionText} <span style={{ color: 'red' }}>*</span>
+            </Typography>
+
+            {validationErrors[name] && (
+              <FormHelperText sx={{ml: '0px'}} >This field is required.</FormHelperText>
+            )}
+
+            <RadioGroup row name={name} value={formData[name] || ''} onChange={handleChange} style={{color: validationErrors.conflictDate ? '#dc2626' : 'black'}}>
+              <FormControlLabel value="yes" control={<Radio        sx={{
+                color: validationErrors[name] ? '#dc2626' : '#d1d5db',
+                '&.Mui-checked': {
+                  color: validationErrors[name] ? '#dc2626' : '#4f46e5',
+                },
+              }}/>} label="Yes" />
+              <FormControlLabel value="no" control={<Radio        sx={{
+                color: validationErrors[name] ? '#dc2626' : '#d1d5db',
+                '&.Mui-checked': {
+                  color: validationErrors[name] ? '#dc2626' : '#4f46e5',
+                },
               }}
-            >
-              <p>
-                I have been provided a copy/information and understand E Neighbor Homecare LLC's Disclosure/Conflict of Interest policy.
-              </p>
-              <p>The following glossary terms are used:</p>
-              <ul style={{ paddingLeft: '20px' }}>
-                <li><strong>Competitor:</strong> A person or entity offering competing products/services.</li>
-                <li><strong>Family:</strong> Spouse, parents, children, siblings, in-laws, and household members.</li>
-                <li><strong>Purchaser:</strong> Anyone who receives goods/services from E Neighbor Homecare LLC.</li>
-                <li><strong>Person:</strong> Any individual or business entity.</li>
-                <li><strong>Vendor:</strong> Any provider of goods/services to the organization.</li>
-              </ul>
-            </div>
+            />} label="No" />
+            </RadioGroup>
+
+            <TextField
+              multiline
+              rows={3}
+              fullWidth
+              name={explainName}
+              placeholder="If Yes, please explain..."
+              value={formData[explainName] || ''}
+              onChange={handleChange}
+              variant="outlined"
+              sx={{ mt: 2 }}
+            />
+          </FormControl>
+        );
+      })}
+
+
+      {/* Final Certification */}
+      <div style={{ marginBottom: '20px' }}>
+        <p style={{ fontStyle: 'italic', fontSize: '15px', color: '#374151' }}>
+          Furthermore, I understand that I have a duty to report any relationship that may arise that could be perceived as a conflict of interest or may be considered a conflict of interest between myself and the E Neighbor Homecare LLC.  
+        </p>
+      </div>
 
             {/* Full Name */}
-            <div style={{ marginBottom: '16px' }}>
-              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Full Name</label>
+      <div style={{ marginBottom: '6px' }}>
+            <div style={inputGroupStyle}>
+              <label style={labelStyle}>
+                Employee Name <span style={{ color: 'red' }}>*</span>
+              </label>
+
               <input
                 type="text"
                 name="conflictName"
-                required
+                value={formData.conflictName}
+                onChange={handleChange}
                 style={{
-                  width: '100%',
-                  padding: '8px',
-                  border: '1px solid #d1d5db',
+                  width: '30%',
+                  padding: '14px',
+                  border: '2px solid',
+                  borderColor: validationErrors.conflictName ? '#dc2626' : '#d1d5db',
                   borderRadius: '6px',
                   fontSize: '14px',
                 }}
               />
-            </div>
 
-            {/* Date */}
-            <div style={{ marginBottom: '24px' }}>
-              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Date</label>
-              <input
-                type="date"
-                name="conflictDate"
-                defaultValue={new Date().toISOString().split('T')[0]}
-                required
-                style={{
-                  padding: '8px',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '6px',
-                  fontSize: '14px',
-                }}
-              />
-            </div>
-
-            {/* Questions */}
-            {[
-              {
-                q: "1. Do you or any family member currently or within the past 24 months have ownership or financial interest in a vendor, purchaser, or competitor?",
-                name: "conflictQ1",
-              },
-              {
-                q: "2. In the past 24 months, have you or a family member received compensation, entertainment, gifts, or loans from a vendor, purchaser, or competitor?",
-                name: "conflictQ2",
-              },
-              {
-                q: "3. Are you or a family member now or in the past 24 months employed by a vendor, purchaser, or competitor?",
-                name: "conflictQ3",
-              },
-              {
-                q: "4. Are you or a family member now or in the past 24 months related to staff employed by a vendor, purchaser, or competitor?",
-                name: "conflictQ4",
-              },
-            ].map(({ q, name }, idx) => (
-              <div key={idx} style={{ marginBottom: '20px' }}>
-                <label style={{ fontWeight: '500', display: 'block', marginBottom: '4px' }}>{q}</label>
-                <div style={{ display: 'flex', gap: '20px', marginBottom: '8px' }}>
-                  <label>
-                    <input type="radio" name={name} value="yes" required /> Yes
-                  </label>
-                  <label>
-                    <input type="radio" name={name} value="no" /> No
-                  </label>
-                </div>
-                <textarea
-                  placeholder="If Yes, please explain..."
-                  name={`${name}Explain`}
-                  rows={3}
-                  style={{
-                    width: '100%',
-                    border: '1px solid #d1d5db',
-                    borderRadius: '6px',
-                    padding: '8px',
-                    fontSize: '14px',
-                  }}
-                />
-              </div>
-            ))}
-
-            {/* Final Attestation */}
-            <div style={{ marginBottom: '20px' }}>
-              <p style={{ fontSize: '14px', color: '#374151' }}>
-                I understand that I have a duty to report any relationship that could be perceived as a conflict of interest
-                with E Neighbor Homecare LLC, and that it is my responsibility to notify the Corporate Compliance Officer of any such concerns.
-              </p>
-            </div>
-
-            {/* Agreement Checkbox */}
-            <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
-            <input type="checkbox" name="agreeConflict" checked={formData.agreeConflict} onChange={handleChange} />
-              I acknowledge and certify the above responses are true and accurate to the best of my knowledge.
-            </label>
-
-            {/* Signature */}
-            <div style={{ marginTop: '24px' }}>
+              {validationErrors.conflictName && (
+                <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                  This field is required.
+                </p>
+              )}
             </div>
           </div>
-        );
+
+      {/* Date */}
+      <div style={{ marginBottom: '42px' }}>
+        <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+          Date <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="date"
+          name="conflictDate"
+          value={formData.conflictDate}
+          onChange={handleChange}
+          style={{
+            padding: '8px',
+            border: '2px solid',
+            borderColor: validationErrors.conflictDate ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px'
+          }}
+        />
+        {validationErrors.conflictDate && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+
+      {/* Agreement Checkbox */}
+      <FormControl
+        required
+        error={!!validationErrors.agreeConflict1}
+        component="fieldset"
+        sx={{ mb: 3 }}
+      >
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="agreeConflict1"
+                checked={formData.agreeConflict1}
+                onChange={handleChange}
+                sx={{
+                  ml: '8px',
+                  mr: '4px',
+                  p: 0,
+                  color: validationErrors.agreeConflict1 ? '#dc2626' : '#d1d5db',
+                  '&.Mui-checked': {
+                    color: validationErrors.agreeConflict1 ? '#dc2626' : '#4f46e5',
+                  },
+                }}
+              />
+            }
+            label={
+              <span
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '14px',
+                  color: validationErrors.agreeConflict1 ? '#dc2626' : '#374151',
+                }}
+              >
+                I acknowledge that it is my responsibility to bring any such potential conflicts of interest to the attention of the corporate Compliance Officer.
+                <span style={{ color: '#dc2626' }}> *</span>
+              </span>
+            }
+          />
+        </FormGroup>
+        {validationErrors.agreeConflict1 && (
+          <FormHelperText sx={{ml: '0px', color:'#dc2626'}}>This field is required.</FormHelperText>
+        )}
+      </FormControl>
+      <FormControl
+        required
+        error={!!validationErrors.agreeConflict1}
+        component="fieldset"
+        sx={{ mb: 3 }}
+      >
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="agreeConflict2"
+                checked={formData.agreeConflict2}
+                onChange={handleChange}
+                sx={{
+                  ml: '8px',
+                  mr: '4px',
+                  p: 0,
+                  color: validationErrors.agreeConflict2 ? '#dc2626' : '#d1d5db',
+                  '&.Mui-checked': {
+                    color: validationErrors.agreeConflict2 ? '#dc2626' : '#4f46e5',
+                  },
+                }}
+              />
+            }
+            label={
+              <span
+                style={{
+                  fontFamily: 'Inter, sans-serif',
+                  fontSize: '14px',
+                  color: validationErrors.agreeConflict2 ? '#dc2626' : '#374151',
+                }}
+              >
+                I acknowledge and certify the above responses are true and accurate to the best of my knowledge.
+                <span style={{ color: '#dc2626' }}> *</span>
+              </span>
+            }
+          />
+        </FormGroup>
+        {validationErrors.agreeConflict2 && (
+          <FormHelperText sx={{ml: '0px', color:'#dc2626'}}>This field is required.</FormHelperText>
+        )}
+      </FormControl>
+    </div>
+  );
 
 
-        case 10:
+
+    case 10:
       return (
         <div style={pageStyle}>
           <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -1902,71 +2122,119 @@ const formContainerStyle = {
             lineHeight: '1.6',
             whiteSpace: 'pre-wrap',
           }}>
-            <p>
-              The success of our business is dependent on the trust and confidence we earn from our employees, customers, and shareholders. We gain credibility by adhering to our commitments, displaying honesty and integrity, and reaching company goals solely through honorable conduct. It is easy to say what we must do, but the proof is in our actions. Ultimately, we will be judged on what we do.
-            </p>
-            <p>
-              E Neighbor Homecare LLC's commitment to integrity begins with complying with laws, rules, and regulations where we do business. Further, each of us must have an understanding of the company policies, laws, rules, and regulations that apply to our specific roles. If we are unsure of whether a contemplated action is permitted by law or E Neighbor Homecare LLC policy, we should seek advice from the Administrator/CEO. We are responsible for preventing violations of law and for speaking up if we see possible violations.
-            </p>
-            <p>
-              The use of good judgment based on high ethical principles will guide you with respect to lines of acceptable conduct. If a situation arises for which it is difficult to determine the proper course of action, the matter should be discussed immediately with your immediate supervisor.
-            </p>
-            <p>
-              In consideration of the employment of the undersigned by E Neighbor Homecare LLC, the employee agrees: (1) that during the employee's employment with E Neighbor Homecare LLC, the employee shall not solicit patients of E Neighbor Homecare LLC or attempt to influence such patients to change providers, (2) that upon the termination of employee's employment with E Neighbor Homecare LLC, the employee shall not, for a period of three months after such termination, service any patients of E Neighbor Homecare LLC serviced by the employee during the last six months of the employee's employment by E Neighbor Homecare LLC, (3) to keep confidential all patient records, patient information, pharmacy trade secrets, pharmacy computer passwords, pharmacy phone access codes or any other passwords or pharmacy secrets, (4) to maintain professional boundaries to include clients, vendors and providers and (5) to serve faithfully and act in a way that will merit the continued trust and confidence of the public.
-            </p>
-            <p>
-              As a user of information at E Neighbor Homecare LLC, you may develop, use, or maintain (1) patient information (for health care, quality improvement, peer review, education, billing, reimbursement, administration, research, or for other purposes), (2) personnel information (for employment, payroll, or other business purposes), or (3) confidential business information of E Neighbor Homecare LLC and/or third parties, including third-party software and other licensed products or processes. This information from any source and in any form, including, but not limited to, paper record, oral communication, audio recording, and electronic display, is strictly confidential. Access to confidential information is permitted only on a need-to-know basis and limited to the minimum amount of confidential information necessary to accomplish the intended purpose of the use, disclosure, or request.
-            </p>
-            <p>
-              To avoid conflicts of interest, we must ensure that our decisions for E Neighbor Homecare LLC are objective and fair. Sometimes our personal or family interests might conflict with business decisions. We must always prioritize E Neighbor Homecare LLC's legitimate interests. Using company property or information for personal gain or seizing business opportunities for personal benefit is prohibited.
-            </p>
-            <p>
-              I agree to follow the E Neighbor Homecare LLC Policies and Procedures Manual. I understand that these policies and procedures may change, and it is my responsibility to stay informed and comply with any updates.
-            </p>
-            <p>
-              All employees must follow this business ethics policy. Violating it may result in disciplinary action, including termination. Unauthorized use or release of confidential information may lead to personal, civil, or criminal penalties. I agree to comply with the Confidentiality statements and the E Neighbor Homecare LLC Privacy and Information Security Policies, which I'll read. If I breach these terms, E Neighbor Homecare LLC can seek damages.
-            </p>
-            <p>
-              I agree to read E Neighbor Homecare LLC Compliance and Business Ethics policies. If I have questions, I will direct my questions to my supervisor.
-            </p>
-            <p>
-              The signatures and dates below signify acceptance of the terms of E Neighbor Homecare LLC Compliance and Business Ethical policies and procedures.
-            </p>
+           <p>The success of our business is dependent on the trust and confidence we earn from our employees, customers, and shareholders. We gain credibility by adhering to our commitments, displaying honesty and integrity, and reaching company goals solely through honorable conduct. It is easy to&nbsp;<em>say</em>&nbsp;what we must do, but the proof is in our&nbsp;<em>actions</em>. Ultimately, we will be judged on what we do.</p>
+            <p>&nbsp;</p>
+            <p>E Neighbor Homecare LLC's commitment to integrity begins with complying with laws, rules, and regulations where we do business. Further, each of us must have an understanding of the company policies, laws, rules, and regulations that apply to our specific roles. If we are unsure of whether a contemplated action is permitted by law or E Neighbor Homecare LLC policy, we should seek advice from the Administrator/CEO. We are responsible for preventing violations of law and for speaking up if we see possible violations</p>
+            <p>&nbsp;</p>
+            <p>The use of good judgment based on high ethical principles will guide you with respect to lines of acceptable conduct. If a situation arises for which it is difficult to determine the proper course of action, the matter should be discussed immediately with your immediate supervisor.</p>
+            <p>In consideration of the employment of the undersigned by E Neighbor Homecare LLC, the employee agrees: (I) that during the employee's employment with E Neighbor Homecare LLC, the employee shall not solicit patients of E Neighbor Homecare LLC or attempt to influence such patients to change providers, (2) that upon the termination of employee's employment with E Neighbor Homecare LLC, the employee shall not, for a period of three months after such termination, service any patients of E Neighbor Homecare LLC serviced by the employee during the last six months of the employee's employment by E Neighbor Homecare LLC, (3) to keep confidential all patient records, patient information, pharmacy trade secrets, pharmacy computer passwords, pharmacy phone access codes or any other passwords or pharmacy secrets, (4) to maintain professional boundaries to include clients, vendors and providers and (5) to serve faithfully and act in a way that will merit the continued trust and confidence of the public.</p>
+            <p>&nbsp;</p>
+            <p>As a user of information at E Neighbor Homecare LLC, you may develop, use, or maintain (1) patient information (for health care, quality improvement, peer review, education, billing, reimbursement, administration, research, or for other purposes), (2) personnel information (for employment, payroll, or other business purposes), or (3) confidential business information of E Neighbor Homecare LLC and/or third parties, including third-party software and other licensed products or processes. This information from any source and in any form, including, but not limited to, paper record, oral communication, audio recording, and electronic display, is strictly confidential. Access to confidential information is permitted only on a need-to-know basis and limited to the minimum amount of confidential information necessary to accomplish the intended purpose of the use, disclosure, or request.</p>
+            <p>&nbsp;</p>
+            <p>To avoid conflicts of interest, we must ensure that our decisions for E Neighbor Homecare LLC are objective and fair. Sometimes our personal or family interests might conflict with business decisions. We must always prioritize E Neighbor Homecare LLC's legitimate interests. Using company property or information for personal gain or seizing business opportunities for personal benefit is prohibited.</p>
+            <p>I agree to follow the E Neighbor Homecare LLC Policies and Procedures Manual. I understand that these policies and procedures may change, and it is my responsibility to stay informed and comply with any updates.</p>
+            <p>All employees must follow this business ethics policy. Violating it may result in disciplinary action, including termination. Unauthorized use or release of confidential information may lead to personal, civil, or criminal penalties. I agree to comply with the Confidentiality statements and the E Neighbor Homecare LLC Privacy and Information Security Policies, which I'll read. If I breach these terms, E Neighbor Homecare LLC can seek damages.</p>
+            <p><strong>I agree to read E Neighbor Homecare LLC Compliance and Business Ethics policies. If I have questions, I will direct my questions to my supervisor.&nbsp; </strong></p>
+            <p><strong>The signatures, printed name and dates below signify acceptance of the terms ofE Neighbor Homecare LLC Compliance and Business Ethical policies and procedures. </strong></p>
+            <p>&nbsp;</p>
           </div>
 
-          {/* Name Input */}
-          <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Print Employee Name</label>
-            <input
-              type="text"
-              name="ethicsName"
-              required
-              style={{
-                width: '100%',
-                padding: '8px',
-                border: '1px solid #d1d5db',
-                borderRadius: '6px',
-                fontSize: '14px',
-              }}
-            />
-          </div>
+          <FormControl
+                  required
+                  error={!!validationErrors.ethicsAgreement}
+                  component="fieldset"
+                  sx={{ mt: 2, mb: 3 }}
+                >
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="ethicsAgreement"
+                          checked={formData.ethicsAgreement}
+                          onChange={handleChange}
+                          sx={{
+                            ml: '8px',
+                            mr: '8px',
+                            p: 0,
+                            color: validationErrors.ethicsAgreement ? '#dc2626' : '#d1d5db',
+                            '&.Mui-checked': {
+                              color: validationErrors.ethicsAgreement ? '#dc2626' : '#4f46e5',
+                            },
+                          }}
+                        />
+                      }
+                      label={
+                        <span
+                          style={{
+                            fontFamily: 'Inter, sans-serif',
+                            fontSize: '14px',
+                            color: validationErrors.ethicsAgreement ? '#dc2626' : '#374151',
+                          }}
+                        >
+                          I have read, acknowledge and agree to comply with all terms, policies, and conditions outlined above.
+                          <span style={{ color: '#dc2626' }}> *</span>
+                        </span>
+                      }
+                    />
+                  </FormGroup>
+                  {validationErrors.ethicsAgreement && (
+                    <FormHelperText sx={{ml: '0px', color:'#dc2626'}}>This field is required.</FormHelperText>
+                  )}
+                </FormControl>
+                
+          {/* Full Name */}
+          <div style={{ marginBottom: '6px' }}>
+                <div style={inputGroupStyle}>
+                  <label style={labelStyle}>
+                    Employee Name <span style={{ color: 'red' }}>*</span>
+                  </label>
 
-          {/* Date Input */}
-          <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Date</label>
+                  <input
+                    type="text"
+                    name="ethicsName"
+                    value={formData.ethicsName}
+                    onChange={handleChange}
+                    style={{
+                      width: '30%',
+                      padding: '14px',
+                      border: '2px solid',
+                      borderColor: validationErrors.ethicsName ? '#dc2626' : '#d1d5db',
+                      borderRadius: '6px',
+                      fontSize: '14px',
+                    }}
+                  />
+
+                  {validationErrors.ethicsName && (
+                    <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                      This field is required.
+                    </p>
+                  )}
+                </div>
+              </div>
+
+          {/* Date */}
+          <div style={{ marginBottom: '42px' }}>
+            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+              Date <span style={{ color: 'red' }}>*</span>
+            </label>
             <input
               type="date"
               name="ethicsDate"
-              defaultValue={new Date().toISOString().split('T')[0]}
-              required
+              value={formData.ethicsDate}
+              onChange={handleChange}
               style={{
-                width: '100%',
                 padding: '8px',
-                border: '1px solid #d1d5db',
+                border: '2px solid',
+                borderColor: validationErrors.ethicsDate ? '#dc2626' : '#d1d5db',
                 borderRadius: '6px',
-                fontSize: '14px',
+                fontSize: '14px'
               }}
             />
+            {validationErrors.ethicsDate && (
+              <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                This field is required.
+              </p>
+            )}
           </div>
 
           {/* Signature */}
@@ -1995,52 +2263,70 @@ const formContainerStyle = {
               lineHeight: '1.6',
               whiteSpace: 'pre-wrap',
             }}>
-              <p>
-                I understand that operating a vehicle on E Neighbor Homecare LLC business means driving either a personal vehicle or owned/leased vehicle by E Neighbor Homecare LLC in the course of employment (i.e., any driving other than commuting to and from the agency office and my home in my personal vehicle) or situations in which any car allowance or mileage reimbursement is paid to me by E Neighbor Homecare LLC.{"\n\n"}
-                
-                I understand that I must possess a valid and current driver's license for my state. I also understand that I must submit proof of automobile insurance (a copy of the declaration page or the policy) to my supervisor upon employment if a Commercial Driver's License is required for my job duties. I understand that state law requires certain minimum auto insurance coverage for all vehicle employees, contractors, or volunteers who use their personal car to perform business on behalf of E Neighbor Homecare LLC.{"\n\n"}
-                
-                I affirm that I have auto insurance coverage as required by the state, and I agree to maintain coverage as required by state law. E Neighbor Homecare LLC reserves the right to request proof of insurance at any time during the term of employment.{"\n\n"}
-
-                I agree to notify my supervisor if I incur any violation that materially changes my driving record. I understand that disciplinary action (which may include termination) will be taken if my driving record is classified as high risk and/or unacceptable.{"\n\n"}
-
-                I understand that my driving record is subject to review at any time by pharmacy management.
-              </p>
+              <p>I understand that operating a vehicle on E Neighbor Homecare LLC business means driving either a personal vehicle or owned/leased vehicle by E Neighbor Homecare LLC in the course of employment (i.e., any driving other than commuting to and from the agency office and my home in my personal vehicle) or situations in which any car allowance or mileage reimbursement is paid to me by E Neighbor Homecare LLC.</p>
+              <p>&nbsp;</p>
+              <p>I understand that I must possess a valid and current driver's license for my state. I also understand that I must submit proof of automobile insurance (a copy of the declaration page or the policy) to my supervisor upon employment if a Commercial Driver's License is required for my job duties. I understand that state law requires certain minimum auto insurance coverage for all vehicle employees, contractors, or volunteers who use their personal car to perform business on behalf of E Neighbor Homecare LLC</p>
+              <p>&nbsp;</p>
+              <p>I affirm that I have auto insurance coverage as required by the state, and I agree to maintain coverage as required by state law. E Neighbor Homecare LLC the right to request proof of insurance at any time during the term of employment.</p>
+              <p>&nbsp;</p>
+              <p>I agree to notify my supervisor if I incur any violation that materially changes my driving record. I understand that disciplinary action (which may include termination) will be taken if my driving record is classified as high risk and/or unacceptable.</p>
+              <p><em>&nbsp;</em></p>
+              <p>I understand that my driving record is subject to review at any time by pharmacy management.</p>
             </div>
+            
+            {/* Full Name */}
+            <div style={{ marginBottom: '6px' }}>
+                  <div style={inputGroupStyle}>
+                    <label style={labelStyle}>
+                      Employee Name <span style={{ color: 'red' }}>*</span>
+                    </label>
 
-            {/* Name Input */}
-            <div style={{ marginBottom: '16px' }}>
-              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Employee Name (please print)</label>
-              <input
-                type="text"
-                name="driverName"
-                required
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '6px',
-                  fontSize: '14px',
-                }}
-              />
-            </div>
+                    <input
+                      type="text"
+                      name="driverName"
+                      value={formData.driverName}
+                      onChange={handleChange}
+                      style={{
+                        width: '30%',
+                        padding: '14px',
+                        border: '2px solid',
+                        borderColor: validationErrors.driverName ? '#dc2626' : '#d1d5db',
+                        borderRadius: '6px',
+                        fontSize: '14px',
+                      }}
+                    />
 
-            {/* Date Input */}
-            <div style={{ marginBottom: '16px' }}>
-              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Date</label>
+                    {validationErrors.driverName && (
+                      <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                        This field is required.
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+            {/* Date */}
+            <div style={{ marginBottom: '42px' }}>
+              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                Date <span style={{ color: 'red' }}>*</span>
+              </label>
               <input
                 type="date"
                 name="driverDate"
-                defaultValue={new Date().toISOString().split('T')[0]}
-                required
+                value={formData.driverDate}
+                onChange={handleChange}
                 style={{
-                  width: '100%',
                   padding: '8px',
-                  border: '1px solid #d1d5db',
+                  border: '2px solid',
+                  borderColor: validationErrors.driverDate ? '#dc2626' : '#d1d5db',
                   borderRadius: '6px',
-                  fontSize: '14px',
+                  fontSize: '14px'
                 }}
               />
+              {validationErrors.driverDate && (
+                <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                  This field is required.
+                </p>
+              )}
             </div>
 
             {/* Signature */}
@@ -2069,53 +2355,70 @@ const formContainerStyle = {
                 lineHeight: '1.6',
                 whiteSpace: 'pre-wrap',
               }}>
-                <p>
-                  E Neighbor Homecare LLC maintains a drug-free workplace concerning the use, possession, and distribution of drugs.{"\n\n"}
-
-                  All employees are prohibited from unlawful possession or use of a controlled substance or any alcoholic beverages while in the workplace. Employees are also prohibited from the unlawful manufacture, distribution, or dispensing of a controlled substance while in the workplace.{"\n\n"}
-
-                  Prior to hire, all employees will have a drug test conducted. If the drug test results are positive, then E Neighbor Homecare LLC will send the sample to an independent laboratory for testing. If the test result is positive, E Neighbor Homecare LLC will not employ an individual.{"\n\n"}
-
-                  Employees may be subject to reasonable suspicion urine testing for unlawful drugs when the organization or its client has cause to believe that the drug or alcohol policy has been violated.{"\n\n"}
-
-                  Any violation of this policy will result in disciplinary action, including termination of employment.{"\n\n"}
-
-                  I acknowledge that I understand that E Neighbor Homecare LLC is a Drug-Free Workplace and understand that E Neighbor Homecare LLC has no tolerance for the use or being under the influence of drugs or alcohol in the workplace.
-                </p>
+                <p>E Neighbor Homecare LLC maintains a drug-free workplace concerning the use, possession, and distribution of drugs.</p>
+                <p>All employees are prohibited from unlawful possession or use of a controlled substance or any alcoholic beverages while in the workplace. Employees are also prohibited from the unlawful manufacture, distribution, or dispensing of a controlled substance while in the workplace.</p>
+                <p>Prior to hire, all employees will have a drug test conducted. If the drug test results are positive, then E Neighbor Homecare LLC will send the sample to an independent laboratory for testing. If the test result is positive, E Neighbor Homecare LLC will not employ an individual.&nbsp;</p>
+                <p>Employees may be subject to reasonable suspicion urine testing for unlawful drugs when the organization or its client had cause to believe that the drug or alcohol policy has been violated.</p>
+                <p>Any violation of this policy will result in disciplinary action, <strong>including</strong> termination of employment.</p>
+                <p>I acknowledge that I understand that E Neighbor Homecare LLC is a Drug-Free Workplace and understand that E Neighbor Homecare LLC has no tolerance for the use or being under the influence of drugs or alcohol in the workplace.&nbsp;</p>
+                <p>&nbsp;</p>
               </div>
 
-              {/* Date Input */}
-              <div style={{ marginBottom: '16px' }}>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Employee Full Name</label>
-                <input
-                  type="text"
-                  name="drugFreeName"
-                  defaultValue={new Date().toISOString().split('T')[0]}
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '8px',
-                    border: '1px solid #d1d5db',
-                    borderRadius: '6px',
-                    fontSize: '14px',
-                  }}
-                />
-                <label style={{ display: 'block', fontWeight: '500', marginTop: '15px', marginBottom: '4px' }}>Date</label>
+              {/* Full Name */}
+              <div style={{ marginBottom: '6px' }}>
+                    <div style={inputGroupStyle}>
+                      <label style={labelStyle}>
+                        Employee Name <span style={{ color: 'red' }}>*</span>
+                      </label>
+
+                      <input
+                        type="text"
+                        name="drugFreeName"
+                        value={formData.drugFreeName}
+                        onChange={handleChange}
+                        style={{
+                          width: '30%',
+                          padding: '14px',
+                          border: '2px solid',
+                          borderColor: validationErrors.drugFreeName ? '#dc2626' : '#d1d5db',
+                          borderRadius: '6px',
+                          fontSize: '14px',
+                        }}
+                      />
+
+                      {validationErrors.drugFreeName && (
+                        <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                          This field is required.
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+              {/* Date */}
+              <div style={{ marginBottom: '42px' }}>
+                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                  Date <span style={{ color: 'red' }}>*</span>
+                </label>
                 <input
                   type="date"
                   name="drugFreeDate"
-                  defaultValue={new Date().toISOString().split('T')[0]}
-                  required
+                  value={formData.drugFreeDate}
+                  onChange={handleChange}
                   style={{
-                    width: '100%',
                     padding: '8px',
-                    border: '1px solid #d1d5db',
+                    border: '2px solid',
+                    borderColor: validationErrors.drugFreeDate ? '#dc2626' : '#d1d5db',
                     borderRadius: '6px',
-                    fontSize: '14px',
+                    fontSize: '14px'
                   }}
                 />
+                {validationErrors.drugFreeDate && (
+                  <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                    This field is required.
+                  </p>
+                )}
               </div>
-
+              
               {/* Signature */}
               <div style={{ marginTop: '24px' }}>
               </div>
@@ -2143,56 +2446,71 @@ const formContainerStyle = {
                   lineHeight: '1.6',
                   whiteSpace: 'pre-wrap',
                 }}>
-                  <p>
-                    I, _________________________________, hereby agree, upon a request made under the drug/alcohol testing policy of E Neighbor Homecare LLC to submit to a drug or alcohol test and to furnish a sample of my urine, breath, and/or blood for analysis. I understand and agree that if I at any time refuse to submit to a drug or alcohol test under E Neighbor Homecare LLC policy, or if I otherwise fail to cooperate with the testing procedures, I will be subject to immediate termination.{"\n\n"}
-
-                    I further authorize and give full permission to have the E Neighbor Homecare LLC and/or its E Neighbor Homecare LLC physician send the specimen or specimens so collected to a laboratory for a screening test. The testing is to check for the presence of any prohibited substances under the policy and for the laboratory or other testing facility to release any and all documentation relating to such test to the E Neighbor Homecare LLC and/or to any governmental entity involved in a legal proceeding or investigation connected with the test.{"\n\n"}
-
-                    Finally, I authorize the E Neighbor Homecare LLC to disclose any documentation relating to such test to any governmental entity involved in a legal proceeding or investigation connected with the test.{"\n\n"}
-
-                    I understand that only duly authorized E Neighbor Homecare LLC officers, employees, and agents will have access to information furnished or obtained in connection with the test. The information will be maintained and protected to the greatest extent possible, and shared only to the extent necessary.{"\n\n"}
-
-                    I will hold harmless the E Neighbor Homecare LLC staff that performs the testing, E Neighbor Homecare LLC physician, and any testing laboratory of E Neighbor Homecare LLC. I will not sue or hold responsible such parties for any alleged harm, even in the case of an error.{"\n\n"}
-
-                    This policy and authorization have been explained to me in a language I understand, and I have been told that any questions I have will be answered.{"\n\n"}
-
-                    I understand that E Neighbor Homecare LLC will require a drug screen and/or alcohol test under this policy whenever I am involved in a job-related incident/accident, job-related motor vehicle accident, or on-the-job injury.
-                  </p>
+                  <p>&nbsp;I, _________________________________, hereby agree, upon a request made under the drug/alcohol testing policy of E Neighbor Homecare LLC to submit to a drug or alcohol test and to furnish a sample of my urine, breath, and/or blood for analysis. I understand and agree that if I at any time refuse to submit to a drug or alcohol test under E Neighbor Homecare LLC policy, or if I otherwise fail to cooperate with the testing procedures, I will be subject to immediate termination. I further authorize and give full permission to have the E Neighbor Homecare LLC and/or its E Neighbor Homecare LLC physician send the specimen or specimens so collected to a laboratory for a screening test. The testing is to check for the presence of any prohibited substances under the policy and for the laboratory or other testing facility to release any and all documentation relating to such test to the E Neighbor Homecare LLC and/or to any governmental entity involved in a legal proceeding or investigation connected with the test. Finally, I authorize the E Neighbor Homecare LLC to disclose any documentation relating to such test to any governmental entity involved in a legal proceeding or investigation connected with the test.</p>
+                  <p>&nbsp;</p>
+                  <p>I understand that only duly authorized E Neighbor Homecare LLC officers, employees, and agents will have access to information furnished or obtained in connection with the test. The information will maintain and protect the confidentiality of such information to the greatest extent possible, and they will share such information only to the extent necessary to make employment decisions and to respond to inquiries or notices from government entities.</p>
+                  <p>&nbsp;</p>
+                  <p>I will hold harmless the E Neighbor Homecare LLC staff that performs the testing, E Neighbor Homecare LLC physician, and any testing laboratory of E Neighbor Homecare LLC.&nbsp;I will not sue or hold responsible such parties for any alleged harm to me that might result from such testing, including loss of employment or any other kind of adverse job action that might arise as a result of the drug or alcohol test, even if an E Neighbor Homecare LLC or laboratory representative makes an error in the administration or analysis of the test or the reporting of the results.</p>
+                  <p>&nbsp;</p>
+                  <p>This policy and authorization have been explained to me in a language I understand, and I have been told that if I have any questions about the test or the policy, they will be answered.</p>
+                  <p>&nbsp;</p>
+                  <p>I understand that E Neighbor Homecare LLC will require a drug screen and/or alcohol test under this policy whenever I am involved in a job-related incident/accident, job-related motor vehicle accident, on the job injury.</p>
                 </div>
 
-                {/* Signature of Employee */}
-                <div style={{ marginBottom: '16px' }}>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Employee Full Name</label>
+              {/* Full Name */}
+              <div style={{ marginBottom: '6px' }}>
+                    <div style={inputGroupStyle}>
+                      <label style={labelStyle}>
+                        Employee Name <span style={{ color: 'red' }}>*</span>
+                      </label>
+
+                      <input
+                        type="text"
+                        name="drugConsentName"
+                        value={formData.drugConsentName}
+                        onChange={handleChange}
+                        style={{
+                          width: '30%',
+                          padding: '14px',
+                          border: '2px solid',
+                          borderColor: validationErrors.drugConsentName ? '#dc2626' : '#d1d5db',
+                          borderRadius: '6px',
+                          fontSize: '14px',
+                        }}
+                      />
+
+                      {validationErrors.drugConsentName && (
+                        <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                          This field is required.
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+              {/* Date */}
+              <div style={{ marginBottom: '42px' }}>
+                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                  Date <span style={{ color: 'red' }}>*</span>
+                </label>
                 <input
-                  type="text"
-                  name="drugFreeName"
-                  required
+                  type="date"
+                  name="drugConsentDate"
+                  value={formData.drugConsentDate}
+                  onChange={handleChange}
                   style={{
-                    width: '100%',
                     padding: '8px',
-                    border: '1px solid #d1d5db',
+                    border: '2px solid',
+                    borderColor: validationErrors.drugConsentDate ? '#dc2626' : '#d1d5db',
                     borderRadius: '6px',
-                    fontSize: '14px',
+                    fontSize: '14px'
                   }}
                 />
-                </div>
-
-                {/* Date for Employee */}
-                <div style={{ marginBottom: '24px' }}>
-                  <label>Date</label>
-                  <input
-                    type="date"
-                    name="drugConsentDate"
-                    defaultValue={new Date().toISOString().split('T')[0]}
-                    required
-                    style={{
-                      width: '100%',
-                      padding: '8px',
-                      borderRadius: '6px',
-                      border: '1px solid #d1d5db',
-                    }}
-                  />
-                </div>
+                {validationErrors.drugConsentDate && (
+                  <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                    This field is required.
+                  </p>
+                )}
+              </div>
 
                 {/* Signature of Representative */}
                 <div style={{ marginBottom: '16px' }}>
@@ -2268,72 +2586,111 @@ const formContainerStyle = {
               whiteSpace: 'pre-wrap',
               marginBottom: '24px',
             }}>
-              <p>
-                <strong>JOB SUMMARY:</strong> A Certified Home Health Aide (CHHA) works in support of the patient’s/client’s safety, dignity, well-being and ability to remain living at home. The CHHA travels to the patient’s/client’s home to provide direct care, under professional nursing supervision, in accordance with a written Plan of Care that includes personal care, grooming, ambulation, special procedures, homemaking, meal preparation, housekeeping and assistance with other activities of daily living. The Certified Home Health Aide is supervised by a RN, and there are no supervision responsibilities with this position. The CHHA has HIPAA restricted access to certain patient/client information, and is an hourly, per-diem, non-exempt Direct Care staff member with no guaranteed minimum number of hours per week.{"\n\n"}
-
-                <strong>QUALIFICATIONS:</strong>{"\n"}
-                1. High school diploma or GED or sufficient life experience{"\n"}
-                2. NJ Board of Nursing, Home Health Aide certification{"\n"}
-                3. Transportation ability (car or public transit){"\n"}
-                4. Strong communication and mature attitude{"\n"}
-                5. Physical capability and dependability{"\n\n"}
-
-                <strong>RESPONSIBILITIES:</strong>{"\n"}
-                - Deliver personal care per Plan of Care{"\n"}
-                - Perform light housekeeping and meal prep{"\n"}
-                - Monitor and document client conditions{"\n"}
-                - Submit accurate activity/time logs{"\n"}
-                - Maintain punctuality, certifications, confidentiality, and professionalism{"\n"}
-                - Complete annual training and attend meetings{"\n\n"}
-
-                <strong>WORKING ENVIRONMENT:</strong>{"\n"}
-                - Various home environments with physical and health risk exposures{"\n"}
-                - Includes driving, lifting, and using household equipment{"\n\n"}
-
-                <strong>JOB RELATIONSHIPS:</strong> Supervised by Director of Nursing/Nursing Supervisor{"\n\n"}
-
-                <strong>RISK EXPOSURE:</strong> High Risk - Requires:{"\n"}
-                • Physical activity{"\n"}
-                • Standing for extended periods{"\n"}
-                • Heavy lifting and repetitive physical exertion
-              </p>
+              <p><u>JOB SUMMARY</u>: A Certified Home Health Aide (CHHA) works in support of the patient&rsquo;s/client&rsquo;s safety, dignity, well-being and ability to remain living at home. The CHHA travels to the patient&rsquo;s/client&rsquo;s home to provide direct care, under professional nursing supervision, in accordance with a written Plan of Care that includes personal care, grooming, ambulation, special procedures, homemaking, meal preparation, housekeeping and assistance with other activities of daily living.&nbsp; The Certified Home Health Aide is supervised by a RN, and there are no supervision responsibilities with this position.&nbsp; The CHHA has HIPAA restricted access to certain patient/client information, and is an hourly, per-diem, non-exempt Direct Care staff member with no guaranteed minimum number of hours per week.</p>
+              <p>&nbsp;</p>
+              <p><u>QUALIFICATIONS</u>:</p>
+              <ol>
+              <li>Have a high school diploma or GED, or a satisfactory combination of education and life experience needed to perform the duties and essential functions of the job.</li>
+              <li>Have a valid New Jersey Board of Nursing, Home Health Aide certification.</li>
+              <li>Have the willingness to travel throughout the service area.&nbsp; This includes being able to drive and have a valid driver&rsquo;s license and auto insurance or have the ability to independently travel on public transportation.</li>
+              <li>Demonstrate good communication skills and mature attitude.</li>
+              <li>Be honest, dependable and be able to perform the physical demands of the position.</li>
+              </ol>
+              <p>&nbsp;</p>
+              <p><u>RESPONSIBILITIES</u>:</p>
+              <ol>
+              <li>Travel to patient&rsquo;s/client&rsquo;s home, read and interpret the patient&rsquo;s/client&rsquo;s care plan and provide direct care as specified by the written plan of care.&nbsp; The care includes personal care to patients/clients such as, bathing, mouth, nail, hair and skin care, shaving, exercises as directed, and activities related to dressing and toileting including bedpan.&nbsp; Assist patient/client with ambulating, transfer activities, and the use of assistive devices like mechanical lifts, walkers, wheelchair, commode chair, braces, and prosthesis.&nbsp; Perform special delegated procedures including taking vital signs and weight, feeding, measuring intake and output, and assisting patient/client with self-administered medications.&nbsp; These activities require a variety of physical demands, including, but not limited to, those outlined in Working Conditions and Essential Functions below, and reliable attendance at scheduled assignment.&nbsp;</li>
+              <li>Perform light housekeeping, meal preparation and other support services as part of the plan of care.&nbsp; This includes duties such as menu planning and shopping lists, running errands, preparing meals including special diets, presenting food, and cleaning dishes, appliances, and work area afterwards, going shopping, dusting, laundry, vacuuming, general cleaning of bathroom, kitchen, and living area when part of the written plan of care.&nbsp; Such activities include using a wide variety of household equipment and home appliances and the physical demands, including but not limited to those as outlined in Working Conditions and Essential Functions of this Job Description.</li>
+              <li>Observe the patient&rsquo;s/client&rsquo;s condition, behavior, appearance, and hygiene needs, living arrangements, and home environment while in the home and report and document changes or problems to the appropriate staff member.&nbsp;</li>
+              <li>Write visit reports (Daily Activity Report, etc.) to accurately record the care provided in the home, and complete other forms to document the work of this position, including incident reports and time and attendance reports.&nbsp; Ensure the patient/client signs the Daily Activity Report and Time Sheets as instructed.&nbsp; Submit these reports on time.&nbsp;</li>
+              <li>Maintain dependable attendance, be regularly available for assignments, and be timely for scheduled visits.&nbsp; Call the office for assignments often or when late for an assignment.</li>
+              <li>Attend at least twelve (12) hours of in-service training annually.</li>
+              <li>Adhere to agency policies and procedures.</li>
+              <li>Maintain a valid NJ Board of Nursing Home Health Aide certification.</li>
+              <li>Always protect and maintain patient/client and agency confidentiality.</li>
+              <li>Maintain a professional image, good appearance, and personal hygiene.</li>
+              <li>Accept assignments and be punctual.</li>
+              <li>Attend agency meetings and training as directed.</li>
+              <li>Perform other duties as assigned.</li>
+              </ol>
+              <p>&nbsp;</p>
+              <p><u>WORKING ENVIRONMENT</u>:</p>
+              <p>Work is in a variety of home environments.&nbsp; Frequent travel by car or public transportation throughout the service area is necessary.&nbsp; Tasks may involve exposure to blood, body fluids, or tissue (OSHA Category I) and household chemicals, dust, and disinfectants.&nbsp; This position routinely requires driving a car or independently using public transportation, lifting, bending, reaching, kneeling, pushing and pulling, stretching, standing, stooping, walking, walking up and down stairs, seeing, hearing, speaking, writing, reading, carrying, weight bearing activities, and the use of a wide assortment of large and small home appliances.</p>
+              <p>&nbsp;</p>
+              <p><u>JOB RELATIONSHIPS</u>:</p>
+              <p>Supervised by: Director of Nursing/ Nursing Supervisor</p>
+              <p>&nbsp;</p>
+              <p><u>RISK EXPOSURE</u>:</p>
+              <p>High risk: <u>LIFTING REQUIREMENTS</u>:</p>
+              <p>Ability to perform the following tasks if necessary:</p>
+              <ul>
+              <li>Ability to participate in physical activity.</li>
+              <li>Ability to work for extended period of time while standing and being involved in physical activity.</li>
+              <li>Heavy lifting.</li>
+              <li>Ability to do extensive bending, lifting and standing on a regular basis.</li>
+              </ul>
+              <p>I have read the above job description and fully understand the conditions set forth therein, and if employed as a Certified Home Health Aide, I will perform these duties to the best of my knowledge and ability.</p>
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
             </div>
 
-            {/* Name Field */}
-            <div style={{ marginBottom: '16px' }}>
-              <label>Employee Name</label>
-              <input
-                type="text"
-                name="chhaEmployeeName"
-                required
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  borderRadius: '6px',
-                  border: '1px solid #d1d5db',
-                }}
-              />
-            </div>
+              {/* Full Name */}
+              <div style={{ marginBottom: '6px' }}>
+                    <div style={inputGroupStyle}>
+                      <label style={labelStyle}>
+                        Employee Name <span style={{ color: 'red' }}>*</span>
+                      </label>
+
+                      <input
+                        type="text"
+                        name="chhaEmployeeName"
+                        value={formData.chhaEmployeeName}
+                        onChange={handleChange}
+                        style={{
+                          width: '30%',
+                          padding: '14px',
+                          border: '2px solid',
+                          borderColor: validationErrors.chhaEmployeeName ? '#dc2626' : '#d1d5db',
+                          borderRadius: '6px',
+                          fontSize: '14px',
+                        }}
+                      />
+
+                      {validationErrors.chhaEmployeeName && (
+                        <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                          This field is required.
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+              {/* Date */}
+              <div style={{ marginBottom: '42px' }}>
+                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                  Date <span style={{ color: 'red' }}>*</span>
+                </label>
+                <input
+                  type="date"
+                  name="chhaSignatureDate"
+                  value={formData.chhaSignatureDate}
+                  onChange={handleChange}
+                  style={{
+                    padding: '8px',
+                    border: '2px solid',
+                    borderColor: validationErrors.chhaSignatureDate ? '#dc2626' : '#d1d5db',
+                    borderRadius: '6px',
+                    fontSize: '14px'
+                  }}
+                />
+                {validationErrors.chhaSignatureDate && (
+                  <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                    This field is required.
+                  </p>
+                )}
+              </div>
 
             {/* Signature Canvas */}
             <div style={{ marginBottom: '6px' }}>
-            </div>
-
-            {/* Date Field */}
-            <div style={{ marginBottom: '16px' }}>
-              <label>Date</label>
-              <input
-                type="date"
-                name="chhaSignatureDate"
-                defaultValue={new Date().toISOString().split('T')[0]}
-                required
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  borderRadius: '6px',
-                  border: '1px solid #d1d5db',
-                }}
-              />
             </div>
           </div>
         );
@@ -2358,57 +2715,109 @@ const formContainerStyle = {
               whiteSpace: 'pre-wrap',
               marginBottom: '24px',
             }}>
-              <p>
-                This Agreement is between E Neighbor Home Care and the Homemaker Home Health Aide (HHHA). It outlines terms including scope of services, compliance with regulations (HIPAA, etc.), shift policies, liability waivers, exclusivity, at-will employment, and behavioral expectations.{"\n\n"}
+            <p>Parties to this agreement are E Neighbor Home Care and the individual (&ldquo;Homemaker Home Health Aide&rdquo; or &ldquo;HHHA&rdquo;) whose signatures appear below and who for full consideration, given and received, each intending to be legally bound, agree with one another as follows:</p>
+            <ol>
+            <li>The scope of home care services for E Neighbor Home Care the HHHA may perform when placed with patient/client has been explained to Homemaker Home Health Aide (See Job Description on Page 3 below). HHHA agrees s/he will follow all E Neighbor Home Care requirements, as well as all Federal and State rules and regulations (e.g. HIPPAA requirements and all other requirements noted in the Employee Handbook) in providing home care to E Neighbor Home Care patients/clients, including regular communication with the Office and participating in training exercises.</li>
+            <ul style={{marginTop: '14px', marginBottom: '14px'}}>
+            <li>E Neighbor Home Care assigns Home Health Aides for personal care, companionship, and homemaking services. HHHAs must give 24-hour notice for schedule changes and cannot leave assignments without company instructions, except for approved appointments or errands. They cannot take patients off the premises without permission.</li>
+            </ul>
+            <li>HHHA agrees to call in and out using patient&rsquo;s/client&rsquo;s home phone at start/end of each shift and complete a weekly time sheet and activity log of the total hours worked and duties performed. The HHHA will have the timesheet/ activity log signed by the patient/client. Any changes in scheduling, patient/client needs, or necessary work arrangements should be reported E Neighbor Home Care .The time sheets/activity logs are to be e-mailed to E Neighbor Home Care at the close of each weekly assignment. Live-in workers agree to accept room and board offered at the work site as part of their compensation package.</li>
+            <li>For and in consideration of benefits received, HHHA agrees to release E Neighbor Home Care and their officers, directors, employees, all patients/clients and any third party(s) from any and all potential or actual claims, liability, loss and/or damages incurred or claimed to be associated with this Agreement including all services to patients/clients, excepting gross negligence only.</li>
 
-                HHHA agrees to:{"\n"}
-                - Follow E Neighbor Home Care’s protocols and training requirements.{"\n"}
-                - Call in/out via client’s home phone and submit accurate logs.{"\n"}
-                - Accept liability release clauses and exclusivity clause (3 years).{"\n"}
-                - Accept at-will employment and property return policy.{"\n"}
-                - Abide by standards on fraud prevention, conflict of interest, attire, electronic use, smoking, illness reporting, and guest restrictions.{"\n"}
-                - Understand this agreement is governed by NJ law and can only be amended in writing.{"\n\n"}
+            <li>HHHA agrees to work with patients/clients only through E Neighbor Home Care with referral and placement, starting and stopping services at the direction of E Neighbor Home Care .If services are stopped for any reason Homemaker home health Aide agrees to leave the patient&rsquo;s/client&rsquo;s care and home and not work with that patient/client in any way other than with E Neighbor Home Care for a period of three (3) years. HHHA understands that it is illegal for me to transfer or attempt to transfer any case to another Agency or take ownership of any job that HHHA is employed in.</li>
+            <li>Employment with E Neighbor Home Care is temporary and at-will, and can be terminated at any time by either party. There is no guarantee of hours, type of work, conditions, or duration of employment. E Neighbor Home Care can change policies, compensation, and conditions without notice. Upon termination, the Home Health Aide must return all company property and confidential information.</li>
+            <li>Homemaker Home Health Aide also agrees (to):
+            <ol style={{marginTop: '14px', marginBottom: '14px'}}>
+            <li>All services provided to patients shall be in accordance the Plan of Care.Further, the services may not be altered in type, scope or duration, except by specific orders (in writing) issued as a result of changes made by the RN.</li>
+            <li>Unless otherwise stated, live in Home Health Aides&rsquo; schedule will generally consist of a 16-hour day with three (3) scheduled hour-long breaks per day as outlined on the live in time and activity sheet provided.</li>
+            <li>Follow E Neighbor Home Care's Fraud, Ethics, and Compliance policies, including zero fraud tolerance, respect for patients and their property, and Non-Conflict of Interest/Non-Compete Clauses. Fraud results in immediate dismissal and possible legal action.</li>
+            <li>Not accept monetary or other gifts from patients or family members without the company&rsquo;s explicit approval.</li>
+            <li>Restrict use of electronic devices (cell phone, laptop, tablets, etc) to emergency needs while on duty</li>
+            <li>Not smoke in or too close to the patient&rsquo;s/client&rsquo;s home</li>
+            <li>Not to dispose of ANY items or property belonging to the patients/clients without getting their explicit permission to do so.</li>
+            <li>Guests and visitors are not permitted in the patient&rsquo;s home without the patient&rsquo;s and company&rsquo;s approval.</li>
+            <li>Be responsible for his/her own transportation to and from assignments.</li>
+            <li>Immediately notify E Neighbor Home Care and be prepared to leave the assignment if s/he is experiencing any contagious condition (flu, cold, fever, etc.) and not return until s/he has fully recovered and is symptom free. (A doctor&rsquo;s note may be required).</li>
+            <li>Adhere to E Neighbor Home Care professional attire code (per attachment provided).</li>
+            </ol>
+            Uphold E Neighbor Home Care&rsquo;s standards of excellence, integrity, and respect, and maintain a professional image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; in behavior, appearance, attitude, and decorum at all times.</li>
+            <li>I acknowledge that I have been informed about the New Jersey <em>Consumer&rsquo;s Guide to Homemaker-Home Health Aides</em> published by the New Jersey Board of Nursing which I can read via the internet (<a href="http://www.njconsumeraffairs.gov">njconsumeraffairs.gov</a>) or request hardcopy from E Neighbor Home Care.</li>
+            <li>The parties aim to resolve disputes through mutual and voluntary settlement. If a dispute arises and cannot be settled through negotiation, it will first be submitted to non-binding arbitration by the American Arbitration Association before considering binding arbitration, litigation, or other dispute resolution methods.</li>
+            <li>It is agreed that this agreement shall be governed by, construed and enforced in accordance with the laws of the state of New Jersey.</li>
+            <li>This agreement shall constitute the entire agreement between the parties and any prior understanding of representation of any kind preceding the date of this agreement shall not be binding upon either party except to the extent incorporated in this agreement.</li>
 
-                Prohibited behavior includes, but is not limited to:{"\n"}
-                - Abuse/exploitation of clients, falsification of records, illegal drug/alcohol use, harassment, insubordination, privacy violations.{"\n\n"}
+            <li>Any changes to this agreement must be in writing and signed by both parties or agreed to by email. Failure to follow this agreement, engaging in unprofessional behavior, or actions conflicting with the company's interests (such as unauthorized monetary transactions, arguing with or disrespecting clients or their families, using clients' addresses for personal purposes, or getting involved in clients' personal affairs) can lead to disciplinary actions, including dismissal. E Neighbor Home Care will not tolerate such behavior and may also take disciplinary actions, including dismissal, for any violations</li>
+            <ul style={{marginTop: '14px', marginBottom: '14px'}}>
+            <li>Abuse or exploitation, of any kind, of patient/client, property or family members. Furthermore, Home Health Aides are required to report any observation of abuse, neglect or exploitation of patients/clients.</li>
+            <li>Failure to fulfill requirements of the assignment</li>
+            <li>Failure to advise supervisor of reportable incidents</li>
+            <li>Falsification of Documents (Personal information/Employment record per application or current work)</li>
+            <li>Illegal drug use of any kind and consumption or being under the influence of alcohol while on duty</li>
+            <li>Sexual harassment</li>
+            <li>Excessive tardiness/absenteeism</li>
+            <li>Failure to respect patient&rsquo;s/client&rsquo;s privacy per HIPPAA regulations or to comply with any other regulations</li>
+            <li>Insubordination &nbsp;</li>
+            </ul>
+            </ol>
 
-                Acknowledgment of the NJ Consumer’s Guide and arbitration clause are included. This is the entire binding agreement.
-              </p>
+            <p>I have read and understand this Agreement; by signing and printing my name here I agree to be bound by it.&nbsp;&nbsp;&nbsp;&nbsp;</p>
             </div>
 
-            {/* Employee Name & Signature */}
-            <div style={{ marginBottom: '16px' }}>
-              <label>Employee Print Name</label>
-              <input
-                type="text"
-                name="hhhaEmployeeName"
-                required
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  borderRadius: '6px',
-                  border: '1px solid #d1d5db',
-                  marginBottom: '8px',
-                }}
-              />
-            </div>
 
-            {/* Employee Date Field */}
-            <div style={{ marginBottom: '16px' }}>
-              <label>Date (Employee)</label>
-              <input
-                type="date"
-                name="hhhaEmployeeDate"
-                defaultValue={new Date().toISOString().split('T')[0]}
-                required
-                style={{
-                  width: '100%',
-                  padding: '8px',
-                  borderRadius: '6px',
-                  border: '1px solid #d1d5db',
-                }}
-              />
-            </div>
+              {/* Full Name */}
+              <div style={{ marginBottom: '6px' }}>
+                    <div style={inputGroupStyle}>
+                      <label style={labelStyle}>
+                        Employee Name <span style={{ color: 'red' }}>*</span>
+                      </label>
+
+                      <input
+                        type="text"
+                        name="hhhaEmployeeName"
+                        value={formData.hhhaEmployeeName}
+                        onChange={handleChange}
+                        style={{
+                          width: '30%',
+                          padding: '14px',
+                          border: '2px solid',
+                          borderColor: validationErrors.hhhaEmployeeName ? '#dc2626' : '#d1d5db',
+                          borderRadius: '6px',
+                          fontSize: '14px',
+                        }}
+                      />
+
+                      {validationErrors.hhhaEmployeeName && (
+                        <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                          This field is required.
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+              {/* Date */}
+              <div style={{ marginBottom: '42px' }}>
+                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                  Date <span style={{ color: 'red' }}>*</span>
+                </label>
+                <input
+                  type="date"
+                  name="hhhaEmployeeDate"
+                  value={formData.hhhaEmployeeDate}
+                  onChange={handleChange}
+                  style={{
+                    padding: '8px',
+                    border: '2px solid',
+                    borderColor: validationErrors.hhhaEmployeeDate ? '#dc2626' : '#d1d5db',
+                    borderRadius: '6px',
+                    fontSize: '14px'
+                  }}
+                />
+                {validationErrors.hhhaEmployeeDate && (
+                  <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                    This field is required.
+                  </p>
+                )}
+              </div>
           </div>
         );
 
@@ -2433,63 +2842,161 @@ const formContainerStyle = {
                 whiteSpace: 'pre-wrap',
                 marginBottom: '24px',
               }}>
-                <p>
-                  The Employee Handbook contains important information about the Agency, and I understand that I should consult the Agency’s CEO or my supervisor regarding any questions not answered in the handbook.{"\n\n"}
-                  I have entered into my employment relationship with the Agency voluntarily as an at-will employee and understand that there is no specified length of employment. Accordingly, either the Agency or I can terminate the relationship at will, at any time, with or without cause, and with or without advance notice.{"\n\n"}
-                  Since the information, policies, and benefits described herein are subject to change at any time, and I acknowledge that revisions to the handbook may occur. All such changes will generally be communicated through official notices, and I understand that revised information may supersede, modify, or eliminate existing policies.{"\n\n"}
-                  Furthermore, I understand that this handbook is neither a contract of employment nor a legally binding employment agreement. I have had an opportunity to read the handbook, and I understand that I may ask my supervisor any questions I might have concerning the handbook. I accept the terms of the handbook. I also understand that it is my responsibility to comply with the policies contained in this handbook and any revisions made to it.{"\n\n"}
-                  I further agree that if I remain with the Agency following any modifications to the handbook, I hereby accept and agree to such changes.{"\n\n"}
-                  I understand that I am obligated to read the entire handbook and comply with E Neighbor Homecare LLC Policies and Procedures as outlined in this handbook.
-                </p>
+                <p>The Employee Handbook contains important information about the Agency, and I understand that I should consult the Agency&rsquo;s CEO or my supervisor, regarding any questions not answered in the handbook. I have entered into my employment relationship with the Agency voluntarily as an at-will employee and understand that there is no specified length of employment. Accordingly, either the Agency or I can terminate the relationship at will, at any time, with or without cause, and with or without advance notice.</p>
+                <p>&nbsp;</p>
+                <p>Since the information, policies, and benefits described herein are subject to change at any time, and I acknowledge that revisions to the handbook may occur. All such changes will generally be communicated through official notices, and I understand that revised information may supersede, modify, or eliminate existing policies. Only the CEO of the Agency has the ability to adopt any revisions to the policies in this handbook.</p>
+                <p>&nbsp;</p>
+                <p>Furthermore, I understand that this handbook is neither a contract of employment nor a legally binding employment agreement. I have had an opportunity to read the handbook, and I understand that I may ask my supervisor any questions I might have concern the handbook. I accept the terms of the handbook. I also understand that it is my responsibility to comply with the policies contained in this handbook and any revisions made to it.</p>
+                <p>&nbsp;</p>
+                <p>I further agree that if I remain with the Agency following any modifications to the handbook, I hereby accept and agree to such changes.</p>
+                <p></p>
+                <p>I understand that I am obligated to read the entire handbook and comply with E Neighbor Homecare LLC. Policies and Procedures as outlined in this handbook.</p>
+                <p>&nbsp;</p>
               </div>
-
-              {/* Acknowledgment checkboxes */}
-              <div style={{ marginBottom: '16px' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <input type="checkbox" required />
-                  I have received a hard copy of the Employee Handbook on the date listed below.
-                </label>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '8px' }}>
-                  <input type="checkbox" required />
-                  I have received an electronic copy of the Employee Handbook on the date listed below.
-                </label>
-              </div>
+              
+               {/* Acknowledgment Checkbox */}
+                <FormControl
+                  required
+                  error={!!validationErrors.handbookAgreement1}
+                  component="fieldset"
+                  sx={{ mb: 3 }}
+                >
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="handbookAgreement1"
+                          checked={formData.handbookAgreement1}
+                          onChange={handleChange}
+                          sx={{
+                            ml: '8px',
+                            mr: '4px',
+                            p: 0,
+                            color: validationErrors.handbookAgreement1 ? '#dc2626' : '#d1d5db',
+                            '&.Mui-checked': {
+                              color: validationErrors.handbookAgreement1 ? '#dc2626' : '#4f46e5',
+                            },
+                          }}
+                        />
+                      }
+                      label={
+                        <span
+                          style={{
+                            fontFamily: 'Inter, sans-serif',
+                            fontSize: '14px',
+                            color: validationErrors.handbookAgreement1 ? '#dc2626' : '#374151',
+                          }}
+                        >
+                            I have received a hard copy of the Employee Handbook on the date listed below.                          
+                          <span style={{ color: '#dc2626' }}> *</span>
+                        </span>
+                      }
+                    />
+                  </FormGroup>
+                  {validationErrors.handbookAgreement1 && (
+                    <FormHelperText sx={{ml: '0px', color:'#dc2626'}}>This field is required.</FormHelperText>
+                  )}
+                </FormControl>
+                <FormControl
+                  required
+                  error={!!validationErrors.handbookAgreement2}
+                  component="fieldset"
+                  sx={{ mb: 3 }}
+                >
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          name="handbookAgreement2"
+                          checked={formData.handbookAgreement2}
+                          onChange={handleChange}
+                          sx={{
+                            ml: '8px',
+                            mr: '4px',
+                            p: 0,
+                            color: validationErrors.handbookAgreement2 ? '#dc2626' : '#d1d5db',
+                            '&.Mui-checked': {
+                              color: validationErrors.handbookAgreement2 ? '#dc2626' : '#4f46e5',
+                            },
+                          }}
+                        />
+                      }
+                      label={
+                        <span
+                          style={{
+                            fontFamily: 'Inter, sans-serif',
+                            fontSize: '14px',
+                            color: validationErrors.handbookAgreement2 ? '#dc2626' : '#374151',
+                          }}
+                        >
+                          I have received an electronic copy of the Employee Handbook on the date listed below.
+                          <span style={{ color: '#dc2626' }}> *</span>
+                        </span>
+                      }
+                    />
+                  </FormGroup>
+                  {validationErrors.handbookAgreement2 && (
+                    <FormHelperText sx={{ml: '0px', color:'#dc2626'}}>This field is required.</FormHelperText>
+                  )}
+                </FormControl>
 
               {/* Signature */}
               <div style={{ marginBottom: '16px' }}>
               </div>
 
+              {/* Full Name */}
+              <div style={{ marginBottom: '6px' }}>
+                    <div style={inputGroupStyle}>
+                      <label style={labelStyle}>
+                        Employee Name <span style={{ color: 'red' }}>*</span>
+                      </label>
+
+                      <input
+                        type="text"
+                        name="handbookPrintedName"
+                        value={formData.handbookPrintedName}
+                        onChange={handleChange}
+                        style={{
+                          width: '30%',
+                          padding: '14px',
+                          border: '2px solid',
+                          borderColor: validationErrors.handbookPrintedName ? '#dc2626' : '#d1d5db',
+                          borderRadius: '6px',
+                          fontSize: '14px',
+                        }}
+                      />
+
+                      {validationErrors.handbookPrintedName && (
+                        <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                          This field is required.
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
               {/* Date */}
-              <div style={{ marginBottom: '16px' }}>
-                <label>Date</label>
+              <div style={{ marginBottom: '42px' }}>
+                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                  Date <span style={{ color: 'red' }}>*</span>
+                </label>
                 <input
                   type="date"
                   name="handbookDate"
-                  defaultValue={new Date().toISOString().split('T')[0]}
-                  required
+                  value={formData.handbookDate}
+                  onChange={handleChange}
                   style={{
-                    width: '100%',
                     padding: '8px',
+                    border: '2px solid',
+                    borderColor: validationErrors.handbookDate ? '#dc2626' : '#d1d5db',
                     borderRadius: '6px',
-                    border: '1px solid #d1d5db',
+                    fontSize: '14px'
                   }}
                 />
-              </div>
-
-              {/* Printed Name */}
-              <div style={{ marginBottom: '16px' }}>
-                <label>Printed Employee Name</label>
-                <input
-                  type="text"
-                  name="handbookPrintedName"
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '8px',
-                    borderRadius: '6px',
-                    border: '1px solid #d1d5db',
-                  }}
-                />
+                {validationErrors.handbookDate && (
+                  <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+                    This field is required.
+                  </p>
+                )}
               </div>
             </div>
           );
