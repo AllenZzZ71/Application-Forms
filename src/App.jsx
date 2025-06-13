@@ -62,7 +62,7 @@ const translations = {
     emergencyAddress: "Address",
 
     disclaimer: "Disclaimer & Agreement",
-    disclaimerText: "I certify that my answers are true and complete to the best of my knowledge. If this application leads to employment, I understand that false or misleading information may result in my release.",
+    disclaimerText: "By signing below, I acknowledge that I have read, understood, and agreed to all the information, policies, attestations, and consents provided in this employment application. I affirm that all answers and information I have provided throughout this application are true and complete to the best of my knowledge. I understand that this signature applies to and affirms all prior acknowledgments, agreements, disclosures, and forms included in this document. I further acknowledge that my electronic signature has the same legal effect and enforceability as a handwritten signature, and I consent to signing this application electronically in accordance with the U.S. Electronic Signatures in Global and National Commerce (E-SIGN) Act.",
     agreeCheckbox: "I agree to the above terms.",
 
     employeeApplication: "Employee Application",
@@ -82,6 +82,64 @@ const translations = {
     fullTime: "Full-time",
     partTime: "Part-time",
     temporary: "Temporary",
+
+    employeeName: "Employee Name",
+    generalDate: "Date",
+
+    backgroundCheckText: (<> <p><strong><u>Notice</u></strong></p>
+            <p>The E Neighbor Homecare LLC provides notice that background checks will be performed for employment with the E Neighbor Homecare LLC. The background checks include but are not limited to:</p>
+            <ol>
+            <li>Criminal Background checks</li>
+            <li>Sex Offenders</li>
+            <li>Office of Inspector General (OIG)</li>
+            <li>System for Award Management (SAM)</li>
+            </ol>
+            <p>&nbsp;</p>
+            <p><strong><u>Authorization</u></strong></p>
+            <p>I hereby authorize E Neighbor Homecare LLC to conduct the background checks described above. In connection with this, I also authorize the use of law enforcement agencies and/or private criminal background check organizations to assist E Neighbor Homecare LLC .in collecting this information.&nbsp;</p>
+            <p>I also am aware that records of arrests on pending charges and/or convictions are not an absolute bar to employment. Such information will be used to determine whether the results of the background check reasonably bear on my trustworthiness or my ability to perform the duties of my position in a manner that is safe for E Neighbor Homecare LLC .</p>
+            <p>&nbsp;</p>
+            <p><strong><u>Attestation </u></strong></p>
+            <p>To the best of my knowledge, the information provided in this Notice and Authorization and any attachments is true and complete. I understand that any falsification or omission of information may disqualify me for this position and/or may serve as grounds for the severance of my employment with E Neighbor Homecare LLC. By signing below, I hereby provide my authorization to E Neighbor Homecare LLC to conduct a criminal background checks, and I acknowledge that I have been informed of a summary of my rights under the Fair Credit Reporting Act. In addition to those rights, I understand that I have a right to appeal an adverse employment decision made based on my background check information within three business days of receipt of such notice and that a determination on my appeal will be made in seven working days from E Neighbor Homecare LLC receipt of such appeal.</p>
+         </> ),
+    backgroundCheckConfirm: "I have read and agree to the terms above regarding the background check.",
+    backgroundCheckTitle: "Background Check Notice and Authorization",
+
+    confidentialityTitle: "Confidentiality and Non-Disclosure Agreement",
+    confidentialityText:(<>
+            <p>This HIPAA (employee) non-disclosure agreement (the &ldquo;Agreement&rdquo;) is made between E Neighbor Homecare LLC and __ ____________ (employee). The Agreement is intended to prevent the unauthorized disclosure of Confidential Information (as defined below) by Employee. The parties agree as follows:</p>
+            <strong>1. Personal Health Information</strong>
+            <p>During the course of employment, employees may have access to personal health information ('"PHI") relating to clients or patients of E Neighbor Homecare LLC. PHI may consist of medical records, billing, financial records, or any individually identifiable health information. PHI is protected by the Health Insurance Portability and Accountability Act ("HIPAA"). HIPAA permits access to PHI on a "need to know" basis. Therefore, unless authorization has been granted, any intentional accessing of PHI, or circumvention of PHI security protocols, is prohibited.</p>
+            <p>&nbsp;<strong>I agree to abide by the following HIPAA privacy &amp; security rules:</strong></p>
+            <ul>
+            <li>Following the &ldquo;minimum necessary disclosure standard&rdquo; protocol when using or disclosing routine protected health information.</li>
+            <li>Accessing only patient information for which you have been given authorization, including computer and hard copy</li>
+            <li>Only logging on using the assigned user ID and only logging on to one computer at a time. If assigned a laptop or other electronic device that contains confidential information, keep the equipment secure at all times.</li>
+            <li>Practicing confidentiality and heightened sensitivity to the use of identifiable health information used in daily business practice.</li>
+            <li>Not engaging in the disclosure of patient information except for treatment, payment, and/or operation purposes.</li>
+            <li>Responding to patient requests for their personal records using the practice&rsquo;s protocol.</li>
+            <li>Referring violations of the HIPAA Rules by Business Associates directly to the practice&rsquo;s designated Privacy Officer.</li>
+            <li>Reporting any inadvertent access to PHI that should not have been accessed.</li>
+            <li>Attending initial HIPAA training and any additional training offered by the practice for any revisions to the federal/state HIPAA regulations and/or significant changes made by the practice to the Privacy &amp; Security Policy.</li>
+            <li>Not downloading or installing games, data or software without prior approval from the Administrator/CEO.</li>
+            <li>Creating a unique password that is difficult to guess and changing it regularly as requested.</li>
+            <li>Shredding all confidential data prior to discarding (including phone messages from patients, etc.).</li>
+            <li>Following the E Neighbor Homecare LLC Privacy and Confidentially Policies and Procedures.</li>
+            </ul>
+            <strong>2. Confidential Information</strong>
+            <p>Confidential Information" consists of PHI as well as proprietary information relating to E Neighbor Homecare LLC business, including but not limited to: medical and financial records, revenues, identification and account numbers and names, PINs, and passwords, or other information conveyed in writing or in a discussion that is indicated to be confidential.</p>
+            <strong>3. Non-Disclosure</strong>
+            <p>Without E Neighbor Homecare LLC prior written consent, the employee will not:&nbsp;(a) disclose Confidential Information to any third party, whether electronically, orally, or in writing;&nbsp;(b)&nbsp;make or permit to be made copies or other reproductions of Confidential Information;&nbsp;(c) make any use of Confidential Information; or (d) use or disclose Confidential Information in violation of applicable law, including but not limited to HIPAA.</p>
+            <strong>4. Returu of Confidential Materials</strong>
+            <p>Upon E Neighbor Homecare LLC's request, employee shall immediately return all original materials provided by E Neighbor Homecare LLC and any copies, notes, or other documents in employee's possession pertaining to Confidential Information.</p>
+            <strong>5. Term</strong>
+            <p>The non-disclosure terms of this Agreement shall survive any termination, cancellation, expiration or other conclusions of employment (or this Agreement) unless the parties otherwise expressly agree in writing or E Neighbor Homecare LLC sends employee written notice releasing it from this Agreement.</p>
+            <strong>6. Notico of Immunity From Liability</strong>
+            <p>An individual shall not be held criminally or civilly liable under any federal or state trade secret law for the disclosure of a trade secret that is made (i) in confidence to a federal, state, or local government official, either directly or indirectly, or to an attorney; and (ii) solely for the purpose of reporting or investigating a suspected violation of law; or is made in a complaint or other document filed in a lawsuit or other proceeding, if such filing is made under seal. An individual who files a lawsuit for retaliation by an employer for reporting a suspected violation of law may disclose the trade secret to the attorney of the individual and use the trade secret information in the court proceeding if the individual (i) files any document containing the trade secret under seal; and (ii) does not disclose the trade secret, except pursuant to a court order.</p>
+            <strong>7.General Provisions</strong>
+            <p><strong>(a)&nbsp;Relationships</strong>.&nbsp;Nothing contained in this Agreement shall be deemed to constitute either party a partner, joint venturer, or employee of the other party for any purpose.<br /> <strong>(b)&nbsp;Severability.</strong>&nbsp;If a court finds any provision of this Agreement invalid or unenforceable, the remainder of this Agreement shall be interpreted so as to best effect the intent of the parties.<br /> <strong>(c)&nbsp;Integration.</strong>&nbsp;This Agreement expresses the complete understanding of the parties with respect to the subject matter and supersedes all prior proposals, agreements, representations, and understandings. This Agreement may not be amended except in writing and signed by both parties.<br /> <strong>(d)&nbsp;Waiver.</strong>&nbsp;The failure to exercise any right provided in this Agreement shall not be a waiver of prior or subsequent rights.<br /> <strong>(e)&nbsp;Injunctive Relief.</strong>&nbsp;Any misappropriation of Confidential Information in violation of this Agreement may cause E Neighbor Homecare LLC irreparable harm, the amount of which may be difficult to ascertain, and therefore employee agrees that E Neighbor Homecare LLC shall have the right to apply to a court of competent jurisdiction for an order enjoining any such further misappropriation and for such other relief as E Neighbor Homecare LLC deems appropriate. This right of E Neighbor Homecare LLC is to be in addition to the remedies otherwise available to E Neighbor Homecare LLC.<br /> <strong>(f)&nbsp;Attorney Fees and Expenses</strong>. In a dispute arising out of or related to this Agreement, the prevailing party shall have the right to collect from the other party its reasonable attorney fees and costs and necessary expenditures.<br /> <strong>(g)&nbsp;Governing Law.</strong>&nbsp;This Agreement shall be governed in accordance with the laws of the State in which the E Neighbor Homecare LLC business is located.<br /> <strong>(h)&nbsp;Jurisdiction</strong>. The parties consent to the exclusive jurisdiction and venue of the federal and state courts in any action arising out of or relating to this Agreement. The parties waive any other venue to which either party might be entitled by domicile or otherwise.</p>    
+    </>),
+    confidentialityConfirm: "I have read and agree to the confidentiality and non-disclosure agreement above.",
 
   },
   zh: {
@@ -144,7 +202,7 @@ const translations = {
     emergencyAddress: "地址",
 
     disclaimer: "免责声明与同意条款",
-    disclaimerText: "我保证上述所填信息真实、完整。如有虚假或误导信息，将可能导致我的雇佣关系被终止。",
+    disclaimerText: "在下方签名即表示我已阅读、理解并同意本就业申请中提供的所有信息、政策、声明及同意内容。我确认在整个申请过程中所提供的所有答案与信息，均在我所知范围内真实且完整。我理解，此签名适用于并确认本文件中包含的所有先前声明、协议、披露内容及表格。我进一步确认，我的电子签名具有与手写签名同等的法律效力和可执行性，并同意根据《美国全球与国家商业电子签名法案（E-SIGN 法案）》以电子方式签署本申请。",
     agreeCheckbox: "我同意上述条款。",
 
     employeeApplication: "员工申请表",
@@ -164,6 +222,88 @@ const translations = {
     fullTime: "全职",
     partTime: "兼职",
     temporary: "临时",
+
+    employeeName: "申请人姓名",
+    generalDate: "日期",
+
+    backgroundCheckText: (
+      <>
+        <p><strong><u>通知</u></strong></p>
+        <p>E Neighbor Homecare LLC 特此通知：在申请加入 E Neighbor Homecare LLC 期间，将进行背景调查。此类背景调查包括但不限于：</p>
+        <ol>
+          <li>犯罪背景调查</li>
+          <li>性犯罪者记录查询</li>
+          <li>联邦监察总署（OIG）记录查询</li>
+          <li>联邦合同与资助系统（SAM）记录查询</li>
+        </ol>
+
+        <p><strong><u>授权</u></strong></p>
+        <p>本人特此授权 E Neighbor Homecare LLC 进行上述背景调查。为此，我也授权执法机构和/或私人背景调查机构协助 E Neighbor Homecare LLC 收集相关信息。</p>
+        <p>我明白，逮捕记录、待决指控和/或定罪记录并不自动构成就业障碍。此类信息将用于判断背景调查结果是否与我履行职责的可信度或安全性有合理关系。</p>
+
+        <p><strong><u>声明</u></strong></p>
+        <p>据我所知，此通知及授权书以及所附文件中提供的信息真实且完整。我理解，任何虚假陈述或遗漏信息都可能导致我失去该职位，或成为终止我与 E Neighbor Homecare LLC 雇佣关系的依据。</p>
+        <p>通过下方签名，我授权 E Neighbor Homecare LLC 进行犯罪背景调查，并确认我已被告知《公平信用报告法案》（Fair Credit Reporting Act）所赋予的权利概要。</p>
+        <p>此外，我理解：如因背景调查结果导致负面就业决定，我有权在收到通知后三个工作日内提出申诉，E Neighbor Homecare LLC 将在收到申诉后七个工作日内作出决定。</p>
+      </>
+    ),
+    backgroundCheckConfirm: "我已阅读并同意上述有关背景调查的条款。",
+    backgroundCheckTitle: "背景调查通知与授权",
+
+    confidentialityTitle: "保密与不披露协议",
+    confidentialityText: (
+  <>
+    <p>本 HIPAA（员工）保密协议（以下简称“协议”）由 E Neighbor Homecare LLC 与 __ ____________（员工）签署，旨在防止员工未经授权披露机密信息（定义见下文）。双方同意如下条款：</p>
+
+    <strong>1. 个人健康信息</strong>
+    <p>在雇佣期间，员工可能会接触到与 E Neighbor Homecare LLC 客户或病人相关的个人健康信息（“PHI”）。PHI 可能包括病历、账单、财务记录或任何可识别个人身份的健康信息。PHI 受《健康保险可携性与责任法案》（“HIPAA”）保护。HIPAA 仅允许在“有必要知情”情况下访问 PHI。因此，除非获得授权，任何故意访问 PHI 或绕过 PHI 安全协议的行为均被禁止。</p>
+
+    <p><strong>我同意遵守以下 HIPAA 隐私与安全规则：</strong></p>
+    <ul>
+      <li>在使用或披露常规受保护健康信息时遵循“最低必要披露标准”。</li>
+      <li>仅访问您被授权的患者信息，包括电子版和纸质版本。</li>
+      <li>仅使用分配给您的用户 ID 登录，并且一次仅登录一台设备。若获得配发的笔记本或其他含机密信息的设备，须始终保持其安全。</li>
+      <li>在日常工作中保持对身份可识别健康信息的保密性与敏感性。</li>
+      <li>除用于治疗、支付或运营目的外，不得披露病人信息。</li>
+      <li>按照机构流程响应患者对其个人记录的请求。</li>
+      <li>将商业伙伴违反 HIPAA 的行为上报给指定隐私官。</li>
+      <li>报告任何意外访问了不应访问的 PHI 情况。</li>
+      <li>参加初始 HIPAA 培训，以及机构就联邦/州 HIPAA 法规修订或机构隐私与安全政策变更所提供的后续培训。</li>
+      <li>未经管理员/首席执行官批准，不得下载或安装游戏、数据或软件。</li>
+      <li>设置复杂的唯一密码，并按要求定期更改。</li>
+      <li>销毁所有机密资料（包括电话留言等）前必须粉碎。</li>
+      <li>遵守 E Neighbor Homecare LLC 的隐私与保密政策及流程。</li>
+    </ul>
+
+    <strong>2. 机密信息</strong>
+    <p>“机密信息”包括 PHI 以及 E Neighbor Homecare LLC 的业务专有信息，包括但不限于：医疗和财务记录、收入、识别号、账户名、PIN 和密码，或以书面或口头形式明确表示为机密的信息。</p>
+
+    <strong>3. 保密义务</strong>
+    <p>未经 E Neighbor Homecare LLC 事先书面同意，员工不得：(a) 向任何第三方披露机密信息（无论以电子、口头或书面形式）；(b) 复制或允许复制机密信息；(c) 使用机密信息；或 (d) 以违反法律（包括 HIPAA）规定的方式使用或披露机密信息。</p>
+
+    <strong>4. 返还机密资料</strong>
+    <p>应 E Neighbor Homecare LLC 要求，员工须立即归还所有原始材料以及与机密信息相关的副本、笔记和文件。</p>
+
+    <strong>5. 协议期限</strong>
+    <p>本协议的保密条款在雇佣终止、取消、到期或其他结束情形后继续有效，除非双方另有书面协议或 E Neighbor Homecare LLC 书面通知解除义务。</p>
+
+    <strong>6. 免责通知</strong>
+    <p>若个人因举报涉嫌违法行为而向联邦、州或地方政府官员或律师披露商业秘密，不应因违反任何商业秘密法律而承担民事或刑事责任。此外，若因举报行为遭雇主报复提起诉讼，个人可将商业秘密提供给律师并用于法律程序，前提是：(i) 所含商业秘密的文件以密封形式提交；(ii) 除法院命令外不予披露。</p>
+
+    <strong>7. 一般条款</strong>
+    <p>
+      <strong>(a) 合作关系：</strong>本协议任何条款均不得视为双方构成合作、合资或雇佣关系。<br />
+      <strong>(b) 可分割性：</strong>若协议某条被判无效，其余部分仍有效并尽可能实现双方原意。<br />
+      <strong>(c) 完整协议：</strong>本协议为双方对该主题完整的理解，替代先前所有协议与陈述。任何修改必须书面并由双方签署。<br />
+      <strong>(d) 权利放弃：</strong>未行使权利不构成对该权利的放弃。<br />
+      <strong>(e) 禁令救济：</strong>若员工违反本协议泄露机密信息，E Neighbor 有权申请法院禁令救济及其他补偿。<br />
+      <strong>(f) 律师费用：</strong>与本协议有关的法律争议中，胜诉方可要求赔偿合理律师费用与支出。<br />
+      <strong>(g) 适用法律：</strong>本协议适用 E Neighbor Homecare LLC 所在州法律。<br />
+      <strong>(h) 管辖权：</strong>双方同意将因本协议产生的争议提交至有管辖权的联邦或州法院，并放弃其他可能 venue 的权利。
+    </p>
+  </>
+),
+  confidentialityConfirm: "我已阅读并同意上述保密与不披露协议。",
 
   },
 };
@@ -303,6 +443,7 @@ const ProgressBar = ({ currentPage, totalPages }) => {
 };
 
 const App = () => {
+  let isSignatureMissing = null;
   const sigRef = useRef();
   const [currentPage, setCurrentPage] = useState(1);
   const today = new Date().toISOString().split('T')[0];
@@ -457,11 +598,63 @@ const App = () => {
     receivedHandbookHardcopy: false,
     receivedHandbookElectronic: false,
     signatureHandbook: "",
+
+     // Page 17 - TB Annual Screening Questionnaire
+  tbQ1: "",
+  tbQ2: "",
+  tbQ3: "",
+  tbQ4: "",
+  tbQ5: "",
+  tbQ6: "",
+  tbQ7: "",
+  tbQ8: "",
+  tbQ9: "",
+  tbQ10: "",
+  tbContact: "",
+  tbOtherComplaints: "",
+  tbOtherExplain: "",
+  tbName: "",
+  tbDate: new Date().toISOString().split("T")[0],
+
+  // Page 18 - Hepatitis B Vaccine Form
+  hepbDecision: "",
+  hepbEmpName: "",
+  hepbEmpDate: new Date().toISOString().split("T")[0],
+
+  // Page 19 - OSHA Introduction
+  oshaSignature: "",
+  oshaDate: new Date().toISOString().split("T")[0],
+
+  // Page 20 - Exposure Classification
+  exposureCategory: "",
+  exposureSignature: "",
+  exposureDate: new Date().toISOString().split("T")[0],
+
+  // Page 21 - Horizon Criminal History Background Check
+  horizonQ1: "",
+  horizonQ2: "",
+  horizonQ3: "",
+  horizonQ4: "",
+  horizonQ5: "",
+  horizonQ6: "",
+  horizonQ7: "",
+  horizonName: "",
+  horizonDate: new Date().toISOString().split("T")[0],
+
+  // Page 22 - Hepatitis B Consent/Declination
+  hepbConsentChoice: "",
+  hepbExclusionPrevSeries: false,
+  hepbExclusionImmune: false,
+  hepbExclusionMedical: false,
+  hepbExclusionLowRisk: false,
+  hepbConsentSignature: "",
+  hepbConsentName: "",
+  hepbConsentDate: new Date().toISOString().split("T")[0],
   });
   const [validationErrors, setValidationErrors] = useState({});
   const [focusedInput, setFocusedInput] = useState(null);
 
-  const totalPages = 17; // previously 4
+  const totalPages = 21; // previously 4
 
   const formatSSN = (value) => {
     const cleaned = value.replace(/\D/g, '').slice(0, 9); // only digits, max 9
@@ -486,7 +679,13 @@ const App = () => {
 
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
-    const newValue = type === 'checkbox' ? checked : value;
+    let newValue = type === 'checkbox' ? checked : value;
+
+      if (name === 'ssn') {
+        newValue = formatSSN(value);
+      } else if (name === 'phone' || name === 'emergencyPhone' || name.startsWith('prevPhone') || name === 'ref1Phone' || name === 'ref2Phone') {
+        newValue = formatPhone(value);
+      }
 
     setFormData((prev) => ({
       ...prev,
@@ -509,18 +708,41 @@ const App = () => {
 
   const validateCurrentPage = () => {
   const requiredFieldsByPage = {
-    6: ['backgroundCheckName', 'agreeBackgroundCheck'],
-    7: ['confidentialityEmployeeName', 'confidentialityDate', 'agreeConfidentiality'],
-    8: ['policyTrainingName', 'policyTrainingDate', 'agreePolicyTraining'],
-    9: ['conflictName', 'conflictDate', 'conflictQ1', 'conflictQ2', 'conflictQ3', 'conflictQ4', 'agreeConflict1', 'agreeConflict2'],
-    10: ['ethicsName', 'ethicsDate', 'ethicsAgreement'],
-    11: ['driverName', 'driverDate'],
-    12: ['drugFreeName', 'drugFreeDate'],
-    13: ['drugConsentName', 'drugConsentDate'],
-    14: ['chhaEmployeeName', 'chhaSignatureDate'],
-    15: ['hhhaEmployeeName', 'hhhaEmployeeDate'],
-    16: ['handbookPrintedName', 'handbookDate', 'handbookAgreement1', 'handbookAgreement2'],
+    5: ['backgroundCheckName', 'agreeBackgroundCheck'],
+    6: ['confidentialityEmployeeName', 'confidentialityDate', 'agreeConfidentiality'],
+    7: ['policyTrainingName', 'policyTrainingDate', 'agreePolicyTraining'],
+    8: [
+      'conflictName', 'conflictDate',
+      'conflictQ1', 'conflictQ2', 'conflictQ3', 'conflictQ4',
+      'agreeConflict1', 'agreeConflict2'
+    ],
+    9: ['ethicsName', 'ethicsDate', 'ethicsAgreement'],
+    10: ['driverName', 'driverDate'],
+    11: ['drugFreeName', 'drugFreeDate'],
+    12: ['drugConsentName', 'drugConsentDate'],
+    13: ['chhaEmployeeName', 'chhaSignatureDate'],
+    14: ['hhhaEmployeeName', 'hhhaEmployeeDate'],
+    15: ['handbookPrintedName', 'handbookDate', 'handbookAgreement1', 'handbookAgreement2'],
+    16: [
+      'tbQ1', 'tbQ2', 'tbQ3', 'tbQ4', 'tbQ5',
+      'tbQ6', 'tbQ7', 'tbQ8', 'tbQ9', 'tbQ10',
+      'tbContact', 'tbOtherComplaints',
+      'tbName', 'tbDate'
+    ],
+    17: [
+      'hepbConsentChoice',
+      'hepbConsentName', 'hepbConsentDate'
+      // exclusion checkboxes are optional
+    ],
+    18: ['oshaSignature', 'oshaDate'],
+    19: ['exposureCategory', 'exposureSignature', 'exposureDate'],
+    20: [
+      'horizonQ1', 'horizonQ2', 'horizonQ3', 'horizonQ4',
+      'horizonQ5', 'horizonQ6', 'horizonQ7',
+      'horizonName', 'horizonDate'
+    ],
   };
+
 
   const requiredFields = requiredFieldsByPage[currentPage] || [];
   const errors = {};
@@ -558,23 +780,27 @@ const App = () => {
 const handleSubmit = async () => {
   const signature = sigRef.current.getTrimmedCanvas().toDataURL("image/png");
   const fullData = { ...formData, signature };
+  isSignatureMissing = currentPage === 21 && sigRef.current?.isEmpty?.();
+  if(!isSignatureMissing){
+    try {
+      const response = await fetch("http://localhost:3001/api/save-form", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(fullData)
+      });
 
-  try {
-    const response = await fetch("http://localhost:3001/api/save-form", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(fullData)
-    });
+      const result = await response.json();
+      console.log(result);
+      alert("Application submitted successfully!");
 
-    const result = await response.json();
-    console.log(result);
-    alert("Application submitted successfully!");
-
-  } catch (err) {
-    console.error("Submission failed", err);
-    alert("Failed to submit the form.");
+    } catch (err) {
+      console.error("Submission failed", err);
+      alert("Failed to submit the form.");
+    }
+  }else{
+    alert("Please write your signature on this page for confirmation!");
   }
 };
 
@@ -1225,7 +1451,7 @@ const formContainerStyle = {
                 <input type="radio" name="prevContact1" value="yes" checked={formData.prevContact1 === 'yes'} onChange={handleChange} />{t("yes", language)} 
               </label>
               <label>
-                <input type="radio" name="prevContact1" value="no" checked={formData.prevContact2 === 'no'} onChange={handleChange} />{t("no", language)} 
+                <input type="radio" name="prevContact1" value="no" checked={formData.prevContact1 === 'no'} onChange={handleChange} />{t("no", language)} 
               </label>
             </div>
           </div>
@@ -1433,7 +1659,7 @@ const formContainerStyle = {
       return (
         <div style={pageStyle}>
           <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-            Background Check Notice and Authorization
+            {t("backgroundCheckTitle", language)}
           </h2>
 
           <div
@@ -1450,21 +1676,7 @@ const formContainerStyle = {
               lineHeight: '1.6',
             }}
           >
-            <p><strong><u>Notice</u></strong></p>
-            <p>The E Neighbor Homecare LLC provides notice that background checks will be performed for employment with the E Neighbor Homecare LLC. The background checks include but are not limited to:</p>
-            <ol>
-            <li>Criminal Background checks</li>
-            <li>Sex Offenders</li>
-            <li>Office of Inspector General (OIG)</li>
-            <li>System for Award Management (SAM)</li>
-            </ol>
-            <p>&nbsp;</p>
-            <p><strong><u>Authorization</u></strong></p>
-            <p>I hereby authorize E Neighbor Homecare LLC to conduct the background checks described above. In connection with this, I also authorize the use of law enforcement agencies and/or private criminal background check organizations to assist E Neighbor Homecare LLC .in collecting this information.&nbsp;</p>
-            <p>I also am aware that records of arrests on pending charges and/or convictions are not an absolute bar to employment. Such information will be used to determine whether the results of the background check reasonably bear on my trustworthiness or my ability to perform the duties of my position in a manner that is safe for E Neighbor Homecare LLC .</p>
-            <p>&nbsp;</p>
-            <p><strong><u>Attestation </u></strong></p>
-            <p>To the best of my knowledge, the information provided in this Notice and Authorization and any attachments is true and complete. I understand that any falsification or omission of information may disqualify me for this position and/or may serve as grounds for the severance of my employment with E Neighbor Homecare LLC. By signing below, I hereby provide my authorization to E Neighbor Homecare LLC to conduct a criminal background checks, and I acknowledge that I have been informed of a summary of my rights under the Fair Credit Reporting Act. In addition to those rights, I understand that I have a right to appeal an adverse employment decision made based on my background check information within three business days of receipt of such notice and that a determination on my appeal will be made in seven working days from E Neighbor Homecare LLC receipt of such appeal.</p>
+            {t("backgroundCheckText", language)}
           </div>
           <FormControl
             required
@@ -1501,7 +1713,7 @@ const formContainerStyle = {
                       padding: '0'
                     }}
                   >
-                    I have read and agree to the terms above regarding the background check.
+                    {t("backgroundCheckConfirm", language)}
                     <span style={{ color: '#dc2626' }}> *</span>
                   </span>
                 }
@@ -1512,7 +1724,7 @@ const formContainerStyle = {
           <div style={{ marginBottom: '6px' }}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>
-                Employee Name <span style={{ color: 'red' }}>*</span>
+                {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
               </label>
 
               <input
@@ -1540,7 +1752,7 @@ const formContainerStyle = {
 
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Date</label>
+            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
             <input
               type="date"
               name="backgroundCheckDate"
@@ -1565,7 +1777,7 @@ const formContainerStyle = {
       return (
         <div style={pageStyle}>
           <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-            Confidentiality and Non-Disclosure Agreement
+            {t("confidentialityTitle", language)}
           </h2>
 
           <div
@@ -1581,39 +1793,7 @@ const formContainerStyle = {
               color: '#374151',
               lineHeight: '1.6',
             }}
-          >
-            <p>This HIPAA (employee) non-disclosure agreement (the &ldquo;Agreement&rdquo;) is made between E Neighbor Homecare LLC and __ ____________ (employee). The Agreement is intended to prevent the unauthorized disclosure of Confidential Information (as defined below) by Employee. The parties agree as follows:</p>
-            <strong>1. Personal Health Information</strong>
-            <p>During the course of employment, employees may have access to personal health information ('"PHI") relating to clients or patients of E Neighbor Homecare LLC. PHI may consist of medical records, billing, financial records, or any individually identifiable health information. PHI is protected by the Health Insurance Portability and Accountability Act ("HIPAA"). HIPAA permits access to PHI on a "need to know" basis. Therefore, unless authorization has been granted, any intentional accessing of PHI, or circumvention of PHI security protocols, is prohibited.</p>
-            <p>&nbsp;<strong>I agree to abide by the following HIPAA privacy &amp; security rules:</strong></p>
-            <ul>
-            <li>Following the &ldquo;minimum necessary disclosure standard&rdquo; protocol when using or disclosing routine protected health information.</li>
-            <li>Accessing only patient information for which you have been given authorization, including computer and hard copy</li>
-            <li>Only logging on using the assigned user ID and only logging on to one computer at a time. If assigned a laptop or other electronic device that contains confidential information, keep the equipment secure at all times.</li>
-            <li>Practicing confidentiality and heightened sensitivity to the use of identifiable health information used in daily business practice.</li>
-            <li>Not engaging in the disclosure of patient information except for treatment, payment, and/or operation purposes.</li>
-            <li>Responding to patient requests for their personal records using the practice&rsquo;s protocol.</li>
-            <li>Referring violations of the HIPAA Rules by Business Associates directly to the practice&rsquo;s designated Privacy Officer.</li>
-            <li>Reporting any inadvertent access to PHI that should not have been accessed.</li>
-            <li>Attending initial HIPAA training and any additional training offered by the practice for any revisions to the federal/state HIPAA regulations and/or significant changes made by the practice to the Privacy &amp; Security Policy.</li>
-            <li>Not downloading or installing games, data or software without prior approval from the Administrator/CEO.</li>
-            <li>Creating a unique password that is difficult to guess and changing it regularly as requested.</li>
-            <li>Shredding all confidential data prior to discarding (including phone messages from patients, etc.).</li>
-            <li>Following the E Neighbor Homecare LLC Privacy and Confidentially Policies and Procedures.</li>
-            </ul>
-            <strong>2. Confidential Information</strong>
-            <p>Confidential Information" consists of PHI as well as proprietary information relating to E Neighbor Homecare LLC business, including but not limited to: medical and financial records, revenues, identification and account numbers and names, PINs, and passwords, or other information conveyed in writing or in a discussion that is indicated to be confidential.</p>
-            <strong>3. Non-Disclosure</strong>
-            <p>Without E Neighbor Homecare LLC prior written consent, the employee will not:&nbsp;(a) disclose Confidential Information to any third party, whether electronically, orally, or in writing;&nbsp;(b)&nbsp;make or permit to be made copies or other reproductions of Confidential Information;&nbsp;(c) make any use of Confidential Information; or (d) use or disclose Confidential Information in violation of applicable law, including but not limited to HIPAA.</p>
-            <strong>4. Returu of Confidential Materials</strong>
-            <p>Upon E Neighbor Homecare LLC's request, employee shall immediately return all original materials provided by E Neighbor Homecare LLC and any copies, notes, or other documents in employee's possession pertaining to Confidential Information.</p>
-            <strong>5. Term</strong>
-            <p>The non-disclosure terms of this Agreement shall survive any termination, cancellation, expiration or other conclusions of employment (or this Agreement) unless the parties otherwise expressly agree in writing or E Neighbor Homecare LLC sends employee written notice releasing it from this Agreement.</p>
-            <strong>6. Notico of Immunity From Liability</strong>
-            <p>An individual shall not be held criminally or civilly liable under any federal or state trade secret law for the disclosure of a trade secret that is made (i) in confidence to a federal, state, or local government official, either directly or indirectly, or to an attorney; and (ii) solely for the purpose of reporting or investigating a suspected violation of law; or is made in a complaint or other document filed in a lawsuit or other proceeding, if such filing is made under seal. An individual who files a lawsuit for retaliation by an employer for reporting a suspected violation of law may disclose the trade secret to the attorney of the individual and use the trade secret information in the court proceeding if the individual (i) files any document containing the trade secret under seal; and (ii) does not disclose the trade secret, except pursuant to a court order.</p>
-            <strong>7.General Provisions</strong>
-            <p><strong>(a)&nbsp;Relationships</strong>.&nbsp;Nothing contained in this Agreement shall be deemed to constitute either party a partner, joint venturer, or employee of the other party for any purpose.<br /> <strong>(b)&nbsp;Severability.</strong>&nbsp;If a court finds any provision of this Agreement invalid or unenforceable, the remainder of this Agreement shall be interpreted so as to best effect the intent of the parties.<br /> <strong>(c)&nbsp;Integration.</strong>&nbsp;This Agreement expresses the complete understanding of the parties with respect to the subject matter and supersedes all prior proposals, agreements, representations, and understandings. This Agreement may not be amended except in writing and signed by both parties.<br /> <strong>(d)&nbsp;Waiver.</strong>&nbsp;The failure to exercise any right provided in this Agreement shall not be a waiver of prior or subsequent rights.<br /> <strong>(e)&nbsp;Injunctive Relief.</strong>&nbsp;Any misappropriation of Confidential Information in violation of this Agreement may cause E Neighbor Homecare LLC irreparable harm, the amount of which may be difficult to ascertain, and therefore employee agrees that E Neighbor Homecare LLC shall have the right to apply to a court of competent jurisdiction for an order enjoining any such further misappropriation and for such other relief as E Neighbor Homecare LLC deems appropriate. This right of E Neighbor Homecare LLC is to be in addition to the remedies otherwise available to E Neighbor Homecare LLC.<br /> <strong>(f)&nbsp;Attorney Fees and Expenses</strong>. In a dispute arising out of or related to this Agreement, the prevailing party shall have the right to collect from the other party its reasonable attorney fees and costs and necessary expenditures.<br /> <strong>(g)&nbsp;Governing Law.</strong>&nbsp;This Agreement shall be governed in accordance with the laws of the State in which the E Neighbor Homecare LLC business is located.<br /> <strong>(h)&nbsp;Jurisdiction</strong>. The parties consent to the exclusive jurisdiction and venue of the federal and state courts in any action arising out of or relating to this Agreement. The parties waive any other venue to which either party might be entitled by domicile or otherwise.</p>
-          </div>
+          >{t("confidentialityText", language)}</div>
 
           <FormControl
             required
@@ -1650,7 +1830,7 @@ const formContainerStyle = {
                       padding: '0'
                     }}
                   >
-                    I have read and agree to the confidentiality and non-disclosure agreement above.
+                    {t("confidentialityConfirm", language)}
                     <span style={{ color: '#dc2626' }}> *</span>
                   </span>
                 }
@@ -1661,7 +1841,7 @@ const formContainerStyle = {
           <div style={{ marginBottom: '6px' }}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>
-                Employee Name <span style={{ color: 'red' }}>*</span>
+                {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
               </label>
 
               <input
@@ -1688,7 +1868,7 @@ const formContainerStyle = {
           </div>
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Date</label>
+            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
             <input
               type="date"
               name="confidentialityDate"
@@ -1782,7 +1962,7 @@ const formContainerStyle = {
           <div style={{ marginBottom: '6px' }}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>
-                Employee Name <span style={{ color: 'red' }}>*</span>
+                {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
               </label>
 
               <input
@@ -1809,7 +1989,7 @@ const formContainerStyle = {
           </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>Date</label>
+              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
               <input
                 type="date"
                 name="policyTrainingDate"
@@ -1932,7 +2112,7 @@ case 8:
       <div style={{ marginBottom: '6px' }}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>
-                Employee Name <span style={{ color: 'red' }}>*</span>
+                {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
               </label>
 
               <input
@@ -1961,7 +2141,7 @@ case 8:
       {/* Date */}
       <div style={{ marginBottom: '42px' }}>
         <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
-          Date <span style={{ color: 'red' }}>*</span>
+         {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
         </label>
         <input
           type="date"
@@ -2157,7 +2337,7 @@ case 8:
           <div style={{ marginBottom: '6px' }}>
                 <div style={inputGroupStyle}>
                   <label style={labelStyle}>
-                    Employee Name <span style={{ color: 'red' }}>*</span>
+                    {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                   </label>
 
                   <input
@@ -2186,7 +2366,7 @@ case 8:
           {/* Date */}
           <div style={{ marginBottom: '42px' }}>
             <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
-              Date <span style={{ color: 'red' }}>*</span>
+             {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
             </label>
             <input
               type="date"
@@ -2249,7 +2429,7 @@ case 8:
             <div style={{ marginBottom: '6px' }}>
                   <div style={inputGroupStyle}>
                     <label style={labelStyle}>
-                      Employee Name <span style={{ color: 'red' }}>*</span>
+                      {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                     </label>
 
                     <input
@@ -2278,7 +2458,7 @@ case 8:
             {/* Date */}
             <div style={{ marginBottom: '42px' }}>
               <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
-                Date <span style={{ color: 'red' }}>*</span>
+               {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
               </label>
               <input
                 type="date"
@@ -2339,7 +2519,7 @@ case 8:
               <div style={{ marginBottom: '6px' }}>
                     <div style={inputGroupStyle}>
                       <label style={labelStyle}>
-                        Employee Name <span style={{ color: 'red' }}>*</span>
+                        {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
                       <input
@@ -2368,7 +2548,7 @@ case 8:
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
                 <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
-                  Date <span style={{ color: 'red' }}>*</span>
+                 {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
                 <input
                   type="date"
@@ -2432,7 +2612,7 @@ case 8:
               <div style={{ marginBottom: '6px' }}>
                     <div style={inputGroupStyle}>
                       <label style={labelStyle}>
-                        Employee Name <span style={{ color: 'red' }}>*</span>
+                        {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
                       <input
@@ -2461,7 +2641,7 @@ case 8:
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
                 <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
-                  Date <span style={{ color: 'red' }}>*</span>
+                 {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
                 <input
                   type="date"
@@ -2609,7 +2789,7 @@ case 8:
               <div style={{ marginBottom: '6px' }}>
                     <div style={inputGroupStyle}>
                       <label style={labelStyle}>
-                        Employee Name <span style={{ color: 'red' }}>*</span>
+                        {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
                       <input
@@ -2638,7 +2818,7 @@ case 8:
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
                 <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
-                  Date <span style={{ color: 'red' }}>*</span>
+                 {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
                 <input
                   type="date"
@@ -2739,7 +2919,7 @@ case 8:
               <div style={{ marginBottom: '6px' }}>
                     <div style={inputGroupStyle}>
                       <label style={labelStyle}>
-                        Employee Name <span style={{ color: 'red' }}>*</span>
+                        {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
                       <input
@@ -2768,7 +2948,7 @@ case 8:
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
                 <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
-                  Date <span style={{ color: 'red' }}>*</span>
+                 {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
                 <input
                   type="date"
@@ -2919,7 +3099,7 @@ case 8:
               <div style={{ marginBottom: '6px' }}>
                     <div style={inputGroupStyle}>
                       <label style={labelStyle}>
-                        Employee Name <span style={{ color: 'red' }}>*</span>
+                        {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
                       <input
@@ -2948,7 +3128,7 @@ case 8:
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
                 <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
-                  Date <span style={{ color: 'red' }}>*</span>
+                 {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
                 <input
                   type="date"
@@ -2972,7 +3152,7 @@ case 8:
             </div>
           );
 
-    case 16:
+    case 21:
       return (
         <div style={pageStyle}>
           <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
@@ -2999,6 +3179,665 @@ case 8:
           </div>
         </div>
       );
+
+      case 16:
+  return (
+    <div style={pageStyle}>
+      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '15px' }}>
+        Annual TB Screening Questionnaire
+      </h2>
+
+      <p style={{ marginBottom: '35px', color: '#374151', fontSize: '16px' }}>
+        This form is completed annually for those employees who have documentation of a negative chest x-ray following a
+positive Mantoux screening test, and whose medical evaluation and chest x-ray indicate that no further Mantoux
+screening is required.
+      </p>
+
+      {[...Array(10)].map((_, i) => {
+        const num = i + 1;
+        const questions = {
+          1: 'bad cough that lasts longer than 2 weeks',
+          2: 'coughing up sputum (phlegm)',
+          3: 'coughing up blood',
+          4: 'loss of appetite',
+          5: 'weakness/fatigue/tiredness',
+          6: 'night sweats',
+          7: 'unexplained weight loss',
+          8: 'fever',
+          9: 'chills',
+          10: 'chest pain',
+        };
+
+        const name = `tbQ${num}`;
+
+        return (
+          <FormControl
+            key={name}
+            required
+            error={!!validationErrors[name]}
+            component="fieldset"
+            sx={{ mb: 3, width: '100%' }}
+          >
+            <Typography sx={{ fontSize: 15, fontWeight: 500, mb: 1 }}>
+              {num}. Do you experience {questions[num]}? <span style={{ color: 'red' }}>*</span>
+            </Typography>
+
+            {validationErrors[name] && (
+              <FormHelperText>This field is required.</FormHelperText>
+            )}
+
+            <RadioGroup row name={name} value={formData[name] || ''} onChange={handleChange}>
+              <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+              <FormControlLabel value="no" control={<Radio />} label="No" />
+            </RadioGroup>
+          </FormControl>
+        );
+      })}
+
+      {/* Tuberculosis Contact Question */}
+      <FormControl
+        required
+        error={!!validationErrors.tbContact}
+        component="fieldset"
+        sx={{ mb: 3 }}
+      >
+        <Typography sx={{ fontWeight: 500, mb: 1 }}>
+          Have you recently spent time with someone who has infectious tuberculosis?
+          <span style={{ color: 'red' }}> *</span>
+        </Typography>
+        <RadioGroup row name="tbContact" value={formData.tbContact || ''} onChange={handleChange}>
+          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+          <FormControlLabel value="no" control={<Radio />} label="No" />
+        </RadioGroup>
+        {validationErrors.tbContact && (
+          <FormHelperText>This field is required.</FormHelperText>
+        )}
+      </FormControl>
+
+      {/* Other Complaints */}
+      <FormControl
+        required
+        error={!!validationErrors.tbOtherComplaints}
+        component="fieldset"
+        sx={{ mb: 3 }}
+      >
+        <Typography sx={{ fontWeight: 500, mb: 1 }}>
+          Do you have any other complaints? <span style={{ color: 'red' }}>*</span>
+        </Typography>
+        <RadioGroup row name="tbOtherComplaints" value={formData.tbOtherComplaints || ''} onChange={handleChange}>
+          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+          <FormControlLabel value="no" control={<Radio />} label="No" />
+        </RadioGroup>
+        {validationErrors.tbOtherComplaints && (
+          <FormHelperText>This field is required.</FormHelperText>
+        )}
+        {formData.tbOtherComplaints === 'yes' && (
+          <TextField
+            fullWidth
+            multiline
+            rows={3}
+            name="tbOtherExplain"
+            value={formData.tbOtherExplain || ''}
+            onChange={handleChange}
+            placeholder="If yes, please explain..."
+            sx={{ mt: 2 }}
+          />
+        )}
+      </FormControl>
+
+      <div style={{ marginBottom: '20px'}}>
+        <label style={{fontStyle:"italic", marginBottom: '20px'}}>
+          The above health statements are accurate to the best of my knowledge. I have been in-serviced on the signs and
+        symptoms of tuberculosis and been advised to seek medical care if any of the symptoms develop at any time. 
+        </label>
+      </div>
+
+      {/* Employee Name */}
+      <div style={{ marginBottom: '20px' }}>
+        <label style={labelStyle}>
+          {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="text"
+          name="tbName"
+          value={formData.tbName || ''}
+          onChange={handleChange}
+          style={{
+            width: '50%',
+            padding: '14px',
+            border: '2px solid',
+            borderColor: validationErrors.tbName ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px',
+          }}
+        />
+        {validationErrors.tbName && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+
+      {/* Date */}
+      <div style={{ marginBottom: '42px' }}>
+        <label style={labelStyle}>
+         {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="date"
+          name="tbDate"
+          value={formData.tbDate || ''}
+          onChange={handleChange}
+          style={{
+            padding: '8px',
+            border: '2px solid',
+            borderColor: validationErrors.tbDate ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px',
+          }}
+        />
+        {validationErrors.tbDate && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+
+  case 17:
+  return (
+    <div style={pageStyle}>
+      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+        Hepatitis B Virus Vaccine Consent/Declination
+      </h2>
+
+      <p style={{ fontSize: '14px', marginBottom: '16px', color: '#374151' }}>
+        (Make only one choice)<br />
+      </p>
+
+      <p style={{ fontSize: '14px', marginBottom: '24px', color: '#374151' }}>
+        I have been informed of the symptoms and modes of transmission of bloodborne pathogens, including Hepatitis B virus (HBV). I know about the facility's infection control program and understand the procedure to follow if an exposure incident occurs. I understand that the Hepatitis B vaccine is available, at no cost, to employees whose job involves the risk of directly contacting blood or other potentially infectious material. I understand that vaccinations shall be given according to recommendations for standard medical practice in the community.
+      </p>
+
+      {/* Consent or Declination */}
+      <FormControl
+        required
+        error={!!validationErrors.hepbConsentChoice}
+        component="fieldset"
+        sx={{ mb: 3 }}
+      >
+        <FormLabel component="legend" sx={{ fontWeight: 500 }}>
+          Please make one selection <span style={{ color: 'red' }}>*</span>
+        </FormLabel>
+        <RadioGroup
+          name="hepbConsentChoice"
+          value={formData.hepbConsentChoice || ''}
+          onChange={handleChange}
+        >
+          <FormControlLabel
+            value="consent"
+            control={<Radio />}
+            label="I consent to the administration of the Hepatitis B vaccine. I have been informed of the method of administration, the risks, complications, and expected benefits of the vaccine. I understand that the facility is not responsible for any reactions caused by the vaccine."
+          />
+          <FormControlLabel
+            value="decline"
+            control={<Radio />}
+            label="I decline the Hepatitis B vaccination at this time. I understand that, by declining this vaccine, I continue to be at risk of acquiring Hepatitis B, a serious disease. If in the future I continue to have occupational exposure to blood or other potentially infectious materials, I can request to be vaccinated at no charge."
+          />
+        </RadioGroup>
+        {validationErrors.hepbConsentChoice && (
+          <FormHelperText>This field is required.</FormHelperText>
+        )}
+      </FormControl>
+
+      {/* Documentation of Exclusion */}
+      <FormControl
+        required={!formData.hepbConsentChoice || formData.hepbConsentChoice === 'decline'}
+        error={!!validationErrors.hepbExclusion}
+        component="fieldset"
+        sx={{ mb: 3 }}
+      >
+        <FormLabel component="legend" sx={{ fontWeight: 500 }}>
+          Documentation of Exclusion from Hepatitis B Vaccine
+        </FormLabel>
+        <FormGroup>
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="hepbExclusionPrevSeries"
+                checked={!!formData.hepbExclusionPrevSeries}
+                onChange={handleChange}
+              />
+            }
+            label="I have previously received the complete series of the three injections of the Hepatitis B Vaccine. I do not have documentation of Hepatitis-B immunity and choose not to receive the vaccine. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease."
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="hepbExclusionImmune"
+                checked={!!formData.hepbExclusionImmune}
+                onChange={handleChange}
+              />
+            }
+            label="I have had a positive result in Hepatitis B antibody testing, which shows immunity to the virus."
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="hepbExclusionMedical"
+                checked={!!formData.hepbExclusionMedical}
+                onChange={handleChange}
+              />
+            }
+            label="I have medical contraindications to the vaccine."
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                name="hepbExclusionLowRisk"
+                checked={!!formData.hepbExclusionLowRisk}
+                onChange={handleChange}
+              />
+            }
+            label="I am at low risk and provide no direct patient care. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease."
+          />
+        </FormGroup>
+      </FormControl>
+
+      {/* Signature and Info */}
+
+      <div style={{ marginBottom: '24px' }}>
+        <label style={labelStyle}>
+          {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="text"
+          name="hepbConsentName"
+          value={formData.hepbConsentName || ''}
+          onChange={handleChange}
+          style={{
+            width: '60%',
+            padding: '14px',
+            border: '2px solid',
+            borderColor: validationErrors.hepbConsentName ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px'
+          }}
+        />
+        {validationErrors.hepbConsentName && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+
+      <div style={{ marginBottom: '24px' }}>
+        <label style={labelStyle}>
+         {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="date"
+          name="hepbConsentDate"
+          value={formData.hepbConsentDate || ''}
+          onChange={handleChange}
+          style={{
+            padding: '8px',
+            border: '2px solid',
+            borderColor: validationErrors.hepbConsentDate ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px'
+          }}
+        />
+        {validationErrors.hepbConsentDate && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+
+
+  case 18:
+  return (
+    <div style={pageStyle}>
+      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+        OSHA Introduction
+      </h2>
+
+      <div
+        style={{
+          backgroundColor: '#f3f4f6',
+          padding: '20px',
+          borderRadius: '12px',
+          border: '1px solid #d1d5db',
+          marginBottom: '24px',
+          fontSize: '14px',
+          color: '#374151',
+          lineHeight: '1.6'
+        }}
+      >
+        <p>
+          The Occupational Safety and Health Administration (OSHA) is a federal organization within the Department of
+          Labor created by the Occupational Safety and Health Act of 1970. The purpose of the Act is to assure, as far as
+          possible, safe and healthy working conditions for American workers. OSHA is responsible for developing standards
+          to help employers provide a safe workplace.
+        </p>
+        <p>
+          Because occupational exposure to the Hepatitis B and AIDS viruses and other disease-causing agents carried by the
+          blood is a threat to healthcare workers, OSHA has issued a regulation to help healthcare employers protect workers
+          against the increased risk of occupational exposure.
+        </p>
+        <p>The regulation requires that:</p>
+        <ul style={{ paddingLeft: '20px', marginTop: '10px' }}>
+          <li>A written Exposure Control Plan be developed</li>
+          <li>All at-risk employees are trained in the safety and prevention of occupational exposure</li>
+          <li>Monitoring of employee compliance with Exposure Control Plan</li>
+        </ul>
+        <p>
+          The following information is presented to acquaint you with specific guidelines and protocols required by E
+          Neighbor Homecare LLC to meet the OSHA mandate and information related to the transmission of bloodborne
+          pathogens.
+        </p>
+        <p>Compliance with the Exposure Control Plan guidelines is mandatory.</p>
+        <p>
+          Employees violating the guidelines and/or protocols of E Neighbor Homecare LLC Exposure Control Plan will be
+          cited for the following second level disciplinary actions:
+        </p>
+        <ul style={{ paddingLeft: '20px' }}>
+          <li>First Violation - Written warning by supervisor</li>
+          <li>Second Violation - Disciplinary probation</li>
+          <li>Third Violation - Termination</li>
+        </ul>
+      </div>
+
+      <p style={{ fontStyle: 'italic', color: '#374151', fontSize: '15px', marginBottom: '28px' }}>
+        I have read and understand my responsibility to be compliant with E Neighbor Homecare LLC OSHA and Safety policies
+        and procedures and all applicable state/federal laws or regulations and also all Accrediting agencies.
+      </p>
+
+      {/* Signature */}
+      <div style={{ marginBottom: '24px' }}>
+        <label style={labelStyle}>
+          {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="text"
+          name="oshaSignature"
+          value={formData.oshaSignature || ''}
+          onChange={handleChange}
+          style={{
+            width: '50%',
+            padding: '14px',
+            border: '2px solid',
+            borderColor: validationErrors.oshaSignature ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px'
+          }}
+        />
+        {validationErrors.oshaSignature && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+
+      {/* Date */}
+      <div style={{ marginBottom: '24px' }}>
+        <label style={labelStyle}>
+         {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="date"
+          name="oshaDate"
+          value={formData.oshaDate || ''}
+          onChange={handleChange}
+          style={{
+            padding: '8px',
+            border: '2px solid',
+            borderColor: validationErrors.oshaDate ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px'
+          }}
+        />
+        {validationErrors.oshaDate && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+
+
+  case 19:
+  return (
+    <div style={pageStyle}>
+      <p style={{ fontSize: '14px', color: '#374151', marginBottom: '12px' }}>
+        The following employee was classified according to work task exposure to certain body fluids as required by the
+        current OSHA infection control standard:
+      </p>
+
+      {/* OSHA CATEGORY */}
+      <FormControl
+        required
+        error={!!validationErrors.exposureCategory}
+        component="fieldset"
+        sx={{ mb: 3 }}
+      >
+        <FormLabel component="legend" sx={{ fontWeight: 500, mb: 1 }}>
+          OSHA CATEGORY (MUST ONLY SELECT CATEGORY) <span style={{ color: 'red' }}>*</span>
+        </FormLabel>
+
+        <RadioGroup
+          name="exposureCategory"
+          value={formData.exposureCategory || ''}
+          onChange={handleChange}
+        >
+          <FormControlLabel
+            value="CategoryI"
+            control={<Radio />}
+            label="Category I - Involves tasks or procedures in which all or some staff have a reasonable likelihood of contact with blood or other potentially infectious materials. The use of job-appropriate personal protective equipment and other protective measures is required."
+          />
+          <FormControlLabel
+            value="CategoryII"
+            control={<Radio />}
+            label="CategoryII - Tasks and work assignments involve no routine exposure to blood or other potentially infectious material, but employment may require unplanned Category I tasks. (Example: In an emergency, receiving-transporting specimens) appropriate personal protective device must be available, and these staff must be familiar with protective measures."
+          />
+          <FormControlLabel
+            value="CategoryIII"
+            control={<Radio />}
+            label="CategoryIII - Tasks and work assignments involve no exposure to blood or other potentially infectious materials. Employment should NEVER require Category I or Category II tasks or duties."
+          />
+        </RadioGroup>
+
+        {validationErrors.exposureCategory && (
+          <FormHelperText>This field is required.</FormHelperText>
+        )}
+      </FormControl>
+
+      {/* Acknowledgment Text */}
+      <p style={{ fontStyle: 'italic', color: '#374151', fontSize: '15px', marginTop: '16px', marginBottom: '24px' }}>
+        I understand my OSHA category and understand my responsibilities in abiding by the national standard of safety
+        practices and E Neighbor Homecare LLC policies and procedures regarding safety in the workplace.
+      </p>
+
+      {/* Signature */}
+      <div style={{ marginBottom: '24px' }}>
+        <label style={labelStyle}>
+          {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="text"
+          name="exposureSignature"
+          value={formData.exposureSignature || ''}
+          onChange={handleChange}
+          style={{
+            width: '50%',
+            padding: '14px',
+            border: '2px solid',
+            borderColor: validationErrors.exposureSignature ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px'
+          }}
+        />
+        {validationErrors.exposureSignature && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+
+      {/* Date */}
+      <div style={{ marginBottom: '24px' }}>
+        <label style={labelStyle}>
+         {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="date"
+          name="exposureDate"
+          value={formData.exposureDate || ''}
+          onChange={handleChange}
+          style={{
+            padding: '8px',
+            border: '2px solid',
+            borderColor: validationErrors.exposureDate ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px'
+          }}
+        />
+        {validationErrors.exposureDate && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+
+  case 20:
+  return (
+    <div style={pageStyle}>
+      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+        Criminal History Background Check Questions for Employees
+      </h2>
+
+      <p style={{ fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
+        The questions below should be asked of all employees/providers with direct physical access to MLTSS members and updated on an annual basis. The questions below are for illustrative purposes only and need not be submitted to Horizon NJ Health.
+      </p>
+
+      {[
+        {
+          name: 'horizonQ1',
+          label:
+            'Have you ever been convicted of, pled guilty to or pled nolo contendere to any felony in the last ten years or been found liable or responsible for or named as a defendant in any civil offense that is reasonably related to your qualifications, competence, functions or duties as a medical professional?',
+        },
+        {
+          name: 'horizonQ2',
+          label:
+            'Have you ever been convicted of, pled guilty to or pled nolo contendere to any felony in the last ten years or been found liable or responsible for or named as a defendant in any civil offense that is alleged fraud, an act of violence, child abuse or sexual offense or sexual misconduct?',
+        },
+        {
+          name: 'horizonQ3',
+          label: 'Have you ever been indicted in any criminal suit?',
+        },
+        {
+          name: 'horizonQ4',
+          label: 'Have you ever been court martialed for actions related to your duties as a medical professional?',
+        },
+        {
+          name: 'horizonQ5',
+          label:
+            'Are you currently engaged in the illegal use of drugs? (“Currently” means sufficiently recent to justify a reasonable belief that the use of drugs may have an ongoing impact on one’s ability to practice medicine. It is not limited to the day of, or within a matter of days or weeks before the date of an application, rather that it has occurred recently enough to indicate the individual is actively engaged in such conduct. “Illegal use of drugs” refers to the drugs whose possession or distribution is unlawful under the Controlled Substances Act, 21 U.S.C. § 812.2. It does not include the use of a drug taken under supervision of a licensed health care professional, or other uses authorized by the Controlled Substances Act or other provision of federal law.” The term does include, however, the unlawful use of prescription controlled substances.)',
+        },
+        {
+          name: 'horizonQ6',
+          label: 'Do you use any chemical substances that would in any way impair or limit your ability to perform the functions of your job with reasonable skill and safety?',
+        },
+        {
+          name: 'horizonQ7',
+          label: 'Do you have any reason to believe that you would pose a risk to the safety or well­being of your clients?',
+        },
+      ].map((q, index) => (
+        <FormControl
+          required
+          error={!!validationErrors[q.name]}
+          component="fieldset"
+          sx={{ mb: 4 }}
+          key={q.name}
+        >
+          <FormLabel component="legend" sx={{ fontWeight: 500, fontSize: '15px' }}>
+            {index + 1}. {q.label} <span style={{ color: 'red' }}>*</span>
+          </FormLabel>
+          <RadioGroup
+            row
+            name={q.name}
+            value={formData[q.name] || ''}
+            onChange={handleChange}
+          >
+            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+            <FormControlLabel value="no" control={<Radio />} label="No" />
+          </RadioGroup>
+          {validationErrors[q.name] && (
+            <FormHelperText>This field is required.</FormHelperText>
+          )}
+        </FormControl>
+      ))}
+
+      {/* Name */}
+      <div style={{ marginBottom: '24px' }}>
+        <label style={labelStyle}>
+          {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="text"
+          name="horizonName"
+          value={formData.horizonName || ''}
+          onChange={handleChange}
+          style={{
+            width: '60%',
+            padding: '14px',
+            border: '2px solid',
+            borderColor: validationErrors.horizonName ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px',
+          }}
+        />
+        {validationErrors.horizonName && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+
+      {/* Date */}
+      <div style={{ marginBottom: '24px' }}>
+        <label style={labelStyle}>
+         {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
+        </label>
+        <input
+          type="date"
+          name="horizonDate"
+          value={formData.horizonDate || ''}
+          onChange={handleChange}
+          style={{
+            padding: '8px',
+            border: '2px solid',
+            borderColor: validationErrors.horizonDate ? '#dc2626' : '#d1d5db',
+            borderRadius: '6px',
+            fontSize: '14px',
+          }}
+        />
+        {validationErrors.horizonDate && (
+          <p style={{ color: '#dc2626', fontSize: '13px', marginTop: '4px' }}>
+            This field is required.
+          </p>
+        )}
+      </div>
+    </div>
+  );
+
 
       default:
         return null;
@@ -3040,7 +3879,7 @@ case 8:
         {renderPage()}
 
       {/* Always mount SignatureCanvas but hide it unless on page 4 */}
-      <div style={{ display: currentPage === 5 ? 'block' : 'none' }}>
+      <div style={{ display: currentPage === 21 ? 'block' : 'none' }}>
         <label style={labelStyle}>{t("signature", language)}</label>
         <div style={signatureContainerStyle}>
           <SignatureCanvas ref={sigRef} />
@@ -3096,18 +3935,20 @@ case 8:
           ) : (
             <button
               onClick={handleSubmit}
+              disabled={isSignatureMissing}
               style={{
                 ...primaryButtonStyle,
-                backgroundColor: '#059669',
+                backgroundColor: isSignatureMissing ? '#9ca3af' : '#059669',
+                cursor: isSignatureMissing ? 'not-allowed' : 'pointer',
                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
                 flex: window.innerWidth < 480 ? '1' : 'none'
               }}
               onMouseOver={(e) => {
-                e.target.style.backgroundColor = '#047857';
+                e.target.style.backgroundColor = isSignatureMissing ? '#9ca3af' : '#047857';
                 e.target.style.transform = 'translateY(-1px)';
               }}
               onMouseOut={(e) => {
-                e.target.style.backgroundColor = '#059669';
+                e.target.style.backgroundColor = isSignatureMissing ? '#9ca3af' : '#059669';
                 e.target.style.transform = 'translateY(0)';
               }}
             >
