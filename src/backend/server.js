@@ -1709,7 +1709,7 @@ app.post('/api/save-form', async (req, res) => {
         console.error('❌ Failed to send email:', err);
         res.status(500).json({ message: 'PDF created, but email failed' });
     };
-    }) */
+    })
   } catch (error) {
     console.error('Error generating PDF:', error);
     res.status(500).json({ message: 'Failed to create PDF' });
