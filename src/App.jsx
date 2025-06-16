@@ -1,5 +1,7 @@
-import React, { useRef, useState, useImperativeHandle, forwardRef } from "react";
+import React, { useRef, useState, useEffect, useImperativeHandle, forwardRef } from "react";
 import { Button, Typography, Checkbox, FormControl, FormControlLabel, FormHelperText, FormGroup, FormLabel, Radio, RadioGroup, TextField} from "@mui/material";
+import SignatureCanvas from "react-signature-canvas";
+import trimCanvas from 'trim-canvas';
 
 const translations = {
   en: {
@@ -68,7 +70,7 @@ const translations = {
     employeeApplication: "Employee Application",
     workedHereBefore: "Have you ever worked for this Pharmacy?",
     ifSoWhen: "If so, when?",
-    educationRefsEmployment: "Education, Previous Employment",
+    educationRefsEmployment: "Education and Previous Employment",
     emergencyContactInfo: "References, Emergency Contact Information",
     next: "Next",
     previous: "Previous",
@@ -308,87 +310,32 @@ const translations = {
   },
 };
 
+const radioStyle = (selected) => ({
+    accentColor: '#4f46e5',
+    WebkitAppearance: 'none',
+    appearance: 'none',
+    width: '16px',
+    height: '16px',
+    borderRadius: '50%',
+    border: '2px solid #4f46e5',
+    backgroundColor: selected ? '#4f46e5' : 'white',
+    outline: 'none',
+    marginRight: '8px',
+    cursor: 'pointer',
+  });
+
+const canvasStyle = {
+  width: '100%',
+  height: '200px', // or responsive size
+  border: '2px solid #e5e7eb',
+  borderRadius: '8px',
+  backgroundColor: '#fff',
+};
+
+
 const t = (key, language) => translations[language]?.[key] || key;
 
-const SignatureCanvas = forwardRef((props, ref) => {
-  const canvasRef = useRef();
-  const [isDrawing, setIsDrawing] = useState(false);
 
-  useImperativeHandle(ref, () => ({
-    clear: () => {
-      const canvas = canvasRef.current;
-      const ctx = canvas.getContext("2d");
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-    },
-    getTrimmedCanvas: () => {
-      return {
-        toDataURL: (format) => {
-          return canvasRef.current.toDataURL(format);
-        },
-      };
-    },
-  }));
-
-  const getEventPos = (e) => {
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const clientX = e.clientX || (e.touches && e.touches[0].clientX);
-    const clientY = e.clientY || (e.touches && e.touches[0].clientY);
-    return {
-      x: clientX - rect.left,
-      y: clientY - rect.top,
-    };
-  };
-
-  const startDrawing = (e) => {
-    e.preventDefault();
-    setIsDrawing(true);
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const pos = getEventPos(e);
-    ctx.beginPath();
-    ctx.moveTo(pos.x, pos.y);
-  };
-
-  const draw = (e) => {
-    e.preventDefault();
-    if (!isDrawing) return;
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    const pos = getEventPos(e);
-    ctx.lineTo(pos.x, pos.y);
-    ctx.stroke();
-  };
-
-  const stopDrawing = (e) => {
-    e.preventDefault();
-    setIsDrawing(false);
-  };
-
-  return (
-    <canvas
-      ref={canvasRef}
-      width={500}
-      height={150}
-      style={{
-        width: "100%",
-        height: "150px",
-        border: "2px dashed #d1d5db",
-        borderRadius: "8px",
-        cursor: "crosshair",
-        backgroundColor: "white",
-        touchAction: "none",
-      }}
-      onMouseDown={startDrawing}
-      onMouseMove={draw}
-      onMouseUp={stopDrawing}
-      onMouseLeave={stopDrawing}
-      onTouchStart={startDrawing}
-      onTouchMove={draw}
-      onTouchEnd={stopDrawing}
-    />
-  );
-});
 
 const ProgressBar = ({ currentPage, totalPages }) => {
   const progressStyle = {
@@ -443,11 +390,11 @@ const ProgressBar = ({ currentPage, totalPages }) => {
 };
 
 const App = () => {
-  let isSignatureMissing = null;
   const sigRef = useRef();
   const [currentPage, setCurrentPage] = useState(1);
   const today = new Date().toISOString().split('T')[0];
   const [language, setLanguage] = useState("en");
+  const [isSignatureMissing, setIsSignatureMissing] = useState(true);
   const [formData, setFormData] = useState({
     // Page 1 - Personal Information
     firstName: "",
@@ -677,6 +624,20 @@ const App = () => {
     return '';
   };
 
+  // Adjust canvas resolution after it mounts
+  useEffect(() => {
+    if (currentPage === 21 && sigRef.current) {
+      const canvas = sigRef.current.getCanvas();
+      const ratio = window.devicePixelRatio || 1;
+
+      // Scale canvas to match physical pixels
+      canvas.width = canvas.offsetWidth * ratio;
+      canvas.height = canvas.offsetHeight * ratio;
+      canvas.getContext('2d').scale(ratio, ratio);
+    }
+  }, [currentPage]);
+
+
   const handleChange = (e) => {
     const { name, type, value, checked } = e.target;
     let newValue = type === 'checkbox' ? checked : value;
@@ -768,6 +729,31 @@ const App = () => {
     if (currentPage < totalPages) {
       setCurrentPage(currentPage + 1);
     }
+
+    if (window.innerWidth <= 768) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+
+    if (currentPage === 19) {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+      fetch('http://localhost:3001/api/ping', {
+        method: 'GET',
+        signal: controller.signal,
+      })
+        .then((res) => {
+          if (res.ok) {
+            console.log('✅ Backend pinged on page 19');
+          } else {
+            console.warn('⚠️ Ping error status:', res.status);
+          }
+        })
+        .catch((err) => {
+          console.error('❌ Ping failed:', err);
+        })
+        .finally(() => clearTimeout(timeoutId));
+    }
   };
 
 
@@ -775,12 +761,14 @@ const App = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
+    if (window.innerWidth <= 768) {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
   };
 
 const handleSubmit = async () => {
-  const signature = sigRef.current.getTrimmedCanvas().toDataURL("image/png");
+  const signature = sigRef.current.getCanvas().toDataURL("image/png");
   const fullData = { ...formData, signature };
-  isSignatureMissing = currentPage === 21 && sigRef.current?.isEmpty?.();
   if(!isSignatureMissing){
     try {
       const response = await fetch("http://localhost:3001/api/save-form", {
@@ -816,22 +804,20 @@ const containerStyle = {
 };
 
 
+const isMobile = window.innerWidth <= 768;
+
 const formContainerStyle = {
-  width: '70vw',                   // ← force full screen width
-  minHeight: '100vh',               // ← stretch vertically too
+  width: isMobile ? '100vw' : '70vw',
+  minHeight: '100vh',
   backgroundColor: 'white',
   padding: '40px',
   display: 'flex',
   flexDirection: 'column',
   boxSizing: 'border-box',
-    '@media (minWidth: 768px)': {
-      width: '100vw', 
-      borderRadius: '20px',
-      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-      padding: '40px',
-      margin: '20px'
-    }
-  };
+  borderRadius: isMobile ? '0px' : '20px',
+  boxShadow: isMobile ? 'none' : '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+  margin: isMobile ? '0' : 'auto',
+};
 
   const pageStyle = {
     opacity: 1,
@@ -850,7 +836,7 @@ const formContainerStyle = {
     display: 'block',
     fontSize: '14px',
     fontWeight: '600',
-    color: '#374151',
+    color: 'black',
     marginBottom: '8px'
   };
 
@@ -951,14 +937,14 @@ const formContainerStyle = {
     case 1:
       return (
         <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+          <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
             {t("personalInfo", language)} 
           </h2>
 
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("firstName", language)} *</label>
-              <input
+              <input autoFocus={false} 
                 type="text"
                 name="firstName"
                 placeholder={t("enterFirstName", language)} 
@@ -969,7 +955,7 @@ const formContainerStyle = {
             </div>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("lastName", language)} *</label>
-              <input
+              <input autoFocus={false} 
                 type="text"
                 name="lastName"
                 placeholder={t("enterLastName", language)} 
@@ -983,7 +969,7 @@ const formContainerStyle = {
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("dateOfSubmission", language)} *</label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="date"
                 defaultValue={new Date().toISOString().split('T')[0]}
@@ -994,7 +980,7 @@ const formContainerStyle = {
             </div>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("dateOfBirth", language)} *</label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="dob"
                 value={formData.dob}
@@ -1006,7 +992,7 @@ const formContainerStyle = {
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("ssn", language)} *</label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="ssn"
               placeholder="###-##-####"
@@ -1018,7 +1004,7 @@ const formContainerStyle = {
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("streetAddress", language)} *</label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="address"
               value={formData.address}
@@ -1029,7 +1015,7 @@ const formContainerStyle = {
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("streetAddress2", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="address2"
               value={formData.address2}
@@ -1041,7 +1027,7 @@ const formContainerStyle = {
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("city", language)}</label>
-              <input
+              <input autoFocus={false} 
                 type="text"
                 name="city"
                 value={formData.city}
@@ -1051,7 +1037,7 @@ const formContainerStyle = {
             </div>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("state", language)}</label>
-              <input
+              <input autoFocus={false} 
                 type="text"
                 name="state"
                 value={formData.state}
@@ -1063,7 +1049,7 @@ const formContainerStyle = {
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("zip", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="zip"
               value={formData.zip}
@@ -1075,7 +1061,7 @@ const formContainerStyle = {
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("phone", language)}  *</label>
-              <input
+              <input autoFocus={false} 
                 type="tel"
                 name="phone"
                 placeholder="(000) 000-0000"
@@ -1086,7 +1072,7 @@ const formContainerStyle = {
             </div>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("email", language)}  *</label>
-              <input
+              <input autoFocus={false} 
                 type="email"
                 name="email"
                 placeholder="example@example.com"
@@ -1100,7 +1086,7 @@ const formContainerStyle = {
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("dateAvailable", language)} </label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="dateAvailable"
                 value={formData.dateAvailable}
@@ -1126,7 +1112,7 @@ const formContainerStyle = {
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("position", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="position"
               value={formData.position}
@@ -1142,6 +1128,7 @@ const formContainerStyle = {
         <div style={pageStyle}>
           <h2
             style={{
+              color: "black",
               fontSize: '22px',
               fontWeight: '700',
               marginBottom: '24px'
@@ -1154,22 +1141,48 @@ const formContainerStyle = {
             <label style={labelStyle}>{t("usCitizen", language)} </label>
             <div style={{ display: 'flex', gap: '24px' }}>
               <label>
-                <input
+                <input autoFocus={false} 
                   type="radio"
                   name="usCitizen"
                   value="yes"
                   checked={formData.usCitizen === 'yes'}
                   onChange={handleChange}
+                  style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.usCitizen === 'yes' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}
                 />
                 &nbsp;{t("yes", language)} 
               </label>
               <label>
-                <input
+                <input autoFocus={false} 
                   type="radio"
                   name="usCitizen"
                   value="no"
                   checked={formData.usCitizen === 'no'}
                   onChange={handleChange}
+                  style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.usCitizen === 'no' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}
                 />
                 &nbsp;{t("no", language)} 
               </label>
@@ -1182,22 +1195,48 @@ const formContainerStyle = {
             </label>
             <div style={{ display: 'flex', gap: '24px' }}>
               <label>
-                <input
+                <input autoFocus={false} 
                   type="radio"
                   name="workAuth"
                   value="yes"
                   checked={formData.workAuth === 'yes'}
                   onChange={handleChange}
+                  style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.workAuth === 'yes' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}
                 />
                 &nbsp;{t("yes", language)} 
               </label>
               <label>
-                <input
+                <input autoFocus={false} 
                   type="radio"
                   name="workAuth"
                   value="no"
                   checked={formData.workAuth === 'no'}
                   onChange={handleChange}
+                  style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.workAuth === 'no' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}
                 />
                 &nbsp;{t("no", language)} 
               </label>
@@ -1250,22 +1289,48 @@ const formContainerStyle = {
             </label>
             <div style={{ display: 'flex', gap: '24px' }}>
               <label>
-                <input
+                <input autoFocus={false} 
                   type="radio"
                   name="felony"
                   value="yes"
                   checked={formData.felony === 'yes'}
                   onChange={handleChange}
+                  style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.felony === 'yes' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}
                 />
                 &nbsp;{t("yes", language)} 
               </label>
               <label>
-                <input
+                <input autoFocus={false} 
                   type="radio"
                   name="felony"
                   value="no"
                   checked={formData.felony === 'no'}
                   onChange={handleChange}
+                  style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.felony === 'no' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}
                 />
                 &nbsp;{t("no", language)} 
               </label>
@@ -1288,15 +1353,15 @@ const formContainerStyle = {
     case 3:
       return (
         <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+          <h2 style={{ fontSize: window.innerWidth <= 768 ? '28px' : '22px', fontWeight: '700', marginBottom: '24px', color: 'black'}}>
             {t("educationRefsEmployment", language)} 
           </h2>
 
           {/* --- EDUCATION --- */}
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '8px', marginBottom: '12px' }}>{t("education", language)} </h3>
+          <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '8px', marginBottom: '12px' }}>{t("education", language)} </h3>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("sName", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="collegeName"
               value={formData.collegeName}
@@ -1306,7 +1371,7 @@ const formContainerStyle = {
           </div>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("sAddress", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="collegeAddress"
               value={formData.collegeAddress}
@@ -1317,7 +1382,7 @@ const formContainerStyle = {
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("sFrom", language)} </label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="collegeFrom"
                 value={formData.collegeFrom}
@@ -1327,7 +1392,7 @@ const formContainerStyle = {
             </div>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("sTo", language)} </label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="collegeTo"
                 value={formData.collegeTo}
@@ -1340,16 +1405,40 @@ const formContainerStyle = {
             <label style={labelStyle}>{t("sGraduate", language)} </label>
             <div style={{ display: 'flex', gap: '24px' }}>
               <label>
-                <input type="radio" name="collegeGraduate" value="yes" checked={formData.collegeGraduate === 'yes'} onChange={handleChange} />{t("yes", language)} 
+                <input autoFocus={false} type="radio" name="collegeGraduate" value="yes" checked={formData.collegeGraduate === 'yes'} onChange={handleChange}                   style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.collegeGraduate === 'yes' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}/>{t("yes", language)} 
               </label>
               <label>
-                <input type="radio" name="collegeGraduate" value="no" checked={formData.collegeGraduate === 'no'} onChange={handleChange} />{t("no", language)} 
+                <input autoFocus={false} type="radio" name="collegeGraduate" value="no" checked={formData.collegeGraduate === 'no'} onChange={handleChange}                   style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.collegeGraduate === 'no' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}/>{t("no", language)} 
               </label>
             </div>
           </div>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("sDegree", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="collegeDegree"
               value={formData.collegeDegree}
@@ -1359,11 +1448,11 @@ const formContainerStyle = {
           </div>
 
           {/* --- PREVIOUS EMPLOYMENT --- */}
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} 1</h3>
+          <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} 1</h3>
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("employerName", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="prevEmployer1"
               value={formData.prevEmployer1}
@@ -1373,7 +1462,7 @@ const formContainerStyle = {
           </div>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("employerPhone", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="tel"
               name="prevPhone1"
               value={formData.prevPhone1}
@@ -1384,7 +1473,7 @@ const formContainerStyle = {
           </div>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("employerAddress", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="prevAddress1"
               value={formData.prevAddress1}
@@ -1394,7 +1483,7 @@ const formContainerStyle = {
           </div>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("jobTitle", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="prevJobTitle1"
               value={formData.prevJobTitle1}
@@ -1405,7 +1494,7 @@ const formContainerStyle = {
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("employmentFrom", language)} </label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="prevFrom1"
                 value={formData.prevFrom1}
@@ -1415,7 +1504,7 @@ const formContainerStyle = {
             </div>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("employmentTo", language)} </label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="prevTo1"
                 value={formData.prevTo1}
@@ -1448,19 +1537,43 @@ const formContainerStyle = {
             <label style={labelStyle}>{t("mayWeContact", language)} </label>
             <div style={{ display: 'flex', gap: '24px' }}>
               <label>
-                <input type="radio" name="prevContact1" value="yes" checked={formData.prevContact1 === 'yes'} onChange={handleChange} />{t("yes", language)} 
+                <input autoFocus={false} type="radio" name="prevContact1" value="yes" checked={formData.prevContact1 === 'yes'} onChange={handleChange}                   style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.prevContact1 === 'yes' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}/>{t("yes", language)} 
               </label>
               <label>
-                <input type="radio" name="prevContact1" value="no" checked={formData.prevContact1 === 'no'} onChange={handleChange} />{t("no", language)} 
+                <input autoFocus={false} type="radio" name="prevContact1" value="no" checked={formData.prevContact1 === 'no'} onChange={handleChange}                   style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.prevContact1 === 'no' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}/>{t("no", language)} 
               </label>
             </div>
           </div>
                     {/* --- PREVIOUS EMPLOYMENT 2--- */}
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} 2</h3>
+          <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} 2</h3>
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("employerName", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="prevEmployer2"
               value={formData.prevEmployer2}
@@ -1470,7 +1583,7 @@ const formContainerStyle = {
           </div>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("employerPhone", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="tel"
               name="prevPhone2"
               value={formData.prevPhone2}
@@ -1481,7 +1594,7 @@ const formContainerStyle = {
           </div>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("employerAddress", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="prevAddress2"
               value={formData.prevAddress2}
@@ -1491,7 +1604,7 @@ const formContainerStyle = {
           </div>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("jobTitle", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="prevJobTitle2"
               value={formData.prevJobTitle2}
@@ -1502,7 +1615,7 @@ const formContainerStyle = {
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("employmentFrom", language)} </label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="prevFrom2"
                 value={formData.prevFrom2}
@@ -1512,7 +1625,7 @@ const formContainerStyle = {
             </div>
             <div style={inputGroupStyle}>
               <label style={labelStyle}>{t("employmentTo", language)} </label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="prevTo2"
                 value={formData.prevTo2}
@@ -1545,10 +1658,38 @@ const formContainerStyle = {
             <label style={labelStyle}>{t("mayWeContact", language)} </label>
             <div style={{ display: 'flex', gap: '24px' }}>
               <label>
-                <input type="radio" name="prevContact2" value="yes" checked={formData.prevContact2 === 'yes'} onChange={handleChange} />{t("yes", language)} 
+                <input autoFocus={false} type="radio" name="prevContact2" value="yes" checked={formData.prevContact2 === 'yes'} onChange={handleChange} 
+                  style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.prevContact2 === 'yes' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}
+                  />{t("yes", language)} 
               </label>
               <label>
-                <input type="radio" name="prevContact2" value="no" checked={formData.prevContact2 === 'no'} onChange={handleChange} />{t("no", language)} 
+                <input autoFocus={false} type="radio" name="prevContact2" value="no" checked={formData.prevContact2 === 'no'} onChange={handleChange} 
+                  style={{
+                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
+                  WebkitAppearance: 'none',
+                  appearance: 'none',
+                  width: '16px',
+                  height: '16px',
+                  borderRadius: '50%',
+                  border: '2px solid #4f46e5',
+                  backgroundColor: formData.prevContact2 === 'no' ? '#4f46e5' : 'white',
+                  outline: 'none',
+                  marginRight: '8px',
+                  cursor: 'pointer',
+                  }}
+                  />{t("no", language)} 
               </label>
             </div>
           </div>
@@ -1559,18 +1700,18 @@ const formContainerStyle = {
     case 4:
       return (
         <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '5px' }}>
+          <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '5px' }}>
             {t("emergencyContactInfo", language)} 
           </h2>
 
            {/* --- REFERENCES --- */}
           {[1, 2].map((i) => (
             <div key={i} style={{ marginBottom: '10px' }}>
-              <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("references", language)} {i}</h3>
+              <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("references", language)} {i}</h3>
               <div style={finalGridStyle}>
                 <div style={inputGroupStyle}>
                   <label style={labelStyle}>{t("firstName", language)} </label>
-                  <input
+                  <input autoFocus={false} 
                     type="text"
                     name={`ref${i}Name`}
                     value={formData[`ref${i}Name`]}
@@ -1580,7 +1721,7 @@ const formContainerStyle = {
                 </div>
                 <div style={inputGroupStyle}>
                   <label style={labelStyle}>{t("relation", language)} </label>
-                  <input
+                  <input autoFocus={false} 
                     type="text"
                     name={`ref${i}Relation`}
                     value={formData[`ref${i}Relation`]}
@@ -1592,7 +1733,7 @@ const formContainerStyle = {
               <div style={finalGridStyle}>
                 <div style={inputGroupStyle}>
                   <label style={labelStyle}>{t("referenceAddress", language)} </label>
-                  <input
+                  <input autoFocus={false} 
                     type="text"
                     name={`ref${i}Address`}
                     value={formData[`ref${i}Address`]}
@@ -1602,7 +1743,7 @@ const formContainerStyle = {
                 </div>
                 <div style={inputGroupStyle}>
                   <label style={labelStyle}>{t("referencePhone", language)} </label>
-                  <input
+                  <input autoFocus={false} 
                     type="tel"
                     name={`ref${i}Phone`}
                     placeholder="(000) 000-0000"
@@ -1616,10 +1757,10 @@ const formContainerStyle = {
           ))}
 
 
-          <h3 style={{ fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("emergencyContact", language)} </h3>
+          <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("emergencyContact", language)} </h3>
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("emergencyFullName", language)} </label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="emergencyName"
               placeholder={t("fullName", language)} 
@@ -1631,7 +1772,7 @@ const formContainerStyle = {
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("emergencyRelation", language)}</label>
-            <input
+            <input autoFocus={false} 
               type="text"
               name="emergencyRelationship"
               placeholder={t("relationshipToYou", language)} 
@@ -1643,7 +1784,7 @@ const formContainerStyle = {
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("emergencyPhone", language)}</label>
-            <input
+            <input autoFocus={false} 
               type="tel"
               name="emergencyPhone"
               placeholder="(000) 000-0000"
@@ -1658,7 +1799,7 @@ const formContainerStyle = {
     case 5:
       return (
         <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+          <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
             {t("backgroundCheckTitle", language)}
           </h2>
 
@@ -1727,13 +1868,15 @@ const formContainerStyle = {
                 {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
               </label>
 
-              <input
+              <input autoFocus={false} 
                 type="text"
                 name="backgroundCheckName"
                 value={formData.backgroundCheckName}
                 onChange={handleChange}
                 style={{
-                  width: '30%',
+                  width: window.innerWidth < 480 ? '75%': '30%',
+                  backgroundColor: 'white',
+                  color: 'black',
                   padding: '14px',
                   border: '2px solid',
                   borderColor: validationErrors.backgroundCheckName ? '#dc2626' : '#d1d5db',
@@ -1752,13 +1895,16 @@ const formContainerStyle = {
 
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
-            <input
+            <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
+            <input autoFocus={false} 
               type="date"
               name="backgroundCheckDate"
               defaultValue={new Date().toISOString().split('T')[0]}
               required
               style={{
+                width: window.innerWidth < 480 ? '75%': '30%',
+                backgroundColor: 'white',
+                color: 'black',
                 padding: '8px',
                 border: '1px solid #d1d5db',
                 borderRadius: '6px',
@@ -1776,7 +1922,7 @@ const formContainerStyle = {
     case 6:
       return (
         <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+          <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
             {t("confidentialityTitle", language)}
           </h2>
 
@@ -1844,13 +1990,15 @@ const formContainerStyle = {
                 {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
               </label>
 
-              <input
+              <input autoFocus={false} 
                 type="text"
                 name="confidentialityEmployeeName"
                 value={formData.confidentialityEmployeeName}
                 onChange={handleChange}
                 style={{
-                  width: '30%',
+                  width: window.innerWidth < 480 ? '75%': '30%',
+                  backgroundColor: 'white',
+                  color: 'black',
                   padding: '14px',
                   border: '2px solid',
                   borderColor: validationErrors.confidentialityEmployeeName ? '#dc2626' : '#d1d5db',
@@ -1868,13 +2016,16 @@ const formContainerStyle = {
           </div>
 
           <div style={{ marginBottom: '16px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
-            <input
+            <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
+            <input autoFocus={false} 
               type="date"
               name="confidentialityDate"
               defaultValue={new Date().toISOString().split('T')[0]}
               required
               style={{
+                width: window.innerWidth < 480 ? '75%': '30%',
+                backgroundColor: 'white',
+                color: 'black',
                 padding: '8px',
                 border: '1px solid #d1d5db',
                 borderRadius: '6px',
@@ -1891,7 +2042,7 @@ const formContainerStyle = {
       case 7:
         return (
           <div style={pageStyle}>
-            <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+            <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
               ADHERENCE TO POLICIES AND PROCEDURES, FEDERAL, STATE, AND ACCREDITATION REGULATIONS, STANDARDS, LAWS, AND GUIDELINES
             </h2>
 
@@ -1965,13 +2116,15 @@ const formContainerStyle = {
                 {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
               </label>
 
-              <input
+              <input autoFocus={false} 
                 type="text"
                 name="policyTrainingName"
                 value={formData.policyTrainingName}
                 onChange={handleChange}
                 style={{
-                  width: '30%',
+                  width: window.innerWidth < 480 ? '75%': '30%',
+                  backgroundColor: 'white',
+                  color: 'black',
                   padding: '14px',
                   border: '2px solid',
                   borderColor: validationErrors.policyTrainingName ? '#dc2626' : '#d1d5db',
@@ -1989,13 +2142,15 @@ const formContainerStyle = {
           </div>
 
             <div style={{ marginBottom: '16px' }}>
-              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
-              <input
+              <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>{t("generalDate", language)}</label>
+              <input autoFocus={false} 
                 type="date"
                 name="policyTrainingDate"
                 defaultValue={new Date().toISOString().split('T')[0]}
                 required
                 style={{
+                  width: window.innerWidth < 480 ? '75%': '30%',
+                  backgroundColor: 'white',
                   padding: '8px',
                   border: '1px solid #d1d5db',
                   borderRadius: '6px',
@@ -2012,7 +2167,7 @@ const formContainerStyle = {
 case 8:
   return (
     <div style={pageStyle}>
-      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+      <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
         Conflict of Interest Disclosure
       </h2>
 
@@ -2061,7 +2216,7 @@ case 8:
             component="fieldset"
             sx={{ mb: 3, width: '100%' }}
           >
-            <Typography sx={{ fontWeight: 500, mb: 1 }}>
+            <Typography sx={{ color: 'black',  fontWeight: 500, mb: 1 }}>
               {i}. {questionText} <span style={{ color: 'red' }}>*</span>
             </Typography>
 
@@ -2115,13 +2270,15 @@ case 8:
                 {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
               </label>
 
-              <input
+              <input autoFocus={false} 
                 type="text"
                 name="conflictName"
                 value={formData.conflictName}
                 onChange={handleChange}
                 style={{
-                  width: '30%',
+                  width: window.innerWidth < 480 ? '75%': '30%',
+                  backgroundColor: 'white',
+                  color: 'black',
                   padding: '14px',
                   border: '2px solid',
                   borderColor: validationErrors.conflictName ? '#dc2626' : '#d1d5db',
@@ -2140,15 +2297,17 @@ case 8:
 
       {/* Date */}
       <div style={{ marginBottom: '42px' }}>
-        <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+        <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>
          {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="date"
           name="conflictDate"
           value={formData.conflictDate}
           onChange={handleChange}
           style={{
+            width: window.innerWidth < 480 ? '75%': '30%',
+            backgroundColor: 'white',
             padding: '8px',
             border: '2px solid',
             borderColor: validationErrors.conflictDate ? '#dc2626' : '#d1d5db',
@@ -2256,7 +2415,7 @@ case 8:
     case 9:
       return (
         <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+          <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
             Code of Business Conduct and Ethics
           </h2>
 
@@ -2340,13 +2499,15 @@ case 8:
                     {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                   </label>
 
-                  <input
+                  <input autoFocus={false} 
                     type="text"
                     name="ethicsName"
                     value={formData.ethicsName}
                     onChange={handleChange}
                     style={{
-                      width: '30%',
+                      width: window.innerWidth < 480 ? '75%': '30%',
+                      backgroundColor: 'white',
+                      color: 'black',
                       padding: '14px',
                       border: '2px solid',
                       borderColor: validationErrors.ethicsName ? '#dc2626' : '#d1d5db',
@@ -2365,15 +2526,17 @@ case 8:
 
           {/* Date */}
           <div style={{ marginBottom: '42px' }}>
-            <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+            <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>
              {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
             </label>
-            <input
+            <input autoFocus={false} 
               type="date"
               name="ethicsDate"
               value={formData.ethicsDate}
               onChange={handleChange}
               style={{
+                width: window.innerWidth < 480 ? '75%': '30%',
+                backgroundColor: 'white',
                 padding: '8px',
                 border: '2px solid',
                 borderColor: validationErrors.ethicsDate ? '#dc2626' : '#d1d5db',
@@ -2397,7 +2560,7 @@ case 8:
       case 10:
         return (
           <div style={pageStyle}>
-            <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+            <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
               Driver Compliance Acknowledgement
             </h2>
 
@@ -2432,13 +2595,15 @@ case 8:
                       {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                     </label>
 
-                    <input
+                    <input autoFocus={false} 
                       type="text"
                       name="driverName"
                       value={formData.driverName}
                       onChange={handleChange}
                       style={{
-                        width: '30%',
+                        width: window.innerWidth < 480 ? '75%': '30%',
+                        backgroundColor: 'white',
+                        color: 'black',
                         padding: '14px',
                         border: '2px solid',
                         borderColor: validationErrors.driverName ? '#dc2626' : '#d1d5db',
@@ -2457,15 +2622,17 @@ case 8:
 
             {/* Date */}
             <div style={{ marginBottom: '42px' }}>
-              <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+              <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>
                {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
               </label>
-              <input
+              <input autoFocus={false} 
                 type="date"
                 name="driverDate"
                 value={formData.driverDate}
                 onChange={handleChange}
                 style={{
+                  width: window.innerWidth < 480 ? '75%': '30%',
+                  backgroundColor: 'white',
                   padding: '8px',
                   border: '2px solid',
                   borderColor: validationErrors.driverDate ? '#dc2626' : '#d1d5db',
@@ -2489,7 +2656,7 @@ case 8:
         case 11:
           return (
             <div style={pageStyle}>
-              <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+              <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
                 Drug-Free Workplace Policy
               </h2>
 
@@ -2523,12 +2690,15 @@ case 8:
                       </label>
 
                       <input
+                        autoFocus={false}
                         type="text"
                         name="drugFreeName"
                         value={formData.drugFreeName}
                         onChange={handleChange}
                         style={{
-                          width: '30%',
+                          width: window.innerWidth < 480 ? '75%': '30%',
+                          backgroundColor: 'white',
+                          color: 'black',
                           padding: '14px',
                           border: '2px solid',
                           borderColor: validationErrors.drugFreeName ? '#dc2626' : '#d1d5db',
@@ -2547,15 +2717,18 @@ case 8:
 
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>
                  {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
                 <input
+                  autoFocus={false}
                   type="date"
                   name="drugFreeDate"
                   value={formData.drugFreeDate}
                   onChange={handleChange}
                   style={{
+                    width: window.innerWidth < 480 ? '75%': '30%',
+                    backgroundColor: 'white',
                     padding: '8px',
                     border: '2px solid',
                     borderColor: validationErrors.drugFreeDate ? '#dc2626' : '#d1d5db',
@@ -2580,7 +2753,7 @@ case 8:
           case 12:
             return (
               <div style={pageStyle}>
-                <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+                <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
                   Employee Agreement and Consent to Drug and/or Alcohol Testing
                 </h2>
 
@@ -2611,17 +2784,19 @@ case 8:
               {/* Full Name */}
               <div style={{ marginBottom: '6px' }}>
                     <div style={inputGroupStyle}>
-                      <label style={labelStyle}>
+                      <label autoFocus={false} style={labelStyle}>
                         {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
-                      <input
+                      <input autoFocus={false} 
                         type="text"
                         name="drugConsentName"
                         value={formData.drugConsentName}
                         onChange={handleChange}
                         style={{
-                          width: '30%',
+                          width: window.innerWidth < 480 ? '75%': '30%',
+                          backgroundColor: 'white',
+                          color: 'black',
                           padding: '14px',
                           border: '2px solid',
                           borderColor: validationErrors.drugConsentName ? '#dc2626' : '#d1d5db',
@@ -2640,15 +2815,17 @@ case 8:
 
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>
                  {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
-                <input
+                <input autoFocus={false} 
                   type="date"
                   name="drugConsentDate"
                   value={formData.drugConsentDate}
                   onChange={handleChange}
                   style={{
+                    width: window.innerWidth < 480 ? '75%': '30%',
+                    backgroundColor: 'white',
                     padding: '8px',
                     border: '2px solid',
                     borderColor: validationErrors.drugConsentDate ? '#dc2626' : '#d1d5db',
@@ -2669,7 +2846,7 @@ case 8:
 
                 {/* Drug / Herbal Declaration */}
                 <div style={{ marginBottom: '16px' }}>
-                  <label>I may be taking the following Drugs/Herbals</label>
+                  <label style={{color: 'black'}}>I may be taking the following Drugs/Herbals</label>
                   <textarea
                     name="drugsHerbals"
                     rows="2"
@@ -2677,6 +2854,8 @@ case 8:
                       width: '100%',
                       padding: '8px',
                       borderRadius: '6px',
+                      background: 'white',
+                      color: 'black',
                       border: '1px solid #d1d5db',
                       resize: 'vertical',
                     }}
@@ -2686,32 +2865,52 @@ case 8:
                 {/* Lot Number, Expiration, Results */}
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '16px' }}>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label>Lot Number</label>
-                    <input type="text" name="lotNumber" style={inputStyle} />
+                    <label style={{color: 'black'}}>Lot Number</label>
+                    <input autoFocus={false} type="text" name="lotNumber" style={inputStyle} />
                   </div>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label>Expiration Date</label>
-                    <input type="date" name="expirationDate" style={inputStyle} />
+                    <label style={{color: 'black'}}>Expiration Date</label>
+                    <input autoFocus={false} type="date" name="expirationDate" style={inputStyle} />
                   </div>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label>Results</label>
-                    <input type="text" name="results" style={inputStyle} />
+                    <label style={{color: 'black'}}>Results</label>
+                    <input autoFocus={false} type="text" name="results" style={inputStyle} />
                   </div>
                 </div>
 
                 {/* Negative / Positive / Initials */}
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '16px' }}>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label>Negative</label>
-                    <input type="checkbox" name="isNegative" />
+                    <label style={{color: 'black'}}>Negative</label>
+                    <input autoFocus={false} type="checkbox" name="isNegative"   style={{
+                      width: '18px',
+                      height: '18px',
+                      backgroundColor: 'white', // ✅ Force background
+                      border: '2px solid #4f46e5', // or gray
+                      borderRadius: '4px',
+                      accentColor: '#4f46e5',         // ✅ Let browser render checkmark
+                      WebkitBackgroundColor: 'white', // Redundant, doesn't affect native checkbox
+                      cursor: 'pointer',
+                      position: 'relative',
+                    }}/>
                   </div>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label>Positive</label>
-                    <input type="checkbox" name="isPositive" />
+                    <label style={{color: 'black'}}>Positive</label>
+                    <input autoFocus={false} type="checkbox" name="isPositive"   style={{
+                      width: '18px',
+                      height: '18px',
+                      backgroundColor: 'white', // ✅ Force background
+                      border: '2px solid #4f46e5', // or gray
+                      borderRadius: '4px',
+                      accentColor: '#4f46e5',
+                      WebkitBackgroundColor: 'white',
+                      cursor: 'pointer',
+                      position: 'relative',
+                    }}/>
                   </div>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label>Initials</label>
-                    <input type="text" name="initials" style={inputStyle} />
+                    <label style={{color: 'black'}}>Initials</label>
+                    <input autoFocus={false} type="text" name="initials" style={inputStyle} />
                   </div>
                 </div>
               </div>
@@ -2720,7 +2919,7 @@ case 8:
       case 13:
         return (
           <div style={pageStyle}>
-            <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+            <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
               Certified Home Health Aide — Job Summary & Acknowledgment
             </h2>
 
@@ -2792,13 +2991,15 @@ case 8:
                         {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
-                      <input
+                      <input autoFocus={false} 
                         type="text"
                         name="chhaEmployeeName"
                         value={formData.chhaEmployeeName}
                         onChange={handleChange}
                         style={{
-                          width: '30%',
+                          width: window.innerWidth < 480 ? '75%': '30%',
+                          backgroundColor: 'white',
+                          color: 'black',
                           padding: '14px',
                           border: '2px solid',
                           borderColor: validationErrors.chhaEmployeeName ? '#dc2626' : '#d1d5db',
@@ -2817,15 +3018,17 @@ case 8:
 
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>
                  {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
-                <input
+                <input autoFocus={false} 
                   type="date"
                   name="chhaSignatureDate"
                   value={formData.chhaSignatureDate}
                   onChange={handleChange}
                   style={{
+                    width: window.innerWidth < 480 ? '75%': '30%',
+                    backgroundColor: 'white',
                     padding: '8px',
                     border: '2px solid',
                     borderColor: validationErrors.chhaSignatureDate ? '#dc2626' : '#d1d5db',
@@ -2849,7 +3052,7 @@ case 8:
       case 14:
         return (
           <div style={pageStyle}>
-            <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+            <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
               Homemaker Home Health Aide Service Agreement
             </h2>
 
@@ -2922,13 +3125,15 @@ case 8:
                         {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
-                      <input
+                      <input autoFocus={false} 
                         type="text"
                         name="hhhaEmployeeName"
                         value={formData.hhhaEmployeeName}
                         onChange={handleChange}
                         style={{
-                          width: '30%',
+                          width: window.innerWidth < 480 ? '75%': '30%',
+                          backgroundColor: 'white',
+                          color: 'black',
                           padding: '14px',
                           border: '2px solid',
                           borderColor: validationErrors.hhhaEmployeeName ? '#dc2626' : '#d1d5db',
@@ -2947,15 +3152,17 @@ case 8:
 
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>
                  {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
-                <input
+                <input autoFocus={false} 
                   type="date"
                   name="hhhaEmployeeDate"
                   value={formData.hhhaEmployeeDate}
                   onChange={handleChange}
                   style={{
+                    width: window.innerWidth < 480 ? '75%': '30%',
+                    backgroundColor: 'white',
                     padding: '8px',
                     border: '2px solid',
                     borderColor: validationErrors.hhhaEmployeeDate ? '#dc2626' : '#d1d5db',
@@ -2976,7 +3183,7 @@ case 8:
         case 15:
           return (
             <div style={pageStyle}>
-              <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+              <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
                 Employee Handbook Signature Page
               </h2>
 
@@ -3102,13 +3309,15 @@ case 8:
                         {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
                       </label>
 
-                      <input
+                      <input autoFocus={false} 
                         type="text"
                         name="handbookPrintedName"
                         value={formData.handbookPrintedName}
                         onChange={handleChange}
                         style={{
-                          width: '30%',
+                          width: window.innerWidth < 480 ? '75%': '30%',
+                          backgroundColor: 'white',
+                          color: 'black',
                           padding: '14px',
                           border: '2px solid',
                           borderColor: validationErrors.handbookPrintedName ? '#dc2626' : '#d1d5db',
@@ -3127,15 +3336,17 @@ case 8:
 
               {/* Date */}
               <div style={{ marginBottom: '42px' }}>
-                <label style={{ display: 'block', fontWeight: '500', marginBottom: '4px' }}>
+                <label style={{ display: 'block', color: 'black', fontWeight: '500', marginBottom: '4px' }}>
                  {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
                 </label>
-                <input
+                <input autoFocus={false} 
                   type="date"
                   name="handbookDate"
                   value={formData.handbookDate}
                   onChange={handleChange}
                   style={{
+                    width: window.innerWidth < 480 ? '75%': '30%',
+                    backgroundColor: 'white',
                     padding: '8px',
                     border: '2px solid',
                     borderColor: validationErrors.handbookDate ? '#dc2626' : '#d1d5db',
@@ -3155,7 +3366,7 @@ case 8:
     case 21:
       return (
         <div style={pageStyle}>
-          <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+          <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
             {t("disclaimer", language)}
           </h2>
 
@@ -3168,7 +3379,7 @@ case 8:
           {/* Just the signature date field now */}
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("signatureDate", language)}</label>
-            <input
+            <input autoFocus={false} 
               type="date"
               name="sigDate"
               defaultValue={new Date().toISOString().split('T')[0]}
@@ -3183,7 +3394,7 @@ case 8:
       case 16:
   return (
     <div style={pageStyle}>
-      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '15px' }}>
+      <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '15px' }}>
         Annual TB Screening Questionnaire
       </h2>
 
@@ -3218,7 +3429,7 @@ screening is required.
             component="fieldset"
             sx={{ mb: 3, width: '100%' }}
           >
-            <Typography sx={{ fontSize: 15, fontWeight: 500, mb: 1 }}>
+            <Typography sx={{ color: 'black', fontSize: 15, fontWeight: 500, mb: 1 }}>
               {num}. Do you experience {questions[num]}? <span style={{ color: 'red' }}>*</span>
             </Typography>
 
@@ -3241,7 +3452,7 @@ screening is required.
         component="fieldset"
         sx={{ mb: 3 }}
       >
-        <Typography sx={{ fontWeight: 500, mb: 1 }}>
+        <Typography sx={{ color: 'black',  fontWeight: 500, mb: 1 }}>
           Have you recently spent time with someone who has infectious tuberculosis?
           <span style={{ color: 'red' }}> *</span>
         </Typography>
@@ -3261,7 +3472,7 @@ screening is required.
         component="fieldset"
         sx={{ mb: 3 }}
       >
-        <Typography sx={{ fontWeight: 500, mb: 1 }}>
+        <Typography sx={{ color: 'black',  fontWeight: 500, mb: 1 }}>
           Do you have any other complaints? <span style={{ color: 'red' }}>*</span>
         </Typography>
         <RadioGroup row name="tbOtherComplaints" value={formData.tbOtherComplaints || ''} onChange={handleChange}>
@@ -3286,7 +3497,7 @@ screening is required.
       </FormControl>
 
       <div style={{ marginBottom: '20px'}}>
-        <label style={{fontStyle:"italic", marginBottom: '20px'}}>
+        <label style={{ color: 'black', fontStyle:"italic", marginBottom: '20px'}}>
           The above health statements are accurate to the best of my knowledge. I have been in-serviced on the signs and
         symptoms of tuberculosis and been advised to seek medical care if any of the symptoms develop at any time. 
         </label>
@@ -3297,13 +3508,15 @@ screening is required.
         <label style={labelStyle}>
           {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="text"
           name="tbName"
           value={formData.tbName || ''}
           onChange={handleChange}
           style={{
-            width: '50%',
+            width: window.innerWidth < 480 ? '75%': '30%',
+            backgroundColor: 'white',
+            color: 'black',
             padding: '14px',
             border: '2px solid',
             borderColor: validationErrors.tbName ? '#dc2626' : '#d1d5db',
@@ -3323,12 +3536,13 @@ screening is required.
         <label style={labelStyle}>
          {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="date"
           name="tbDate"
           value={formData.tbDate || ''}
           onChange={handleChange}
           style={{
+            backgroundColor: 'white',
             padding: '8px',
             border: '2px solid',
             borderColor: validationErrors.tbDate ? '#dc2626' : '#d1d5db',
@@ -3348,7 +3562,7 @@ screening is required.
   case 17:
   return (
     <div style={pageStyle}>
-      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+      <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
         Hepatitis B Virus Vaccine Consent/Declination
       </h2>
 
@@ -3378,11 +3592,13 @@ screening is required.
           <FormControlLabel
             value="consent"
             control={<Radio />}
+            sx={{color: 'black'}}
             label="I consent to the administration of the Hepatitis B vaccine. I have been informed of the method of administration, the risks, complications, and expected benefits of the vaccine. I understand that the facility is not responsible for any reactions caused by the vaccine."
           />
           <FormControlLabel
             value="decline"
             control={<Radio />}
+            sx={{color: 'black'}}
             label="I decline the Hepatitis B vaccination at this time. I understand that, by declining this vaccine, I continue to be at risk of acquiring Hepatitis B, a serious disease. If in the future I continue to have occupational exposure to blood or other potentially infectious materials, I can request to be vaccinated at no charge."
           />
         </RadioGroup>
@@ -3410,6 +3626,7 @@ screening is required.
                 onChange={handleChange}
               />
             }
+            sx={{color: 'black'}}
             label="I have previously received the complete series of the three injections of the Hepatitis B Vaccine. I do not have documentation of Hepatitis-B immunity and choose not to receive the vaccine. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease."
           />
           <FormControlLabel
@@ -3420,6 +3637,7 @@ screening is required.
                 onChange={handleChange}
               />
             }
+            sx={{color: 'black'}}
             label="I have had a positive result in Hepatitis B antibody testing, which shows immunity to the virus."
           />
           <FormControlLabel
@@ -3430,6 +3648,7 @@ screening is required.
                 onChange={handleChange}
               />
             }
+            sx={{color: 'black'}}
             label="I have medical contraindications to the vaccine."
           />
           <FormControlLabel
@@ -3440,6 +3659,7 @@ screening is required.
                 onChange={handleChange}
               />
             }
+            sx={{color: 'black'}}
             label="I am at low risk and provide no direct patient care. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease."
           />
         </FormGroup>
@@ -3451,13 +3671,15 @@ screening is required.
         <label style={labelStyle}>
           {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="text"
           name="hepbConsentName"
           value={formData.hepbConsentName || ''}
           onChange={handleChange}
           style={{
-            width: '60%',
+            width: window.innerWidth < 480 ? '75%': '30%',
+            backgroundColor: 'white',
+            color: 'black',
             padding: '14px',
             border: '2px solid',
             borderColor: validationErrors.hepbConsentName ? '#dc2626' : '#d1d5db',
@@ -3476,12 +3698,13 @@ screening is required.
         <label style={labelStyle}>
          {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="date"
           name="hepbConsentDate"
           value={formData.hepbConsentDate || ''}
           onChange={handleChange}
           style={{
+            background: 'white',
             padding: '8px',
             border: '2px solid',
             borderColor: validationErrors.hepbConsentDate ? '#dc2626' : '#d1d5db',
@@ -3502,7 +3725,7 @@ screening is required.
   case 18:
   return (
     <div style={pageStyle}>
-      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+      <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
         OSHA Introduction
       </h2>
 
@@ -3562,13 +3785,15 @@ screening is required.
         <label style={labelStyle}>
           {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="text"
           name="oshaSignature"
           value={formData.oshaSignature || ''}
           onChange={handleChange}
           style={{
-            width: '50%',
+            width: window.innerWidth < 480 ? '75%': '30%',
+            backgroundColor: 'white',
+            color: 'black',
             padding: '14px',
             border: '2px solid',
             borderColor: validationErrors.oshaSignature ? '#dc2626' : '#d1d5db',
@@ -3588,12 +3813,13 @@ screening is required.
         <label style={labelStyle}>
          {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="date"
           name="oshaDate"
           value={formData.oshaDate || ''}
           onChange={handleChange}
           style={{
+            background: 'white',
             padding: '8px',
             border: '2px solid',
             borderColor: validationErrors.oshaDate ? '#dc2626' : '#d1d5db',
@@ -3638,16 +3864,19 @@ screening is required.
           <FormControlLabel
             value="CategoryI"
             control={<Radio />}
+            sx={{color: 'black'}}
             label="Category I - Involves tasks or procedures in which all or some staff have a reasonable likelihood of contact with blood or other potentially infectious materials. The use of job-appropriate personal protective equipment and other protective measures is required."
           />
           <FormControlLabel
             value="CategoryII"
             control={<Radio />}
+            sx={{color: 'black'}}
             label="CategoryII - Tasks and work assignments involve no routine exposure to blood or other potentially infectious material, but employment may require unplanned Category I tasks. (Example: In an emergency, receiving-transporting specimens) appropriate personal protective device must be available, and these staff must be familiar with protective measures."
           />
           <FormControlLabel
             value="CategoryIII"
             control={<Radio />}
+            sx={{color: 'black'}}
             label="CategoryIII - Tasks and work assignments involve no exposure to blood or other potentially infectious materials. Employment should NEVER require Category I or Category II tasks or duties."
           />
         </RadioGroup>
@@ -3668,13 +3897,15 @@ screening is required.
         <label style={labelStyle}>
           {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="text"
           name="exposureSignature"
           value={formData.exposureSignature || ''}
           onChange={handleChange}
           style={{
-            width: '50%',
+            width: window.innerWidth < 480 ? '75%': '30%',
+            backgroundColor: 'white',
+            color: 'black',
             padding: '14px',
             border: '2px solid',
             borderColor: validationErrors.exposureSignature ? '#dc2626' : '#d1d5db',
@@ -3694,12 +3925,13 @@ screening is required.
         <label style={labelStyle}>
          {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="date"
           name="exposureDate"
           value={formData.exposureDate || ''}
           onChange={handleChange}
           style={{
+            background: 'white',
             padding: '8px',
             border: '2px solid',
             borderColor: validationErrors.exposureDate ? '#dc2626' : '#d1d5db',
@@ -3719,7 +3951,7 @@ screening is required.
   case 20:
   return (
     <div style={pageStyle}>
-      <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
+      <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
         Criminal History Background Check Questions for Employees
       </h2>
 
@@ -3776,8 +4008,8 @@ screening is required.
             value={formData[q.name] || ''}
             onChange={handleChange}
           >
-            <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-            <FormControlLabel value="no" control={<Radio />} label="No" />
+            <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{color: 'black'}}/>
+            <FormControlLabel value="no" control={<Radio />} label="No" sx={{color: 'black'}}/>
           </RadioGroup>
           {validationErrors[q.name] && (
             <FormHelperText>This field is required.</FormHelperText>
@@ -3790,13 +4022,15 @@ screening is required.
         <label style={labelStyle}>
           {t("employeeName", language)} <span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="text"
           name="horizonName"
           value={formData.horizonName || ''}
           onChange={handleChange}
           style={{
-            width: '60%',
+            width: window.innerWidth < 480 ? '75%': '30%',
+            backgroundColor: 'white',
+            color: 'black',
             padding: '14px',
             border: '2px solid',
             borderColor: validationErrors.horizonName ? '#dc2626' : '#d1d5db',
@@ -3816,12 +4050,13 @@ screening is required.
         <label style={labelStyle}>
          {t("generalDate", language)}<span style={{ color: 'red' }}>*</span>
         </label>
-        <input
+        <input autoFocus={false} 
           type="date"
           name="horizonDate"
           value={formData.horizonDate || ''}
           onChange={handleChange}
           style={{
+            background: 'white',
             padding: '8px',
             border: '2px solid',
             borderColor: validationErrors.horizonDate ? '#dc2626' : '#d1d5db',
@@ -3882,7 +4117,13 @@ screening is required.
       <div style={{ display: currentPage === 21 ? 'block' : 'none' }}>
         <label style={labelStyle}>{t("signature", language)}</label>
         <div style={signatureContainerStyle}>
-          <SignatureCanvas ref={sigRef} />
+          <SignatureCanvas ref={sigRef} canvasProps={{ style: canvasStyle }}  
+          onEnd={() => {
+            if (currentPage === 21 && sigRef.current) {
+              const empty = sigRef.current.isEmpty();
+              setIsSignatureMissing(empty);
+            }
+          }}/>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '8px' }}>
             <button type="button" onClick={() => sigRef.current?.clear()} style={clearButtonStyle}>{t("clearSignature", language)}</button>
             <span style={{ fontSize: '12px', color: '#6b7280' }}>{t("signatureInstruction", language)}</span>
