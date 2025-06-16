@@ -1681,18 +1681,18 @@ app.post('/api/save-form', async (req, res) => {
 
     /*=======test=============*/
 
-    writeStream.on('finish', () => {
+    /*writeStream.on('finish', () => {
       res.status(200).json({ message: 'PDF created', file:`/uploads/form-${timestamp}.pdf` });
-    });
+    });*/
 
     /*======= Email ======== */
 
-    /*writeStream.on('finish', async () => {
+    writeStream.on('finish', async () => {
     const filePath = path.join(__dirname, `uploads/form-${timestamp}.pdf`);
     try {
         await transporter.sendMail({
         from: '"E Neighbor Homecare" <eneighbormailing@gmail.com>',
-        to: 'annasun955@gmail.com',
+        to: ['annasun955@gmail.com', 'zhaoa889@gmail.com'],
         subject: 'New Employee Application Submitted',
         text: `A new application has been submitted by ${data.firstName} ${data.lastName}. PDF is attached.`,
         attachments: [
