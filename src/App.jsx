@@ -142,7 +142,70 @@ const translations = {
             <p><strong>(a)&nbsp;Relationships</strong>.&nbsp;Nothing contained in this Agreement shall be deemed to constitute either party a partner, joint venturer, or employee of the other party for any purpose.<br /> <strong>(b)&nbsp;Severability.</strong>&nbsp;If a court finds any provision of this Agreement invalid or unenforceable, the remainder of this Agreement shall be interpreted so as to best effect the intent of the parties.<br /> <strong>(c)&nbsp;Integration.</strong>&nbsp;This Agreement expresses the complete understanding of the parties with respect to the subject matter and supersedes all prior proposals, agreements, representations, and understandings. This Agreement may not be amended except in writing and signed by both parties.<br /> <strong>(d)&nbsp;Waiver.</strong>&nbsp;The failure to exercise any right provided in this Agreement shall not be a waiver of prior or subsequent rights.<br /> <strong>(e)&nbsp;Injunctive Relief.</strong>&nbsp;Any misappropriation of Confidential Information in violation of this Agreement may cause E Neighbor Homecare LLC irreparable harm, the amount of which may be difficult to ascertain, and therefore employee agrees that E Neighbor Homecare LLC shall have the right to apply to a court of competent jurisdiction for an order enjoining any such further misappropriation and for such other relief as E Neighbor Homecare LLC deems appropriate. This right of E Neighbor Homecare LLC is to be in addition to the remedies otherwise available to E Neighbor Homecare LLC.<br /> <strong>(f)&nbsp;Attorney Fees and Expenses</strong>. In a dispute arising out of or related to this Agreement, the prevailing party shall have the right to collect from the other party its reasonable attorney fees and costs and necessary expenditures.<br /> <strong>(g)&nbsp;Governing Law.</strong>&nbsp;This Agreement shall be governed in accordance with the laws of the State in which the E Neighbor Homecare LLC business is located.<br /> <strong>(h)&nbsp;Jurisdiction</strong>. The parties consent to the exclusive jurisdiction and venue of the federal and state courts in any action arising out of or relating to this Agreement. The parties waive any other venue to which either party might be entitled by domicile or otherwise.</p>    
     </>),
     confidentialityConfirm: "I have read and agree to the confidentiality and non-disclosure agreement above.",
-
+    adherenceTitle: "ADHERENCE TO POLICIES AND PROCEDURES, FEDERAL, STATE, AND ACCREDITATION REGULATIONS, STANDARDS, LAWS, GUIDELINES AND STAFF TRAINING",
+    adherenceText: (<>
+              <p>I understand that copies of the policy and procedures manuals are available, and I understand that it is my responsibility to read the policies. I also agree to comply with E Neighbor Homecare LLC. Policies and procedures, federal/state laws and regulations, accrediting agencies, and national practice standards. If I have any questions or need any clarification, I will ask the Administrator/CEO .</p>
+              <p>I understand I will be responsible for maintaining skills and knowledge to comply withE Neighbor Homecare LLC the scope of Services and any provider's requirements.</p>
+              <p>I understand that nothing contained in any policy or procedure manual constitutes a contractual relationship between E Neighbor Homecare LLC and its employees, contractor, or volunteers.</p>
+              <p>I understand that I am required to attend and participate in services as scheduled and annual training by E Neighbor Homecare LLC to be in compliance with new or revised policies and procedures.</p>
+    </>),
+    adherenceAgree:"I have read and agree to the confidentiality and non-disclosure agreement above.",
+    conflictTitle:"Conflict of Interest Disclosure",
+    conflictText:(<> <p>I have been provided a copy/information and understand E Neighbor Homecare LLC. Disclosure/Conflict of Interest policy.</p>
+      <p>The following questions are designed for you to determine the nature and extent of any outside interest that might possibly involve a conflict of interest with the affairs of the organization. Please read each question carefully and then answer briefly and concisely in the space that follows. In the event that you have any doubts as to what the question means, answer it to the best of your ability and identify the reason for the doubt.</p>
+      <p><strong>Glossary</strong></p>
+      <p><em>Competitor:</em> A person offering for sale or selling products and/or services in competition with this organization.</p>
+      <p><em>Family:</em> Spouse, parents, children, brothers, sisters, in-laws, and those in your household.</p>
+      <p><em>Purchaser:</em>  Any person who buys, rents, or otherwise procures, has bought, rented, procured, or in any way has received from this organization any goods, materials, wares, merchandise, supplies, machinery, equipment, or professional and/or another service.</p>
+      <p><em>Person:</em> An individual, firm, partnership, trust, corporation, or other business entity.</p>
+      <p><em>Vendor:</em> Any person who sells, rents, agrees to furnish, has offered to sell, rent, or agree to furnish, or has sold supplies, machinery, equipment, real estate, credit, insurance, or service, profession or otherwise, to or on behalf of the organization.</p>
+      <p></p>
+      </>),
+    conflictCertify: "I certify that I have: Ownership, Entertainment, Gifts, Loans:",
+    conflictFurthermore: "Furthermore, I understand that I have a duty to report any relationship that may arise that could be perceived as a conflict of interest or may be considered a conflict of interest between myself and the E Neighbor Homecare LLC.",
+    conflictAgree1:"I acknowledge that it is my responsibility to bring any such potential conflicts of interest to the attention of the corporate Compliance Officer.",
+    conflictAgree2:"I acknowledge and certify the above responses are true and accurate to the best of my knowledge.",
+    ethicsTitle: "Code of Business Conduct and Ethics",
+    ethicsText: (<>
+    <p>The success of our business is dependent on the trust and confidence we earn from our employees, customers, and shareholders. We gain credibility by adhering to our commitments, displaying honesty and integrity, and reaching company goals solely through honorable conduct. It is easy to&nbsp;<em>say</em>&nbsp;what we must do, but the proof is in our&nbsp;<em>actions</em>. Ultimately, we will be judged on what we do.</p>
+            <p>&nbsp;</p>
+            <p>E Neighbor Homecare LLC's commitment to integrity begins with complying with laws, rules, and regulations where we do business. Further, each of us must have an understanding of the company policies, laws, rules, and regulations that apply to our specific roles. If we are unsure of whether a contemplated action is permitted by law or E Neighbor Homecare LLC policy, we should seek advice from the Administrator/CEO. We are responsible for preventing violations of law and for speaking up if we see possible violations</p>
+            <p>&nbsp;</p>
+            <p>The use of good judgment based on high ethical principles will guide you with respect to lines of acceptable conduct. If a situation arises for which it is difficult to determine the proper course of action, the matter should be discussed immediately with your immediate supervisor.</p>
+            <p>In consideration of the employment of the undersigned by E Neighbor Homecare LLC, the employee agrees: (I) that during the employee's employment with E Neighbor Homecare LLC, the employee shall not solicit patients of E Neighbor Homecare LLC or attempt to influence such patients to change providers, (2) that upon the termination of employee's employment with E Neighbor Homecare LLC, the employee shall not, for a period of three months after such termination, service any patients of E Neighbor Homecare LLC serviced by the employee during the last six months of the employee's employment by E Neighbor Homecare LLC, (3) to keep confidential all patient records, patient information, pharmacy trade secrets, pharmacy computer passwords, pharmacy phone access codes or any other passwords or pharmacy secrets, (4) to maintain professional boundaries to include clients, vendors and providers and (5) to serve faithfully and act in a way that will merit the continued trust and confidence of the public.</p>
+            <p>&nbsp;</p>
+            <p>As a user of information at E Neighbor Homecare LLC, you may develop, use, or maintain (1) patient information (for health care, quality improvement, peer review, education, billing, reimbursement, administration, research, or for other purposes), (2) personnel information (for employment, payroll, or other business purposes), or (3) confidential business information of E Neighbor Homecare LLC and/or third parties, including third-party software and other licensed products or processes. This information from any source and in any form, including, but not limited to, paper record, oral communication, audio recording, and electronic display, is strictly confidential. Access to confidential information is permitted only on a need-to-know basis and limited to the minimum amount of confidential information necessary to accomplish the intended purpose of the use, disclosure, or request.</p>
+            <p>&nbsp;</p>
+            <p>To avoid conflicts of interest, we must ensure that our decisions for E Neighbor Homecare LLC are objective and fair. Sometimes our personal or family interests might conflict with business decisions. We must always prioritize E Neighbor Homecare LLC's legitimate interests. Using company property or information for personal gain or seizing business opportunities for personal benefit is prohibited.</p>
+            <p>I agree to follow the E Neighbor Homecare LLC Policies and Procedures Manual. I understand that these policies and procedures may change, and it is my responsibility to stay informed and comply with any updates.</p>
+            <p>All employees must follow this business ethics policy. Violating it may result in disciplinary action, including termination. Unauthorized use or release of confidential information may lead to personal, civil, or criminal penalties. I agree to comply with the Confidentiality statements and the E Neighbor Homecare LLC Privacy and Information Security Policies, which I'll read. If I breach these terms, E Neighbor Homecare LLC can seek damages.</p>
+            <p><strong>I agree to read E Neighbor Homecare LLC Compliance and Business Ethics policies. If I have questions, I will direct my questions to my supervisor.&nbsp; </strong></p>
+            <p><strong>The signatures, printed name and dates below signify acceptance of the terms ofE Neighbor Homecare LLC Compliance and Business Ethical policies and procedures. </strong></p>
+            <p>&nbsp;</p>
+      </>),
+    ethicsAgreeText: "I have read, acknowledge and agree to comply with all terms, policies, and conditions outlined above.",
+    driverTitle: "Driver Compliance Acknowledgement",
+    driverText: (<>
+    <p>I understand that operating a vehicle on E Neighbor Homecare LLC business means driving either a personal vehicle or owned/leased vehicle by E Neighbor Homecare LLC in the course of employment (i.e., any driving other than commuting to and from the agency office and my home in my personal vehicle) or situations in which any car allowance or mileage reimbursement is paid to me by E Neighbor Homecare LLC.</p>
+              <p>&nbsp;</p>
+              <p>I understand that I must possess a valid and current driver's license for my state. I also understand that I must submit proof of automobile insurance (a copy of the declaration page or the policy) to my supervisor upon employment if a Commercial Driver's License is required for my job duties. I understand that state law requires certain minimum auto insurance coverage for all vehicle employees, contractors, or volunteers who use their personal car to perform business on behalf of E Neighbor Homecare LLC</p>
+              <p>&nbsp;</p>
+              <p>I affirm that I have auto insurance coverage as required by the state, and I agree to maintain coverage as required by state law. E Neighbor Homecare LLC the right to request proof of insurance at any time during the term of employment.</p>
+              <p>&nbsp;</p>
+              <p>I agree to notify my supervisor if I incur any violation that materially changes my driving record. I understand that disciplinary action (which may include termination) will be taken if my driving record is classified as high risk and/or unacceptable.</p>
+              <p><em>&nbsp;</em></p>
+              <p>I understand that my driving record is subject to review at any time by pharmacy management.</p>
+    </>),
+    drugfreeTitle: "Drug-Free Workplace Policy",
+    drugfreeText: (<>
+    <p>E Neighbor Homecare LLC maintains a drug-free workplace concerning the use, possession, and distribution of drugs.</p>
+                <p>All employees are prohibited from unlawful possession or use of a controlled substance or any alcoholic beverages while in the workplace. Employees are also prohibited from the unlawful manufacture, distribution, or dispensing of a controlled substance while in the workplace.</p>
+                <p>Prior to hire, all employees will have a drug test conducted. If the drug test results are positive, then E Neighbor Homecare LLC will send the sample to an independent laboratory for testing. If the test result is positive, E Neighbor Homecare LLC will not employ an individual.&nbsp;</p>
+                <p>Employees may be subject to reasonable suspicion urine testing for unlawful drugs when the organization or its client had cause to believe that the drug or alcohol policy has been violated.</p>
+                <p>Any violation of this policy will result in disciplinary action, <strong>including</strong> termination of employment.</p>
+                <p>I acknowledge that I understand that E Neighbor Homecare LLC is a Drug-Free Workplace and understand that E Neighbor Homecare LLC has no tolerance for the use or being under the influence of drugs or alcohol in the workplace.&nbsp;</p>
+                <p>&nbsp;</p>
+    </>),
   },
   zh: {
     personalInfo: "个人信息",
@@ -306,6 +369,78 @@ const translations = {
   </>
 ),
   confidentialityConfirm: "我已阅读并同意上述保密与不披露协议。",
+  adherenceTitle: "遵守政策与程序、联邦和州法规、认证标准、法律、指导方针与员工培训",
+  adherenceText: (
+    <>
+      <p>我明白可以查阅政策和程序手册的副本，并且我理解阅读这些政策是我的责任。我也同意遵守 E Neighbor Homecare LLC 的政策和程序、联邦/州法律法规、认证机构要求以及国家实践标准。如有任何疑问或需要澄清的内容，我将向管理员/首席执行官咨询。</p>
+      <p>我明白我有责任保持技能和知识，以符合 E Neighbor Homecare LLC 的服务范围和任何服务提供者的要求。</p>
+      <p>我明白政策或程序手册中的任何内容均不构成 E Neighbor Homecare LLC 与其员工、承包商或志愿者之间的合同关系。</p>
+      <p>我明白我有义务按计划参加服务，并按 E Neighbor Homecare LLC 要求参加年度培训，以确保遵守新的或修订的政策和程序。</p>
+    </>
+  ),
+  adherenceAgree: "我已阅读并同意上述保密与不披露协议。",
+  conflictTitle: "利益冲突披露",
+  conflictText: (
+  <>
+    <p>我已获得一份 E Neighbor Homecare LLC 的利益冲突披露政策的副本/相关信息，并已阅读和理解其内容。</p>
+    <p>以下问题旨在帮助您确定是否存在任何可能与本机构事务产生利益冲突的外部关系。请仔细阅读每个问题，并在后面的空格中简洁明了地作答。如对问题含义有疑问，请尽您所能作答，并注明疑问的原因。</p>
+    
+    <p><strong>术语表</strong></p>
+    <p><em>竞争者：</em> 指以出售产品和/或服务与本机构构成竞争关系的个人。</p>
+    <p><em>家庭成员：</em> 配偶、父母、子女、兄弟姐妹、姻亲以及与您同住的人。</p>
+    <p><em>采购方：</em> 指任何购买、租赁、以其他方式获取、或曾经从本机构购买、租赁、获取任何商品、材料、货品、物资、设备或专业及其他服务的个人。</p>
+    <p><em>个人：</em> 指自然人、公司、合伙企业、信托、法人实体或其他商业组织。</p>
+    <p><em>供应商：</em> 指任何向本机构或代表本机构出售、租赁、提供或承诺提供物资、设备、不动产、信贷、保险或其他服务（包括专业服务）的人，或曾有此类行为的人。</p>
+  </>
+  ),
+  conflictCertify: "我特此声明我拥有以下情况：所有权、招待、礼物、贷款：",
+  conflictFurthermore: "此外，我明白我有责任报告任何可能被视为与 E Neighbor Homecare LLC 存在利益冲突或可能构成利益冲突的关系",
+  conflictAgree1: "我承认，有责任将任何潜在的利益冲突告知公司的合规官。",
+  conflictAgree2: "本人承认并证明上述回答据本人所知是真实且准确的。",
+
+  ethicsTitle: "商业行为与道德规范准则",
+  ethicsText: (
+    <>
+      <p>我们业务的成功取决于员工、客户和股东对我们的信任和信心。我们通过履行承诺、展现诚实与正直，并以光明正大的行为实现公司目标来赢得信誉。说我们应该做什么很容易，但真正的考验在于我们的行动。最终，人们会根据我们的行为来评判我们。</p>
+      <p>&nbsp;</p>
+      <p>E Neighbor Homecare LLC 对诚信的承诺始于遵守我们经营所在地的法律、法规和规定。此外，我们每个人都必须了解适用于自己岗位的公司政策、法律、规则和法规。如果我们不确定某项计划中的行为是否被法律或公司政策允许，应当向管理员或首席执行官咨询。我们有责任防止违法行为，并在发现潜在违规时及时提出。</p>
+      <p>&nbsp;</p>
+      <p>基于高道德原则的良好判断力将指导您在可接受行为的边界内做出决定。如果遇到难以判断正确行为的情形，应立即与直属主管讨论。</p>
+      <p>在E Neighbor Homecare LLC雇佣本人作为员工的前提下，本人同意：（1）在E Neighbor Homecare LLC 工作期间，不向其患者推销或试图影响其更换服务提供商；（2）在雇佣关系终止后的三个月内，不为在过去六个月中本人所服务的患者提供服务；（3）对所有病人记录、病人信息、药房商业机密、电脑密码、电话访问码及其他任何密码或机密信息予以保密；（4）保持与客户、供应商和服务提供方的专业边界；（5）忠诚服务，并以值得公众持续信任和信赖的方式行事。</p>
+      <p>&nbsp;</p>
+      <p>作为E Neighbor Homecare LLC 的信息用户，您可能会开发、使用或维护（1）病人信息（用于医疗、质量改进、同行评审、教育、账单、报销、行政管理、研究等目的），（2）员工信息（用于雇佣、薪资或其他业务用途），或（3）E Neighbor Homecare LLC 及第三方的机密商业信息，包括第三方软件及其他许可产品或流程。无论来源或形式，包括纸质记录、口头沟通、音频录音或电子显示等，该信息均为严格保密。只有在“需知基础”上才能访问，并限于完成使用、披露或请求目的所需的最小信息量。</p>
+      <p>&nbsp;</p>
+      <p>为避免利益冲突，我们必须确保对E Neighbor Homecare LLC 的决策是客观和公正的。有时我们的个人或家庭利益可能与公司决策发生冲突。我们必须始终将E Neighbor Homecare LLC 的合法利益置于首位。禁止利用公司财产或信息谋取个人利益，或挪用商业机会为个人谋利。</p>
+      <p>我同意遵守E Neighbor Homecare LLC 的政策和程序手册。我理解这些政策和程序可能会更改，且我有责任了解更新内容并予以遵守。</p>
+      <p>所有员工必须遵守本商业道德政策。违反本政策可能导致纪律处分，包括解雇。未经授权使用或泄露机密信息可能导致个人承担民事或刑事责任。我同意遵守保密声明及E Neighbor Homecare LLC 的隐私和信息安全政策，我将认真阅读。如果我违反了这些条款，E Neighbor Homecare LLC 有权寻求赔偿。</p>
+      <p><strong>我同意阅读E Neighbor Homecare LLC 的合规及商业道德政策。如有疑问，我会向我的主管提出。 </strong></p>
+      <p><strong>以下签名、打印姓名和日期代表本人接受E Neighbor Homecare LLC 合规与商业道德政策和程序的条款。</strong></p>
+      <p>&nbsp;</p>
+    </>
+  ),
+  ethicsAgreeText: "我已阅读、确认并同意遵守上述所有条款、政策和规定。",
+  driverTitle: "驾驶员合规确认",
+  driverText: (<>  
+    <p>我理解，在 E Neighbor Homecare LLC 的业务中驾驶车辆，意味着在工作过程中驾驶个人车辆或由 E Neighbor Homecare LLC 拥有/租赁的车辆（即除上下班通勤外的任何驾驶行为），或在我因业务驾驶而获得车辆津贴或里程报销的情况下。</p>
+    <p>&nbsp;</p>
+    <p>我了解我必须持有所在州有效且当前的驾驶执照。我还了解，如果我的工作职责需要商业驾驶执照（CDL），我必须在入职时向主管提交汽车保险证明（保险声明页或保单副本）。我了解州法律要求所有代表 E Neighbor Homecare LLC 执行业务的员工、合同工或志愿者在使用个人汽车时必须具备最低限度的汽车保险覆盖。</p>
+    <p>&nbsp;</p>
+    <p>我确认我已按所在州法律要求购买了汽车保险，并同意在整个雇佣期间维持有效保险覆盖。E Neighbor Homecare LLC 有权在任何时间要求我提供保险证明。</p>
+    <p>&nbsp;</p>
+    <p>如果我发生任何显著改变我驾驶记录的交通违规，我同意立即通知我的主管。我理解，如果我的驾驶记录被归类为高风险和/或不可接受，公司可能会对我进行纪律处分（包括解雇）。</p>
+    <p>&nbsp;</p>
+    <p>我了解我的驾驶记录可在任何时间被药房管理层审核。</p>
+  </>),
+  drugfreeTitle: "零毒品工作场所政策",
+  drugfreeText: (<>
+    <p>E Neighbor Homecare LLC 在禁止使用、持有和分发毒品方面维持一个零毒品的工作环境。</p>
+    <p>所有员工在工作场所内禁止非法持有或使用受控物质或任何酒精饮品。员工也禁止在工作场所内非法制造、分发或配给受控物质。</p>
+    <p>所有员工在入职前将接受药物测试。如果检测结果为阳性，E Neighbor Homecare LLC 将把样本送至独立实验室进行进一步检测。如果检测结果依然为阳性，E Neighbor Homecare LLC 将不会雇佣该员工。</p>
+    <p>当组织或其客户有合理理由相信药物或酒精政策被违反时，员工可能会被要求进行合理怀疑的尿检。</p>
+    <p>任何违反此政策的行为都将导致纪律处分，<strong>包括</strong>终止雇佣关系。</p>
+    <p>我确认并理解 E Neighbor Homecare LLC 是一个零毒品的工作场所，并了解公司对在工作场所使用或受毒品或酒精影响的行为实行零容忍政策。</p>
+    <p>&nbsp;</p>
+  </>),
 
   },
 };
@@ -669,6 +804,21 @@ const App = () => {
 
   const validateCurrentPage = () => {
   const requiredFieldsByPage = {
+    3: [
+      'collegeName', 'collegeAddress', 'collegeFrom', 'collegeTo', 'collegeGraduate', 'collegeDegree',
+      'prevEmployer1', 'prevPhone1', 'prevAddress1', 'prevJobTitle1', 'prevFrom1', 'prevTo1',
+      'prevResponsibilities1', 'prevReason1', 'prevContact1',
+      'prevEmployer2', 'prevPhone2', 'prevAddress2', 'prevJobTitle2', 'prevFrom2', 'prevTo2',
+      'prevResponsibilities2', 'prevReason2', 'prevContact2',
+    ],
+    4: [
+      // References (2 required)
+      'ref1Name', 'ref1Relation', 'ref1Address', 'ref1Phone',
+      'ref2Name', 'ref2Relation', 'ref2Address', 'ref2Phone',
+
+      // Emergency Contact (1 required)
+      'emergencyName', 'emergencyRelationship', 'emergencyPhone',
+    ],
     5: ['backgroundCheckName', 'agreeBackgroundCheck'],
     6: ['confidentialityEmployeeName', 'confidentialityDate', 'agreeConfidentiality'],
     7: ['policyTrainingName', 'policyTrainingDate', 'agreePolicyTraining'],
@@ -734,17 +884,18 @@ const App = () => {
       window.scrollTo({ top: 0, behavior: 'auto' });
     }
 
-    if (currentPage === 19) {
+    if (currentPage === 15) {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 5000);
 
-      fetch('http://localhost:3001/api/ping', {
+      fetch('https://application-forms-backend.onrender.com/api/ping', {
+      //fetch('http://localhost:3001/api/ping', {
         method: 'GET',
         signal: controller.signal,
       })
         .then((res) => {
           if (res.ok) {
-            console.log('✅ Backend pinged on page 19');
+            console.log('✅ Backend pinged on page 15');
           } else {
             console.warn('⚠️ Ping error status:', res.status);
           }
@@ -771,7 +922,8 @@ const handleSubmit = async () => {
   const fullData = { ...formData, signature };
   if(!isSignatureMissing){
     try {
-      const response = await fetch("http://localhost:3001/api/save-form", {
+      const response = await fetch("https://application-forms-backend.onrender.com/api/save-form", {
+      //const response = await fetch("http://localhost:3001/api/save-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -790,6 +942,19 @@ const handleSubmit = async () => {
   }else{
     alert("Please write your signature on this page for confirmation!");
   }
+};
+
+// Helper function to check if field has error
+const hasError = (fieldName) => {
+  return validationErrors && validationErrors[fieldName];
+};
+
+// Helper function to get error message
+const getErrorMessage = (fieldName) => {
+  if (hasError(fieldName)) {
+    return validationErrors[fieldName] || `${t("thisFieldRequired", language) || "This field is required"}`;
+  }
+  return null;
 };
 
 
@@ -851,6 +1016,20 @@ const formContainerStyle = {
     transition: 'all 0.2s ease',
     boxSizing: 'border-box',
     minHeight: '48px'
+  };
+
+  // Add this error style at the top with your other styles
+  const errorStyle = {
+    color: '#dc2626',
+    fontSize: '14px',
+    marginTop: '4px',
+    display: 'block'
+  };
+
+  const inputErrorStyle = {
+    ...inputStyle,
+    borderColor: '#dc2626',
+    borderWidth: '2px'
   };
 
   const inputFocusStyle = {
@@ -1140,7 +1319,7 @@ const formContainerStyle = {
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("usCitizen", language)} </label>
             <div style={{ display: 'flex', gap: '24px' }}>
-              <label>
+              <label style={{color: 'black'}}>
                 <input autoFocus={false} 
                   type="radio"
                   name="usCitizen"
@@ -1163,7 +1342,7 @@ const formContainerStyle = {
                 />
                 &nbsp;{t("yes", language)} 
               </label>
-              <label>
+              <label style={{color: 'black'}}>
                 <input autoFocus={false} 
                   type="radio"
                   name="usCitizen"
@@ -1194,7 +1373,7 @@ const formContainerStyle = {
               {t("workAuth", language)} 
             </label>
             <div style={{ display: 'flex', gap: '24px' }}>
-              <label>
+              <label style={{color: 'black'}}>
                 <input autoFocus={false} 
                   type="radio"
                   name="workAuth"
@@ -1217,7 +1396,7 @@ const formContainerStyle = {
                 />
                 &nbsp;{t("yes", language)} 
               </label>
-              <label>
+              <label style={{color: 'black'}}>
                 <input autoFocus={false} 
                   type="radio"
                   name="workAuth"
@@ -1288,7 +1467,7 @@ const formContainerStyle = {
               {t("felony", language)} 
             </label>
             <div style={{ display: 'flex', gap: '24px' }}>
-              <label>
+              <label style={{color: 'black'}}>
                 <input autoFocus={false} 
                   type="radio"
                   name="felony"
@@ -1311,7 +1490,7 @@ const formContainerStyle = {
                 />
                 &nbsp;{t("yes", language)} 
               </label>
-              <label>
+              <label style={{color: 'black'}}>
                 <input autoFocus={false} 
                   type="radio"
                   name="felony"
@@ -1350,6 +1529,7 @@ const formContainerStyle = {
         </div>
       );
 
+    // Case 3 with validation
     case 3:
       return (
         <div style={pageStyle}>
@@ -1359,344 +1539,392 @@ const formContainerStyle = {
 
           {/* --- EDUCATION --- */}
           <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '8px', marginBottom: '12px' }}>{t("education", language)} </h3>
+          
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("sName", language)} </label>
+            <label style={labelStyle}>{t("sName", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="collegeName"
               value={formData.collegeName}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('collegeName') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('collegeName') && <span style={errorStyle}>{getErrorMessage('collegeName')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("sAddress", language)} </label>
+            <label style={labelStyle}>{t("sAddress", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="collegeAddress"
               value={formData.collegeAddress}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('collegeAddress') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('collegeAddress') && <span style={errorStyle}>{getErrorMessage('collegeAddress')}</span>}
           </div>
+
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("sFrom", language)} </label>
+              <label style={labelStyle}>{t("sFrom", language)} <span style={{color: '#dc2626'}}>*</span></label>
               <input autoFocus={false} 
                 type="date"
                 name="collegeFrom"
                 value={formData.collegeFrom}
                 onChange={handleChange}
-                style={inputStyle}
+                style={hasError('collegeFrom') ? inputErrorStyle : inputStyle}
               />
+              {getErrorMessage('collegeFrom') && <span style={errorStyle}>{getErrorMessage('collegeFrom')}</span>}
             </div>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("sTo", language)} </label>
+              <label style={labelStyle}>{t("sTo", language)} <span style={{color: '#dc2626'}}>*</span></label>
               <input autoFocus={false} 
                 type="date"
                 name="collegeTo"
                 value={formData.collegeTo}
                 onChange={handleChange}
-                style={inputStyle}
+                style={hasError('collegeTo') ? inputErrorStyle : inputStyle}
               />
+              {getErrorMessage('collegeTo') && <span style={errorStyle}>{getErrorMessage('collegeTo')}</span>}
             </div>
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("sGraduate", language)} </label>
+            <label style={labelStyle}>{t("sGraduate", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <div style={{ display: 'flex', gap: '24px' }}>
-              <label>
-                <input autoFocus={false} type="radio" name="collegeGraduate" value="yes" checked={formData.collegeGraduate === 'yes'} onChange={handleChange}                   style={{
-                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
-                  WebkitAppearance: 'none',
-                  appearance: 'none',
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  border: '2px solid #4f46e5',
-                  backgroundColor: formData.collegeGraduate === 'yes' ? '#4f46e5' : 'white',
-                  outline: 'none',
-                  marginRight: '8px',
-                  cursor: 'pointer',
+              <label style={{color: 'black'}}>
+                <input autoFocus={false} type="radio" name="collegeGraduate" value="yes" checked={formData.collegeGraduate === 'yes'} onChange={handleChange}
+                  style={{
+                    accentColor: '#4f46e5',
+                    WebkitAppearance: 'none',
+                    appearance: 'none',
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '50%',
+                    border: '2px solid #4f46e5',
+                    backgroundColor: formData.collegeGraduate === 'yes' ? '#4f46e5' : 'white',
+                    outline: 'none',
+                    marginRight: '8px',
+                    cursor: 'pointer',
                   }}/>{t("yes", language)} 
               </label>
-              <label>
-                <input autoFocus={false} type="radio" name="collegeGraduate" value="no" checked={formData.collegeGraduate === 'no'} onChange={handleChange}                   style={{
-                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
-                  WebkitAppearance: 'none',
-                  appearance: 'none',
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  border: '2px solid #4f46e5',
-                  backgroundColor: formData.collegeGraduate === 'no' ? '#4f46e5' : 'white',
-                  outline: 'none',
-                  marginRight: '8px',
-                  cursor: 'pointer',
+              <label style={{color: 'black'}}>
+                <input autoFocus={false} type="radio" name="collegeGraduate" value="no" checked={formData.collegeGraduate === 'no'} onChange={handleChange}
+                  style={{
+                    accentColor: '#4f46e5',
+                    WebkitAppearance: 'none',
+                    appearance: 'none',
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '50%',
+                    border: '2px solid #4f46e5',
+                    backgroundColor: formData.collegeGraduate === 'no' ? '#4f46e5' : 'white',
+                    outline: 'none',
+                    marginRight: '8px',
+                    cursor: 'pointer',
                   }}/>{t("no", language)} 
               </label>
             </div>
+            {getErrorMessage('collegeGraduate') && <span style={errorStyle}>{getErrorMessage('collegeGraduate')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("sDegree", language)} </label>
+            <label style={labelStyle}>{t("sDegree", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="collegeDegree"
               value={formData.collegeDegree}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('collegeDegree') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('collegeDegree') && <span style={errorStyle}>{getErrorMessage('collegeDegree')}</span>}
           </div>
 
-          {/* --- PREVIOUS EMPLOYMENT --- */}
+          {/* --- PREVIOUS EMPLOYMENT 1 --- */}
           <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} 1</h3>
 
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerName", language)} </label>
+            <label style={labelStyle}>{t("employerName", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="prevEmployer1"
               value={formData.prevEmployer1}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('prevEmployer1') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevEmployer1') && <span style={errorStyle}>{getErrorMessage('prevEmployer1')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerPhone", language)} </label>
+            <label style={labelStyle}>{t("employerPhone", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="tel"
               name="prevPhone1"
               value={formData.prevPhone1}
               onChange={handleChange}
               placeholder="(000) 000-0000"
-              style={inputStyle}
+              style={hasError('prevPhone1') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevPhone1') && <span style={errorStyle}>{getErrorMessage('prevPhone1')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerAddress", language)} </label>
+            <label style={labelStyle}>{t("employerAddress", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="prevAddress1"
               value={formData.prevAddress1}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('prevAddress1') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevAddress1') && <span style={errorStyle}>{getErrorMessage('prevAddress1')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("jobTitle", language)} </label>
+            <label style={labelStyle}>{t("jobTitle", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="prevJobTitle1"
               value={formData.prevJobTitle1}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('prevJobTitle1') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevJobTitle1') && <span style={errorStyle}>{getErrorMessage('prevJobTitle1')}</span>}
           </div>
+
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentFrom", language)} </label>
+              <label style={labelStyle}>{t("employmentFrom", language)} <span style={{color: '#dc2626'}}>*</span></label>
               <input autoFocus={false} 
                 type="date"
                 name="prevFrom1"
                 value={formData.prevFrom1}
                 onChange={handleChange}
-                style={inputStyle}
+                style={hasError('prevFrom1') ? inputErrorStyle : inputStyle}
               />
+              {getErrorMessage('prevFrom1') && <span style={errorStyle}>{getErrorMessage('prevFrom1')}</span>}
             </div>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentTo", language)} </label>
+              <label style={labelStyle}>{t("employmentTo", language)} <span style={{color: '#dc2626'}}>*</span></label>
               <input autoFocus={false} 
                 type="date"
                 name="prevTo1"
                 value={formData.prevTo1}
                 onChange={handleChange}
-                style={inputStyle}
+                style={hasError('prevTo1') ? inputErrorStyle : inputStyle}
               />
+              {getErrorMessage('prevTo1') && <span style={errorStyle}>{getErrorMessage('prevTo1')}</span>}
             </div>
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("responsibilities", language)} </label>
+            <label style={labelStyle}>{t("responsibilities", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <textarea
               name="prevResponsibilities1"
               value={formData.prevResponsibilities1}
               onChange={handleChange}
               rows={3}
-              style={inputStyle}
+              style={hasError('prevResponsibilities1') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevResponsibilities1') && <span style={errorStyle}>{getErrorMessage('prevResponsibilities1')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("reasonForLeaving", language)} </label>
+            <label style={labelStyle}>{t("reasonForLeaving", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <textarea
               name="prevReason1"
               value={formData.prevReason1}
               onChange={handleChange}
               rows={3}
-              style={inputStyle}
+              style={hasError('prevReason1') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevReason1') && <span style={errorStyle}>{getErrorMessage('prevReason1')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("mayWeContact", language)} </label>
+            <label style={labelStyle}>{t("mayWeContact", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <div style={{ display: 'flex', gap: '24px' }}>
-              <label>
-                <input autoFocus={false} type="radio" name="prevContact1" value="yes" checked={formData.prevContact1 === 'yes'} onChange={handleChange}                   style={{
-                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
-                  WebkitAppearance: 'none',
-                  appearance: 'none',
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  border: '2px solid #4f46e5',
-                  backgroundColor: formData.prevContact1 === 'yes' ? '#4f46e5' : 'white',
-                  outline: 'none',
-                  marginRight: '8px',
-                  cursor: 'pointer',
+              <label style={{color: 'black'}}>
+                <input autoFocus={false} type="radio" name="prevContact1" value="yes" checked={formData.prevContact1 === 'yes'} onChange={handleChange}
+                  style={{
+                    accentColor: '#4f46e5',
+                    WebkitAppearance: 'none',
+                    appearance: 'none',
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '50%',
+                    border: '2px solid #4f46e5',
+                    backgroundColor: formData.prevContact1 === 'yes' ? '#4f46e5' : 'white',
+                    outline: 'none',
+                    marginRight: '8px',
+                    cursor: 'pointer',
                   }}/>{t("yes", language)} 
               </label>
-              <label>
-                <input autoFocus={false} type="radio" name="prevContact1" value="no" checked={formData.prevContact1 === 'no'} onChange={handleChange}                   style={{
-                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
-                  WebkitAppearance: 'none',
-                  appearance: 'none',
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  border: '2px solid #4f46e5',
-                  backgroundColor: formData.prevContact1 === 'no' ? '#4f46e5' : 'white',
-                  outline: 'none',
-                  marginRight: '8px',
-                  cursor: 'pointer',
+              <label style={{color: 'black'}}>
+                <input autoFocus={false} type="radio" name="prevContact1" value="no" checked={formData.prevContact1 === 'no'} onChange={handleChange}
+                  style={{
+                    accentColor: '#4f46e5',
+                    WebkitAppearance: 'none',
+                    appearance: 'none',
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '50%',
+                    border: '2px solid #4f46e5',
+                    backgroundColor: formData.prevContact1 === 'no' ? '#4f46e5' : 'white',
+                    outline: 'none',
+                    marginRight: '8px',
+                    cursor: 'pointer',
                   }}/>{t("no", language)} 
               </label>
             </div>
+            {getErrorMessage('prevContact1') && <span style={errorStyle}>{getErrorMessage('prevContact1')}</span>}
           </div>
-                    {/* --- PREVIOUS EMPLOYMENT 2--- */}
+
+          {/* --- PREVIOUS EMPLOYMENT 2 --- */}
           <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("previousEmployment", language)} 2</h3>
 
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerName", language)} </label>
+            <label style={labelStyle}>{t("employerName", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="prevEmployer2"
               value={formData.prevEmployer2}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('prevEmployer2') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevEmployer2') && <span style={errorStyle}>{getErrorMessage('prevEmployer2')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerPhone", language)} </label>
+            <label style={labelStyle}>{t("employerPhone", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="tel"
               name="prevPhone2"
               value={formData.prevPhone2}
               onChange={handleChange}
               placeholder="(000) 000-0000"
-              style={inputStyle}
+              style={hasError('prevPhone2') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevPhone2') && <span style={errorStyle}>{getErrorMessage('prevPhone2')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("employerAddress", language)} </label>
+            <label style={labelStyle}>{t("employerAddress", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="prevAddress2"
               value={formData.prevAddress2}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('prevAddress2') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevAddress2') && <span style={errorStyle}>{getErrorMessage('prevAddress2')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("jobTitle", language)} </label>
+            <label style={labelStyle}>{t("jobTitle", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="prevJobTitle2"
               value={formData.prevJobTitle2}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('prevJobTitle2') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevJobTitle2') && <span style={errorStyle}>{getErrorMessage('prevJobTitle2')}</span>}
           </div>
+
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentFrom", language)} </label>
+              <label style={labelStyle}>{t("employmentFrom", language)} <span style={{color: '#dc2626'}}>*</span></label>
               <input autoFocus={false} 
                 type="date"
                 name="prevFrom2"
                 value={formData.prevFrom2}
                 onChange={handleChange}
-                style={inputStyle}
+                style={hasError('prevFrom2') ? inputErrorStyle : inputStyle}
               />
+              {getErrorMessage('prevFrom2') && <span style={errorStyle}>{getErrorMessage('prevFrom2')}</span>}
             </div>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentTo", language)} </label>
+              <label style={labelStyle}>{t("employmentTo", language)} <span style={{color: '#dc2626'}}>*</span></label>
               <input autoFocus={false} 
                 type="date"
                 name="prevTo2"
                 value={formData.prevTo2}
                 onChange={handleChange}
-                style={inputStyle}
+                style={hasError('prevTo2') ? inputErrorStyle : inputStyle}
               />
+              {getErrorMessage('prevTo2') && <span style={errorStyle}>{getErrorMessage('prevTo2')}</span>}
             </div>
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("responsibilities", language)} </label>
+            <label style={labelStyle}>{t("responsibilities", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <textarea
               name="prevResponsibilities2"
               value={formData.prevResponsibilities2}
               onChange={handleChange}
               rows={3}
-              style={inputStyle}
+              style={hasError('prevResponsibilities2') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevResponsibilities2') && <span style={errorStyle}>{getErrorMessage('prevResponsibilities2')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("reasonForLeaving", language)} </label>
+            <label style={labelStyle}>{t("reasonForLeaving", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <textarea
               name="prevReason2"
               value={formData.prevReason2}
               onChange={handleChange}
               rows={3}
-              style={inputStyle}
+              style={hasError('prevReason2') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('prevReason2') && <span style={errorStyle}>{getErrorMessage('prevReason2')}</span>}
           </div>
+
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("mayWeContact", language)} </label>
+            <label style={labelStyle}>{t("mayWeContact", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <div style={{ display: 'flex', gap: '24px' }}>
-              <label>
+              <label style={{color: 'black'}}>
                 <input autoFocus={false} type="radio" name="prevContact2" value="yes" checked={formData.prevContact2 === 'yes'} onChange={handleChange} 
                   style={{
-                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
-                  WebkitAppearance: 'none',
-                  appearance: 'none',
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  border: '2px solid #4f46e5',
-                  backgroundColor: formData.prevContact2 === 'yes' ? '#4f46e5' : 'white',
-                  outline: 'none',
-                  marginRight: '8px',
-                  cursor: 'pointer',
+                    accentColor: '#4f46e5',
+                    WebkitAppearance: 'none',
+                    appearance: 'none',
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '50%',
+                    border: '2px solid #4f46e5',
+                    backgroundColor: formData.prevContact2 === 'yes' ? '#4f46e5' : 'white',
+                    outline: 'none',
+                    marginRight: '8px',
+                    cursor: 'pointer',
                   }}
                   />{t("yes", language)} 
               </label>
-              <label>
+              <label style={{color: 'black'}}>
                 <input autoFocus={false} type="radio" name="prevContact2" value="no" checked={formData.prevContact2 === 'no'} onChange={handleChange} 
                   style={{
-                  accentColor: '#4f46e5', // ✅ Purple tint (change to your brand color)
-                  WebkitAppearance: 'none',
-                  appearance: 'none',
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  border: '2px solid #4f46e5',
-                  backgroundColor: formData.prevContact2 === 'no' ? '#4f46e5' : 'white',
-                  outline: 'none',
-                  marginRight: '8px',
-                  cursor: 'pointer',
+                    accentColor: '#4f46e5',
+                    WebkitAppearance: 'none',
+                    appearance: 'none',
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '50%',
+                    border: '2px solid #4f46e5',
+                    backgroundColor: formData.prevContact2 === 'no' ? '#4f46e5' : 'white',
+                    outline: 'none',
+                    marginRight: '8px',
+                    cursor: 'pointer',
                   }}
                   />{t("no", language)} 
               </label>
             </div>
+            {getErrorMessage('prevContact2') && <span style={errorStyle}>{getErrorMessage('prevContact2')}</span>}
           </div>
         </div>
       );
 
-
+    // Case 4 with validation
     case 4:
       return (
         <div style={pageStyle}>
@@ -1704,94 +1932,103 @@ const formContainerStyle = {
             {t("emergencyContactInfo", language)} 
           </h2>
 
-           {/* --- REFERENCES --- */}
+          {/* --- REFERENCES --- */}
           {[1, 2].map((i) => (
             <div key={i} style={{ marginBottom: '10px' }}>
               <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("references", language)} {i}</h3>
+              
               <div style={finalGridStyle}>
                 <div style={inputGroupStyle}>
-                  <label style={labelStyle}>{t("firstName", language)} </label>
+                  <label style={labelStyle}>{t("firstName", language)} <span style={{color: '#dc2626'}}>*</span></label>
                   <input autoFocus={false} 
                     type="text"
                     name={`ref${i}Name`}
                     value={formData[`ref${i}Name`]}
                     onChange={handleChange}
-                    style={inputStyle}
+                    style={hasError(`ref${i}Name`) ? inputErrorStyle : inputStyle}
                   />
+                  {getErrorMessage(`ref${i}Name`) && <span style={errorStyle}>{getErrorMessage(`ref${i}Name`)}</span>}
                 </div>
                 <div style={inputGroupStyle}>
-                  <label style={labelStyle}>{t("relation", language)} </label>
+                  <label style={labelStyle}>{t("relation", language)} <span style={{color: '#dc2626'}}>*</span></label>
                   <input autoFocus={false} 
                     type="text"
                     name={`ref${i}Relation`}
                     value={formData[`ref${i}Relation`]}
                     onChange={handleChange}
-                    style={inputStyle}
+                    style={hasError(`ref${i}Relation`) ? inputErrorStyle : inputStyle}
                   />
+                  {getErrorMessage(`ref${i}Relation`) && <span style={errorStyle}>{getErrorMessage(`ref${i}Relation`)}</span>}
                 </div>
               </div>
+              
               <div style={finalGridStyle}>
                 <div style={inputGroupStyle}>
-                  <label style={labelStyle}>{t("referenceAddress", language)} </label>
+                  <label style={labelStyle}>{t("referenceAddress", language)} <span style={{color: '#dc2626'}}>*</span></label>
                   <input autoFocus={false} 
                     type="text"
                     name={`ref${i}Address`}
                     value={formData[`ref${i}Address`]}
                     onChange={handleChange}
-                    style={inputStyle}
+                    style={hasError(`ref${i}Address`) ? inputErrorStyle : inputStyle}
                   />
+                  {getErrorMessage(`ref${i}Address`) && <span style={errorStyle}>{getErrorMessage(`ref${i}Address`)}</span>}
                 </div>
                 <div style={inputGroupStyle}>
-                  <label style={labelStyle}>{t("referencePhone", language)} </label>
+                  <label style={labelStyle}>{t("referencePhone", language)} <span style={{color: '#dc2626'}}>*</span></label>
                   <input autoFocus={false} 
                     type="tel"
                     name={`ref${i}Phone`}
                     placeholder="(000) 000-0000"
                     value={formData[`ref${i}Phone`]}
                     onChange={handleChange}
-                    style={inputStyle}
+                    style={hasError(`ref${i}Phone`) ? inputErrorStyle : inputStyle}
                   />
+                  {getErrorMessage(`ref${i}Phone`) && <span style={errorStyle}>{getErrorMessage(`ref${i}Phone`)}</span>}
                 </div>
               </div>
             </div>
           ))}
 
-
           <h3 style={{ color: 'black', fontSize: '18px', fontWeight: '600', marginTop: '32px', marginBottom: '12px' }}>{t("emergencyContact", language)} </h3>
+          
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("emergencyFullName", language)} </label>
+            <label style={labelStyle}>{t("emergencyFullName", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="emergencyName"
               placeholder={t("fullName", language)} 
               value={formData.emergencyName}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('emergencyName') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('emergencyName') && <span style={errorStyle}>{getErrorMessage('emergencyName')}</span>}
           </div>
 
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("emergencyRelation", language)}</label>
+            <label style={labelStyle}>{t("emergencyRelation", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="text"
               name="emergencyRelationship"
               placeholder={t("relationshipToYou", language)} 
               value={formData.emergencyRelationship}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('emergencyRelationship') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('emergencyRelationship') && <span style={errorStyle}>{getErrorMessage('emergencyRelationship')}</span>}
           </div>
 
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("emergencyPhone", language)}</label>
+            <label style={labelStyle}>{t("emergencyPhone", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <input autoFocus={false} 
               type="tel"
               name="emergencyPhone"
               placeholder="(000) 000-0000"
               value={formData.emergencyPhone}
               onChange={handleChange}
-              style={inputStyle}
+              style={hasError('emergencyPhone') ? inputErrorStyle : inputStyle}
             />
+            {getErrorMessage('emergencyPhone') && <span style={errorStyle}>{getErrorMessage('emergencyPhone')}</span>}
           </div>
         </div>
       );
@@ -2043,7 +2280,7 @@ const formContainerStyle = {
         return (
           <div style={pageStyle}>
             <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-              ADHERENCE TO POLICIES AND PROCEDURES, FEDERAL, STATE, AND ACCREDITATION REGULATIONS, STANDARDS, LAWS, AND GUIDELINES
+            {t("adherenceTitle", language)}            
             </h2>
 
             <div
@@ -2060,11 +2297,7 @@ const formContainerStyle = {
                 lineHeight: '1.6',
               }}
             >
-              <p><strong>AND STAFF TRAINING</strong></p>
-              <p>I understand that copies of the policy and procedures manuals are available, and I understand that it is my responsibility to read the policies. I also agree to comply with E Neighbor Homecare LLC. Policies and procedures, federal/state laws and regulations, accrediting agencies, and national practice standards. If I have any questions or need any clarification, I will ask the Administrator/CEO .</p>
-              <p>I understand I will be responsible for maintaining skills and knowledge to comply withE Neighbor Homecare LLC the scope of Services and any provider's requirements.</p>
-              <p>I understand that nothing contained in any policy or procedure manual constitutes a contractual relationship between E Neighbor Homecare LLC and its employees, contractor, or volunteers.</p>
-              <p>I understand that I am required to attend and participate in services as scheduled and annual training by E Neighbor Homecare LLC to be in compliance with new or revised policies and procedures.</p>
+            {t("adherenceText", language)}
             </div>
 
           <FormControl
@@ -2102,7 +2335,7 @@ const formContainerStyle = {
                       padding: '0'
                     }}
                   >
-                    I have read and agree to the confidentiality and non-disclosure agreement above.
+                    {t("adherenceAgree", language)}
                     <span style={{ color: '#dc2626' }}> *</span>
                   </span>
                 }
@@ -2168,7 +2401,7 @@ case 8:
   return (
     <div style={pageStyle}>
       <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-        Conflict of Interest Disclosure
+        {t("conflictTitle", language)}
       </h2>
 
       {/* Info Box */}
@@ -2184,29 +2417,34 @@ case 8:
         color: '#374151',
         lineHeight: '1.6'
       }}>
-      <p>I have been provided a copy/information and understand E Neighbor Homecare LLC. Disclosure/Conflict of Interest policy.</p>
-      <p>The following questions are designed for you to determine the nature and extent of any outside interest that might possibly involve a conflict of interest with the affairs of the organization. Please read each question carefully and then answer briefly and concisely in the space that follows. In the event that you have any doubts as to what the question means, answer it to the best of your ability and identify the reason for the doubt.</p>
-      <p><strong>Glossary</strong></p>
-      <p><em>Competitor:</em> A person offering for sale or selling products and/or services in competition with this organization.</p>
-      <p><em>Family:</em> Spouse, parents, children, brothers, sisters, in-laws, and those in your household.</p>
-      <p><em>Purchaser:</em>  Any person who buys, rents, or otherwise procures, has bought, rented, procured, or in any way has received from this organization any goods, materials, wares, merchandise, supplies, machinery, equipment, or professional and/or another service.</p>
-      <p><em>Person:</em> An individual, firm, partnership, trust, corporation, or other business entity.</p>
-      <p><em>Vendor:</em> Any person who sells, rents, agrees to furnish, has offered to sell, rent, or agree to furnish, or has sold supplies, machinery, equipment, real estate, credit, insurance, or service, profession or otherwise, to or on behalf of the organization.</p>
-      <p></p>
+      {t("conflictText", language)}
       </div>
 
-      <strong style={{marginTop: '22px', marginBottom: '28px', fontSize: '17px', fontStyle: 'italic'}}>I certify that I have: Ownership, Entertainment, Gifts, Loans:</strong>
+      <strong style={{ color: 'black', marginTop: '22px', marginBottom: '28px', fontSize: '17px', fontStyle: 'italic'}}>{t("conflictCertify", language)}</strong>
 
       {/* Conflict Questions */}
       {[1, 2, 3, 4].map(i => {
         const name = `conflictQ${i}`;
         const explainName = `${name}Explain`;
         const questionText = {
-          1: "Do you or any member of your family directly or indirectly own, or during the past 24 months preceding the date hereof, have you or any member of your family-owned, directly or indirectly, any interest whatsoever in, or shared in the profits or income of a vendor, purchaser, or competitor?",
-          2: "During the 24 months preceding the date hereof, have you or any member of your family received, directlyor  indirectly, any compensation, entertainment, gifts, credits, loans, or anything of value from a vendor, purchaser, or competitor?",
-          3: "Employment Status: Are you or any member of your family presently has been in the last 24 months an officer, director, employee, or consultant of, or otherwise employed or retained as a vendor, purchaser, or competitor?",
-          4: "Related Staff Members: Are you or any member of your family presently has been in the last 24 months an officer, director, employee, or consultant of, or otherwise employed or retained as a vendor, purchaser, or competitor?"
-        }[i];
+          1: {
+            en: "Do you or any member of your family directly or indirectly own, or during the past 24 months preceding the date hereof, have you or any member of your family-owned, directly or indirectly, any interest whatsoever in, or shared in the profits or income of a vendor, purchaser, or competitor?",
+            zh: "您或您的家庭成员是否直接或间接拥有（或在过去 24 个月内曾拥有）供应商、采购方或竞争者的任何利益，或从其利润或收入中获益？"
+          },
+          2: {
+            en: "During the 24 months preceding the date hereof, have you or any member of your family received, directly or indirectly, any compensation, entertainment, gifts, credits, loans, or anything of value from a vendor, purchaser, or competitor?",
+            zh: "在截至目前的过去 24 个月中，您或您的家庭成员是否直接或间接从供应商、采购方或竞争者处获得任何形式的补偿、招待、礼物、信用、贷款或其他有价值的物品？"
+          },
+          3: {
+            en: "Employment Status: Are you or any member of your family presently or in the last 24 months an officer, director, employee, or consultant of, or otherwise employed or retained by a vendor, purchaser, or competitor?",
+            zh: "就业状态：您或您的家庭成员是否目前或在过去 24 个月中曾在供应商、采购方或竞争者处担任过高管、董事、员工、顾问，或以其他方式受雇或受聘？"
+          },
+          4: {
+            en: "Related Staff Members: Are you or any member of your family presently or in the last 24 months an officer, director, employee, or consultant of, or otherwise employed or retained by a vendor, purchaser, or competitor?",
+            zh: "相关员工：您或您的家庭成员是否目前或在过去 24 个月中曾在供应商、采购方或竞争者处担任过高管、董事、员工、顾问，或以其他方式受雇或受聘？"
+          }
+        };
+
 
         return (
           <FormControl
@@ -2217,7 +2455,7 @@ case 8:
             sx={{ mb: 3, width: '100%' }}
           >
             <Typography sx={{ color: 'black',  fontWeight: 500, mb: 1 }}>
-              {i}. {questionText} <span style={{ color: 'red' }}>*</span>
+              {i}. {questionText[i]?.[language]} <span style={{ color: 'red' }}>*</span>
             </Typography>
 
             {validationErrors[name] && (
@@ -2258,9 +2496,7 @@ case 8:
 
       {/* Final Certification */}
       <div style={{ marginBottom: '20px' }}>
-        <p style={{ fontStyle: 'italic', fontSize: '15px', color: '#374151' }}>
-          Furthermore, I understand that I have a duty to report any relationship that may arise that could be perceived as a conflict of interest or may be considered a conflict of interest between myself and the E Neighbor Homecare LLC.  
-        </p>
+        <p style={{ fontStyle: 'italic', fontSize: '15px', color: '#374151' }}>{t("conflictFurthermore", language)}</p>
       </div>
 
             {/* Full Name */}
@@ -2354,9 +2590,7 @@ case 8:
                   fontSize: '14px',
                   color: validationErrors.agreeConflict1 ? '#dc2626' : '#374151',
                 }}
-              >
-                I acknowledge that it is my responsibility to bring any such potential conflicts of interest to the attention of the corporate Compliance Officer.
-                <span style={{ color: '#dc2626' }}> *</span>
+              >{t("conflictAgree1", language)}<span style={{ color: '#dc2626' }}> *</span>
               </span>
             }
           />
@@ -2396,9 +2630,7 @@ case 8:
                   fontSize: '14px',
                   color: validationErrors.agreeConflict2 ? '#dc2626' : '#374151',
                 }}
-              >
-                I acknowledge and certify the above responses are true and accurate to the best of my knowledge.
-                <span style={{ color: '#dc2626' }}> *</span>
+              >{t("conflictAgree2", language)}<span style={{ color: '#dc2626' }}> *</span>
               </span>
             }
           />
@@ -2416,7 +2648,7 @@ case 8:
       return (
         <div style={pageStyle}>
           <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-            Code of Business Conduct and Ethics
+            {t("ethicsTitle", language)}
           </h2>
 
           <div style={{
@@ -2431,23 +2663,7 @@ case 8:
             color: '#374151',
             lineHeight: '1.6',
             whiteSpace: 'pre-wrap',
-          }}>
-           <p>The success of our business is dependent on the trust and confidence we earn from our employees, customers, and shareholders. We gain credibility by adhering to our commitments, displaying honesty and integrity, and reaching company goals solely through honorable conduct. It is easy to&nbsp;<em>say</em>&nbsp;what we must do, but the proof is in our&nbsp;<em>actions</em>. Ultimately, we will be judged on what we do.</p>
-            <p>&nbsp;</p>
-            <p>E Neighbor Homecare LLC's commitment to integrity begins with complying with laws, rules, and regulations where we do business. Further, each of us must have an understanding of the company policies, laws, rules, and regulations that apply to our specific roles. If we are unsure of whether a contemplated action is permitted by law or E Neighbor Homecare LLC policy, we should seek advice from the Administrator/CEO. We are responsible for preventing violations of law and for speaking up if we see possible violations</p>
-            <p>&nbsp;</p>
-            <p>The use of good judgment based on high ethical principles will guide you with respect to lines of acceptable conduct. If a situation arises for which it is difficult to determine the proper course of action, the matter should be discussed immediately with your immediate supervisor.</p>
-            <p>In consideration of the employment of the undersigned by E Neighbor Homecare LLC, the employee agrees: (I) that during the employee's employment with E Neighbor Homecare LLC, the employee shall not solicit patients of E Neighbor Homecare LLC or attempt to influence such patients to change providers, (2) that upon the termination of employee's employment with E Neighbor Homecare LLC, the employee shall not, for a period of three months after such termination, service any patients of E Neighbor Homecare LLC serviced by the employee during the last six months of the employee's employment by E Neighbor Homecare LLC, (3) to keep confidential all patient records, patient information, pharmacy trade secrets, pharmacy computer passwords, pharmacy phone access codes or any other passwords or pharmacy secrets, (4) to maintain professional boundaries to include clients, vendors and providers and (5) to serve faithfully and act in a way that will merit the continued trust and confidence of the public.</p>
-            <p>&nbsp;</p>
-            <p>As a user of information at E Neighbor Homecare LLC, you may develop, use, or maintain (1) patient information (for health care, quality improvement, peer review, education, billing, reimbursement, administration, research, or for other purposes), (2) personnel information (for employment, payroll, or other business purposes), or (3) confidential business information of E Neighbor Homecare LLC and/or third parties, including third-party software and other licensed products or processes. This information from any source and in any form, including, but not limited to, paper record, oral communication, audio recording, and electronic display, is strictly confidential. Access to confidential information is permitted only on a need-to-know basis and limited to the minimum amount of confidential information necessary to accomplish the intended purpose of the use, disclosure, or request.</p>
-            <p>&nbsp;</p>
-            <p>To avoid conflicts of interest, we must ensure that our decisions for E Neighbor Homecare LLC are objective and fair. Sometimes our personal or family interests might conflict with business decisions. We must always prioritize E Neighbor Homecare LLC's legitimate interests. Using company property or information for personal gain or seizing business opportunities for personal benefit is prohibited.</p>
-            <p>I agree to follow the E Neighbor Homecare LLC Policies and Procedures Manual. I understand that these policies and procedures may change, and it is my responsibility to stay informed and comply with any updates.</p>
-            <p>All employees must follow this business ethics policy. Violating it may result in disciplinary action, including termination. Unauthorized use or release of confidential information may lead to personal, civil, or criminal penalties. I agree to comply with the Confidentiality statements and the E Neighbor Homecare LLC Privacy and Information Security Policies, which I'll read. If I breach these terms, E Neighbor Homecare LLC can seek damages.</p>
-            <p><strong>I agree to read E Neighbor Homecare LLC Compliance and Business Ethics policies. If I have questions, I will direct my questions to my supervisor.&nbsp; </strong></p>
-            <p><strong>The signatures, printed name and dates below signify acceptance of the terms ofE Neighbor Homecare LLC Compliance and Business Ethical policies and procedures. </strong></p>
-            <p>&nbsp;</p>
-          </div>
+          }}>{t("ethicsText", language)}</div>
 
           <FormControl
                   required
@@ -2465,6 +2681,7 @@ case 8:
                           sx={{
                             ml: '8px',
                             mr: '8px',
+                            mb: 2, 
                             p: 0,
                             color: validationErrors.ethicsAgreement ? '#dc2626' : '#d1d5db',
                             '&.Mui-checked': {
@@ -2481,7 +2698,7 @@ case 8:
                             color: validationErrors.ethicsAgreement ? '#dc2626' : '#374151',
                           }}
                         >
-                          I have read, acknowledge and agree to comply with all terms, policies, and conditions outlined above.
+                          {t("ethicsAgreeText", language)}
                           <span style={{ color: '#dc2626' }}> *</span>
                         </span>
                       }
@@ -2561,7 +2778,7 @@ case 8:
         return (
           <div style={pageStyle}>
             <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-              Driver Compliance Acknowledgement
+              {t("driverTitle", language)}
             </h2>
 
             <div style={{
@@ -2571,22 +2788,12 @@ case 8:
               border: '1px solid #d1d5db',
               maxHeight: '300px',
               overflowY: 'auto',
-              marginBottom: '20px',
+              marginBottom: '40px',
               fontSize: '14px',
               color: '#374151',
               lineHeight: '1.6',
               whiteSpace: 'pre-wrap',
-            }}>
-              <p>I understand that operating a vehicle on E Neighbor Homecare LLC business means driving either a personal vehicle or owned/leased vehicle by E Neighbor Homecare LLC in the course of employment (i.e., any driving other than commuting to and from the agency office and my home in my personal vehicle) or situations in which any car allowance or mileage reimbursement is paid to me by E Neighbor Homecare LLC.</p>
-              <p>&nbsp;</p>
-              <p>I understand that I must possess a valid and current driver's license for my state. I also understand that I must submit proof of automobile insurance (a copy of the declaration page or the policy) to my supervisor upon employment if a Commercial Driver's License is required for my job duties. I understand that state law requires certain minimum auto insurance coverage for all vehicle employees, contractors, or volunteers who use their personal car to perform business on behalf of E Neighbor Homecare LLC</p>
-              <p>&nbsp;</p>
-              <p>I affirm that I have auto insurance coverage as required by the state, and I agree to maintain coverage as required by state law. E Neighbor Homecare LLC the right to request proof of insurance at any time during the term of employment.</p>
-              <p>&nbsp;</p>
-              <p>I agree to notify my supervisor if I incur any violation that materially changes my driving record. I understand that disciplinary action (which may include termination) will be taken if my driving record is classified as high risk and/or unacceptable.</p>
-              <p><em>&nbsp;</em></p>
-              <p>I understand that my driving record is subject to review at any time by pharmacy management.</p>
-            </div>
+            }}>{t("driverText", language)}</div>
             
             {/* Full Name */}
             <div style={{ marginBottom: '6px' }}>
@@ -2657,7 +2864,7 @@ case 8:
           return (
             <div style={pageStyle}>
               <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-                Drug-Free Workplace Policy
+                {t("drugfreeTitle", language)}
               </h2>
 
               <div style={{
@@ -2667,20 +2874,12 @@ case 8:
                 border: '1px solid #d1d5db',
                 maxHeight: '300px',
                 overflowY: 'auto',
-                marginBottom: '20px',
+                marginBottom: '40px',
                 fontSize: '14px',
                 color: '#374151',
                 lineHeight: '1.6',
                 whiteSpace: 'pre-wrap',
-              }}>
-                <p>E Neighbor Homecare LLC maintains a drug-free workplace concerning the use, possession, and distribution of drugs.</p>
-                <p>All employees are prohibited from unlawful possession or use of a controlled substance or any alcoholic beverages while in the workplace. Employees are also prohibited from the unlawful manufacture, distribution, or dispensing of a controlled substance while in the workplace.</p>
-                <p>Prior to hire, all employees will have a drug test conducted. If the drug test results are positive, then E Neighbor Homecare LLC will send the sample to an independent laboratory for testing. If the test result is positive, E Neighbor Homecare LLC will not employ an individual.&nbsp;</p>
-                <p>Employees may be subject to reasonable suspicion urine testing for unlawful drugs when the organization or its client had cause to believe that the drug or alcohol policy has been violated.</p>
-                <p>Any violation of this policy will result in disciplinary action, <strong>including</strong> termination of employment.</p>
-                <p>I acknowledge that I understand that E Neighbor Homecare LLC is a Drug-Free Workplace and understand that E Neighbor Homecare LLC has no tolerance for the use or being under the influence of drugs or alcohol in the workplace.&nbsp;</p>
-                <p>&nbsp;</p>
-              </div>
+              }}>{t("drugfreeText", language)}</div>
 
               {/* Full Name */}
               <div style={{ marginBottom: '6px' }}>
@@ -3438,8 +3637,8 @@ screening is required.
             )}
 
             <RadioGroup row name={name} value={formData[name] || ''} onChange={handleChange}>
-              <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-              <FormControlLabel value="no" control={<Radio />} label="No" />
+              <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+              <FormControlLabel value="no" control={<Radio />} label="No" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
             </RadioGroup>
           </FormControl>
         );
@@ -3457,8 +3656,8 @@ screening is required.
           <span style={{ color: 'red' }}> *</span>
         </Typography>
         <RadioGroup row name="tbContact" value={formData.tbContact || ''} onChange={handleChange}>
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
+          <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+          <FormControlLabel value="no" control={<Radio />} label="No" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
         </RadioGroup>
         {validationErrors.tbContact && (
           <FormHelperText>This field is required.</FormHelperText>
@@ -3476,8 +3675,8 @@ screening is required.
           Do you have any other complaints? <span style={{ color: 'red' }}>*</span>
         </Typography>
         <RadioGroup row name="tbOtherComplaints" value={formData.tbOtherComplaints || ''} onChange={handleChange}>
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-          <FormControlLabel value="no" control={<Radio />} label="No" />
+          <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+          <FormControlLabel value="no" control={<Radio />} label="No" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
         </RadioGroup>
         {validationErrors.tbOtherComplaints && (
           <FormHelperText>This field is required.</FormHelperText>
@@ -3592,7 +3791,7 @@ screening is required.
           <FormControlLabel
             value="consent"
             control={<Radio />}
-            sx={{color: 'black'}}
+            sx={{color: 'black', mt: 2, mb: 4}}
             label="I consent to the administration of the Hepatitis B vaccine. I have been informed of the method of administration, the risks, complications, and expected benefits of the vaccine. I understand that the facility is not responsible for any reactions caused by the vaccine."
           />
           <FormControlLabel
@@ -3626,7 +3825,7 @@ screening is required.
                 onChange={handleChange}
               />
             }
-            sx={{color: 'black'}}
+            sx={{color: 'black', mt: 2, mb: 4}}
             label="I have previously received the complete series of the three injections of the Hepatitis B Vaccine. I do not have documentation of Hepatitis-B immunity and choose not to receive the vaccine. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease."
           />
           <FormControlLabel
@@ -3637,7 +3836,7 @@ screening is required.
                 onChange={handleChange}
               />
             }
-            sx={{color: 'black'}}
+            sx={{color: 'black', mb: 4}}
             label="I have had a positive result in Hepatitis B antibody testing, which shows immunity to the virus."
           />
           <FormControlLabel
@@ -3648,7 +3847,7 @@ screening is required.
                 onChange={handleChange}
               />
             }
-            sx={{color: 'black'}}
+            sx={{color: 'black', mb: 4}}
             label="I have medical contraindications to the vaccine."
           />
           <FormControlLabel
@@ -3840,19 +4039,25 @@ screening is required.
   case 19:
   return (
     <div style={pageStyle}>
-      <p style={{ fontSize: '14px', color: '#374151', marginBottom: '12px' }}>
+
+      <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '5px' }}>
+        OSHA Information
+      </h2>
+
+      <p style={{ fontSize: '14px', color: '#374151', marginBottom: '30px' }}>
         The following employee was classified according to work task exposure to certain body fluids as required by the
         current OSHA infection control standard:
       </p>
 
       {/* OSHA CATEGORY */}
+
       <FormControl
         required
         error={!!validationErrors.exposureCategory}
         component="fieldset"
         sx={{ mb: 3 }}
       >
-        <FormLabel component="legend" sx={{ fontWeight: 500, mb: 1 }}>
+        <FormLabel component="legend" sx={{ fontWeight: 500, mb: 2 }}>
           OSHA CATEGORY (MUST ONLY SELECT CATEGORY) <span style={{ color: 'red' }}>*</span>
         </FormLabel>
 
@@ -3864,21 +4069,45 @@ screening is required.
           <FormControlLabel
             value="CategoryI"
             control={<Radio />}
-            sx={{color: 'black'}}
-            label="Category I - Involves tasks or procedures in which all or some staff have a reasonable likelihood of contact with blood or other potentially infectious materials. The use of job-appropriate personal protective equipment and other protective measures is required."
+            sx={{ color: 'black', mb: window.innerWidth < 480 ? 5 : 3 }}
+            label={
+              <span>
+                <span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+                  Category I
+                </span>
+                {" – Involves tasks or procedures in which all or some staff have a reasonable likelihood of contact with blood or other potentially infectious materials. The use of job-appropriate personal protective equipment and other protective measures is required."}
+              </span>
+            }
           />
+
           <FormControlLabel
             value="CategoryII"
             control={<Radio />}
-            sx={{color: 'black'}}
-            label="CategoryII - Tasks and work assignments involve no routine exposure to blood or other potentially infectious material, but employment may require unplanned Category I tasks. (Example: In an emergency, receiving-transporting specimens) appropriate personal protective device must be available, and these staff must be familiar with protective measures."
+            sx={{ color: 'black', mb: window.innerWidth < 480 ? 5 : 3 }}
+            label={
+              <span>
+                <span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+                  Category II
+                </span>
+                {" – Tasks and work assignments involve no routine exposure to blood or other potentially infectious material, but employment may require unplanned Category I tasks. (Example: In an emergency, receiving-transporting specimens) appropriate personal protective device must be available, and these staff must be familiar with protective measures."}
+              </span>
+            }
           />
+
           <FormControlLabel
             value="CategoryIII"
             control={<Radio />}
-            sx={{color: 'black'}}
-            label="CategoryIII - Tasks and work assignments involve no exposure to blood or other potentially infectious materials. Employment should NEVER require Category I or Category II tasks or duties."
+            sx={{ color: 'black' }}
+            label={
+              <span>
+                <span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
+                  Category III
+                </span>
+                {" – Tasks and work assignments involve no exposure to blood or other potentially infectious materials. Employment should NEVER require Category I or Category II tasks or duties."}
+              </span>
+            }
           />
+
         </RadioGroup>
 
         {validationErrors.exposureCategory && (
@@ -3887,7 +4116,7 @@ screening is required.
       </FormControl>
 
       {/* Acknowledgment Text */}
-      <p style={{ fontStyle: 'italic', color: '#374151', fontSize: '15px', marginTop: '16px', marginBottom: '24px' }}>
+      <p style={{ fontStyle: 'italic', color: '#374151', fontSize: '15px', marginTop: '10px', marginBottom: '24px' }}>
         I understand my OSHA category and understand my responsibilities in abiding by the national standard of safety
         practices and E Neighbor Homecare LLC policies and procedures regarding safety in the workplace.
       </p>
@@ -3951,11 +4180,11 @@ screening is required.
   case 20:
   return (
     <div style={pageStyle}>
-      <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-        Criminal History Background Check Questions for Employees
+      <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '10px' }}>
+        Horizon Criminal History Background Check Questions for Employees
       </h2>
 
-      <p style={{ fontSize: '14px', color: '#374151', marginBottom: '20px' }}>
+      <p style={{ fontSize: '14px', color: '#374151', marginBottom: '28px', fontStyle: 'oblique'}}>
         The questions below should be asked of all employees/providers with direct physical access to MLTSS members and updated on an annual basis. The questions below are for illustrative purposes only and need not be submitted to Horizon NJ Health.
       </p>
 
@@ -3996,11 +4225,11 @@ screening is required.
           required
           error={!!validationErrors[q.name]}
           component="fieldset"
-          sx={{ mb: 4 }}
+          sx={{ mb: window.innerWidth < 480 ? 4 : 5 }}
           key={q.name}
         >
           <FormLabel component="legend" sx={{ fontWeight: 500, fontSize: '15px' }}>
-            {index + 1}. {q.label} <span style={{ color: 'red' }}>*</span>
+            {index + 1}. {q.label}
           </FormLabel>
           <RadioGroup
             row
@@ -4012,7 +4241,7 @@ screening is required.
             <FormControlLabel value="no" control={<Radio />} label="No" sx={{color: 'black'}}/>
           </RadioGroup>
           {validationErrors[q.name] && (
-            <FormHelperText>This field is required.</FormHelperText>
+            <FormHelperText sx={{ margin: 0 }}>This field is required.</FormHelperText>
           )}
         </FormControl>
       ))}

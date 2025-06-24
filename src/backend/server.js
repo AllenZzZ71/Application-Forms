@@ -1580,7 +1580,7 @@ app.post('/api/save-form', async (req, res) => {
   doc
     .fontSize(16)
     .font('Helvetica-Bold')
-    .text('Criminal History Background Check Questions for Employees', { align: 'center', underline: 'true' })
+    .text('Horizon Criminal History Background Check Questions for Employees', { align: 'center', underline: 'true' })
     .moveDown(1.5);
 
   // Intro
