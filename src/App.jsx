@@ -806,10 +806,10 @@ const App = () => {
   const requiredFieldsByPage = {
     3: [
       'collegeName', 'collegeAddress', 'collegeFrom', 'collegeTo', 'collegeGraduate', 'collegeDegree',
-      'prevEmployer1', 'prevPhone1', 'prevAddress1', 'prevJobTitle1', 'prevFrom1', 'prevTo1',
-      'prevResponsibilities1', 'prevReason1', 'prevContact1',
-      'prevEmployer2', 'prevPhone2', 'prevAddress2', 'prevJobTitle2', 'prevFrom2', 'prevTo2',
-      'prevResponsibilities2', 'prevReason2', 'prevContact2',
+      'prevEmployer1', 'prevPhone1', 'prevAddress1', 'prevJobTitle1',
+      'prevContact1',
+      'prevEmployer2', 'prevPhone2', 'prevAddress2', 'prevJobTitle2',
+      'prevContact2',
     ],
     4: [
       // References (2 required)
@@ -1729,7 +1729,7 @@ const formContainerStyle = {
             {getErrorMessage('prevResponsibilities1') && <span style={errorStyle}>{getErrorMessage('prevResponsibilities1')}</span>}
           </div>
 
-          <div style={inputGroupStyle}>
+        { /* <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("reasonForLeaving", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <textarea
               name="prevReason1"
@@ -1739,7 +1739,7 @@ const formContainerStyle = {
               style={hasError('prevReason1') ? inputErrorStyle : inputStyle}
             />
             {getErrorMessage('prevReason1') && <span style={errorStyle}>{getErrorMessage('prevReason1')}</span>}
-          </div>
+          </div> */}
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("mayWeContact", language)} <span style={{color: '#dc2626'}}>*</span></label>
@@ -1869,7 +1869,7 @@ const formContainerStyle = {
             {getErrorMessage('prevResponsibilities2') && <span style={errorStyle}>{getErrorMessage('prevResponsibilities2')}</span>}
           </div>
 
-          <div style={inputGroupStyle}>
+          {/*<div style={inputGroupStyle}>
             <label style={labelStyle}>{t("reasonForLeaving", language)} <span style={{color: '#dc2626'}}>*</span></label>
             <textarea
               name="prevReason2"
@@ -1879,7 +1879,7 @@ const formContainerStyle = {
               style={hasError('prevReason2') ? inputErrorStyle : inputStyle}
             />
             {getErrorMessage('prevReason2') && <span style={errorStyle}>{getErrorMessage('prevReason2')}</span>}
-          </div>
+          </div>*/}
 
           <div style={inputGroupStyle}>
             <label style={labelStyle}>{t("mayWeContact", language)} <span style={{color: '#dc2626'}}>*</span></label>
