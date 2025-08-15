@@ -206,6 +206,80 @@ const translations = {
                 <p>I acknowledge that I understand that E Neighbor Homecare LLC is a Drug-Free Workplace and understand that E Neighbor Homecare LLC has no tolerance for the use or being under the influence of drugs or alcohol in the workplace.&nbsp;</p>
                 <p>&nbsp;</p>
     </>),
+    alcTestTitle: "Employee Agreement and Consent to Drug and/or Alcohol Testing",
+    alcTestText: (<><p>&nbsp;I, _________________________________, hereby agree, upon a request made under the drug/alcohol testing policy of E Neighbor Homecare LLC to submit to a drug or alcohol test and to furnish a sample of my urine, breath, and/or blood for analysis. I understand and agree that if I at any time refuse to submit to a drug or alcohol test under E Neighbor Homecare LLC policy, or if I otherwise fail to cooperate with the testing procedures, I will be subject to immediate termination. I further authorize and give full permission to have the E Neighbor Homecare LLC and/or its E Neighbor Homecare LLC physician send the specimen or specimens so collected to a laboratory for a screening test. The testing is to check for the presence of any prohibited substances under the policy and for the laboratory or other testing facility to release any and all documentation relating to such test to the E Neighbor Homecare LLC and/or to any governmental entity involved in a legal proceeding or investigation connected with the test. Finally, I authorize the E Neighbor Homecare LLC to disclose any documentation relating to such test to any governmental entity involved in a legal proceeding or investigation connected with the test.</p> <p>&nbsp;</p> <p>I understand that only duly authorized E Neighbor Homecare LLC officers, employees, and agents will have access to information furnished or obtained in connection with the test. The information will maintain and protect the confidentiality of such information to the greatest extent possible, and they will share such information only to the extent necessary to make employment decisions and to respond to inquiries or notices from government entities.</p> <p>&nbsp;</p> <p>I will hold harmless the E Neighbor Homecare LLC staff that performs the testing, E Neighbor Homecare LLC physician, and any testing laboratory of E Neighbor Homecare LLC.&nbsp;I will not sue or hold responsible such parties for any alleged harm to me that might result from such testing, including loss of employment or any other kind of adverse job action that might arise as a result of the drug or alcohol test, even if an E Neighbor Homecare LLC or laboratory representative makes an error in the administration or analysis of the test or the reporting of the results.</p> <p>&nbsp;</p> <p>This policy and authorization have been explained to me in a language I understand, and I have been told that if I have any questions about the test or the policy, they will be answered.</p> <p>&nbsp;</p> <p>I understand that E Neighbor Homecare LLC will require a drug screen and/or alcohol test under this policy whenever I am involved in a job-related incident/accident, job-related motor vehicle accident, on the job injury.</p></>),
+    alcTestF1: "I may be taking the following Drugs/Herbals",
+    alcTestF2: "Lot Number",
+    alcTestF3: "Expiration Date",
+    alcTestF4: "Results",
+    alcTestF5: "Negative",
+    alcTestF6: "Positive",
+    alcTestF7: "Initials",
+
+    chhaTitle: "Certified Home Health Aide — Job Summary & Acknowledgment",
+    chhaText: (<><p><u>JOB SUMMARY</u>: A Certified Home Health Aide (CHHA) works in support of the patient&rsquo;s/client&rsquo;s safety, dignity, well-being and ability to remain living at home. The CHHA travels to the patient&rsquo;s/client&rsquo;s home to provide direct care, under professional nursing supervision, in accordance with a written Plan of Care that includes personal care, grooming, ambulation, special procedures, homemaking, meal preparation, housekeeping and assistance with other activities of daily living.&nbsp; The Certified Home Health Aide is supervised by a RN, and there are no supervision responsibilities with this position.&nbsp; The CHHA has HIPAA restricted access to certain patient/client information, and is an hourly, per-diem, non-exempt Direct Care staff member with no guaranteed minimum number of hours per week.</p> <p>&nbsp;</p> <p><u>QUALIFICATIONS</u>:</p> <ol> <li>Have a high school diploma or GED, or a satisfactory combination of education and life experience needed to perform the duties and essential functions of the job.</li> <li>Have a valid New Jersey Board of Nursing, Home Health Aide certification.</li> <li>Have the willingness to travel throughout the service area.&nbsp; This includes being able to drive and have a valid driver&rsquo;s license and auto insurance or have the ability to independently travel on public transportation.</li> <li>Demonstrate good communication skills and mature attitude.</li> <li>Be honest, dependable and be able to perform the physical demands of the position.</li> </ol> <p>&nbsp;</p> <p><u>RESPONSIBILITIES</u>:</p> <ol> <li>Travel to patient&rsquo;s/client&rsquo;s home, read and interpret the patient&rsquo;s/client&rsquo;s care plan and provide direct care as specified by the written plan of care.&nbsp; The care includes personal care to patients/clients such as, bathing, mouth, nail, hair and skin care, shaving, exercises as directed, and activities related to dressing and toileting including bedpan.&nbsp; Assist patient/client with ambulating, transfer activities, and the use of assistive devices like mechanical lifts, walkers, wheelchair, commode chair, braces, and prosthesis.&nbsp; Perform special delegated procedures including taking vital signs and weight, feeding, measuring intake and output, and assisting patient/client with self-administered medications.&nbsp; These activities require a variety of physical demands, including, but not limited to, those outlined in Working Conditions and Essential Functions below, and reliable attendance at scheduled assignment.&nbsp;</li> <li>Perform light housekeeping, meal preparation and other support services as part of the plan of care.&nbsp; This includes duties such as menu planning and shopping lists, running errands, preparing meals including special diets, presenting food, and cleaning dishes, appliances, and work area afterwards, going shopping, dusting, laundry, vacuuming, general cleaning of bathroom, kitchen, and living area when part of the written plan of care.&nbsp; Such activities include using a wide variety of household equipment and home appliances and the physical demands, including but not limited to those as outlined in Working Conditions and Essential Functions of this Job Description.</li> <li>Observe the patient&rsquo;s/client&rsquo;s condition, behavior, appearance, and hygiene needs, living arrangements, and home environment while in the home and report and document changes or problems to the appropriate staff member.&nbsp;</li> <li>Write visit reports (Daily Activity Report, etc.) to accurately record the care provided in the home, and complete other forms to document the work of this position, including incident reports and time and attendance reports.&nbsp; Ensure the patient/client signs the Daily Activity Report and Time Sheets as instructed.&nbsp; Submit these reports on time.&nbsp;</li> <li>Maintain dependable attendance, be regularly available for assignments, and be timely for scheduled visits.&nbsp; Call the office for assignments often or when late for an assignment.</li> <li>Attend at least twelve (12) hours of in-service training annually.</li> <li>Adhere to agency policies and procedures.</li> <li>Maintain a valid NJ Board of Nursing Home Health Aide certification.</li> <li>Always protect and maintain patient/client and agency confidentiality.</li> <li>Maintain a professional image, good appearance, and personal hygiene.</li> <li>Accept assignments and be punctual.</li> <li>Attend agency meetings and training as directed.</li> <li>Perform other duties as assigned.</li> </ol> <p>&nbsp;</p> <p><u>WORKING ENVIRONMENT</u>:</p> <p>Work is in a variety of home environments.&nbsp; Frequent travel by car or public transportation throughout the service area is necessary.&nbsp; Tasks may involve exposure to blood, body fluids, or tissue (OSHA Category I) and household chemicals, dust, and disinfectants.&nbsp; This position routinely requires driving a car or independently using public transportation, lifting, bending, reaching, kneeling, pushing and pulling, stretching, standing, stooping, walking, walking up and down stairs, seeing, hearing, speaking, writing, reading, carrying, weight bearing activities, and the use of a wide assortment of large and small home appliances.</p> <p>&nbsp;</p> <p><u>JOB RELATIONSHIPS</u>:</p> <p>Supervised by: Director of Nursing/ Nursing Supervisor</p> <p>&nbsp;</p> <p><u>RISK EXPOSURE</u>:</p> <p>High risk: <u>LIFTING REQUIREMENTS</u>:</p> <p>Ability to perform the following tasks if necessary:</p> <ul> <li>Ability to participate in physical activity.</li> <li>Ability to work for extended period of time while standing and being involved in physical activity.</li> <li>Heavy lifting.</li> <li>Ability to do extensive bending, lifting and standing on a regular basis.</li> </ul> <p>I have read the above job description and fully understand the conditions set forth therein, and if employed as a Certified Home Health Aide, I will perform these duties to the best of my knowledge and ability.</p> <p>&nbsp;</p> <p>&nbsp;</p></>),
+
+    hhaTitle: "Homemaker Home Health Aide Service Agreement",
+    hhaText: (<><p>Parties to this agreement are E Neighbor Home Care and the individual (&ldquo;Homemaker Home Health Aide&rdquo; or &ldquo;HHHA&rdquo;) whose signatures appear below and who for full consideration, given and received, each intending to be legally bound, agree with one another as follows:</p> <ol> <li>The scope of home care services for E Neighbor Home Care the HHHA may perform when placed with patient/client has been explained to Homemaker Home Health Aide (See Job Description on Page 3 below). HHHA agrees s/he will follow all E Neighbor Home Care requirements, as well as all Federal and State rules and regulations (e.g. HIPPAA requirements and all other requirements noted in the Employee Handbook) in providing home care to E Neighbor Home Care patients/clients, including regular communication with the Office and participating in training exercises.</li> <ul style={{marginTop: '14px', marginBottom: '14px'}}> <li>E Neighbor Home Care assigns Home Health Aides for personal care, companionship, and homemaking services. HHHAs must give 24-hour notice for schedule changes and cannot leave assignments without company instructions, except for approved appointments or errands. They cannot take patients off the premises without permission.</li> </ul> <li>HHHA agrees to call in and out using patient&rsquo;s/client&rsquo;s home phone at start/end of each shift and complete a weekly time sheet and activity log of the total hours worked and duties performed. The HHHA will have the timesheet/ activity log signed by the patient/client. Any changes in scheduling, patient/client needs, or necessary work arrangements should be reported E Neighbor Home Care .The time sheets/activity logs are to be e-mailed to E Neighbor Home Care at the close of each weekly assignment. Live-in workers agree to accept room and board offered at the work site as part of their compensation package.</li> <li>For and in consideration of benefits received, HHHA agrees to release E Neighbor Home Care and their officers, directors, employees, all patients/clients and any third party(s) from any and all potential or actual claims, liability, loss and/or damages incurred or claimed to be associated with this Agreement including all services to patients/clients, excepting gross negligence only.</li> <li>HHHA agrees to work with patients/clients only through E Neighbor Home Care with referral and placement, starting and stopping services at the direction of E Neighbor Home Care .If services are stopped for any reason Homemaker home health Aide agrees to leave the patient&rsquo;s/client&rsquo;s care and home and not work with that patient/client in any way other than with E Neighbor Home Care for a period of three (3) years. HHHA understands that it is illegal for me to transfer or attempt to transfer any case to another Agency or take ownership of any job that HHHA is employed in.</li> <li>Employment with E Neighbor Home Care is temporary and at-will, and can be terminated at any time by either party. There is no guarantee of hours, type of work, conditions, or duration of employment. E Neighbor Home Care can change policies, compensation, and conditions without notice. Upon termination, the Home Health Aide must return all company property and confidential information.</li> <li>Homemaker Home Health Aide also agrees (to): <ol style={{marginTop: '14px', marginBottom: '14px'}}> <li>All services provided to patients shall be in accordance the Plan of Care.Further, the services may not be altered in type, scope or duration, except by specific orders (in writing) issued as a result of changes made by the RN.</li> <li>Unless otherwise stated, live in Home Health Aides&rsquo; schedule will generally consist of a 16-hour day with three (3) scheduled hour-long breaks per day as outlined on the live in time and activity sheet provided.</li> <li>Follow E Neighbor Home Care's Fraud, Ethics, and Compliance policies, including zero fraud tolerance, respect for patients and their property, and Non-Conflict of Interest/Non-Compete Clauses. Fraud results in immediate dismissal and possible legal action.</li> <li>Not accept monetary or other gifts from patients or family members without the company&rsquo;s explicit approval.</li> <li>Restrict use of electronic devices (cell phone, laptop, tablets, etc) to emergency needs while on duty</li> <li>Not smoke in or too close to the patient&rsquo;s/client&rsquo;s home</li> <li>Not to dispose of ANY items or property belonging to the patients/clients without getting their explicit permission to do so.</li> <li>Guests and visitors are not permitted in the patient&rsquo;s home without the patient&rsquo;s and company&rsquo;s approval.</li> <li>Be responsible for his/her own transportation to and from assignments.</li> <li>Immediately notify E Neighbor Home Care and be prepared to leave the assignment if s/he is experiencing any contagious condition (flu, cold, fever, etc.) and not return until s/he has fully recovered and is symptom free. (A doctor&rsquo;s note may be required).</li> <li>Adhere to E Neighbor Home Care professional attire code (per attachment provided).</li> </ol> Uphold E Neighbor Home Care&rsquo;s standards of excellence, integrity, and respect, and maintain a professional image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; in behavior, appearance, attitude, and decorum at all times.</li> <li>I acknowledge that I have been informed about the New Jersey <em>Consumer&rsquo;s Guide to Homemaker-Home Health Aides</em> published by the New Jersey Board of Nursing which I can read via the internet (<a href="http://www.njconsumeraffairs.gov">njconsumeraffairs.gov</a>) or request hardcopy from E Neighbor Home Care.</li> <li>The parties aim to resolve disputes through mutual and voluntary settlement. If a dispute arises and cannot be settled through negotiation, it will first be submitted to non-binding arbitration by the American Arbitration Association before considering binding arbitration, litigation, or other dispute resolution methods.</li> <li>It is agreed that this agreement shall be governed by, construed and enforced in accordance with the laws of the state of New Jersey.</li> <li>This agreement shall constitute the entire agreement between the parties and any prior understanding of representation of any kind preceding the date of this agreement shall not be binding upon either party except to the extent incorporated in this agreement.</li> <li>Any changes to this agreement must be in writing and signed by both parties or agreed to by email. Failure to follow this agreement, engaging in unprofessional behavior, or actions conflicting with the company's interests (such as unauthorized monetary transactions, arguing with or disrespecting clients or their families, using clients' addresses for personal purposes, or getting involved in clients' personal affairs) can lead to disciplinary actions, including dismissal. E Neighbor Home Care will not tolerate such behavior and may also take disciplinary actions, including dismissal, for any violations</li> <ul style={{marginTop: '14px', marginBottom: '14px'}}> <li>Abuse or exploitation, of any kind, of patient/client, property or family members. Furthermore, Home Health Aides are required to report any observation of abuse, neglect or exploitation of patients/clients.</li> <li>Failure to fulfill requirements of the assignment</li> <li>Failure to advise supervisor of reportable incidents</li> <li>Falsification of Documents (Personal information/Employment record per application or current work)</li> <li>Illegal drug use of any kind and consumption or being under the influence of alcohol while on duty</li> <li>Sexual harassment</li> <li>Excessive tardiness/absenteeism</li> <li>Failure to respect patient&rsquo;s/client&rsquo;s privacy per HIPPAA regulations or to comply with any other regulations</li> <li>Insubordination &nbsp;</li> </ul> </ol> <p>I have read and understand this Agreement; by signing and printing my name here I agree to be bound by it.&nbsp;&nbsp;&nbsp;&nbsp;</p></>),
+    
+    empHandbookTitle: "Employee Handbook Signature Page",
+    empHandbookText: (<><p>The Employee Handbook contains important information about the Agency, and I understand that I should consult the Agency&rsquo;s CEO or my supervisor, regarding any questions not answered in the handbook. I have entered into my employment relationship with the Agency voluntarily as an at-will employee and understand that there is no specified length of employment. Accordingly, either the Agency or I can terminate the relationship at will, at any time, with or without cause, and with or without advance notice.</p> <p>&nbsp;</p> <p>Since the information, policies, and benefits described herein are subject to change at any time, and I acknowledge that revisions to the handbook may occur. All such changes will generally be communicated through official notices, and I understand that revised information may supersede, modify, or eliminate existing policies. Only the CEO of the Agency has the ability to adopt any revisions to the policies in this handbook.</p> <p>&nbsp;</p> <p>Furthermore, I understand that this handbook is neither a contract of employment nor a legally binding employment agreement. I have had an opportunity to read the handbook, and I understand that I may ask my supervisor any questions I might have concern the handbook. I accept the terms of the handbook. I also understand that it is my responsibility to comply with the policies contained in this handbook and any revisions made to it.</p> <p>&nbsp;</p> <p>I further agree that if I remain with the Agency following any modifications to the handbook, I hereby accept and agree to such changes.</p> <p></p> <p>I understand that I am obligated to read the entire handbook and comply with E Neighbor Homecare LLC. Policies and Procedures as outlined in this handbook.</p> <p>&nbsp;</p></>),
+    empHandbookAgree: "I have received a hard copy of the Employee Handbook on the date listed below.",
+    empHandbookAgree2: "I have received an electronic copy of the Employee Handbook on the date listed below.", 
+
+    tbQuesTitle: "Annual TB Screening Questionnaire",
+    tbQuesInfo: "This form is completed annually for those employees who have documentation of a negative chest x-ray following a positive Mantoux screening test, and whose medical evaluation and chest x-ray indicate that no further Mantoux screening is required.",
+    tbQuesQ1: "bad cough that lasts longer than 2 weeks",
+    tbQuesQ2: "coughing up sputum (phlegm)",
+    tbQuesQ3: "coughing up blood",
+    tbQuesQ4: "loss of appetite",
+    tbQuesQ5: "weakness/fatigue/tiredness",
+    tbQuesQ6: "night sweats",
+    tbQuesQ7: "unexplained weight loss",
+    tbQuesQ8: "fever",
+    tbQuesQ9: "chills",
+    tbQuesQ10: "chest pain",
+    tbQuesTemp: "Do you experience",
+    tbQuesTemp1: "Have you recently spent time with someone who has infectious tuberculosis?",
+    tbQuesTemp2: "Do you have any other complaints?",
+    tbQuesTemp3: "The above health statements are accurate to the best of my knowledge. I have been in-serviced on the signs and symptoms of tuberculosis and been advised to seek medical care if any of the symptoms develop at any time.",
+
+    hepBTitle: "Hepatitis B Virus Vaccine Consent/Declination",
+    hepBChoice: "(Make only one choice)",
+    hepBConsent1: "I consent to the administration of the Hepatitis B vaccine. I have been informed of the method of administration, the risks, complications, and expected benefits of the vaccine. I understand that the facility is not responsible for any reactions caused by the vaccine.",
+    hepBConsent2: "I decline the Hepatitis B vaccination at this time. I understand that, by declining this vaccine, I continue to be at risk of acquiring Hepatitis B, a serious disease. If in the future I continue to have occupational exposure to blood or other potentially infectious materials, I can request to be vaccinated at no charge.",
+    hepBInfo: "I have been informed of the symptoms and modes of transmission of bloodborne pathogens, including Hepatitis B virus (HBV). I know about the facility's infection control program and understand the procedure to follow if an exposure incident occurs. I understand that the Hepatitis B vaccine is available, at no cost, to employees whose job involves the risk of directly contacting blood or other potentially infectious material. I understand that vaccinations shall be given according to recommendations for standard medical practice in the community.",
+    hepBChoice1: "Please make one selection",
+    hepBDoc: "Documentation of Exclusion from Hepatitis B Vaccine",
+    hepBLabel1: "I have previously received the complete series of the three injections of the Hepatitis B Vaccine. I do not have documentation of Hepatitis-B immunity and choose not to receive the vaccine. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease.",
+    hepBLabel2: "I have had a positive result in Hepatitis B antibody testing, which shows immunity to the virus.",
+    hepBLabel3: "I have medical contraindications to the vaccine.",
+    hepBLabel4: "I am at low risk and provide no direct patient care. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease.",
+    
+    oshaIntroTitle: "OSHA Introduction",
+    oshaIntroText: (<><p> The Occupational Safety and Health Administration (OSHA) is a federal organization within the Department of Labor created by the Occupational Safety and Health Act of 1970. The purpose of the Act is to assure, as far as possible, safe and healthy working conditions for American workers. OSHA is responsible for developing standards to help employers provide a safe workplace. </p> <p> Because occupational exposure to the Hepatitis B and AIDS viruses and other disease-causing agents carried by the blood is a threat to healthcare workers, OSHA has issued a regulation to help healthcare employers protect workers against the increased risk of occupational exposure. </p> <p>The regulation requires that:</p> <ul style={{ paddingLeft: '20px', marginTop: '10px' }}> <li>A written Exposure Control Plan be developed</li> <li>All at-risk employees are trained in the safety and prevention of occupational exposure</li> <li>Monitoring of employee compliance with Exposure Control Plan</li> </ul> <p> The following information is presented to acquaint you with specific guidelines and protocols required by E Neighbor Homecare LLC to meet the OSHA mandate and information related to the transmission of bloodborne pathogens. </p> <p>Compliance with the Exposure Control Plan guidelines is mandatory.</p> <p> Employees violating the guidelines and/or protocols of E Neighbor Homecare LLC Exposure Control Plan will be cited for the following second level disciplinary actions: </p> <ul style={{ paddingLeft: '20px' }}> <li>First Violation - Written warning by supervisor</li> <li>Second Violation - Disciplinary probation</li> <li>Third Violation - Termination</li> </ul></>),
+    oshaIntroAgree: "I have read and understand my responsibility to be compliant with E Neighbor Homecare LLC OSHA and Safety policies and procedures and all applicable state/federal laws or regulations and also all Accrediting agencies.",
+
+    oshaInfoTitle: "OSHA Information",
+    oshaInfoInfo: "The following employee was classified according to work task exposure to certain body fluids as required by the current OSHA infection control standard:",
+    oshaInfoCat: "OSHA CATEGORY (MUST ONLY SELECT CATEGORY)",
+    oshaInfoCat1T: "Category I",
+    oshaInfoCat1: " – Involves tasks or procedures in which all or some staff have a reasonable likelihood of contact with blood or other potentially infectious materials. The use of job-appropriate personal protective equipment and other protective measures is required.",
+    oshaInfoCat2T: "Category II",
+    oshaInfoCat2: " – Tasks and work assignments involve no routine exposure to blood or other potentially infectious material, but employment may require unplanned Category I tasks. (Example: In an emergency, receiving-transporting specimens) appropriate personal protective device must be available, and these staff must be familiar with protective measures.",
+    oshaInfoCat3T: "Category III",
+    oshaInfoCat3: " – Tasks and work assignments involve no exposure to blood or other potentially infectious materials. Employment should NEVER require Category I or Category II tasks or duties.",
+    oshaInfoAgree: "I understand my OSHA category and understand my responsibilities in abiding by the national standard of safety practices and E Neighbor Homecare LLC policies and procedures regarding safety in the workplace.",
+
+    horizonTitle: "Horizon Criminal History Background Check Questions for Employees",
+    horizonInfo: "The questions below should be asked of all employees/providers with direct physical access to MLTSS members and updated on an annual basis. The questions below are for illustrative purposes only and need not be submitted to Horizon NJ Health.",
+    horizonQues1: "Have you ever been convicted of, pled guilty to or pled nolo contendere to any felony in the last ten years or been found liable or responsible for or named as a defendant in any civil offense that is reasonably related to your qualifications, competence, functions or duties as a medical professional?",
+    horizonQues2: "Have you ever been convicted of, pled guilty to or pled nolo contendere to any felony in the last ten years or been found liable or responsible for or named as a defendant in any civil offense that is alleged fraud, an act of violence, child abuse or sexual offense or sexual misconduct?",
+    horizonQues3: "Have you ever been indicted in any criminal suit?",
+    horizonQues4: "Have you ever been court martialed for actions related to your duties as a medical professional?",
+    horizonQues5: "Are you currently engaged in the illegal use of drugs? (“Currently” means sufficiently recent to justify a reasonable belief that the use of drugs may have an ongoing impact on one’s ability to practice medicine. It is not limited to the day of, or within a matter of days or weeks before the date of an application, rather that it has occurred recently enough to indicate the individual is actively engaged in such conduct. “Illegal use of drugs” refers to the drugs whose possession or distribution is unlawful under the Controlled Substances Act, 21 U.S.C. § 812.2. It does not include the use of a drug taken under supervision of a licensed health care professional, or other uses authorized by the Controlled Substances Act or other provision of federal law.” The term does include, however, the unlawful use of prescription controlled substances.)",
+    horizonQues6: "Do you use any chemical substances that would in any way impair or limit your ability to perform the functions of your job with reasonable skill and safety?",
+    horizonQues7: "Do you have any reason to believe that you would pose a risk to the safety or well­being of your clients?",
   },
   zh: {
     personalInfo: "个人信息",
@@ -441,6 +515,104 @@ const translations = {
     <p>我确认并理解 E Neighbor Homecare LLC 是一个零毒品的工作场所，并了解公司对在工作场所使用或受毒品或酒精影响的行为实行零容忍政策。</p>
     <p>&nbsp;</p>
   </>),
+  alcTestTitle: "雇员协议与药物及/或酒精检测同意书",
+  alcTestText: (<><p>本人，_______________________________，在 E Neighbor Homecare LLC（以下简称“公司”）的药物/酒精检测政策下提出要求时，同意接受药物或酒精检测，并提供本人尿液、呼气和/或血液样本以供分析。我理解并同意，如果我在任何时候拒绝根据公司政策接受药物或酒精检测，或以任何方式未能配合检测程序，我将面临立即解雇。我进一步授权并完全允许 E Neighbor Homecare LLC 和/或其指定医生将所收集的样本送至实验室进行筛查检测，以检查是否存在政策中禁止的任何物质，并授权实验室或其他检测机构将与该检测有关的任何及全部文件提供给 E Neighbor Homecare LLC 和/或参与与该检测相关的法律程序或调查的任何政府机构。最后，我授权 E Neighbor Homecare LLC 将与该检测相关的任何文件提供给参与与该检测相关的法律程序或调查的任何政府机构。</p> <p>&nbsp;</p> <p>我理解，只有公司正式授权的管理人员、雇员和代理人才能获取与该检测相关的信息。公司将最大程度地维护和保护该信息的机密性，并仅在作出雇佣决定以及回应来自政府机构的询问或通知时共享这些信息。</p> <p>&nbsp;</p> <p>我同意免除并使 E Neighbor Homecare LLC 执行检测的工作人员、公司指定医生及任何检测实验室免于承担任何责任。我不会起诉或追究这些方因检测对我可能造成的任何所谓损害的责任，包括因药物或酒精检测而导致的失业或任何其他形式的不利工作结果，即使 E Neighbor Homecare LLC 或实验室代表在检测的实施、分析或结果报告过程中发生错误。</p> <p>&nbsp;</p> <p>该政策和授权已用我理解的语言向我解释，并且我已被告知，如果我对检测或政策有任何疑问，将会得到解答。</p> <p>&nbsp;</p> <p>我理解，每当我涉及与工作相关的事故/意外、与工作相关的机动车事故或工作中受伤时，公司将根据该政策要求进行药物筛查和/或酒精检测。</p></>),
+  alcTestF1: "我可能正在服用以下药物/草药",
+  alcTestF2: "批号",
+  alcTestF3: "有效期",
+  alcTestF4: "检测结果",
+  alcTestF5: "阴性",
+  alcTestF6: "阳性",
+  alcTestF7: "签名缩写",
+
+  chhaTitle: "认证家庭护理助理——工作概要与确认书",
+  chhaText: (<><p><u>工作概要</u>：认证家庭护理助理（CHHA）的工作旨在支持病人/客户的安全、尊严、健康，以及在家中生活的能力。CHHA 需前往病人/客户的住所，在专业护士的监督下，根据书面护理计划提供直接护理服务，内容包括个人护理、梳洗打理、协助行走、特殊护理程序、家务服务、准备膳食、清洁家务，以及协助完成其他日常生活活动。认证家庭护理助理由注册护士（RN）监督，本岗位不承担监督他人的职责。CHHA 在 HIPAA 限制下可访问部分病人/客户信息，是按小时计薪的临时直接护理人员，每周工作时长无最低保证。</p> <p>&nbsp;</p> <p><u>任职资格</u>：</p> <ol> <li>拥有高中毕业文凭或 GED，或具备能胜任本职位职责和核心工作功能的教育及生活经验的合理组合。</li> <li>持有新泽西州护理委员会颁发的家庭护理助理有效证书。</li> <li>愿意在服务区域内出行，包括能驾车并持有有效驾照及汽车保险，或能独立使用公共交通工具出行。</li> <li>具备良好的沟通能力与成熟的态度。</li> <li>诚实、可靠，并能胜任本职位的体力要求。</li> </ol> <p>&nbsp;</p> <p><u>岗位职责</u>：</p> <ol> <li>前往病人/客户住所，阅读并理解护理计划，按书面护理计划提供直接护理服务。护理内容包括：为病人/客户提供个人护理（如洗澡、口腔护理、修剪指甲、头发及皮肤护理、剃须）、按指示进行锻炼、协助穿衣与如厕（包括便盆使用）、协助行走及转移、使用辅助设备（如机械升降机、助行器、轮椅、便椅、支架和假肢）。执行特别授权程序，包括测量生命体征和体重、喂食、记录摄入与排出量、协助病人/客户自行服药。这些活动涉及多种体力要求，包括但不限于本职位描述中“工作环境”和“核心功能”部分列明的内容，并需按时出勤。</li> <li>按护理计划进行轻家务、备餐及其他支持性服务，包括菜单计划和购物清单、外出办事、准备膳食（包括特殊饮食）、呈上餐食并清洁餐具、电器及工作区域、购物、除尘、洗衣、吸尘、清洁浴室、厨房及居住区等。这些任务包括使用多种家用设备和电器，并涉及与本职位描述中“工作环境”和“核心功能”部分相符的体力要求。</li> <li>在家中观察病人/客户的健康状况、行为、外貌、卫生需求、居住安排和家庭环境，并将变化或问题报告并记录给相关工作人员。</li> <li>撰写探访记录（如《日常活动报告》），准确记录在家中提供的护理，并填写本职位相关的其他表格（包括事件报告、考勤报告等）。确保病人/客户按指示签署《日常活动报告》和工时单，并按时提交这些报告。</li> <li>保持可靠出勤，定期接受任务分配，并按时到达预约探访地点。如迟到需致电办公室报告，并经常致电办公室获取任务安排。</li> <li>每年参加至少 12 小时的在职培训。</li> <li>遵守机构的政策与程序。</li> <li>保持新泽西州护理委员会家庭护理助理证书的有效性。</li> <li>时刻保护并维护病人/客户及机构的机密信息。</li> <li>保持专业形象、良好的仪表及个人卫生。</li> <li>接受分配任务并准时到岗。</li> <li>按指示参加机构会议和培训。</li> <li>完成其他分配的任务。</li> </ol> <p>&nbsp;</p> <p><u>工作环境</u>：</p> <p>工作地点为多种家庭环境。需频繁驾车或乘坐公共交通工具在服务区域内出行。工作中可能接触血液、体液或组织（OSHA I 类）、家庭化学用品、灰尘及消毒剂。本职位常规要求：驾驶、独立乘坐公共交通、搬运、弯腰、伸手、跪下、推拉、伸展、站立、弯腰低头、行走、上下楼梯、视听交流、书写阅读、搬运物品、负重活动，以及使用各种大中小型家用电器。</p> <p>&nbsp;</p> <p><u>工作关系</u>：</p> <p>直接上级：护理主任/护理主管</p> <p>&nbsp;</p> <p><u>风险暴露</u>：</p> <p>高风险：<u>搬运要求</u>：</p> <p>如有需要，须具备以下能力：</p> <ul> <li>能够参与体力活动。</li> <li>能够长时间站立并进行体力劳动。</li> <li>能够搬运重物。</li> <li>能够经常进行大量弯腰、搬运和站立。</li> </ul> <p>本人已阅读并完全理解上述职位描述中的各项条件，如受聘为认证家庭护理助理，将尽本人所知所能履行这些职责。</p></>),
+
+  hhaTitle: "家庭护理助理服务协议",
+  hhaText: (<><p>本协议的双方为 <strong>E Neighbor Home Care</strong> 与下方签名的个人（“家庭护理助理”或“HHHA”），双方在充分考虑、互相给予并收到报酬的前提下，意图受法律约束，达成如下协议：</p> <ol> <li>已向家庭护理助理说明 HHHA 在分配至病人/客户时可执行的居家护理服务范围（见下文第3页工作描述）。HHHA 同意在为 E Neighbor Home Care 病人/客户提供居家护理时，将遵守 E Neighbor Home Care 的所有要求，以及所有联邦和州的规章制度（例如 HIPAA 要求及员工手册中列明的其他要求），包括与办公室的定期沟通及参与培训。</li> <ul style={{marginTop: '14px', marginBottom: '14px'}}> <li>E Neighbor Home Care 分配家庭护理助理提供个人护理、陪护及家务服务。HHHA 对于排班变动必须提前24小时通知，未经公司指示不得擅自离开任务，除非为经批准的约会或差事。未经许可不得带病人离开住所。</li> </ul> <li>HHHA 同意在每次班次开始和结束时，使用病人/客户的家庭电话进行报到，并完成每周的工时表及活动日志，记录总工作时间及所执行的任务。HHHA 需让病人/客户在工时表/活动日志上签名。如排班、病人/客户需求或工作安排有任何变动，应及时向 E Neighbor Home Care 报告。每周任务结束时，应将工时表/活动日志通过电子邮件提交给 E Neighbor Home Care。住家型工作人员同意接受工作地点提供的食宿作为薪酬的一部分。</li> <li>作为获得福利的对价，HHHA 同意解除 E Neighbor Home Care 及其高管、董事、员工、所有病人/客户及任何第三方在本协议相关服务中可能产生或声称产生的所有潜在或实际索赔、责任、损失及/或损害的责任，唯不包括重大过失。</li> <li>HHHA 同意仅通过 E Neighbor Home Care 的推荐和分配与病人/客户工作，并按 E Neighbor Home Care 指示开始或结束服务。如因任何原因停止服务，家庭护理助理同意离开病人/客户的住所，并在三（3）年内不得以任何方式单独为该病人/客户提供服务，除非通过 E Neighbor Home Care。HHHA 理解，将任何个案转给其他机构或试图转移，或接管其所受聘的工作，是违法行为。</li> <li>在 E Neighbor Home Care 的雇佣为临时且随意性雇佣，双方均可随时终止。工作时长、工作类型、条件或雇佣期限不保证。E Neighbor Home Care 可在无需通知的情况下更改政策、薪酬及条件。终止时，家庭护理助理必须归还所有公司财产及保密信息。</li> <li>家庭护理助理还同意： <ol style={{marginTop: '14px', marginBottom: '14px'}}> <li>所有提供给病人的服务应符合护理计划。服务类型、范围或时长不得更改，除非经注册护士书面指示。</li> <li>除非另行说明，住家型家庭护理助理的排班通常为16小时/天，每天有三个小时长的休息时间，详见提供的住家时间及活动表。</li> <li>遵守 E Neighbor Home Care 的欺诈、道德及合规政策，包括零容忍欺诈、尊重病人及其财产、遵守利益冲突/竞业禁止条款。欺诈行为将导致立即解雇及可能的法律行动。</li> <li>未经公司明确批准，不得接受病人或其家属的金钱或其他礼物。</li> <li>值班期间限制使用电子设备（手机、笔记本、平板等）仅用于紧急情况。</li> <li>不得在病人/客户住所内或过近处吸烟。</li> <li>未经病人明确许可，不得处置病人/客户的任何物品或财产。</li> <li>未经病人和公司批准，不得接待访客进入病人住所。</li> <li>负责自行前往及返回工作地点的交通。</li> <li>若出现传染性疾病（流感、感冒、发烧等），须立即通知 E Neighbor Home Care 并准备离开工作任务，直至完全康复并无症状方可返回。（可能需提供医生证明）</li> <li>遵守 E Neighbor Home Care 的职业着装规范（见附件）。</li> </ol> 维护 E Neighbor Home Care 的卓越、诚信及尊重标准，并始终在行为、仪表、态度及礼仪上保持专业形象。</li> <li>我确认已获知新泽西州护理委员会发布的《家庭护理助理消费者指南》，可通过互联网（<a href="http://www.njconsumeraffairs.gov">njconsumeraffairs.gov</a>）阅读或向 E Neighbor Home Care 索取纸质版。</li> <li>双方旨在通过相互自愿的方式解决争议。如争议无法协商解决，将首先提交美国仲裁协会进行非约束性仲裁，然后才考虑约束性仲裁、诉讼或其他争议解决方式。</li> <li>本协议适用并应按新泽西州法律解释及执行。</li> <li>本协议构成双方之间的完整协议，之前任何形式的口头或书面理解均不具约束力，除非已纳入本协议中。</li> <li>对本协议的任何修改必须以书面形式经双方签署或通过电子邮件同意。未遵守本协议、行为不专业或与公司利益冲突（如未经授权的金钱交易、与病人或家属争吵或不尊重、使用病人地址作私人用途、参与病人私人事务等）可能导致纪律处分，包括解雇。E Neighbor Home Care 不容忍此类行为，并可对任何违规行为采取纪律处分，包括解雇。 <ul style={{marginTop: '14px', marginBottom: '14px'}}> <li>对病人/客户、其财产或家庭成员的任何形式的虐待或剥削。此外，家庭护理助理须报告观察到的任何虐待、疏忽或剥削行为。</li> <li>未履行任务要求</li> <li>未向主管报告可报告事件</li> <li>文件造假（个人信息/就业记录等）</li> <li>值班期间使用非法药物或饮酒</li> <li>性骚扰</li> <li>频繁迟到/旷工</li> <li>未遵守 HIPAA 或其他法规保护病人隐私</li> <li>不服从指令</li> </ul> </li> </ol> <p>我已阅读并理解本协议；通过在此签名和打印姓名，我同意受其约束。</p></>),
+
+  empHandbookTitle: "员工手册签名页",
+  empHandbookText: (<><p>员工手册包含有关本机构的重要信息，我理解如手册中有任何未解答的问题，应咨询本机构的首席执行官（CEO）或我的主管。我自愿以随意雇佣（at-will）形式与本机构建立雇佣关系，并理解雇佣期限不固定。因此，本机构或我均可随时以任何理由或无理由终止雇佣关系，且无需提前通知。</p> <p>&nbsp;</p> <p>由于本手册中描述的信息、政策和福利可能随时发生变化，我承认手册可能会进行修订。所有此类更改通常会通过正式通知进行传达，我理解修订后的信息可能取代、修改或取消现有政策。本机构首席执行官（CEO）为唯一有权对本手册中的政策进行修订的人士。</p> <p>&nbsp;</p> <p>此外，我理解本手册既不是雇佣合同，也不是具有法律约束力的雇佣协议。我已获得阅读手册的机会，并理解如对手册有任何疑问，可向我的主管提出。我接受手册中的条款，并理解遵守手册及其任何修订内容为我的责任。</p> <p>&nbsp;</p> <p>我进一步同意，如果在手册修改后仍继续为本机构工作，即表示我接受并同意这些更改。</p> <p>&nbsp;</p> <p>我理解我有义务完整阅读手册，并遵守 E Neighbor Homecare LLC 在手册中规定的政策与程序。</p> <p>&nbsp;</p></>),
+  empHandbookAgree: "我已于下方所列日期收到员工手册的纸质版本。",
+  empHandbookAgree2: "我已于下方所列日期收到员工手册的电子版本。", 
+
+  tbQuesTitle: "年度结核病筛查问卷",
+  tbQuesInfo: "本表格每年填写一次，适用于那些在阳性曼图（Mantoux）筛查后，已提供阴性胸片证明的员工，且其医疗评估和胸片结果显示无需进一步进行曼图筛查。",
+  tbQuesQ1: "持续超过两周的严重咳嗽",
+  tbQuesQ2: "咳痰",
+  tbQuesQ3: "咳血",
+  tbQuesQ4: "食欲减退",
+  tbQuesQ5: "虚弱/疲劳/困倦",
+  tbQuesQ6: "夜间出汗",
+  tbQuesQ7: "不明原因的体重减轻",
+  tbQuesQ8: "发热",
+  tbQuesQ9: "寒战",
+  tbQuesQ10: "胸痛",
+  tbQuesTemp: "您是否有以下症状",
+  tbQuesTemp1: "您最近是否与感染性结核病患者有接触?",
+  tbQuesTemp2: "您还有其他不适或症状吗?",
+  tbQuesTemp3: "据我所知，上述健康声明内容准确。我已接受过有关结核病的体征和症状的培训，并已被告知，如果在任何时候出现相关症状，应及时就医。",
+  
+  hepBTitle: "乙型肝炎疫苗接种同意/拒绝书",
+  hepBChoice: "(仅可选择一项)",
+  hepBConsent1: "我同意接种乙型肝炎（Hepatitis B）疫苗。我已被告知疫苗的接种方法、可能的风险、并发症以及预期的益处。我理解机构对疫苗引起的任何反应不承担责任。",
+  hepBConsent2: "我此时拒绝接种乙型肝炎疫苗。我理解，通过拒绝接种疫苗，我仍然有感染乙型肝炎的风险，这是一种严重的疾病。如果将来我仍然在职业中接触血液或其他潜在传染性物质，我可以申请免费接种疫苗。",
+  hepBInfo: "我已被告知血源性病原体（包括乙型肝炎病毒 HBV）的症状及传播途径。我了解本机构的感染控制计划，并清楚在发生暴露事件时应遵循的程序。我明白，对于工作中可能直接接触血液或其他潜在感染性物质的员工，乙型肝炎疫苗可免费接种。我理解疫苗接种应按照社区标准医疗实践的建议进行。",
+  hepBChoice1: "请仅选择一项",
+  hepBDoc: "乙型肝炎疫苗接种豁免记录",
+  hepBLabel1: "我之前已完成乙型肝炎疫苗三针系列的接种。我没有乙型肝炎免疫证明，并选择不接种疫苗。我免除 E Neighbor Homecare LLC 对因可能接触该疾病而产生的任何风险的所有责任。",
+  hepBLabel2: "我的乙型肝炎抗体检测结果为阳性，显示我对该病毒具有免疫力。",
+  hepBLabel3: "我有接种疫苗的医学禁忌症。",
+  hepBLabel4: "我属于低风险人群，不直接提供病人护理。我免除 E Neighbor Homecare LLC 对因可能接触该疾病而产生的任何风险的所有责任。",
+  
+  oshaIntroTitle: "职业安全与健康管理局（OSHA）简介",
+  oshaIntroText: (<><p>
+  职业安全与健康管理局（OSHA）是美国劳工部下属的联邦机构，由1970年《职业安全与健康法案》设立。该法案的目的是尽可能确保美国工人的安全与健康工作环境。OSHA负责制定标准，帮助雇主提供安全的工作场所。
+</p>
+<p>
+  由于职业暴露于乙型肝炎病毒、艾滋病病毒（AIDS）以及血液携带的其他致病因子，对医护人员构成威胁，OSHA发布了相关规定，帮助医疗机构保护员工，降低职业暴露风险。
+</p>
+<p>该规定要求：</p>
+<ul style={{ paddingLeft: '20px', marginTop: '10px' }}>
+  <li>制定书面的暴露控制计划（Exposure Control Plan）</li>
+  <li>对所有高风险员工进行职业暴露安全与预防培训</li>
+  <li>监控员工对暴露控制计划的遵守情况</li>
+</ul>
+<p>
+  以下信息用于使您了解 E Neighbor Homecare LLC 为满足 OSHA 要求而制定的具体指导方针和操作流程，以及与血源性病原体传播相关的信息。
+</p>
+<p>遵守暴露控制计划的指导方针是强制性的。</p>
+<p>
+  违反 E Neighbor Homecare LLC 暴露控制计划的指导方针和/或操作流程的员工，将按以下二级纪律处分处理：
+</p>
+<ul style={{ paddingLeft: '20px' }}>
+  <li>第一次违规 – 由主管发出书面警告</li>
+  <li>第二次违规 – 纪律观察期</li>
+  <li>第三次违规 – 解雇</li>
+</ul>
+</>),
+  oshaIntroAgree: "我已阅读并理解我有责任遵守 E Neighbor Homecare LLC 的 OSHA 与安全政策及程序，以及所有适用的州/联邦法律法规和所有认证机构的相关要求。",
+
+  oshaInfoTitle: "OSHA 信息",
+  oshaInfoInfo: "以下员工已根据其工作任务接触特定体液的情况进行分类，以符合现行 OSHA 感染控制标准的要求：",
+  oshaInfoCat: "OSHA 类别（只能选择一个类别）",
+  oshaInfoCat1T: "类别 I",
+  oshaInfoCat1: " – 涉及所有或部分员工有合理可能接触血液或其他潜在感染性物质的任务或操作。需使用与工作相关的个人防护装备及其他保护措施。",
+  oshaInfoCat2T: "类别 II",
+  oshaInfoCat2: " – 任务和工作分配通常不涉及接触血液或其他潜在感染性物质，但工作可能需要临时执行类别 I 的任务（例如：紧急情况下接收或运输样本）。应提供适当的个人防护设备，且员工必须熟悉防护措施。",
+  oshaInfoCat3T: "类别 III",
+  oshaInfoCat3: " – 任务和工作分配不涉及接触血液或其他潜在感染性物质。工作不应要求执行类别 I 或类别 II 的任务。",
+  oshaInfoAgree: "我已了解我的 OSHA 类别，并理解我在遵守国家安全操作标准及 E Neighbor Homecare LLC 工作场所安全政策和程序方面的责任。",
+
+  horizonTitle: "Horizon 员工刑事背景调查问题",
+  horizonInfo: "以下问题应询问所有与 MLTSS 成员有直接身体接触的员工/提供者，并每年更新一次。以下问题仅供参考，无需提交给 Horizon NJ Health。",
+  horizonQues1: "您在过去十年内是否曾因重罪被定罪、认罪或提出无争辩答辩，或是否因与您作为医疗专业人员的资质、能力、职能或职责相关的民事案件而被认定负有责任或列为被告？",
+  horizonQues2: "您在过去十年内是否曾因重罪被定罪、认罪或提出无争辩答辩，或是否因涉嫌欺诈、暴力行为、虐待儿童或性犯罪/不当行为的民事案件而被认定负有责任或列为被告？",
+  horizonQues3: "您是否曾因任何刑事案件被起诉？",
+  horizonQues4: "您是否因与医疗专业职责相关的行为而受过军事法庭审判？",
+  horizonQues5: "您目前是否从事非法用药行为？（“目前”指足够近期，可合理认为药物使用可能对行医能力产生持续影响。不限于申请当日或申请前几天或几周，而是近期发生到足以表明个人积极从事此类行为。 “非法用药”指根据《受控物质法》（21 U.S.C. § 812.2）禁止持有或分发的药物。不包括在持牌医疗专业人员监督下使用的药物或《受控物质法》或其他联邦法律授权的使用。该术语包括非法使用处方受控药物。）",
+  horizonQues6: "您是否使用任何化学物质，这可能在任何程度上影响或限制您以合理技能和安全性执行工作职能的能力？",
+  horizonQues7: "您是否有任何理由认为自己可能对客户的安全或福祉构成风险？",
 
   },
 };
@@ -804,7 +976,7 @@ const App = () => {
 
   const validateCurrentPage = () => {
   const requiredFieldsByPage = {
-    3: [
+    /*3: [
       'collegeName', 'collegeAddress', 'collegeFrom', 'collegeTo', 'collegeGraduate', 'collegeDegree',
       'prevEmployer1', 'prevPhone1', 'prevAddress1', 'prevJobTitle1',
       'prevContact1',
@@ -851,7 +1023,7 @@ const App = () => {
       'horizonQ1', 'horizonQ2', 'horizonQ3', 'horizonQ4',
       'horizonQ5', 'horizonQ6', 'horizonQ7',
       'horizonName', 'horizonDate'
-    ],
+    ],*/
   };
 
 
@@ -919,7 +1091,10 @@ const App = () => {
 
 const handleSubmit = async () => {
   const signature = sigRef.current.getCanvas().toDataURL("image/png");
-  const fullData = { ...formData, signature };
+  const fullData = { ...formData,  hepbExclusionPrevSeries: formData.hepbExclusion === 'hepbExclusionPrevSeries',
+    hepbExclusionImmune: formData.hepbExclusion === 'hepbExclusionImmune', 
+    hepbExclusionMedical: formData.hepbExclusion === 'hepbExclusionMedical',
+    hepbExclusionLowRisk: formData.hepbExclusion === 'hepbExclusionLowRisk', signature };
   if(!isSignatureMissing){
     try {
       const response = await fetch("https://application-forms-backend.onrender.com/api/save-form", {
@@ -1694,7 +1869,7 @@ const formContainerStyle = {
 
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentFrom", language)} <span style={{color: '#dc2626'}}>*</span></label>
+              <label style={labelStyle}>{t("employmentFrom", language)}</label>
               <input autoFocus={false} 
                 type="date"
                 name="prevFrom1"
@@ -1705,7 +1880,7 @@ const formContainerStyle = {
               {getErrorMessage('prevFrom1') && <span style={errorStyle}>{getErrorMessage('prevFrom1')}</span>}
             </div>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentTo", language)} <span style={{color: '#dc2626'}}>*</span></label>
+              <label style={labelStyle}>{t("employmentTo", language)}</label>
               <input autoFocus={false} 
                 type="date"
                 name="prevTo1"
@@ -1718,7 +1893,7 @@ const formContainerStyle = {
           </div>
 
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("responsibilities", language)} <span style={{color: '#dc2626'}}>*</span></label>
+            <label style={labelStyle}>{t("responsibilities", language)}</label>
             <textarea
               name="prevResponsibilities1"
               value={formData.prevResponsibilities1}
@@ -1834,7 +2009,7 @@ const formContainerStyle = {
 
           <div style={finalGridStyle}>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentFrom", language)} <span style={{color: '#dc2626'}}>*</span></label>
+              <label style={labelStyle}>{t("employmentFrom", language)}</label>
               <input autoFocus={false} 
                 type="date"
                 name="prevFrom2"
@@ -1845,7 +2020,7 @@ const formContainerStyle = {
               {getErrorMessage('prevFrom2') && <span style={errorStyle}>{getErrorMessage('prevFrom2')}</span>}
             </div>
             <div style={inputGroupStyle}>
-              <label style={labelStyle}>{t("employmentTo", language)} <span style={{color: '#dc2626'}}>*</span></label>
+              <label style={labelStyle}>{t("employmentTo", language)}</label>
               <input autoFocus={false} 
                 type="date"
                 name="prevTo2"
@@ -1858,7 +2033,7 @@ const formContainerStyle = {
           </div>
 
           <div style={inputGroupStyle}>
-            <label style={labelStyle}>{t("responsibilities", language)} <span style={{color: '#dc2626'}}>*</span></label>
+            <label style={labelStyle}>{t("responsibilities", language)}</label>
             <textarea
               name="prevResponsibilities2"
               value={formData.prevResponsibilities2}
@@ -2468,14 +2643,14 @@ case 8:
                 '&.Mui-checked': {
                   color: validationErrors[name] ? '#dc2626' : '#4f46e5',
                 },
-              }}/>} label="Yes" />
+              }}/>} label={t("yes", language)}  />
               <FormControlLabel value="no" control={<Radio        sx={{
                 color: validationErrors[name] ? '#dc2626' : '#d1d5db',
                 '&.Mui-checked': {
                   color: validationErrors[name] ? '#dc2626' : '#4f46e5',
                 },
               }}
-            />} label="No" />
+            />} label={t("no", language)}  />
             </RadioGroup>
 
             <TextField
@@ -2953,7 +3128,7 @@ case 8:
             return (
               <div style={pageStyle}>
                 <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-                  Employee Agreement and Consent to Drug and/or Alcohol Testing
+                {t("alcTestTitle", language)}  
                 </h2>
 
                 <div style={{
@@ -2969,15 +3144,7 @@ case 8:
                   lineHeight: '1.6',
                   whiteSpace: 'pre-wrap',
                 }}>
-                  <p>&nbsp;I, _________________________________, hereby agree, upon a request made under the drug/alcohol testing policy of E Neighbor Homecare LLC to submit to a drug or alcohol test and to furnish a sample of my urine, breath, and/or blood for analysis. I understand and agree that if I at any time refuse to submit to a drug or alcohol test under E Neighbor Homecare LLC policy, or if I otherwise fail to cooperate with the testing procedures, I will be subject to immediate termination. I further authorize and give full permission to have the E Neighbor Homecare LLC and/or its E Neighbor Homecare LLC physician send the specimen or specimens so collected to a laboratory for a screening test. The testing is to check for the presence of any prohibited substances under the policy and for the laboratory or other testing facility to release any and all documentation relating to such test to the E Neighbor Homecare LLC and/or to any governmental entity involved in a legal proceeding or investigation connected with the test. Finally, I authorize the E Neighbor Homecare LLC to disclose any documentation relating to such test to any governmental entity involved in a legal proceeding or investigation connected with the test.</p>
-                  <p>&nbsp;</p>
-                  <p>I understand that only duly authorized E Neighbor Homecare LLC officers, employees, and agents will have access to information furnished or obtained in connection with the test. The information will maintain and protect the confidentiality of such information to the greatest extent possible, and they will share such information only to the extent necessary to make employment decisions and to respond to inquiries or notices from government entities.</p>
-                  <p>&nbsp;</p>
-                  <p>I will hold harmless the E Neighbor Homecare LLC staff that performs the testing, E Neighbor Homecare LLC physician, and any testing laboratory of E Neighbor Homecare LLC.&nbsp;I will not sue or hold responsible such parties for any alleged harm to me that might result from such testing, including loss of employment or any other kind of adverse job action that might arise as a result of the drug or alcohol test, even if an E Neighbor Homecare LLC or laboratory representative makes an error in the administration or analysis of the test or the reporting of the results.</p>
-                  <p>&nbsp;</p>
-                  <p>This policy and authorization have been explained to me in a language I understand, and I have been told that if I have any questions about the test or the policy, they will be answered.</p>
-                  <p>&nbsp;</p>
-                  <p>I understand that E Neighbor Homecare LLC will require a drug screen and/or alcohol test under this policy whenever I am involved in a job-related incident/accident, job-related motor vehicle accident, on the job injury.</p>
+                {t("alcTestText", language)}
                 </div>
 
               {/* Full Name */}
@@ -3045,7 +3212,7 @@ case 8:
 
                 {/* Drug / Herbal Declaration */}
                 <div style={{ marginBottom: '16px' }}>
-                  <label style={{color: 'black'}}>I may be taking the following Drugs/Herbals</label>
+                  <label style={{color: 'black'}}>{t("alcTestF1", language)}</label>
                   <textarea
                     name="drugsHerbals"
                     rows="2"
@@ -3064,15 +3231,15 @@ case 8:
                 {/* Lot Number, Expiration, Results */}
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '16px' }}>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label style={{color: 'black'}}>Lot Number</label>
+                    <label style={{color: 'black'}}>{t("alcTestF2", language)}</label>
                     <input autoFocus={false} type="text" name="lotNumber" style={inputStyle} />
                   </div>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label style={{color: 'black'}}>Expiration Date</label>
+                    <label style={{color: 'black'}}>{t("alcTestF3", language)}</label>
                     <input autoFocus={false} type="date" name="expirationDate" style={inputStyle} />
                   </div>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label style={{color: 'black'}}>Results</label>
+                    <label style={{color: 'black'}}>{t("alcTestF4", language)}</label>
                     <input autoFocus={false} type="text" name="results" style={inputStyle} />
                   </div>
                 </div>
@@ -3080,7 +3247,7 @@ case 8:
                 {/* Negative / Positive / Initials */}
                 <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '16px' }}>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label style={{color: 'black'}}>Negative</label>
+                    <label style={{color: 'black'}}>{t("alcTestF5", language)}</label>
                     <input autoFocus={false} type="checkbox" name="isNegative"   style={{
                       width: '18px',
                       height: '18px',
@@ -3094,7 +3261,7 @@ case 8:
                     }}/>
                   </div>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label style={{color: 'black'}}>Positive</label>
+                    <label style={{color: 'black'}}>{t("alcTestF6", language)}</label>
                     <input autoFocus={false} type="checkbox" name="isPositive"   style={{
                       width: '18px',
                       height: '18px',
@@ -3108,7 +3275,7 @@ case 8:
                     }}/>
                   </div>
                   <div style={{ flex: '1 1 30%' }}>
-                    <label style={{color: 'black'}}>Initials</label>
+                    <label style={{color: 'black'}}>{t("alcTestF7", language)}</label>
                     <input autoFocus={false} type="text" name="initials" style={inputStyle} />
                   </div>
                 </div>
@@ -3119,7 +3286,7 @@ case 8:
         return (
           <div style={pageStyle}>
             <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-              Certified Home Health Aide — Job Summary & Acknowledgment
+            {t("chhaTitle", language)}
             </h2>
 
             <div style={{
@@ -3135,52 +3302,7 @@ case 8:
               whiteSpace: 'pre-wrap',
               marginBottom: '24px',
             }}>
-              <p><u>JOB SUMMARY</u>: A Certified Home Health Aide (CHHA) works in support of the patient&rsquo;s/client&rsquo;s safety, dignity, well-being and ability to remain living at home. The CHHA travels to the patient&rsquo;s/client&rsquo;s home to provide direct care, under professional nursing supervision, in accordance with a written Plan of Care that includes personal care, grooming, ambulation, special procedures, homemaking, meal preparation, housekeeping and assistance with other activities of daily living.&nbsp; The Certified Home Health Aide is supervised by a RN, and there are no supervision responsibilities with this position.&nbsp; The CHHA has HIPAA restricted access to certain patient/client information, and is an hourly, per-diem, non-exempt Direct Care staff member with no guaranteed minimum number of hours per week.</p>
-              <p>&nbsp;</p>
-              <p><u>QUALIFICATIONS</u>:</p>
-              <ol>
-              <li>Have a high school diploma or GED, or a satisfactory combination of education and life experience needed to perform the duties and essential functions of the job.</li>
-              <li>Have a valid New Jersey Board of Nursing, Home Health Aide certification.</li>
-              <li>Have the willingness to travel throughout the service area.&nbsp; This includes being able to drive and have a valid driver&rsquo;s license and auto insurance or have the ability to independently travel on public transportation.</li>
-              <li>Demonstrate good communication skills and mature attitude.</li>
-              <li>Be honest, dependable and be able to perform the physical demands of the position.</li>
-              </ol>
-              <p>&nbsp;</p>
-              <p><u>RESPONSIBILITIES</u>:</p>
-              <ol>
-              <li>Travel to patient&rsquo;s/client&rsquo;s home, read and interpret the patient&rsquo;s/client&rsquo;s care plan and provide direct care as specified by the written plan of care.&nbsp; The care includes personal care to patients/clients such as, bathing, mouth, nail, hair and skin care, shaving, exercises as directed, and activities related to dressing and toileting including bedpan.&nbsp; Assist patient/client with ambulating, transfer activities, and the use of assistive devices like mechanical lifts, walkers, wheelchair, commode chair, braces, and prosthesis.&nbsp; Perform special delegated procedures including taking vital signs and weight, feeding, measuring intake and output, and assisting patient/client with self-administered medications.&nbsp; These activities require a variety of physical demands, including, but not limited to, those outlined in Working Conditions and Essential Functions below, and reliable attendance at scheduled assignment.&nbsp;</li>
-              <li>Perform light housekeeping, meal preparation and other support services as part of the plan of care.&nbsp; This includes duties such as menu planning and shopping lists, running errands, preparing meals including special diets, presenting food, and cleaning dishes, appliances, and work area afterwards, going shopping, dusting, laundry, vacuuming, general cleaning of bathroom, kitchen, and living area when part of the written plan of care.&nbsp; Such activities include using a wide variety of household equipment and home appliances and the physical demands, including but not limited to those as outlined in Working Conditions and Essential Functions of this Job Description.</li>
-              <li>Observe the patient&rsquo;s/client&rsquo;s condition, behavior, appearance, and hygiene needs, living arrangements, and home environment while in the home and report and document changes or problems to the appropriate staff member.&nbsp;</li>
-              <li>Write visit reports (Daily Activity Report, etc.) to accurately record the care provided in the home, and complete other forms to document the work of this position, including incident reports and time and attendance reports.&nbsp; Ensure the patient/client signs the Daily Activity Report and Time Sheets as instructed.&nbsp; Submit these reports on time.&nbsp;</li>
-              <li>Maintain dependable attendance, be regularly available for assignments, and be timely for scheduled visits.&nbsp; Call the office for assignments often or when late for an assignment.</li>
-              <li>Attend at least twelve (12) hours of in-service training annually.</li>
-              <li>Adhere to agency policies and procedures.</li>
-              <li>Maintain a valid NJ Board of Nursing Home Health Aide certification.</li>
-              <li>Always protect and maintain patient/client and agency confidentiality.</li>
-              <li>Maintain a professional image, good appearance, and personal hygiene.</li>
-              <li>Accept assignments and be punctual.</li>
-              <li>Attend agency meetings and training as directed.</li>
-              <li>Perform other duties as assigned.</li>
-              </ol>
-              <p>&nbsp;</p>
-              <p><u>WORKING ENVIRONMENT</u>:</p>
-              <p>Work is in a variety of home environments.&nbsp; Frequent travel by car or public transportation throughout the service area is necessary.&nbsp; Tasks may involve exposure to blood, body fluids, or tissue (OSHA Category I) and household chemicals, dust, and disinfectants.&nbsp; This position routinely requires driving a car or independently using public transportation, lifting, bending, reaching, kneeling, pushing and pulling, stretching, standing, stooping, walking, walking up and down stairs, seeing, hearing, speaking, writing, reading, carrying, weight bearing activities, and the use of a wide assortment of large and small home appliances.</p>
-              <p>&nbsp;</p>
-              <p><u>JOB RELATIONSHIPS</u>:</p>
-              <p>Supervised by: Director of Nursing/ Nursing Supervisor</p>
-              <p>&nbsp;</p>
-              <p><u>RISK EXPOSURE</u>:</p>
-              <p>High risk: <u>LIFTING REQUIREMENTS</u>:</p>
-              <p>Ability to perform the following tasks if necessary:</p>
-              <ul>
-              <li>Ability to participate in physical activity.</li>
-              <li>Ability to work for extended period of time while standing and being involved in physical activity.</li>
-              <li>Heavy lifting.</li>
-              <li>Ability to do extensive bending, lifting and standing on a regular basis.</li>
-              </ul>
-              <p>I have read the above job description and fully understand the conditions set forth therein, and if employed as a Certified Home Health Aide, I will perform these duties to the best of my knowledge and ability.</p>
-              <p>&nbsp;</p>
-              <p>&nbsp;</p>
+            {t("chhaText", language)}
             </div>
 
               {/* Full Name */}
@@ -3252,7 +3374,7 @@ case 8:
         return (
           <div style={pageStyle}>
             <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-              Homemaker Home Health Aide Service Agreement
+            {t("hhaTitle", language)}
             </h2>
 
             <div style={{
@@ -3268,52 +3390,7 @@ case 8:
               whiteSpace: 'pre-wrap',
               marginBottom: '24px',
             }}>
-            <p>Parties to this agreement are E Neighbor Home Care and the individual (&ldquo;Homemaker Home Health Aide&rdquo; or &ldquo;HHHA&rdquo;) whose signatures appear below and who for full consideration, given and received, each intending to be legally bound, agree with one another as follows:</p>
-            <ol>
-            <li>The scope of home care services for E Neighbor Home Care the HHHA may perform when placed with patient/client has been explained to Homemaker Home Health Aide (See Job Description on Page 3 below). HHHA agrees s/he will follow all E Neighbor Home Care requirements, as well as all Federal and State rules and regulations (e.g. HIPPAA requirements and all other requirements noted in the Employee Handbook) in providing home care to E Neighbor Home Care patients/clients, including regular communication with the Office and participating in training exercises.</li>
-            <ul style={{marginTop: '14px', marginBottom: '14px'}}>
-            <li>E Neighbor Home Care assigns Home Health Aides for personal care, companionship, and homemaking services. HHHAs must give 24-hour notice for schedule changes and cannot leave assignments without company instructions, except for approved appointments or errands. They cannot take patients off the premises without permission.</li>
-            </ul>
-            <li>HHHA agrees to call in and out using patient&rsquo;s/client&rsquo;s home phone at start/end of each shift and complete a weekly time sheet and activity log of the total hours worked and duties performed. The HHHA will have the timesheet/ activity log signed by the patient/client. Any changes in scheduling, patient/client needs, or necessary work arrangements should be reported E Neighbor Home Care .The time sheets/activity logs are to be e-mailed to E Neighbor Home Care at the close of each weekly assignment. Live-in workers agree to accept room and board offered at the work site as part of their compensation package.</li>
-            <li>For and in consideration of benefits received, HHHA agrees to release E Neighbor Home Care and their officers, directors, employees, all patients/clients and any third party(s) from any and all potential or actual claims, liability, loss and/or damages incurred or claimed to be associated with this Agreement including all services to patients/clients, excepting gross negligence only.</li>
-
-            <li>HHHA agrees to work with patients/clients only through E Neighbor Home Care with referral and placement, starting and stopping services at the direction of E Neighbor Home Care .If services are stopped for any reason Homemaker home health Aide agrees to leave the patient&rsquo;s/client&rsquo;s care and home and not work with that patient/client in any way other than with E Neighbor Home Care for a period of three (3) years. HHHA understands that it is illegal for me to transfer or attempt to transfer any case to another Agency or take ownership of any job that HHHA is employed in.</li>
-            <li>Employment with E Neighbor Home Care is temporary and at-will, and can be terminated at any time by either party. There is no guarantee of hours, type of work, conditions, or duration of employment. E Neighbor Home Care can change policies, compensation, and conditions without notice. Upon termination, the Home Health Aide must return all company property and confidential information.</li>
-            <li>Homemaker Home Health Aide also agrees (to):
-            <ol style={{marginTop: '14px', marginBottom: '14px'}}>
-            <li>All services provided to patients shall be in accordance the Plan of Care.Further, the services may not be altered in type, scope or duration, except by specific orders (in writing) issued as a result of changes made by the RN.</li>
-            <li>Unless otherwise stated, live in Home Health Aides&rsquo; schedule will generally consist of a 16-hour day with three (3) scheduled hour-long breaks per day as outlined on the live in time and activity sheet provided.</li>
-            <li>Follow E Neighbor Home Care's Fraud, Ethics, and Compliance policies, including zero fraud tolerance, respect for patients and their property, and Non-Conflict of Interest/Non-Compete Clauses. Fraud results in immediate dismissal and possible legal action.</li>
-            <li>Not accept monetary or other gifts from patients or family members without the company&rsquo;s explicit approval.</li>
-            <li>Restrict use of electronic devices (cell phone, laptop, tablets, etc) to emergency needs while on duty</li>
-            <li>Not smoke in or too close to the patient&rsquo;s/client&rsquo;s home</li>
-            <li>Not to dispose of ANY items or property belonging to the patients/clients without getting their explicit permission to do so.</li>
-            <li>Guests and visitors are not permitted in the patient&rsquo;s home without the patient&rsquo;s and company&rsquo;s approval.</li>
-            <li>Be responsible for his/her own transportation to and from assignments.</li>
-            <li>Immediately notify E Neighbor Home Care and be prepared to leave the assignment if s/he is experiencing any contagious condition (flu, cold, fever, etc.) and not return until s/he has fully recovered and is symptom free. (A doctor&rsquo;s note may be required).</li>
-            <li>Adhere to E Neighbor Home Care professional attire code (per attachment provided).</li>
-            </ol>
-            Uphold E Neighbor Home Care&rsquo;s standards of excellence, integrity, and respect, and maintain a professional image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; in behavior, appearance, attitude, and decorum at all times.</li>
-            <li>I acknowledge that I have been informed about the New Jersey <em>Consumer&rsquo;s Guide to Homemaker-Home Health Aides</em> published by the New Jersey Board of Nursing which I can read via the internet (<a href="http://www.njconsumeraffairs.gov">njconsumeraffairs.gov</a>) or request hardcopy from E Neighbor Home Care.</li>
-            <li>The parties aim to resolve disputes through mutual and voluntary settlement. If a dispute arises and cannot be settled through negotiation, it will first be submitted to non-binding arbitration by the American Arbitration Association before considering binding arbitration, litigation, or other dispute resolution methods.</li>
-            <li>It is agreed that this agreement shall be governed by, construed and enforced in accordance with the laws of the state of New Jersey.</li>
-            <li>This agreement shall constitute the entire agreement between the parties and any prior understanding of representation of any kind preceding the date of this agreement shall not be binding upon either party except to the extent incorporated in this agreement.</li>
-
-            <li>Any changes to this agreement must be in writing and signed by both parties or agreed to by email. Failure to follow this agreement, engaging in unprofessional behavior, or actions conflicting with the company's interests (such as unauthorized monetary transactions, arguing with or disrespecting clients or their families, using clients' addresses for personal purposes, or getting involved in clients' personal affairs) can lead to disciplinary actions, including dismissal. E Neighbor Home Care will not tolerate such behavior and may also take disciplinary actions, including dismissal, for any violations</li>
-            <ul style={{marginTop: '14px', marginBottom: '14px'}}>
-            <li>Abuse or exploitation, of any kind, of patient/client, property or family members. Furthermore, Home Health Aides are required to report any observation of abuse, neglect or exploitation of patients/clients.</li>
-            <li>Failure to fulfill requirements of the assignment</li>
-            <li>Failure to advise supervisor of reportable incidents</li>
-            <li>Falsification of Documents (Personal information/Employment record per application or current work)</li>
-            <li>Illegal drug use of any kind and consumption or being under the influence of alcohol while on duty</li>
-            <li>Sexual harassment</li>
-            <li>Excessive tardiness/absenteeism</li>
-            <li>Failure to respect patient&rsquo;s/client&rsquo;s privacy per HIPPAA regulations or to comply with any other regulations</li>
-            <li>Insubordination &nbsp;</li>
-            </ul>
-            </ol>
-
-            <p>I have read and understand this Agreement; by signing and printing my name here I agree to be bound by it.&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            {t("hhaText", language)}
             </div>
 
 
@@ -3383,7 +3460,7 @@ case 8:
           return (
             <div style={pageStyle}>
               <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-                Employee Handbook Signature Page
+              {t("empHandbookTitle", language)}
               </h2>
 
               <div style={{
@@ -3399,16 +3476,7 @@ case 8:
                 whiteSpace: 'pre-wrap',
                 marginBottom: '24px',
               }}>
-                <p>The Employee Handbook contains important information about the Agency, and I understand that I should consult the Agency&rsquo;s CEO or my supervisor, regarding any questions not answered in the handbook. I have entered into my employment relationship with the Agency voluntarily as an at-will employee and understand that there is no specified length of employment. Accordingly, either the Agency or I can terminate the relationship at will, at any time, with or without cause, and with or without advance notice.</p>
-                <p>&nbsp;</p>
-                <p>Since the information, policies, and benefits described herein are subject to change at any time, and I acknowledge that revisions to the handbook may occur. All such changes will generally be communicated through official notices, and I understand that revised information may supersede, modify, or eliminate existing policies. Only the CEO of the Agency has the ability to adopt any revisions to the policies in this handbook.</p>
-                <p>&nbsp;</p>
-                <p>Furthermore, I understand that this handbook is neither a contract of employment nor a legally binding employment agreement. I have had an opportunity to read the handbook, and I understand that I may ask my supervisor any questions I might have concern the handbook. I accept the terms of the handbook. I also understand that it is my responsibility to comply with the policies contained in this handbook and any revisions made to it.</p>
-                <p>&nbsp;</p>
-                <p>I further agree that if I remain with the Agency following any modifications to the handbook, I hereby accept and agree to such changes.</p>
-                <p></p>
-                <p>I understand that I am obligated to read the entire handbook and comply with E Neighbor Homecare LLC. Policies and Procedures as outlined in this handbook.</p>
-                <p>&nbsp;</p>
+              {t("empHandbookText", language)}
               </div>
               
                {/* Acknowledgment Checkbox */}
@@ -3444,7 +3512,7 @@ case 8:
                             color: validationErrors.handbookAgreement1 ? '#dc2626' : '#374151',
                           }}
                         >
-                            I have received a hard copy of the Employee Handbook on the date listed below.                          
+                          {t("empHandbookAgree", language)}                          
                           <span style={{ color: '#dc2626' }}> *</span>
                         </span>
                       }
@@ -3486,7 +3554,7 @@ case 8:
                             color: validationErrors.handbookAgreement2 ? '#dc2626' : '#374151',
                           }}
                         >
-                          I have received an electronic copy of the Employee Handbook on the date listed below.
+                          {t("empHandbookAgree2", language)}     
                           <span style={{ color: '#dc2626' }}> *</span>
                         </span>
                       }
@@ -3594,28 +3662,26 @@ case 8:
   return (
     <div style={pageStyle}>
       <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '15px' }}>
-        Annual TB Screening Questionnaire
+      {t("tbQuesTitle", language)}     
       </h2>
 
       <p style={{ marginBottom: '35px', color: '#374151', fontSize: '16px' }}>
-        This form is completed annually for those employees who have documentation of a negative chest x-ray following a
-positive Mantoux screening test, and whose medical evaluation and chest x-ray indicate that no further Mantoux
-screening is required.
+      {t("tbQuesInfo", language)}     
       </p>
 
       {[...Array(10)].map((_, i) => {
         const num = i + 1;
         const questions = {
-          1: 'bad cough that lasts longer than 2 weeks',
-          2: 'coughing up sputum (phlegm)',
-          3: 'coughing up blood',
-          4: 'loss of appetite',
-          5: 'weakness/fatigue/tiredness',
-          6: 'night sweats',
-          7: 'unexplained weight loss',
-          8: 'fever',
-          9: 'chills',
-          10: 'chest pain',
+          1: t("tbQuesQ1", language),
+          2: t("tbQuesQ2", language),
+          3: t("tbQuesQ3", language),
+          4: t("tbQuesQ4", language),
+          5: t("tbQuesQ5", language),
+          6: t("tbQuesQ6", language),
+          7: t("tbQuesQ7", language),
+          8: t("tbQuesQ8", language),
+          9: t("tbQuesQ9", language),
+          10: t("tbQuesQ10", language),
         };
 
         const name = `tbQ${num}`;
@@ -3629,7 +3695,7 @@ screening is required.
             sx={{ mb: 3, width: '100%' }}
           >
             <Typography sx={{ color: 'black', fontSize: 15, fontWeight: 500, mb: 1 }}>
-              {num}. Do you experience {questions[num]}? <span style={{ color: 'red' }}>*</span>
+              {num}. {t("tbQuesTemp", language)}, {questions[num]}? <span style={{ color: 'red' }}>*</span>
             </Typography>
 
             {validationErrors[name] && (
@@ -3637,8 +3703,8 @@ screening is required.
             )}
 
             <RadioGroup row name={name} value={formData[name] || ''} onChange={handleChange}>
-              <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
-              <FormControlLabel value="no" control={<Radio />} label="No" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+              <FormControlLabel value="yes" control={<Radio />} label={t("yes", language)}  sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+              <FormControlLabel value="no" control={<Radio />} label={t("no", language)}  sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
             </RadioGroup>
           </FormControl>
         );
@@ -3652,12 +3718,12 @@ screening is required.
         sx={{ mb: 3 }}
       >
         <Typography sx={{ color: 'black',  fontWeight: 500, mb: 1 }}>
-          Have you recently spent time with someone who has infectious tuberculosis?
+          {t("tbQuesTemp1", language)}
           <span style={{ color: 'red' }}> *</span>
         </Typography>
         <RadioGroup row name="tbContact" value={formData.tbContact || ''} onChange={handleChange}>
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
-          <FormControlLabel value="no" control={<Radio />} label="No" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+          <FormControlLabel value="yes" control={<Radio />} label={t("yes", language)}  sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+          <FormControlLabel value="no" control={<Radio />} label={t("no", language)}  sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
         </RadioGroup>
         {validationErrors.tbContact && (
           <FormHelperText>This field is required.</FormHelperText>
@@ -3672,11 +3738,11 @@ screening is required.
         sx={{ mb: 3 }}
       >
         <Typography sx={{ color: 'black',  fontWeight: 500, mb: 1 }}>
-          Do you have any other complaints? <span style={{ color: 'red' }}>*</span>
+        {t("tbQuesTemp2", language)} <span style={{ color: 'red' }}>*</span>
         </Typography>
         <RadioGroup row name="tbOtherComplaints" value={formData.tbOtherComplaints || ''} onChange={handleChange}>
-          <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
-          <FormControlLabel value="no" control={<Radio />} label="No" sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+          <FormControlLabel value="yes" control={<Radio />} label={t("yes", language)}  sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
+          <FormControlLabel value="no" control={<Radio />} label={t("no", language)}  sx={{ color: 'black',  fontWeight: 500, mb: 1 }}/>
         </RadioGroup>
         {validationErrors.tbOtherComplaints && (
           <FormHelperText>This field is required.</FormHelperText>
@@ -3697,8 +3763,7 @@ screening is required.
 
       <div style={{ marginBottom: '20px'}}>
         <label style={{ color: 'black', fontStyle:"italic", marginBottom: '20px'}}>
-          The above health statements are accurate to the best of my knowledge. I have been in-serviced on the signs and
-        symptoms of tuberculosis and been advised to seek medical care if any of the symptoms develop at any time. 
+        {t("tbQuesTemp3", language)}
         </label>
       </div>
 
@@ -3762,15 +3827,15 @@ screening is required.
   return (
     <div style={pageStyle}>
       <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-        Hepatitis B Virus Vaccine Consent/Declination
+        {t("hepBTitle", language)}
       </h2>
 
       <p style={{ fontSize: '14px', marginBottom: '16px', color: '#374151' }}>
-        (Make only one choice)<br />
+        {t("hepBChoice", language)}<br />
       </p>
 
-      <p style={{ fontSize: '14px', marginBottom: '24px', color: '#374151' }}>
-        I have been informed of the symptoms and modes of transmission of bloodborne pathogens, including Hepatitis B virus (HBV). I know about the facility's infection control program and understand the procedure to follow if an exposure incident occurs. I understand that the Hepatitis B vaccine is available, at no cost, to employees whose job involves the risk of directly contacting blood or other potentially infectious material. I understand that vaccinations shall be given according to recommendations for standard medical practice in the community.
+      <p style={{ fontSize: '14px', marginBottom: '48px', color: '#374151' }}>
+      {t("hepBInfo", language)}      
       </p>
 
       {/* Consent or Declination */}
@@ -3778,10 +3843,10 @@ screening is required.
         required
         error={!!validationErrors.hepbConsentChoice}
         component="fieldset"
-        sx={{ mb: 3 }}
+        sx={{ mb: 4 }}
       >
-        <FormLabel component="legend" sx={{ fontWeight: 500 }}>
-          Please make one selection <span style={{ color: 'red' }}>*</span>
+        <FormLabel component="legend" sx={{ fontWeight: 900 }}>
+          {t("hepBChoice1", language)} <span style={{ color: 'red' }}>*</span>
         </FormLabel>
         <RadioGroup
           name="hepbConsentChoice"
@@ -3792,13 +3857,13 @@ screening is required.
             value="consent"
             control={<Radio />}
             sx={{color: 'black', mt: 2, mb: 4}}
-            label="I consent to the administration of the Hepatitis B vaccine. I have been informed of the method of administration, the risks, complications, and expected benefits of the vaccine. I understand that the facility is not responsible for any reactions caused by the vaccine."
+            label={t("hepBConsent1", language)}
           />
           <FormControlLabel
             value="decline"
             control={<Radio />}
-            sx={{color: 'black'}}
-            label="I decline the Hepatitis B vaccination at this time. I understand that, by declining this vaccine, I continue to be at risk of acquiring Hepatitis B, a serious disease. If in the future I continue to have occupational exposure to blood or other potentially infectious materials, I can request to be vaccinated at no charge."
+            sx={{color: 'black', mb: 4}}
+            label={t("hepBConsent2", language)}
           />
         </RadioGroup>
         {validationErrors.hepbConsentChoice && (
@@ -3813,57 +3878,43 @@ screening is required.
         component="fieldset"
         sx={{ mb: 3 }}
       >
-        <FormLabel component="legend" sx={{ fontWeight: 500 }}>
-          Documentation of Exclusion from Hepatitis B Vaccine
+        <FormLabel component="legend" sx={{ fontWeight: 900 }}>
+          {t("hepBDoc", language)}
         </FormLabel>
-        <FormGroup>
+        <RadioGroup
+          name="hepbExclusion"
+          value={formData.hepbExclusion || ''}
+          onChange={handleChange}
+        >
           <FormControlLabel
-            control={
-              <Checkbox
-                name="hepbExclusionPrevSeries"
-                checked={!!formData.hepbExclusionPrevSeries}
-                onChange={handleChange}
-              />
-            }
+            value="hepbExclusionPrevSeries"
+            control={<Radio />}
             sx={{color: 'black', mt: 2, mb: 4}}
-            label="I have previously received the complete series of the three injections of the Hepatitis B Vaccine. I do not have documentation of Hepatitis-B immunity and choose not to receive the vaccine. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease."
+            label={t("hepBLabel1", language)}
           />
           <FormControlLabel
-            control={
-              <Checkbox
-                name="hepbExclusionImmune"
-                checked={!!formData.hepbExclusionImmune}
-                onChange={handleChange}
-              />
-            }
+            value="hepbExclusionImmune"
+            control={<Radio />}
             sx={{color: 'black', mb: 4}}
-            label="I have had a positive result in Hepatitis B antibody testing, which shows immunity to the virus."
+            label={t("hepBLabel2", language)}
           />
           <FormControlLabel
-            control={
-              <Checkbox
-                name="hepbExclusionMedical"
-                checked={!!formData.hepbExclusionMedical}
-                onChange={handleChange}
-              />
-            }
+            value="hepbExclusionMedical"
+            control={<Radio />}
             sx={{color: 'black', mb: 4}}
-            label="I have medical contraindications to the vaccine."
+            label={t("hepBLabel3", language)}
           />
           <FormControlLabel
-            control={
-              <Checkbox
-                name="hepbExclusionLowRisk"
-                checked={!!formData.hepbExclusionLowRisk}
-                onChange={handleChange}
-              />
-            }
-            sx={{color: 'black'}}
-            label="I am at low risk and provide no direct patient care. I release E Neighbor Homecare LLC from all liability for any hazards that may result from possible exposure to this disease."
+            value="hepbExclusionLowRisk"
+            control={<Radio />}
+            sx={{color: 'black', mb: 4}}
+            label={t("hepBLabel4", language)}
           />
-        </FormGroup>
+        </RadioGroup>
+        {validationErrors.hepbExclusion && (
+          <FormHelperText>This field is required.</FormHelperText>
+        )}
       </FormControl>
-
       {/* Signature and Info */}
 
       <div style={{ marginBottom: '24px' }}>
@@ -3925,7 +3976,7 @@ screening is required.
   return (
     <div style={pageStyle}>
       <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '24px' }}>
-        OSHA Introduction
+        {t("oshaIntroTitle", language)}
       </h2>
 
       <div
@@ -3940,43 +3991,11 @@ screening is required.
           lineHeight: '1.6'
         }}
       >
-        <p>
-          The Occupational Safety and Health Administration (OSHA) is a federal organization within the Department of
-          Labor created by the Occupational Safety and Health Act of 1970. The purpose of the Act is to assure, as far as
-          possible, safe and healthy working conditions for American workers. OSHA is responsible for developing standards
-          to help employers provide a safe workplace.
-        </p>
-        <p>
-          Because occupational exposure to the Hepatitis B and AIDS viruses and other disease-causing agents carried by the
-          blood is a threat to healthcare workers, OSHA has issued a regulation to help healthcare employers protect workers
-          against the increased risk of occupational exposure.
-        </p>
-        <p>The regulation requires that:</p>
-        <ul style={{ paddingLeft: '20px', marginTop: '10px' }}>
-          <li>A written Exposure Control Plan be developed</li>
-          <li>All at-risk employees are trained in the safety and prevention of occupational exposure</li>
-          <li>Monitoring of employee compliance with Exposure Control Plan</li>
-        </ul>
-        <p>
-          The following information is presented to acquaint you with specific guidelines and protocols required by E
-          Neighbor Homecare LLC to meet the OSHA mandate and information related to the transmission of bloodborne
-          pathogens.
-        </p>
-        <p>Compliance with the Exposure Control Plan guidelines is mandatory.</p>
-        <p>
-          Employees violating the guidelines and/or protocols of E Neighbor Homecare LLC Exposure Control Plan will be
-          cited for the following second level disciplinary actions:
-        </p>
-        <ul style={{ paddingLeft: '20px' }}>
-          <li>First Violation - Written warning by supervisor</li>
-          <li>Second Violation - Disciplinary probation</li>
-          <li>Third Violation - Termination</li>
-        </ul>
+      {t("oshaIntroText", language)}
       </div>
 
       <p style={{ fontStyle: 'italic', color: '#374151', fontSize: '15px', marginBottom: '28px' }}>
-        I have read and understand my responsibility to be compliant with E Neighbor Homecare LLC OSHA and Safety policies
-        and procedures and all applicable state/federal laws or regulations and also all Accrediting agencies.
+      {t("oshaIntroAgree", language)}
       </p>
 
       {/* Signature */}
@@ -4041,12 +4060,11 @@ screening is required.
     <div style={pageStyle}>
 
       <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '5px' }}>
-        OSHA Information
+      {t("oshaInfoTitle", language)}
       </h2>
 
       <p style={{ fontSize: '14px', color: '#374151', marginBottom: '30px' }}>
-        The following employee was classified according to work task exposure to certain body fluids as required by the
-        current OSHA infection control standard:
+      {t("oshaInfoInfo", language)}
       </p>
 
       {/* OSHA CATEGORY */}
@@ -4058,7 +4076,7 @@ screening is required.
         sx={{ mb: 3 }}
       >
         <FormLabel component="legend" sx={{ fontWeight: 500, mb: 2 }}>
-          OSHA CATEGORY (MUST ONLY SELECT CATEGORY) <span style={{ color: 'red' }}>*</span>
+        {t("oshaInfoCat", language)} <span style={{ color: 'red' }}>*</span>
         </FormLabel>
 
         <RadioGroup
@@ -4073,9 +4091,9 @@ screening is required.
             label={
               <span>
                 <span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
-                  Category I
+                  {t("oshaInfoCat1T", language)}
                 </span>
-                {" – Involves tasks or procedures in which all or some staff have a reasonable likelihood of contact with blood or other potentially infectious materials. The use of job-appropriate personal protective equipment and other protective measures is required."}
+                {t("oshaInfoCat1", language)}
               </span>
             }
           />
@@ -4087,9 +4105,9 @@ screening is required.
             label={
               <span>
                 <span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
-                  Category II
+                  {t("oshaInfoCat2T", language)}
                 </span>
-                {" – Tasks and work assignments involve no routine exposure to blood or other potentially infectious material, but employment may require unplanned Category I tasks. (Example: In an emergency, receiving-transporting specimens) appropriate personal protective device must be available, and these staff must be familiar with protective measures."}
+                {t("oshaInfoCat2", language)}  
               </span>
             }
           />
@@ -4101,9 +4119,9 @@ screening is required.
             label={
               <span>
                 <span style={{ fontWeight: 'bold', textDecoration: 'underline' }}>
-                  Category III
+                {t("oshaInfoCat3T", language)}
                 </span>
-                {" – Tasks and work assignments involve no exposure to blood or other potentially infectious materials. Employment should NEVER require Category I or Category II tasks or duties."}
+                {t("oshaInfoCat3", language)}
               </span>
             }
           />
@@ -4117,8 +4135,7 @@ screening is required.
 
       {/* Acknowledgment Text */}
       <p style={{ fontStyle: 'italic', color: '#374151', fontSize: '15px', marginTop: '10px', marginBottom: '24px' }}>
-        I understand my OSHA category and understand my responsibilities in abiding by the national standard of safety
-        practices and E Neighbor Homecare LLC policies and procedures regarding safety in the workplace.
+        {t("oshaInfoAgree", language)}
       </p>
 
       {/* Signature */}
@@ -4181,44 +4198,44 @@ screening is required.
   return (
     <div style={pageStyle}>
       <h2 style={{ color: 'black', fontSize: '22px', fontWeight: '700', marginBottom: '10px' }}>
-        Horizon Criminal History Background Check Questions for Employees
+      {t("horizonTitle", language)}
       </h2>
 
       <p style={{ fontSize: '14px', color: '#374151', marginBottom: '28px', fontStyle: 'oblique'}}>
-        The questions below should be asked of all employees/providers with direct physical access to MLTSS members and updated on an annual basis. The questions below are for illustrative purposes only and need not be submitted to Horizon NJ Health.
+      {t("horizonInfo", language)}
       </p>
 
       {[
         {
           name: 'horizonQ1',
           label:
-            'Have you ever been convicted of, pled guilty to or pled nolo contendere to any felony in the last ten years or been found liable or responsible for or named as a defendant in any civil offense that is reasonably related to your qualifications, competence, functions or duties as a medical professional?',
+            t("horizonQues1", language),
         },
         {
           name: 'horizonQ2',
-          label:
-            'Have you ever been convicted of, pled guilty to or pled nolo contendere to any felony in the last ten years or been found liable or responsible for or named as a defendant in any civil offense that is alleged fraud, an act of violence, child abuse or sexual offense or sexual misconduct?',
+          label: 
+            t("horizonQues2", language),
         },
         {
           name: 'horizonQ3',
-          label: 'Have you ever been indicted in any criminal suit?',
+          label: t("horizonQues3", language),
         },
         {
           name: 'horizonQ4',
-          label: 'Have you ever been court martialed for actions related to your duties as a medical professional?',
+          label: t("horizonQues4", language),
         },
         {
           name: 'horizonQ5',
           label:
-            'Are you currently engaged in the illegal use of drugs? (“Currently” means sufficiently recent to justify a reasonable belief that the use of drugs may have an ongoing impact on one’s ability to practice medicine. It is not limited to the day of, or within a matter of days or weeks before the date of an application, rather that it has occurred recently enough to indicate the individual is actively engaged in such conduct. “Illegal use of drugs” refers to the drugs whose possession or distribution is unlawful under the Controlled Substances Act, 21 U.S.C. § 812.2. It does not include the use of a drug taken under supervision of a licensed health care professional, or other uses authorized by the Controlled Substances Act or other provision of federal law.” The term does include, however, the unlawful use of prescription controlled substances.)',
+            t("horizonQues5", language),
         },
         {
           name: 'horizonQ6',
-          label: 'Do you use any chemical substances that would in any way impair or limit your ability to perform the functions of your job with reasonable skill and safety?',
+          label: t("horizonQues6", language),
         },
         {
           name: 'horizonQ7',
-          label: 'Do you have any reason to believe that you would pose a risk to the safety or well­being of your clients?',
+          label: t("horizonQues7", language),
         },
       ].map((q, index) => (
         <FormControl
@@ -4237,8 +4254,8 @@ screening is required.
             value={formData[q.name] || ''}
             onChange={handleChange}
           >
-            <FormControlLabel value="yes" control={<Radio />} label="Yes" sx={{color: 'black'}}/>
-            <FormControlLabel value="no" control={<Radio />} label="No" sx={{color: 'black'}}/>
+            <FormControlLabel value="yes" control={<Radio />} label={t("yes", language)}  sx={{color: 'black'}}/>
+            <FormControlLabel value="no" control={<Radio />} label={t("no", language)}  sx={{color: 'black'}}/>
           </RadioGroup>
           {validationErrors[q.name] && (
             <FormHelperText sx={{ margin: 0 }}>This field is required.</FormHelperText>

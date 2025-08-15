@@ -1294,7 +1294,7 @@ app.post('/api/save-form', async (req, res) => {
       .fontSize(8)
       .font('Helvetica-Bold')
       .fontSize(10)
-      .text(data.handbookDate || 'N/A', doc.page.width - 314, sigY1 + 26); // overlay the date on the line
+      .text(data.tbDate || 'N/A', doc.page.width - 314, sigY1 + 26); // overlay the date on the line
 
     // Insert ignature image if available
     if (data.signature?.startsWith('data:image')) {
@@ -1321,7 +1321,7 @@ app.post('/api/save-form', async (req, res) => {
 
   // Subheaders
   doc
-    .fontSize(12)
+    .fontSize(11)
     .font('Helvetica')
     .text('(Make only one choice)', { align: 'left' })
     .text('(To be maintained in the Employee\'s Health File)')
@@ -1338,22 +1338,42 @@ app.post('/api/save-form', async (req, res) => {
 
   // Consent or Declination
   doc.font('Helvetica-Bold').text('HEPATITIS B VACCINE CHOICE').moveDown(0.5);
-
-  if (data.hepbConsentChoice === 'consent') {
-    doc
-      .font('Helvetica')
-      .text('✓ I consent to the administration of the Hepatitis B vaccine. I have been informed of the method of administration, the risks, complications, and expected benefits of the vaccine. I understand that the facility is not responsible for any reactions caused by the vaccine.');
-  } else if (data.hepbConsentChoice === 'decline') {
-    doc
-      .font('Helvetica')
-      .text('✓ I decline the Hepatitis B vaccination at this time. I understand that, by declining this vaccine, I continue to be at risk of acquiring Hepatitis B, a serious disease. If in the future I continue to have occupational exposure to blood or other potentially infectious materials, I can request to be vaccinated at no charge.');
-  } else {
-    doc.font('Helvetica').text('No selection made.');
-  }
+  doc
+      .font('Helvetica-Bold')
+      if (data.hepbConsentChoice === 'decline') {
+      doc.fillColor('#FFFFFF')
+      }else{
+        doc.fillColor('#000000')
+      }
+      doc.text('SELECTED: ', {continued: true, underline: true})
+      if (data.hepbConsentChoice === 'decline') {
+      doc.fillColor('#999999')
+      }else{
+        doc.fillColor('#000000')
+      }
+      doc.font('Helvetica')
+      .text('I consent to the administration of the Hepatitis B vaccine. I have been informed of the method of administration, the risks, complications, and expected benefits of the vaccine. I understand that the facility is not responsible for any reactions caused by the vaccine.', {underline: false});
+  doc.moveDown(0.7);
+  doc
+      .font('Helvetica-Bold')
+      if (data.hepbConsentChoice === 'consent') {
+      doc.fillColor('#FFFFFF')
+      }else{
+        doc.fillColor('#000000')
+      }
+      doc.text('SELECTED: ', {continued: true, underline: true})
+      if (data.hepbConsentChoice === 'consent') {
+      doc.fillColor('#999999')
+      }else{
+      doc.fillColor('#000000')
+      }
+      doc.font('Helvetica')
+      .text('I decline the Hepatitis B vaccination at this time. I understand that, by declining this vaccine, I continue to be at risk of acquiring Hepatitis B, a serious disease. If in the future I continue to have occupational exposure to blood or other potentially infectious materials, I can request to be vaccinated at no charge.', {underline: false});
 
   doc.moveDown(1.5);
 
   // Exclusion Section
+  doc.fillColor('#000000')
   doc.font('Helvetica-Bold').text('DOCUMENTATION OF EXCLUSION FROM HEPATITIS B VACCINE').moveDown(0.5);
 
   const exclusions = [
@@ -1378,8 +1398,14 @@ app.post('/api/save-form', async (req, res) => {
   ];
 
   exclusions.forEach((item) => {
-    const checked = data[item.key] ? '✓' : ' ';
-    doc.text(`${checked} ${item.label}`).moveDown(0.5);
+    const checked = data[item.key] ? '#000000' : '#FFFFFF';
+    const checked2 = data[item.key] ? '#000000' : '#999999';
+    doc.font('Helvetica-Bold')
+    .fillColor(checked)
+    .text(`SELECTED: `, {continued: true, underline: true})
+    .fillColor(checked2)
+    .font('Helvetica')
+    .text(`${item.label}`, {underline: false}).moveDown(0.5);
   });
 
   doc.moveDown(2);
@@ -1387,6 +1413,7 @@ app.post('/api/save-form', async (req, res) => {
       // Signature
     doc
       .fontSize(10)
+      .fillColor("#000000")
       .moveDown(4)
       .text('_______________________________                  ______________', { continued: false })
       .font('Helvetica-Oblique')
@@ -1397,7 +1424,7 @@ app.post('/api/save-form', async (req, res) => {
       .fontSize(8)
       .font('Helvetica-Bold')
       .fontSize(10)
-      .text(data.handbookDate || 'N/A', doc.page.width - 314, sigY1 + 134); // overlay the date on the line
+      .text(data.hepbConsentDate || 'N/A', doc.page.width - 314, sigY1 + 164); // overlay the date on the line
 
     // Insert ignature image if available
     if (data.signature?.startsWith('data:image')) {
@@ -1482,7 +1509,7 @@ app.post('/api/save-form', async (req, res) => {
       .fontSize(8)
       .font('Helvetica-Bold')
       .fontSize(10)
-      .text(data.handbookDate || 'N/A', doc.page.width - 314, sigY1 + 160 ); // overlay the date on the line
+      .text(data.oshaDate  || 'N/A', doc.page.width - 314, sigY1 + 160 ); // overlay the date on the line
 
     // Insert ignature image if available
     if (data.signature?.startsWith('data:image')) {
@@ -1520,25 +1547,45 @@ app.post('/api/save-form', async (req, res) => {
   // Category
   const categories = {
     CategoryI:
-      'Category I - Involves tasks or procedures in which all or some staff have a reasonable likelihood of contact with blood or other potentially infectious materials. The use of job-appropriate personal protective equipment and other protective measures is required.',
+    ["Category I", 'Involves tasks or procedures in which all or some staff have a reasonable likelihood of contact with blood or other potentially infectious materials. The use of job-appropriate personal protective equipment and other protective measures is required.'],
     CategoryII:
-      'Category II - Tasks and work assignments involve no routine exposure to blood or other potentially infectious material, but employment may require unplanned Category I tasks. (Example: In an emergency, receiving-transporting specimens) Appropriate personal protective device must be available, and these staff must be familiar with protective measures.',
+    ['Category II', 'Tasks and work assignments involve no routine exposure to blood or other potentially infectious material, but employment may require unplanned Category I tasks. (Example: In an emergency, receiving-transporting specimens) Appropriate personal protective device must be available, and these staff must be familiar with protective measures.'],
     CategoryIII:
-      'Category III - Tasks and work assignments involve no exposure to blood or other potentially infectious materials. Employment should NEVER require Category I or Category II tasks or duties.',
+    ['Category III', 'Tasks and work assignments involve no exposure to blood or other potentially infectious materials. Employment should NEVER require Category I or Category II tasks or duties.']
   };
 
-  const selected = categories[data.exposureCategory] || 'Not selected';
   doc
     .font('Helvetica-Bold')
-    .text('Selected OSHA Category:', { underline: true })
-    .moveDown(0.5)
-    .font('Helvetica')
-    .text(selected)
-    .moveDown(2);
+    .fillColor("#000000")
+    .text('OSHA Category', {underline: true})
+    .moveDown(1)
+
+  for (const cat in categories) {
+    const catText = categories[cat]; // e.g., description text
+    if(catText[0] === categories[data.exposureCategory][0]){
+      doc.fillColor("#000000")
+      .font('Helvetica-Bold')
+      .text("SELECTED: ", { underline: true })
+    }else{
+      doc.fillColor("#FFFFFF")
+      .font('Helvetica-Bold')
+      .text("SELECTED: ")
+      doc.fillColor("#999999")
+    }
+    doc
+      .font('Helvetica-Bold')
+
+      .text(catText[0] + ": ", { continued: true, underline: false })
+      .font('Helvetica')
+      .text(catText[1], { underline: false })
+      .moveDown(1);
+  }
 
   // Acknowledgment statement
   doc
     .font('Helvetica-Oblique')
+    .fontSize(11)
+    .fillColor("#000000")
     .text(
       'I understand my OSHA category and understand my responsibilities in abiding by the national standard of safety practices and E Neighbor Homecare LLC policies and procedures regarding safety in the workplace.',
       { align: 'left' }
@@ -1549,6 +1596,7 @@ app.post('/api/save-form', async (req, res) => {
     doc
       .fontSize(10)
       .moveDown(4)
+      .fillColor("#000000")
       .text('_______________________________                  ______________', { continued: false })
       .font('Helvetica-Oblique')
       .text(`Signature of Applicant                                              Date`)
@@ -1558,7 +1606,7 @@ app.post('/api/save-form', async (req, res) => {
       .fontSize(8)
       .font('Helvetica-Bold')
       .fontSize(10)
-      .text(data.handbookDate || 'N/A', doc.page.width - 314, sigY1 - 158); // overlay the date on the line
+      .text(data.exposureDate || 'N/A', doc.page.width - 314, sigY1 + 40); // overlay the date on the line
 
     // Insert ignature image if available
     if (data.signature?.startsWith('data:image')) {
@@ -1658,7 +1706,7 @@ app.post('/api/save-form', async (req, res) => {
       .fontSize(8)
       .font('Helvetica-Bold')
       .fontSize(10)
-      .text(data.handbookDate || 'N/A', doc.page.width - 314, sigY1 + 126); // overlay the date on the line
+      .text(data.horizonDate || 'N/A', doc.page.width - 314, sigY1 + 126); // overlay the date on the line
 
     // Insert ignature image if available
     if (data.signature?.startsWith('data:image')) {
