@@ -976,7 +976,7 @@ const App = () => {
 
   const validateCurrentPage = () => {
   const requiredFieldsByPage = {
-    /*3: [
+    3: [
       'collegeName', 'collegeAddress', 'collegeFrom', 'collegeTo', 'collegeGraduate', 'collegeDegree',
       'prevEmployer1', 'prevPhone1', 'prevAddress1', 'prevJobTitle1',
       'prevContact1',
@@ -1023,7 +1023,7 @@ const App = () => {
       'horizonQ1', 'horizonQ2', 'horizonQ3', 'horizonQ4',
       'horizonQ5', 'horizonQ6', 'horizonQ7',
       'horizonName', 'horizonDate'
-    ],*/
+    ],
   };
 
 
