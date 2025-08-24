@@ -1740,7 +1740,7 @@ app.post('/api/save-form', async (req, res) => {
     try {
         await transporter.sendMail({
         from: '"E Neighbor Homecare" <eneighbormailing@gmail.com>',
-        to: ['annasun955@gmail.com', 'zhaoa889@gmail.com'],
+        to: ['annasun955@gmail.com'/*, 'zhaoa889@gmail.com'*/],
         subject: 'New Employee Application Submitted',
         text: `A new application has been submitted by ${data.firstName} ${data.lastName}. PDF is attached.`,
         attachments: [
